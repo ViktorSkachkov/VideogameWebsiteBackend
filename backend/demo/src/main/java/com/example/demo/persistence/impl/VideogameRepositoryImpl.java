@@ -9,11 +9,6 @@ import java.util.List;
 
 @Repository
 public class VideogameRepositoryImpl implements VideogameRepository {
-    /*    private int id;
-    private String name;
-    private double price;
-    private String description;
-    private String image;*/
     List<Videogame> videogames = new ArrayList<>();
     public VideogameRepositoryImpl() {
         videogames.add(Videogame.builder()
