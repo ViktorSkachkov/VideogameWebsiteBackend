@@ -23,7 +23,7 @@ class GetUsersUseCaseImplTest {
     private GetUsersUseCaseImpl getUsersUseCase;
 
     @Test
-    void GetUsers() {
+    void GetUsers() throws Exception  {
         User user1 = User.builder()
                 .id(1)
                 .username("username1")

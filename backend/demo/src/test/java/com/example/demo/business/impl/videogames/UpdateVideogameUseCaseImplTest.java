@@ -19,7 +19,7 @@ class UpdateVideogameUseCaseImplTest {
     private UpdateVideogameUseCaseImpl updateVideogameUseCase;
 
     @Test
-    void UpdateVideogame() {
+    void UpdateVideogame() throws Exception  {
         Videogame expectedResult = Videogame.builder()
                 .id(1)
                 .name("name3")

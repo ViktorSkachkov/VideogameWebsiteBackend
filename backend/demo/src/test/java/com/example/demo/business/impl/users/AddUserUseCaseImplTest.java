@@ -20,7 +20,7 @@ class AddUserUseCaseImplTest {
     private AddUserUseCaseImpl addUserUseCase;
 
     @Test
-    void AddUser() {
+    void AddUser() throws Exception  {
         User expectedResult = User.builder()
                 .id(3)
                 .username("username3")

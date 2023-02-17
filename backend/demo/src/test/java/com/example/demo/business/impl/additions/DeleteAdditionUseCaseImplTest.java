@@ -20,7 +20,7 @@ class DeleteAdditionUseCaseImplTest {
     private DeleteAdditionUseCaseImpl deleteAdditionUseCase;
 
     @Test
-    void DeleteAddition() {
+    void DeleteAddition() throws Exception  {
         Addition expectedResult = Addition.builder()
                 .id(1)
                 .gameId(1)

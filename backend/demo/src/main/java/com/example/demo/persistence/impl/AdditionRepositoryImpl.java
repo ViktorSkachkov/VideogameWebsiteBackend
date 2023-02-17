@@ -59,14 +59,15 @@ public class AdditionRepositoryImpl implements AdditionRepository {
     @Override
     public Addition UpdateAddition(Addition addition) {
         Addition returnAddition = Addition.builder().build();
+
+        int index = additions.indexOf(returnAddition);
+        additions.remove(index);
+        additions.add(index, addition);
         for(Addition a : additions) {
             if(a.getId() == addition.getId()) {
                 returnAddition = a;
             }
         }
-        int index = additions.indexOf(returnAddition);
-        additions.remove(index);
-        additions.add(index, addition);
         return returnAddition;
     }
 

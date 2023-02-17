@@ -1,16 +1,12 @@
 package com.example.demo.business.impl.additions;
 
-import com.example.demo.business.cases.additions.AddAdditionUseCase;
 import com.example.demo.domain.Addition;
 import com.example.demo.persistence.repositories.AdditionRepository;
-import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
@@ -24,7 +20,7 @@ class AddAdditionUseCaseImplTest {
     private AddAdditionUseCaseImpl addAdditionUseCase;
 
     @Test
-    void AddAddition() {
+    void AddAddition() throws Exception  {
         Addition expectedResult = Addition.builder()
                 .id(3)
                 .gameId(1)

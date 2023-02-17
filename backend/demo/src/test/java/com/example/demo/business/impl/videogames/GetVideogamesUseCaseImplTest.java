@@ -23,7 +23,7 @@ class GetVideogamesUseCaseImplTest {
     private GetVideogamesUseCaseImpl getVideogamesUseCase;
 
     @Test
-    void GetVideogames() {
+    void GetVideogames() throws Exception  {
        Videogame videogame1 = Videogame.builder()
                 .id(1)
                 .name("name1")

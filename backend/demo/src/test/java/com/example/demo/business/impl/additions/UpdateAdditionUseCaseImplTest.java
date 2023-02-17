@@ -20,7 +20,7 @@ class UpdateAdditionUseCaseImplTest {
     private UpdateAdditionUseCaseImpl updateAdditionUseCase;
 
     @Test
-    void UpdateAddition() {
+    void UpdateAddition() throws Exception  {
         Addition expectedResult = Addition.builder()
                 .id(1)
                 .gameId(2)

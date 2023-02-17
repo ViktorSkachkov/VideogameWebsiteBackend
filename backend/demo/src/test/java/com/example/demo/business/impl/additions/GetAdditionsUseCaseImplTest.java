@@ -11,8 +11,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class GetAdditionsUseCaseImplTest {
@@ -22,7 +22,7 @@ class GetAdditionsUseCaseImplTest {
     private GetAdditionsUseCaseImpl getAdditionsUseCase;
 
     @Test
-    void GetAdditions() {
+    void GetAdditions() throws Exception  {
         Addition addition1 = Addition.builder()
                 .id(1)
                 .gameId(1)
@@ -41,8 +41,7 @@ class GetAdditionsUseCaseImplTest {
                 .build();
         when(additionRepository.GetAdditions())
                 .thenReturn(List.of(addition1, addition2));
-        List<Addition> actualResult = new ArrayList<>();
-               actualResult = getAdditionsUseCase.GetAdditions();
+        List<Addition> actualResult = getAdditionsUseCase.GetAdditions();
         List<Addition> expectedResult = new ArrayList<>();
         expectedResult.add(addition1);
         expectedResult.add(addition2);

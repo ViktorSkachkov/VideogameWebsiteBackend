@@ -20,7 +20,7 @@ class DeleteUserUseCaseImplTest {
     private DeleteUserUseCaseImpl deleteUserUseCase;
 
     @Test
-    void DeleteUser() {
+    void DeleteUser() throws Exception  {
         User expectedResult = User.builder()
                 .id(1)
                 .username("username1")

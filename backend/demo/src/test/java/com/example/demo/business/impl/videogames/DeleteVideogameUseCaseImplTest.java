@@ -20,7 +20,7 @@ class DeleteVideogameUseCaseImplTest {
     private DeleteVideogameUseCaseImpl deleteVideogameUseCase;
 
     @Test
-    void DeleteVideogame() {
+    void DeleteVideogame() throws Exception {
         Videogame expectedResult = Videogame.builder()
                 .id(1)
                 .name("name1")

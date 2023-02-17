@@ -20,7 +20,7 @@ class AddVideogameUseCaseImplTest {
     private AddVideogameUseCaseImpl addVideogameUseCase;
 
     @Test
-    void AddVideogame() {
+    void AddVideogame() throws Exception {
         Videogame expectedResult = Videogame.builder()
                 .id(3)
                 .name("name3")

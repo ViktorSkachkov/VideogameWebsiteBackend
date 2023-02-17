@@ -20,7 +20,7 @@ class UpdateUserUseCaseImplTest {
     private UpdateUserUseCaseImpl updateUserUseCase;
 
     @Test
-    void UpdateUser() {
+    void UpdateUser() throws Exception  {
         User expectedResult = User.builder()
                 .id(1)
                 .username("username3")
