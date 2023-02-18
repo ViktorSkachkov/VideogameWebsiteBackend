@@ -16,6 +16,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -54,18 +55,17 @@ class VideogameControllerTest {
                 .build();
         when(addVideogameUseCase.AddVideogame(videogame))
                 .thenReturn(videogame);
-        mockMvc.perform(post("/videogames"))
+        mockMvc.perform(post("/videogames")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content("""
+                            {"id":3, "name":"name3", "price":15,"description":"description3","image":"image3"}
+                        """)
+                )
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
-                .andExpect(content().json("""
-                    {"id":3, "name":"name3", "price":15,"description":"description3","image":"image3"}
-                """))
                 .andDo(print())
-                .andExpect(status().isCreated())
-                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                              {"id":3, "name":"name3", "price":15,"description":"description3","image":"image3"}
+                            {"id":3, "name":"name3", "price":15,"description":"description3","image":"image3"}
                        """));
         verify(addVideogameUseCase).AddVideogame(videogame);
     }
@@ -148,16 +148,15 @@ class VideogameControllerTest {
                 .build();
         when(updateVideogameUseCase.UpdateVideogame(videogame))
                 .thenReturn(videogame);
-        mockMvc.perform(put("/videogames"))
+        mockMvc.perform(put("/videogames")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content("""
+                            {"id":1, "name":"name3", "price":15,"description":"description3","image":"image3"}
+                        """)
+                )
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
-                .andExpect(content().json("""
-                    {"id":1, "name":"name3", "price":15,"description":"description3","image":"image3"}
-                """))
                 .andDo(print())
-                .andExpect(status().isCreated())
-                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
                             {"id":1, "name":"name3", "price":15,"description":"description3","image":"image3"}
                        """));

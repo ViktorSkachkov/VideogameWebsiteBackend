@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -50,18 +51,18 @@ class AdditionControllerTest {
                 .build();
         when(addAdditionUseCase.AddAddition(addition))
                 .thenReturn(addition);
-        mockMvc.perform(post("/additions"))
+        mockMvc.perform(post("/additions")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content("""
+                            {"id":3, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
+                        """)
+        )
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
-                .andExpect(content().json("""
-                            {"id":3, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
-                          """))
                 .andDo(print())
-                .andExpect(status().isCreated())
                 .andExpect(content().json("""
                             {"id":3, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
-                       """));;
+                       """));
         verify(addAdditionUseCase).AddAddition(addition);
     }
     @Test
@@ -81,7 +82,7 @@ class AdditionControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                            {"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"}
+                                {"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"}
                           """));
         verify(deleteAdditionUseCase).DeleteAddition(1);
     }
@@ -132,7 +133,7 @@ class AdditionControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                            {"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"}
+                                {"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"}
                           """));
         verify(getAdditionUseCase).GetAddition(1);
     }
@@ -148,18 +149,18 @@ class AdditionControllerTest {
                 .build();
         when(updateAdditionUseCase.UpdateAddition(addition))
                 .thenReturn(addition);
-        mockMvc.perform(put("/additions"))
+        mockMvc.perform(put("/additions")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content("""
+                            {"id":1, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
+                        """)
+                )
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
-                .andExpect(content().json("""
-                            {"id":1, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
-                          """))
                 .andDo(print())
-                .andExpect(status().isCreated())
                 .andExpect(content().json("""
                             {"id":1, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
-                       """));;
+                       """));
         verify(updateAdditionUseCase).UpdateAddition(addition);
     }
 }

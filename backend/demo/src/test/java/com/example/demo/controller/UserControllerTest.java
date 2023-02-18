@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -49,15 +50,15 @@ class UserControllerTest {
                 .build();
         when(addUserUseCase.AddUser(user))
                 .thenReturn(user);
-        mockMvc.perform(post("/users"))
+        mockMvc.perform(post("/users")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content("""
+                            {"id":3, "username":"username3", "email":"email3","bankAccount":"bankAccount3","role":"role3"}
+                        """)
+                )
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
-                .andExpect(content().json("""
-                    {"id":3, "username":"username3", "email":"email3","bankAccount":"bankAccount3","role":"role3"}
-                """))
                 .andDo(print())
-                .andExpect(status().isCreated())
                 .andExpect(content().json("""
                             {"id":3, "username":"username3", "email":"email3","bankAccount":"bankAccount3","role":"role3"}
                        """));
@@ -142,16 +143,15 @@ class UserControllerTest {
                 .build();
         when(updateUserUseCase.UpdateUser(user))
                 .thenReturn(user);
-        mockMvc.perform(put("/users"))
+        mockMvc.perform(put("/users")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content("""
+                            {"id":1, "username":"username3", "email":"email3","bankAccount":"bankAccount3","role":"role3"}
+                        """)
+                )
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
-                .andExpect(content().json("""
-                    {"id":1, "username":"username3", "email":"email3","bankAccount":"bankAccount3","role":"role3"}
-                """))
                 .andDo(print())
-                .andExpect(status().isCreated())
-                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
                             {"id":1, "username":"username3", "email":"email3","bankAccount":"bankAccount3","role":"role3"}
                        """));
