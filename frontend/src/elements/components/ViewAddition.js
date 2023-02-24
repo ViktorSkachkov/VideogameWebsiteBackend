@@ -1,32 +1,31 @@
+import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import {useState, useEffect} from "react";
 import axios from "axios";
-import '../css/ViewGame.css';
 
-const ViewGame = (loggedUser) => {
-    const [game, setGame] = useState(null);
+const ViewAddition = (loggedUser) => {
+    const [addition, setAddition] = useState(null);
     const [review, setReview] = useState(null);
     let params = useParams();
     const id = params.id;
 
 
     useEffect(() => {
-        getVideogame();
+        getAddition();
     });
     const handleSubmit = (e) => {
 
     };
-    const getVideogame = () => {
+    const getAddition = () => {
         var config = {
             method: "get",
-            url: `http://localhost:8080/videogames/${id}`,
+            url: `http://localhost:8080/additions/${id}`,
             /*headers: {
                 "Authorization": `Bearer ${token}`,
             },*/
         };
         axios(config)
             .then(function (response) {
-                setGame(response.data);
+                setAddition(response.data);
             })
             .catch(function (error) {
                 console.log(error);
@@ -35,16 +34,15 @@ const ViewGame = (loggedUser) => {
     const onChangeReview = event => {
         setReview(event.target.value);
     }
-
     return (
         <>
-            {game != null ?
+            {addition != null ?
                 <div className="viewGameBody">
                     <center>
                         <img src="/69piR5.jpg" width="80%" height="400px"  alt="Currently the image can't load"/>
-                        <h1>{game.name}</h1>
-                        <p>{game.description}</p>
-                        <button>Buy</button>
+                        <h1>{addition.name}</h1>
+                        <p>{addition.description}</p>
+                        <button>Add</button>
                         <form onSubmit={handleSubmit}>
                             <label htmlFor="review" className="review">Review</label><br/>
                             <input onChange={onChangeReview} name="review" type="number" className="Label"/><br/>
@@ -56,4 +54,4 @@ const ViewGame = (loggedUser) => {
         </>
     )
 }
-export default ViewGame;
+export default ViewAddition;

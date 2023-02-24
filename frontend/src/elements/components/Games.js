@@ -1,9 +1,13 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import VideogameCart from "./VideogameCart";
+import '../css/Games.css';
+import VideogameCard from "./VideogameCard";
+import VideogameCardAdmin from "./VideogameCardAdmin";
+import {useNavigate} from "react-router-dom";
 
-const Games = () => {
+const Games = (loggedUser) => {
     const [videogames, setVideogames] = useState([]);
+    let navigate = useNavigate();
 
     useEffect(() => {
         getVideogames();
@@ -32,11 +36,24 @@ const Games = () => {
                 <h1 className="title">GAMES</h1>
                 <h3 className="title">Filters</h3>
             </center>
+            {loggedUser.loggedUser != null ?
             <div className="listOfGames">
                 {videogames.map((videogame) => (
-                    <VideogameCart videogame={videogame} />
+                    <VideogameCard videogame={videogame} />
                 ))}
-            </div>
+            </div> : <center>
+                    <div className="listOfGamesAdmin">
+                        {videogames.map((videogame) => (
+                            <VideogameCardAdmin videogame={videogame} />
+                        ))}
+                    </div>
+                </center>}
+            <center>
+                <button onClick={() => {
+                    navigate(`/addVideogame`, {
+                    });
+                }}>Add Game</button>
+            </center><br/>
         </>
     )
 }

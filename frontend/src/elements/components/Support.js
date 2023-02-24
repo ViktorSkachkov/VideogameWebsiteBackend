@@ -1,4 +1,4 @@
-const Support = () => {
+const Support = (loggedUser) => {
     return (
         <>
             <center>

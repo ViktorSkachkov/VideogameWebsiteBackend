@@ -1,10 +1,10 @@
-import '../css/VideogameCart.css';
+import '../css/VideogameCard.css';
 import {useNavigate} from "react-router-dom";
-const VideogameCart = (videogame) => {
+const VideogameCard = (videogame) => {
     let navigate = useNavigate();
 
     return (
-        <div className="videogameCart"  onClick={() => {
+        <div className="videogameCard"  onClick={() => {
                 navigate(`/game/${videogame.videogame.id}`, {
             });
         }}>
@@ -23,4 +23,4 @@ const VideogameCart = (videogame) => {
         </div>
     )
 }
-export default VideogameCart;
+export default VideogameCard;

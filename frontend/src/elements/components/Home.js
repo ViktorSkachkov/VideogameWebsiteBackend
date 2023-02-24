@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import VideogameCart from "./VideogameCart";
+import VideogameCard from "./VideogameCard";
 import '../css/Home.css';
 import {Link, useNavigate} from "react-router-dom";
 
@@ -49,18 +49,22 @@ const Home = (loggedUser) => {
                 <center>
                     <img src="/69piR5.jpg" width="80%" height="400px"  alt="Currently the image can't load"/>
                 </center>
-                <h1 className="title">Featured Games</h1>
-                <div className="listOfGames">
-                    {featuredVideogames.map((videogame) => (
-                         <VideogameCart videogame={videogame} />
-                    ))}
-                </div>
-                <h1 className="title">Upcoming Games</h1>
-                <div className="listOfGames">
+                {loggedUser.loggedUser != null ? <>
+                    <h1 className="title">Featured Games</h1>
+                    <div className="listOfGames">
+                        {featuredVideogames.map((videogame) => (
+                            <VideogameCard videogame={videogame} />
+                        ))}
+                    </div>
+                    <h1 className="title">Upcoming Games</h1>
+                    <div className="listOfGames">
                 {upcomingVideogames.map((videogame) => (
-                    <VideogameCart videogame={videogame} />
-                ))}
-                </div>
+                    <VideogameCard videogame={videogame} />
+                    ))}
+                    </div>
+                    </> : <><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                </>}
+
             </>
         )
 }

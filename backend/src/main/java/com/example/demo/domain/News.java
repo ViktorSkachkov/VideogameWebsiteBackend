@@ -12,5 +12,6 @@ public class News {
     private int gameId;
     private String title;
     private String text;
+    private String image;
     //private LocalDateTime date;
 }

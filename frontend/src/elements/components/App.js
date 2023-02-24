@@ -12,24 +12,38 @@ import ViewGame from "./ViewGame";
 import ViewNewsArticle from "./ViewNewsArticle";
 import Register from "./Register";
 import LogIn from "./LogIn";
+import ViewAddition from "./ViewAddition";
+import UpdateVideogame from "./UpdateVideogame";
+import UpdateAddition from "./UpdateAddition";
+import UpdateNewsArticle from "./UpdateNewsArticle";
+import AddVideogame from "./AddVideogame";
+import AddAddition from "./AddAddition";
+import AddNewsArticle from "./AddNewsArticle";
 
 function App() {
     const [loggedUser, setLoggedUser] = useState(null);
 return (
     <>
     <Router>
-        <Navigation/>
+        <Navigation loggedUser={loggedUser} />
         <Routes>
             <Route path="/" element={<Home loggedUser={loggedUser} />}/>
-            <Route path="/games" element={<Games />}/>
-            <Route path="/shop" element={<Shop />}/>
-            <Route path="/news" element={<News />}/>
-            <Route path="/support" element={<Support />}/>
+            <Route path="/games" element={<Games loggedUser={loggedUser} />}/>
+            <Route path="/shop" element={<Shop loggedUser={loggedUser} />}/>
+            <Route path="/news" element={<News loggedUser={loggedUser} />}/>
+            <Route path="/support" element={<Support loggedUser={loggedUser} />}/>
             <Route path="/register" element={<Register />}/>
             <Route path="/logIn" element={<LogIn />}/>
-            <Route path="/account/:id" element={<Account />}/>
-            <Route path="/game/:id" element={<ViewGame />}/>
-            <Route path="/newsArticle/:id" element={<ViewNewsArticle />}/>
+            <Route path="/account/:id" element={<Account loggedUser={loggedUser} />}/>
+            <Route path="/game/:id" element={<ViewGame loggedUser={loggedUser} />}/>
+            <Route path="/addition/:id" element={<ViewAddition loggedUser={loggedUser} />}/>
+            <Route path="/newsArticle/:id" element={<ViewNewsArticle loggedUser={loggedUser} />}/>
+            <Route path="/updateVideogame/:id" element={<UpdateVideogame loggedUser={loggedUser} />}/>
+            <Route path="/updateAddition/:id" element={<UpdateAddition loggedUser={loggedUser} />}/>
+            <Route path="/updateNewsArticle/:id" element={<UpdateNewsArticle loggedUser={loggedUser} />}/>
+            <Route path="/addVideogame" element={<AddVideogame loggedUser={loggedUser} />}/>
+            <Route path="/addAddition" element={<AddAddition loggedUser={loggedUser} />}/>
+            <Route path="/addNewsArticle" element={<AddNewsArticle loggedUser={loggedUser} />}/>
         </Routes>
     </Router>
     <Footer/>

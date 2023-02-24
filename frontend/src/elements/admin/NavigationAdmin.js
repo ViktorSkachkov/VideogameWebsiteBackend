@@ -1,11 +1,11 @@
 import {Link} from "react-router-dom";
 import '../css/Navigation.css';
 
-const Navigation = (loggedUser) => {
+const Navigation = () => {
     return (
         <nav className="navBar">
             <div>
-                <img src="/69piR5.jpg" height="50px" width="100px" alt=""/>
+                <img src="" alt=""/>
             </div>
             <div className='navLinks'>
                 <Link to="/">Home</Link>

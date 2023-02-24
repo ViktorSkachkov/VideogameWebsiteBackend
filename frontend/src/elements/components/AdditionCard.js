@@ -1,12 +1,12 @@
-import '../css/AdditionCart.css';
+import '../css/AdditionCard.css';
 import {useNavigate} from "react-router-dom";
 
-const AdditionCart = (addition) => {
+const AdditionCard = (addition) => {
     let navigate = useNavigate();
 
     return (
-        <div className="additionCart"  onClick={() => {
-            navigate(`/game/${addition.addition.id}`, {
+        <div className="additionCard"  onClick={() => {
+            navigate(`/addition/${addition.addition.id}`, {
             });
         }}>
             <div>
@@ -24,4 +24,4 @@ const AdditionCart = (addition) => {
         </div>
     )
 }
-export default AdditionCart;
+export default AdditionCard;

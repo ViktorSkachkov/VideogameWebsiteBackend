@@ -1,10 +1,14 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import VideogameCart from "./VideogameCart";
-import AdditionCart from "./AdditionCart";
+import '../css/Shop.css';
+import AdditionCard from "./AdditionCard";
+import AdditionCardAdmin from "./AdditionCardAdmin";
+import {useNavigate} from "react-router-dom";
 
-const Shop = () => {
+const Shop = (loggedUser) => {
     const [additions, setAdditions] = useState([]);
+    let navigate = useNavigate();
+
     useEffect(() => {
         getAdditions();
     });
@@ -30,12 +34,26 @@ const Shop = () => {
             <center>
                 <h1 className="title">ADDITIONS</h1>
                 <h3 className="title">Filters</h3>
-                <div className="listOfAdditions">
-                {additions.map((addition) => (
-                    <AdditionCart addition={addition}/>
-                ))}
-                </div>
-            </center>
+                    {loggedUser.loggedUser != null ?
+                        <div className="listOfAdditions">
+                        {
+                            additions.map((addition) => (
+                                <AdditionCard addition={addition}/>
+                            ))
+                        }
+                        </div> : <div className="listOfAdditionsAdmin">
+                            {
+                                additions.map((addition) => (
+                                    <AdditionCardAdmin addition={addition}/>
+                                ))
+                            }
+                        </div>
+                    }
+                    <button onClick={() => {
+                        navigate(`/addAddition`, {
+                        });
+                    }}>Add Addition</button>
+            </center><br/>
         </>
     )
 }
