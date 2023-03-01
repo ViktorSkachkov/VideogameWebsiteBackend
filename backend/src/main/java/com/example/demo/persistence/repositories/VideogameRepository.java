@@ -1,16 +1,8 @@
 package com.example.demo.persistence.repositories;
 
-import com.example.demo.domain.Videogame;
+import com.example.demo.domain.persistenceClasses.VideogamePersistence;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.text.ParseException;
-import java.util.List;
-
-public interface VideogameRepository {
-    List<Videogame> GetVideogames();
-    List<Videogame> GetFeaturedVideogames();
-    List<Videogame> GetUpcomingVideogames();
-    Videogame GetVideogame(int index);
-    Videogame AddVideogame(Videogame addition);
-    Videogame UpdateVideogame(Videogame addition);
-    Videogame DeleteVideogame(int index);
+public interface VideogameRepository extends JpaRepository<VideogamePersistence, Long> {
+    boolean existsById(int id);
 }

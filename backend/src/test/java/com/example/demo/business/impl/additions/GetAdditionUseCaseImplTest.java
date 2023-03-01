@@ -1,6 +1,7 @@
 package com.example.demo.business.impl.additions;
 
 import com.example.demo.domain.Addition;
+import com.example.demo.domain.persistenceClasses.AdditionPersistence;
 import com.example.demo.persistence.repositories.AdditionRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,7 +9,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -29,10 +32,18 @@ class GetAdditionUseCaseImplTest {
                 .description("description1")
                 .image("image1")
                 .build();
-        when(additionRepository.GetAddition(1))
-                .thenReturn(expectedResult);
+        AdditionPersistence addition = AdditionPersistence.builder()
+                .id(1L)
+                .game_id(1)
+                .name("name1")
+                .price(10)
+                .description("description1")
+                .image("image1")
+                .build();
+        when(additionRepository.findById(1L))
+                .thenReturn(Optional.ofNullable(addition));
         Addition actualResult = getAdditionUseCase.GetAddition(1);
         assertEquals(expectedResult, actualResult);
-        verify(additionRepository).GetAddition(1);
+        verify(additionRepository).findById(1L);
     }
 }

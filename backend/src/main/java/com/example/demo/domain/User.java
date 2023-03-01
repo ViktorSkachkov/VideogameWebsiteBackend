@@ -1,6 +1,8 @@
 package com.example.demo.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 @AllArgsConstructor
 @Data
@@ -8,6 +10,7 @@ import lombok.*;
 public class User {
     private int id;
     private String username;
+    private String pwd;
     private String email;
     private String bankAccount;
     private String role;

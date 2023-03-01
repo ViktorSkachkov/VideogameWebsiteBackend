@@ -1,6 +1,5 @@
 package com.example.demo.domain;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @AllArgsConstructor

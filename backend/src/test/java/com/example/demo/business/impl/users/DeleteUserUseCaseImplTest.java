@@ -8,7 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -28,10 +28,13 @@ class DeleteUserUseCaseImplTest {
                 .bankAccount("bankAccount1")
                 .role("role1")
                 .build();
-        when(userRepository.DeleteUser(1))
-                .thenReturn(expectedResult);
-        User actualResult = userRepository.DeleteUser(1);
+        /*when(userRepository.DeleteUser(1))
+                .thenReturn(expectedResult);*/
+        //User actualResult = userRepository.DeleteUser(1);
+        //assertEquals(expectedResult, actualResult);
+
+        User actualResult = deleteUserUseCase.DeleteUser(1);
         assertEquals(expectedResult, actualResult);
-        verify(userRepository).DeleteUser(1);
+        verify(userRepository).deleteById(1L);
     }
 }

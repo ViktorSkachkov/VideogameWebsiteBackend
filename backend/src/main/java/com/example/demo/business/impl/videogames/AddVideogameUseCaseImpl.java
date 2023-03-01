@@ -2,6 +2,7 @@ package com.example.demo.business.impl.videogames;
 
 import com.example.demo.business.cases.videogames.AddVideogameUseCase;
 import com.example.demo.domain.Videogame;
+import com.example.demo.domain.persistenceClasses.VideogamePersistence;
 import com.example.demo.persistence.repositories.VideogameRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,19 @@ public class AddVideogameUseCaseImpl implements AddVideogameUseCase {
 
     @Override
     public Videogame AddVideogame(Videogame videogame) {
-        return videogameRepository.AddVideogame(videogame);
+        if(videogame.getDescription().length() <= 500) {
+            VideogamePersistence vp = VideogamePersistence.builder()
+                    .name(videogame.getName())
+                    .price(videogame.getPrice())
+                    .description(videogame.getDescription())
+                    .featured(videogame.getFeatured())
+                    .image(videogame.getImage())
+                    .build();
+            videogameRepository.save(vp);
+        }
+        else {
+
+        }
+        return videogame;
     }
 }

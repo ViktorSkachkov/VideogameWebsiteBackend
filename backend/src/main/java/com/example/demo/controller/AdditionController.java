@@ -3,7 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.business.cases.additions.*;
 import com.example.demo.domain.Addition;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

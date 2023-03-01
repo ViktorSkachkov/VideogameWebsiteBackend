@@ -13,6 +13,7 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
 
     @Override
     public Videogame DeleteVideogame(int index) {
-        return videogameRepository.DeleteVideogame(index);
+        videogameRepository.deleteById(Long.valueOf(index));
+        return null;
     }
 }

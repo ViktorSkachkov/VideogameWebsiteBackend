@@ -13,6 +13,7 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
 
     @Override
     public User DeleteUser(int index) {
-        return userRepository.DeleteUser(index);
+        userRepository.deleteById(Long.valueOf(index));
+        return null;
     }
 }

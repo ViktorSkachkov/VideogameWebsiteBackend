@@ -13,6 +13,7 @@ public class DeleteNewsUseCaseImpl implements DeleteNewsUseCase {
 
     @Override
     public News DeleteNews(int index) {
-        return newsRepository.DeleteNews(index);
+        newsRepository.deleteById(Long.valueOf(index));
+        return null;
     }
 }

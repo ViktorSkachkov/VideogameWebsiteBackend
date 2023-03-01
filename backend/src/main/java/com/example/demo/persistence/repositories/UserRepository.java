@@ -1,13 +1,8 @@
 package com.example.demo.persistence.repositories;
 
-import com.example.demo.domain.User;
+import com.example.demo.domain.persistenceClasses.UserPersistence;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
-public interface UserRepository {
-    List<User> GetUsers();
-    User GetUser(int index);
-    User AddUser(User addition);
-    User UpdateUser(User addition);
-    User DeleteUser(int index);
+public interface UserRepository extends JpaRepository<UserPersistence, Long> {
+    boolean existsById(int id);
 }

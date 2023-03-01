@@ -1,6 +1,7 @@
 package com.example.demo.business.impl.videogames;
 
 import com.example.demo.domain.Videogame;
+import com.example.demo.domain.persistenceClasses.VideogamePersistence;
 import com.example.demo.persistence.repositories.VideogameRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,7 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -28,10 +29,17 @@ class AddVideogameUseCaseImplTest {
                 .description("description5")
                 .image("image5")
                 .build();
-        when(videogameRepository.AddVideogame(expectedResult))
-                .thenReturn(expectedResult);
+        VideogamePersistence videogame = VideogamePersistence.builder()
+                .id(5L)
+                .name("name5")
+                .price(15)
+                .description("description5")
+                .image("image5")
+                .build();
+        when(videogameRepository.save(videogame))
+                .thenReturn(videogame);
         Videogame actualResult = addVideogameUseCase.AddVideogame(expectedResult);
         assertEquals(expectedResult, actualResult);
-        verify(videogameRepository).AddVideogame(expectedResult);
+        verify(videogameRepository).save(videogame);
     }
 }

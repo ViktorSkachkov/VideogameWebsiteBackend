@@ -1,15 +1,17 @@
 package com.example.demo.business.impl.videogames;
 
 import com.example.demo.domain.Videogame;
+import com.example.demo.domain.persistenceClasses.VideogamePersistence;
 import com.example.demo.persistence.repositories.VideogameRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import static org.mockito.Mockito.when;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class UpdateVideogameUseCaseImplTest {
@@ -27,10 +29,17 @@ class UpdateVideogameUseCaseImplTest {
                 .description("description3")
                 .image("image3")
                 .build();
-        when(videogameRepository.UpdateVideogame(expectedResult))
-                .thenReturn(expectedResult);
+        VideogamePersistence videogame = VideogamePersistence.builder()
+                .id(1L)
+                .name("name3")
+                .price(15)
+                .description("description3")
+                .image("image3")
+                .build();
+        when(videogameRepository.save(videogame))
+                .thenReturn(videogame);
         Videogame actualResult = updateVideogameUseCase.UpdateVideogame(expectedResult);
         assertEquals(expectedResult, actualResult);
-        verify(videogameRepository).UpdateVideogame(expectedResult);
+        verify(videogameRepository).save(videogame);
     }
 }

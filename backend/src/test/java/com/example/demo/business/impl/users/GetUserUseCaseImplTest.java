@@ -1,6 +1,7 @@
 package com.example.demo.business.impl.users;
 
 import com.example.demo.domain.User;
+import com.example.demo.domain.persistenceClasses.UserPersistence;
 import com.example.demo.persistence.repositories.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,7 +9,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -28,10 +31,17 @@ class GetUserUseCaseImplTest {
                 .bankAccount("bankAccount1")
                 .role("role1")
                 .build();
-        when(userRepository.GetUser(1))
-                .thenReturn(expectedResult);
+        UserPersistence user = UserPersistence.builder()
+                .id(1L)
+                .username("username1")
+                .email("email1")
+                .bank_account("bankAccount1")
+                .role("role1")
+                .build();
+        when(userRepository.findById(1L))
+                .thenReturn(Optional.ofNullable(user));
         User actualResult = getUserUseCase.GetUser(1);
         assertEquals(expectedResult, actualResult);
-        verify(userRepository).GetUser(1);
+        verify(userRepository).findById(1L);
     }
 }

@@ -1,9 +1,8 @@
 package com.example.demo.domain;
 
-import lombok.*;
-
-import java.time.LocalDateTime;
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 @AllArgsConstructor
 @Data
@@ -13,7 +12,6 @@ public class Videogame {
     private String name;
     private double price;
     private String description;
-    //private LocalDateTime releaseDate;
     private Boolean featured;
     private String image;
 }

@@ -7,3 +7,5 @@ import java.util.List;
 public interface GetAdditionsUseCase {
     List<Addition> GetAdditions();
 }
+
+

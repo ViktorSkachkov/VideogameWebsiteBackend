@@ -8,7 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -28,10 +28,10 @@ class DeleteVideogameUseCaseImplTest {
                 .description("description1")
                 .image("image1")
                 .build();
-        when(videogameRepository.DeleteVideogame(1))
-                .thenReturn(expectedResult);
+        /*when(videogameRepository.DeleteVideogame(1))
+                .thenReturn(expectedResult);*/
         Videogame actualResult = deleteVideogameUseCase.DeleteVideogame(1);
         assertEquals(expectedResult, actualResult);
-        verify(videogameRepository).DeleteVideogame(1);
+        verify(videogameRepository).deleteById(1L);
     }
 }
