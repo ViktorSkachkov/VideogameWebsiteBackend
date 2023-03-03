@@ -9,6 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -21,7 +23,7 @@ class UpdateVideogameUseCaseImplTest {
     private UpdateVideogameUseCaseImpl updateVideogameUseCase;
 
     @Test
-    void UpdateVideogame() throws Exception  {
+    void UpdateVideogame() {
         Videogame expectedResult = Videogame.builder()
                 .id(1)
                 .name("name3")
@@ -36,9 +38,15 @@ class UpdateVideogameUseCaseImplTest {
                 .description("description3")
                 .image("image3")
                 .build();
+
+        when(videogameRepository.findById(1L))
+                .thenReturn(Optional.ofNullable(videogame));
+        videogameRepository.findById(Long.valueOf(videogame.getId()));
+
         when(videogameRepository.save(videogame))
                 .thenReturn(videogame);
         Videogame actualResult = updateVideogameUseCase.UpdateVideogame(expectedResult);
+
         assertEquals(expectedResult, actualResult);
         verify(videogameRepository).save(videogame);
     }

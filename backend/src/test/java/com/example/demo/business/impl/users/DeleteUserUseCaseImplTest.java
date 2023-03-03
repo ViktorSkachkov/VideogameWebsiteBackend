@@ -1,12 +1,15 @@
 package com.example.demo.business.impl.users;
 
 import com.example.demo.domain.User;
+import com.example.demo.domain.persistenceClasses.UserPersistence;
 import com.example.demo.persistence.repositories.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
@@ -20,7 +23,7 @@ class DeleteUserUseCaseImplTest {
     private DeleteUserUseCaseImpl deleteUserUseCase;
 
     @Test
-    void DeleteUser() throws Exception  {
+    void DeleteUser() {
         User expectedResult = User.builder()
                 .id(1)
                 .username("username1")
@@ -28,13 +31,17 @@ class DeleteUserUseCaseImplTest {
                 .bankAccount("bankAccount1")
                 .role("role1")
                 .build();
-        /*when(userRepository.DeleteUser(1))
-                .thenReturn(expectedResult);*/
-        //User actualResult = userRepository.DeleteUser(1);
-        //assertEquals(expectedResult, actualResult);
-
+        UserPersistence user = UserPersistence.builder()
+                .id(1L)
+                .username("username1")
+                .email("email1")
+                .bank_account("bankAccount1")
+                .role("role1")
+                .build();
+        when(userRepository.findById(1L))
+                .thenReturn(Optional.ofNullable(user));
         User actualResult = deleteUserUseCase.DeleteUser(1);
         assertEquals(expectedResult, actualResult);
-        verify(userRepository).deleteById(1L);
+        verify(userRepository).deleteById(Long.valueOf(1));
     }
 }

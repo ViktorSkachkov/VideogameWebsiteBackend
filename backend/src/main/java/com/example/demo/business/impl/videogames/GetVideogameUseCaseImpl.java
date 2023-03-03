@@ -15,8 +15,11 @@ public class GetVideogameUseCaseImpl implements GetVideogameUseCase {
     private final VideogameRepository videogameRepository;
 
     @Override
-    public Videogame GetVideogame(int index) {
-        Optional<VideogamePersistence> vp = videogameRepository.findById(Long.valueOf(index));
+    public Videogame GetVideogame(int id) {
+        Optional<VideogamePersistence> vp = videogameRepository.findById(Long.valueOf(id));
+        if(vp.isEmpty()) {
+
+        }
         Videogame videogame = Videogame.builder()
                 .id(Math.toIntExact(vp.get().getId()))
                 .featured(vp.get().getFeatured())

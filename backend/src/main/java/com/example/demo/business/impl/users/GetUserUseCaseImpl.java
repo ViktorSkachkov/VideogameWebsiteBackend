@@ -17,6 +17,9 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
     @Override
     public User GetUser(int index) {
         Optional<UserPersistence> up = userRepository.findById(Long.valueOf(index));
+        if(up.isEmpty()) {
+
+        }
         User user = User.builder()
                 .id(Math.toIntExact(up.get().getId()))
                 .username(up.get().getUsername())

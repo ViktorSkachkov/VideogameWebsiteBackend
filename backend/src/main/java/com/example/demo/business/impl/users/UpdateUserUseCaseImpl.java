@@ -17,6 +17,9 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
     @Override
     public User UpdateUser(User user) {
         Optional<UserPersistence> up = userRepository.findById(Long.valueOf(user.getId()));
+        if(up.isEmpty()) {
+
+        }
         up.get().setUsername(user.getUsername());
         up.get().setEmail(user.getEmail());
         up.get().setPwd(user.getPwd());

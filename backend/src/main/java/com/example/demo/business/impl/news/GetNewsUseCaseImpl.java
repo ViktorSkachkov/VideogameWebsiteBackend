@@ -19,9 +19,8 @@ public class GetNewsUseCaseImpl implements GetNewsUseCase {
     public List<News> GetNews() {
         List<NewsPersistence> list = newsRepository.findAll();
         List<News> newsList = new ArrayList<>();
-        News news;
         for(NewsPersistence np : list) {
-            news = News.builder()
+            News news = News.builder()
                     .id(Math.toIntExact(np.getId()))
                     .image(np.getImage())
                     .title(np.getTitle())

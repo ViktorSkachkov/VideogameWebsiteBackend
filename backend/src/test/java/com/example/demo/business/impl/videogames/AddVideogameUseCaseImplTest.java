@@ -21,7 +21,7 @@ class AddVideogameUseCaseImplTest {
     private AddVideogameUseCaseImpl addVideogameUseCase;
 
     @Test
-    void AddVideogame() throws Exception {
+    void AddVideogame() {
         Videogame expectedResult = Videogame.builder()
                 .id(5)
                 .name("name5")
@@ -30,12 +30,12 @@ class AddVideogameUseCaseImplTest {
                 .image("image5")
                 .build();
         VideogamePersistence videogame = VideogamePersistence.builder()
-                .id(5L)
                 .name("name5")
                 .price(15)
                 .description("description5")
                 .image("image5")
                 .build();
+
         when(videogameRepository.save(videogame))
                 .thenReturn(videogame);
         Videogame actualResult = addVideogameUseCase.AddVideogame(expectedResult);

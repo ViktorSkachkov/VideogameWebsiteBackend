@@ -24,7 +24,7 @@ class GetAdditionsUseCaseImplTest {
     private GetAdditionsUseCaseImpl getAdditionsUseCase;
 
     @Test
-    void GetAdditions() throws Exception  {
+    void GetAdditions() {
         Addition addition1 = Addition.builder()
                 .id(1)
                 .gameId(1)

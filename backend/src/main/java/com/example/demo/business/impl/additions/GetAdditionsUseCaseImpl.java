@@ -19,10 +19,10 @@ public class GetAdditionsUseCaseImpl implements GetAdditionsUseCase {
     public List<Addition> GetAdditions() {
         List<AdditionPersistence> list = additionRepository.findAll();
         List<Addition> additions = new ArrayList<>();
-        Addition addition;
         for(AdditionPersistence ap : list) {
-            addition = Addition.builder()
+            Addition addition = Addition.builder()
                     .id(Math.toIntExact(ap.getId()))
+                    .gameId(ap.getGame_id())
                     .image(ap.getImage())
                     .name(ap.getName())
                     .description(ap.getDescription())

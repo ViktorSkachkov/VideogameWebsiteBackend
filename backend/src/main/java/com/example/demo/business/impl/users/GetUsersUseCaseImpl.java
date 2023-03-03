@@ -19,9 +19,8 @@ public class GetUsersUseCaseImpl implements GetUsersUseCase {
     public List<User> GetUsers() {
         List<UserPersistence> list = userRepository.findAll();
         List<User> users = new ArrayList<>();
-        User user;
         for(UserPersistence up : list) {
-            user = User.builder()
+            User user = User.builder()
                     .id(Math.toIntExact(up.getId()))
                     .username(up.getUsername())
                     .pwd(up.getPwd())

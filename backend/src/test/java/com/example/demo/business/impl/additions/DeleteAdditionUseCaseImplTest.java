@@ -9,6 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -21,8 +23,8 @@ class DeleteAdditionUseCaseImplTest {
     private DeleteAdditionUseCaseImpl deleteAdditionUseCase;
 
     @Test
-    void DeleteAddition() throws Exception  {
-        Addition addition = Addition.builder()
+    void DeleteAddition() {
+        Addition expectedResult = Addition.builder()
                 .id(1)
                 .gameId(1)
                 .name("name1")
@@ -30,17 +32,16 @@ class DeleteAdditionUseCaseImplTest {
                 .description("description1")
                 .image("image1")
                 .build();
-        AdditionPersistence expectedResult = AdditionPersistence.builder()
+        AdditionPersistence addition = AdditionPersistence.builder()
                 .id(1L)
                 .game_id(1)
-                .name("name3")
+                .name("name1")
                 .price(10)
-                .description("description3")
-                .image("image3")
+                .description("description1")
+                .image("image1")
                 .build();
-        /*when(additionRepository.deleteById(Long.valueOf(1)))
-                .thenReturn(expectedResult);*/
-        //additionRepository.deleteById(Long.valueOf(1));
+        when(additionRepository.findById(1L))
+                .thenReturn(Optional.ofNullable(addition));
         Addition actualResult = deleteAdditionUseCase.DeleteAddition(1);
         assertEquals(expectedResult, actualResult);
         verify(additionRepository).deleteById(Long.valueOf(1));

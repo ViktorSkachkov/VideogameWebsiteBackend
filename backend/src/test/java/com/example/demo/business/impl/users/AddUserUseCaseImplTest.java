@@ -21,7 +21,7 @@ class AddUserUseCaseImplTest {
     private AddUserUseCaseImpl addUserUseCase;
 
     @Test
-    void AddUser() throws Exception  {
+    void AddUser() {
         User expectedResult = User.builder()
                 .id(3)
                 .username("username3")
@@ -30,17 +30,16 @@ class AddUserUseCaseImplTest {
                 .role("role3")
                 .build();
         UserPersistence user = UserPersistence.builder()
-                .id(3L)
                 .username("username3")
                 .email("email3")
                 .bank_account("bankAccount3")
                 .role("role3")
                 .build();
+
         when(userRepository.save(user))
                 .thenReturn(user);
-        //User actualResult = userRepository.AddUser(expectedResult);
         User actualResult = addUserUseCase.AddUser(expectedResult);
-                assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult);
         verify(userRepository).save(user);
     }
 }

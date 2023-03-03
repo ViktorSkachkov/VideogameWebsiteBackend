@@ -17,6 +17,9 @@ public class UpdateVideogameUseCaseImpl implements UpdateVideogameUseCase {
     @Override
     public Videogame UpdateVideogame(Videogame videogame) {
         Optional<VideogamePersistence> vp = videogameRepository.findById(Long.valueOf(videogame.getId()));
+        if(vp.isEmpty()) {
+
+        }
         vp.get().setDescription(videogame.getDescription());
         vp.get().setFeatured(videogame.getFeatured());
         vp.get().setImage(videogame.getImage());

@@ -24,11 +24,12 @@ class GetVideogamesUseCaseImplTest {
     private GetVideogamesUseCaseImpl getVideogamesUseCase;
 
     @Test
-    void GetVideogames() throws Exception  {
+    void GetVideogames() {
        Videogame videogame1 = Videogame.builder()
                 .id(1)
                 .name("name1")
                 .price(10)
+                .featured(true)
                 .description("description1")
                 .image("image1")
                 .build();
@@ -36,6 +37,7 @@ class GetVideogamesUseCaseImplTest {
                 .id(2)
                 .name("name2")
                 .price(10)
+                .featured(true)
                 .description("description2")
                 .image("image2")
                 .build();
@@ -43,6 +45,7 @@ class GetVideogamesUseCaseImplTest {
                 .id(1L)
                 .name("name1")
                 .price(10)
+                .featured(true)
                 .description("description1")
                 .image("image1")
                 .build();
@@ -50,6 +53,7 @@ class GetVideogamesUseCaseImplTest {
                 .id(2L)
                 .name("name2")
                 .price(10)
+                .featured(true)
                 .description("description2")
                 .image("image2")
                 .build();

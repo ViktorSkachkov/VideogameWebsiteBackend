@@ -14,8 +14,11 @@ import java.util.Optional;
 public class GetOneNewsUseCaseImpl implements GetOneNewsUseCase {
     private final NewsRepository newsRepository;
     @Override
-    public News GetOneNews(int index) {
-        Optional<NewsPersistence> np = newsRepository.findById(Long.valueOf(index));
+    public News GetOneNews(int id) {
+        Optional<NewsPersistence> np = newsRepository.findById(Long.valueOf(id));
+        if(np.isEmpty()) {
+
+        }
         News news = News.builder()
                 .id(Math.toIntExact(np.get().getId()))
                 .image(np.get().getImage())

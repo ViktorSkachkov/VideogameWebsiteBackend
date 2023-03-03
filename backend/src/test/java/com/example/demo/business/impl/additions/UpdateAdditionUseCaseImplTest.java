@@ -9,6 +9,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -21,15 +24,7 @@ class UpdateAdditionUseCaseImplTest {
     private UpdateAdditionUseCaseImpl updateAdditionUseCase;
 
     @Test
-    void UpdateAddition() throws Exception  {
-        Addition expectedResult = Addition.builder()
-                .id(1)
-                .gameId(2)
-                .name("name3")
-                .price(15)
-                .description("description3")
-                .image("image3")
-                .build();
+    void UpdateAddition() {
         AdditionPersistence addition = AdditionPersistence.builder()
                 .id(1L)
                 .game_id(2)
@@ -38,9 +33,23 @@ class UpdateAdditionUseCaseImplTest {
                 .description("description3")
                 .image("image3")
                 .build();
+        Addition expectedResult = Addition.builder()
+                .id(1)
+                .gameId(2)
+                .name("name3")
+                .price(15)
+                .description("description3")
+                .image("image3")
+                .build();
+
+        when(additionRepository.findById(1L))
+                .thenReturn(Optional.ofNullable(addition));
+        additionRepository.findById(Long.valueOf(addition.getId()));
+
         when(additionRepository.save(addition))
                 .thenReturn(addition);
         Addition actualResult = updateAdditionUseCase.UpdateAddition(expectedResult);
+
         assertEquals(expectedResult, actualResult);
         verify(additionRepository).save(addition);
     }

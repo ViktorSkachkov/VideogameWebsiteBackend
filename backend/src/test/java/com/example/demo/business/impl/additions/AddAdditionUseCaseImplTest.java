@@ -21,9 +21,9 @@ class AddAdditionUseCaseImplTest {
     private AddAdditionUseCaseImpl addAdditionUseCase;
 
     @Test
-    void AddAddition() throws Exception  {
+    void AddAddition() {
         Addition expectedResult = Addition.builder()
-                .id(3)
+                .id(1)
                 .gameId(1)
                 .name("name3")
                 .price(10)
@@ -31,7 +31,6 @@ class AddAdditionUseCaseImplTest {
                 .image("image3")
                 .build();
         AdditionPersistence addition = AdditionPersistence.builder()
-                .id(3L)
                 .game_id(1)
                 .name("name3")
                 .price(10)

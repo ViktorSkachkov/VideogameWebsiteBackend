@@ -16,6 +16,9 @@ public class UpdateNewsUseCaseImpl implements UpdateNewsUseCase {
     @Override
     public News UpdateNews(News news) {
         Optional<NewsPersistence> np = newsRepository.findById(Long.valueOf(news.getId()));
+        if(np.isEmpty()) {
+
+        }
         np.get().setGame_id(news.getGameId());
         np.get().setText(news.getText());
         np.get().setImage(news.getImage());

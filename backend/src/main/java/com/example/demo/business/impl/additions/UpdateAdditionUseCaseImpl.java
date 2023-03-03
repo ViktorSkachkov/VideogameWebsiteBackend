@@ -17,6 +17,9 @@ public class UpdateAdditionUseCaseImpl implements UpdateAdditionUseCase {
     @Override
     public Addition UpdateAddition(Addition addition) {
         Optional<AdditionPersistence> ap = additionRepository.findById(Long.valueOf(addition.getId()));
+        if(ap.isEmpty()) {
+
+        }
                 ap.get().setDescription(addition.getDescription());
                 ap.get().setName(addition.getName());
                 ap.get().setImage(addition.getImage());

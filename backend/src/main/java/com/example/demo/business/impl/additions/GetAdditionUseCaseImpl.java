@@ -15,10 +15,14 @@ public class GetAdditionUseCaseImpl implements GetAdditionUseCase {
     private final AdditionRepository additionRepository;
 
     @Override
-    public Addition GetAddition(int index) {
-        Optional<AdditionPersistence> ap = additionRepository.findById(Long.valueOf(index));
+    public Addition GetAddition(int id) {
+        Optional<AdditionPersistence> ap = additionRepository.findById(Long.valueOf(id));
+        if(ap.isEmpty()) {
+
+        }
         Addition addition = Addition.builder()
                 .id(Math.toIntExact(ap.get().getId()))
+                .gameId(ap.get().getGame_id())
                 .image(ap.get().getImage())
                 .name(ap.get().getName())
                 .description(ap.get().getDescription())

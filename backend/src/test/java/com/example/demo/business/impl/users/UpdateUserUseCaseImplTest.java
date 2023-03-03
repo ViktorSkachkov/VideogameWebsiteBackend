@@ -9,6 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -21,7 +23,7 @@ class UpdateUserUseCaseImplTest {
     private UpdateUserUseCaseImpl updateUserUseCase;
 
     @Test
-    void UpdateUser() throws Exception  {
+    void UpdateUser() {
         User expectedResult = User.builder()
                 .id(1)
                 .username("username3")
@@ -36,9 +38,15 @@ class UpdateUserUseCaseImplTest {
                 .bank_account("bankAccount3")
                 .role("role3")
                 .build();
+
+        when(userRepository.findById(1L))
+                .thenReturn(Optional.ofNullable(user));
+        userRepository.findById(Long.valueOf(user.getId()));
+
         when(userRepository.save(user))
                 .thenReturn(user);
         User actualResult = updateUserUseCase.UpdateUser(expectedResult);
+
         assertEquals(expectedResult, actualResult);
         verify(userRepository).save(user);
     }
