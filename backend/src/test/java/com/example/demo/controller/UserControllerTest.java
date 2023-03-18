@@ -46,7 +46,7 @@ class UserControllerTest {
                 .username("username3")
                 .email("email3")
                 .bankAccount("bankAccount3")
-                .role("role3")
+                //.role("role3")
                 .build();
         when(addUserUseCase.AddUser(user))
                 .thenReturn(user);
@@ -71,7 +71,7 @@ class UserControllerTest {
                 .username("username1")
                 .email("email1")
                 .bankAccount("bankAccount1")
-                .role("role1")
+                //.role("role1")
                 .build();
         when(deleteUserUseCase.DeleteUser(1))
                 .thenReturn(user);
@@ -91,14 +91,14 @@ class UserControllerTest {
                 .username("username1")
                 .email("email1")
                 .bankAccount("bankAccount1")
-                .role("role1")
+                //.role("role1")
                 .build();
         User user2 = User.builder()
                 .id(2)
                 .username("username2")
                 .email("email2")
                 .bankAccount("bankAccount2")
-                .role("role2")
+                //.role("role2")
                 .build();
         when(getUsersUseCase.GetUsers())
                 .thenReturn(List.of(user1, user2));
@@ -119,7 +119,7 @@ class UserControllerTest {
                 .username("username1")
                 .email("email1")
                 .bankAccount("bankAccount1")
-                .role("role1")
+                //.role("role1")
                 .build();
         when(getUserUseCase.GetUser(1))
                 .thenReturn(user);
@@ -139,7 +139,7 @@ class UserControllerTest {
                 .username("username3")
                 .email("email3")
                 .bankAccount("bankAccount3")
-                .role("role3")
+                //.role("role3")
                 .build();
         when(updateUserUseCase.UpdateUser(user))
                 .thenReturn(user);

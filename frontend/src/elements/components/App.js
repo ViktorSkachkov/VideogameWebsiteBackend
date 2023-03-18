@@ -19,25 +19,82 @@ import UpdateNewsArticle from "./UpdateNewsArticle";
 import AddVideogame from "./AddVideogame";
 import AddAddition from "./AddAddition";
 import AddNewsArticle from "./AddNewsArticle";
+import Cookies from "universal-cookie";
+import axios from "axios";
+import jwtDecode from "jwt-decode";
+import Profile from "./Profile";
 
 function App() {
     const [loggedUser, setLoggedUser] = useState(null);
+    const [expirationDate, setExpirationDate] = useState(null);
+
+    const updateUser = () => {
+        const cookies = new Cookies();
+        const token = cookies.get("accessToken");
+        console.log("token: " + token)
+        var decode = jwtDecode(token);
+        console.log(decode)
+        const userID = decode.userId;
+        console.log("userId: " + userID)
+
+        var config = {
+            method: "get",
+            url: `http://localhost:8080/users/${userID}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        };
+
+        axios(config)
+            .then(function (response) {
+                const cookies = new Cookies();
+                const token = cookies.get("accessToken");
+                var decode = jwtDecode(token);
+                setExpirationDate(decode.exp);
+                setLoggedUser(response.data);
+                let token_serialized = JSON.stringify(response.data);
+                localStorage.setItem("token", token_serialized);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        //this.location().reload();
+    };
+    const removeUser = () => {
+        setLoggedUser(null);
+        setExpirationDate(null);
+        localStorage.removeItem("token");
+    };
+
+    /*const checkTokenExpiration = () => {
+        if (expirationDate) {
+            const currentTime = new Date().getTime() / 1000;
+            if (currentTime > expirationDate) {
+                removeUser();
+            }
+        }
+    };*/
+
+
 return (
     <>
     <Router>
-        <Navigation loggedUser={loggedUser} />
+        <Navigation
+            removeUser={removeUser}
+        />
         <Routes>
-            <Route path="/" element={<Home loggedUser={loggedUser} />}/>
+            <Route path="/" element={<Home /*loggedUser={loggedUser} */updateUser={updateUser} />}/>
             <Route path="/games" element={<Games loggedUser={loggedUser} />}/>
             <Route path="/shop" element={<Shop loggedUser={loggedUser} />}/>
             <Route path="/news" element={<News loggedUser={loggedUser} />}/>
             <Route path="/support" element={<Support loggedUser={loggedUser} />}/>
             <Route path="/register" element={<Register />}/>
-            <Route path="/logIn" element={<LogIn />}/>
+            <Route path="/logIn" element={<LogIn updateUser={updateUser}/>}/>
             <Route path="/account/:id" element={<Account loggedUser={loggedUser} />}/>
             <Route path="/game/:id" element={<ViewGame loggedUser={loggedUser} />}/>
             <Route path="/addition/:id" element={<ViewAddition loggedUser={loggedUser} />}/>
             <Route path="/newsArticle/:id" element={<ViewNewsArticle loggedUser={loggedUser} />}/>
+            <Route path="/profile/:id" element={<Profile removeUser={removeUser} updateUser={updateUser} />}/>
             <Route path="/updateVideogame/:id" element={<UpdateVideogame loggedUser={loggedUser} />}/>
             <Route path="/updateAddition/:id" element={<UpdateAddition loggedUser={loggedUser} />}/>
             <Route path="/updateNewsArticle/:id" element={<UpdateNewsArticle loggedUser={loggedUser} />}/>

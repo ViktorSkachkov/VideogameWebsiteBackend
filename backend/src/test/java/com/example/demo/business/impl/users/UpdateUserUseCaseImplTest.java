@@ -29,14 +29,14 @@ class UpdateUserUseCaseImplTest {
                 .username("username3")
                 .email("email3")
                 .bankAccount("bankAccount3")
-                .role("role3")
+                //.role("role3")
                 .build();
         UserPersistence user = UserPersistence.builder()
                 .id(1L)
                 .username("username3")
                 .email("email3")
                 .bank_account("bankAccount3")
-                .role("role3")
+                //.role("role3")
                 .build();
 
         when(userRepository.findById(1L))

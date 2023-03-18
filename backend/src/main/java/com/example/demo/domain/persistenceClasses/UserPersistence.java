@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "user")
 @Builder
@@ -31,12 +33,12 @@ public class UserPersistence {
     @Length(min = 2 ,max = 250)
     @Column(name = "bank_account")
     private String bank_account;
-    @NotBlank
-    @Length(min = 2 ,max = 45)
-    @Column(name = "role")
-    private String role;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private Set<RolePersistence> userRoles;
     @NotBlank
     @Length(min = 2 ,max = 200)
     @Column(name = "pwd")
     private String pwd;
 }
+

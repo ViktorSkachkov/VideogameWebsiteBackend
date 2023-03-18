@@ -29,14 +29,14 @@ class GetUserUseCaseImplTest {
                 .username("username1")
                 .email("email1")
                 .bankAccount("bankAccount1")
-                .role("role1")
+                //.role("role1")
                 .build();
         UserPersistence user = UserPersistence.builder()
                 .id(1L)
                 .username("username1")
                 .email("email1")
                 .bank_account("bankAccount1")
-                .role("role1")
+                //.role("role1")
                 .build();
         when(userRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(user));

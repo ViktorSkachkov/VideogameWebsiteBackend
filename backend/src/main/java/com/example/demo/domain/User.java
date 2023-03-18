@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Set;
+
 @AllArgsConstructor
 @Data
 @Builder
@@ -13,5 +15,5 @@ public class User {
     private String pwd;
     private String email;
     private String bankAccount;
-    private String role;
+    private Set<Role> userRoles;
 }
