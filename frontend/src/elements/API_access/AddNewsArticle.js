@@ -1,11 +1,16 @@
 import axios from "axios";
 import {useState} from "react";
+import Cookies from "universal-cookie";
+import AddNewsArticleDisplay from "../display/AddNewsArticleDisplay";
 
 const AddNewsArticle = (loggedUser) => {
     const [gameId, setGameId] = useState(1);
     const [image, setImage] = useState("image");
     const [title, setTitle] = useState();
     const [text, setText] = useState();
+
+    const cookies = new Cookies();
+    const token = cookies.get("accessToken");
 
     const onChangeText = event => {
         setText(event.target.value);
@@ -22,9 +27,9 @@ const AddNewsArticle = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        /*const config = {
+        const config = {
             headers: { Authorization: `Bearer ${token}` }
-        };*/
+        };
         const bodyParams = {
             "id": 1,
             "gameId": gameId,
@@ -35,7 +40,7 @@ const AddNewsArticle = (loggedUser) => {
         axios.post(
             `http://localhost:8080/news`,
             bodyParams,
-            //config
+            config
         )
             .then(function (response) {
                 /*let mealName = response.data.mealName;
@@ -46,21 +51,10 @@ const AddNewsArticle = (loggedUser) => {
                 console.log(error);
             });
     }
+
     return (
-        <>
-            <center>
-                <form onSubmit={handleSubmit}>
-                    <br/><br/>
-                    <label htmlFor="image" className="formLabelImage">Image</label><br/><br/>
-                    <input type="file" name="image" onChange={onChangeImage} className="Label"/><br/><br/>
-                    <label htmlFor="name" className="formLabelName">Title</label><br/>
-                    <input type="text" name="title" onChange={onChangeTitle} value={title} className="Label" /><br/><br/>
-                    <label htmlFor="text" className="formLabelText">Text</label><br/>
-                    <textarea type="text" name="text" onChange={onChangeText} value={text} className="Label" /><br/><br/>
-                    <button type="submit" className="normalButton">Submit</button>
-                </form><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            </center>
-        </>
+        <AddNewsArticleDisplay handleSubmit={handleSubmit} onChangeTitle={onChangeTitle} onChangeImage={onChangeImage} onChangeText={onChangeText}
+        image={image} title={title} text={text}/>
     )
 }
 export default AddNewsArticle;

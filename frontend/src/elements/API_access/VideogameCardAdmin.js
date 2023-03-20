@@ -2,17 +2,22 @@ import {useNavigate} from "react-router-dom";
 import '../css/VideogameCardAdmin.css';
 import axios from "axios";
 import {useState} from "react";
+import Cookies from "universal-cookie";
 
 const VideogameCardAdmin = (videogame) => {
 
     let navigate = useNavigate();
+
+    const cookies = new Cookies();
+    const token = cookies.get("accessToken");
+
     function deleteGame(id) {
         var config = {
             method: "delete",
             url: `http://localhost:8080/videogames/${id}`,
-            /*headers: {
+            headers: {
                 "Authorization": `Bearer ${token}`,
-            },*/
+            },
         };
         axios(config)
             .then(function (response) {

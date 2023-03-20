@@ -1,17 +1,21 @@
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import '../css/AdditionCardAdmin.css';
+import Cookies from "universal-cookie";
 
 const AdditionCardAdmin = (addition) => {
     let navigate = useNavigate();
+
+    const cookies = new Cookies();
+    const token = cookies.get("accessToken");
 
     function deleteAddition(id) {
         var config = {
             method: "delete",
             url: `http://localhost:8080/additions/${id}`,
-            /*headers: {
+            headers: {
                 "Authorization": `Bearer ${token}`,
-            },*/
+            },
         };
         axios(config)
             .then(function (response) {

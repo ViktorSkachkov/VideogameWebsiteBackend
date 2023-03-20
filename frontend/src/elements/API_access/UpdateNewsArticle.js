@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import axios from "axios";
+import Cookies from "universal-cookie";
+import UpdateNewsArticleDisplay from "../display/UpdateNewsArticleDisplay";
 
 const UpdateNewsArticle = (loggedUser) => {
     const [gameId, setGameId] = useState();
@@ -10,6 +12,9 @@ const UpdateNewsArticle = (loggedUser) => {
     let params = useParams();
     const id = params.id;
 
+    const cookies = new Cookies();
+    const token = cookies.get("accessToken");
+
     useEffect(() => {
         getNewsArticle();
     }, []);
@@ -18,9 +23,9 @@ const UpdateNewsArticle = (loggedUser) => {
         var config = {
             method: "get",
             url: `http://localhost:8080/news/${id}`,
-            /*headers: {
+            headers: {
                 "Authorization": `Bearer ${token}`,
-            },*/
+            },
         };
         axios(config)
             .then(function (response) {
@@ -49,9 +54,9 @@ const UpdateNewsArticle = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        /*const config = {
+        const config = {
             headers: { Authorization: `Bearer ${token}` }
-        };*/
+        };
         const bodyParams = {
             "id": id,
             "gameId": gameId,
@@ -62,7 +67,7 @@ const UpdateNewsArticle = (loggedUser) => {
         axios.put(
             `http://localhost:8080/news`,
             bodyParams,
-            //config
+            config
         )
             .then(function (response) {
                 /*let mealName = response.data.mealName;
@@ -74,22 +79,9 @@ const UpdateNewsArticle = (loggedUser) => {
             });
     }
 
-
     return (
-        <>
-            <center>
-                <form onSubmit={handleSubmit}>
-                    <br/><br/>
-                    <label htmlFor="image" className="formLabelImage">Image</label><br/><br/>
-                    <input type="file" name="image" onChange={onChangeImage} className="Label"/><br/><br/>
-                    <label htmlFor="name" className="formLabelName">Title</label><br/>
-                    <input type="text" name="title" onChange={onChangeTitle} value={title} className="Label" /><br/><br/>
-                    <label htmlFor="text" className="formLabelText">Text</label><br/>
-                    <textarea type="text" name="text" onChange={onChangeText} value={text} className="Label" /><br/><br/>
-                    <button type="submit" className="normalButton">Submit</button>
-                </form><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            </center>
-        </>
+        <UpdateNewsArticleDisplay  handleSubmit={handleSubmit} onChangeTitle={onChangeTitle} onChangeImage={onChangeImage} onChangeText={onChangeText}
+                                   image={image} title={title} text={text}/>
     )
 }
 

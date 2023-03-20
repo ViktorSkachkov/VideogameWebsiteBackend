@@ -2,6 +2,7 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import Cookies from "universal-cookie";
+import ProfileDisplay from "../display/ProfileDisplay";
 
 
 const Profile = (updateUser=updateUser, removeUser=removeUser) => {
@@ -97,35 +98,6 @@ const Profile = (updateUser=updateUser, removeUser=removeUser) => {
             });
     };
 
-    /*function changeSession(loginUsername, loginPassword) {
-        //e.preventDefault();
-        const cookies = new Cookies();
-        var data = JSON.stringify({
-            "username": loginUsername,
-            "password": "SomePassword"
-        });
-
-        var config = {
-            method: 'post',
-            url: 'http://localhost:8080/login',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data: data
-        };
-
-
-        axios(config)
-            .then(function (response) {
-                cookies.set("accessToken", response.data.accessToken, { path: '/' });
-                updateUser.updateUser();
-                //navigate("/");
-            })
-            .catch(function (error) {
-                alert("Incorrect login details");
-            });
-    }*/
-
     const onChangeUsername = event => {
         setUsername(event.target.value);
     }
@@ -143,38 +115,9 @@ const Profile = (updateUser=updateUser, removeUser=removeUser) => {
     }
 
     return (
-        <>
-        {user != null ? <>
-            <center><br/><br/>
-                <h1>
-                    Your Profile! Welcome {username}
-                </h1>
-                <h3>Fill in your personal information</h3>
-                <p>Due to security measures you will not be able to see your password.</p><br/>
-
-                <form onSubmit={updateProfile}>
-                    <label htmlFor="username" className="formLabelUsername">Username</label><br/>
-                    <input type="text" value={username} onChange={onChangeUsername} className="Label"/><br/><br/>
-
-                    <label htmlFor="password" className="formLabelPassword">Password</label><br/>
-                    <input type="password" value={pwd} onChange={onChangePwd} className="Label"/><br/><br/>
-
-                    <label htmlFor="repeatPassword" className="formLabelRepeatPassword">Repeat Password</label><br/>
-                    <input type="password" value={repeatPwd} onChange={onChangeRepeatPwd} className="Label"/><br/><br/>
-
-                    <label htmlFor="email" className="formLabelEmail">Email</label><br/>
-                    <input type="email" value={email} onChange={onChangeEmail} className="Label"/><br/><br/>
-
-                    <label htmlFor="bankAccount" className="formLabelBankAccount">Bank Account</label><br/>
-                    <input type="bankAccount" value={bankAccount} onChange={onBankAccount} className="Label"/><br/><br/>
-
-                    <button type="submit" className="normalButton">Update Account<br/> Information</button><br/><br/>
-                </form>
-                <button onClick={() => deleteProfile(id)}>Delete Account</button><br/><br/><br/>
-            </center>
-        </> : <></>}
-        </>
-
+        <ProfileDisplay updateProfile={updateProfile} deleteProfile={deleteProfile}
+                        onChangeUsername={onChangeUsername} onChangePwd={onChangePwd} onChangeRepeatPwd={onChangeRepeatPwd} onChangeEmail={onChangeEmail} onBankAccount={onBankAccount}
+                        id={id} user={user} username={username} pwd={pwd} repeatPwd={repeatPwd} email={email} bankAccount={bankAccount}/>
     )
 }
 export default Profile;

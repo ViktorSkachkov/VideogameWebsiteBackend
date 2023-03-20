@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './elements/components/App';
+import App from './elements/API_access/App';
 import reportWebVitals from './reportWebVitals';
 import {Link, NavLink, BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import Home from "./elements/components/Home";
-import Games from "./elements/components/Games";
-import Shop from "./elements/components/Shop";
-import News from "./elements/components/News";
-import Support from "./elements/components/Support";
-import Account from "./elements/components/Account";
-import Navigation from "./elements/components/Navigation";
-import Footer from "./elements/components/Footer";
+import Home from "./elements/API_access/Home";
+import Games from "./elements/API_access/Games";
+import Shop from "./elements/API_access/Shop";
+import News from "./elements/API_access/News";
+import Support from "./elements/API_access/Support";
+import Account from "./elements/API_access/Account";
+import Navigation from "./elements/API_access/Navigation";
+import Footer from "./elements/API_access/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

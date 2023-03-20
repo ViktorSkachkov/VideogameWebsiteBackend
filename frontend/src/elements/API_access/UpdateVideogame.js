@@ -1,6 +1,8 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
 import {useParams} from "react-router-dom";
+import Cookies from "universal-cookie";
+import UpdateVideogameDisplay from "../display/UpdateVideogameDisplay";
 
 const UpdateVideogame = (loggedUser) => {
     const [image, setImage] = useState();
@@ -11,6 +13,8 @@ const UpdateVideogame = (loggedUser) => {
     let params = useParams();
     const id = params.id;
 
+    const cookies = new Cookies();
+    const token = cookies.get("accessToken");
 
     useEffect(() => {
         getVideogame();
@@ -20,9 +24,9 @@ const UpdateVideogame = (loggedUser) => {
         var config = {
             method: "get",
             url: `http://localhost:8080/videogames/${id}`,
-            /*headers: {
+            headers: {
                 "Authorization": `Bearer ${token}`,
-            },*/
+            },
         };
         axios(config)
             .then(function (response) {
@@ -56,9 +60,9 @@ const UpdateVideogame = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        /*const config = {
+        const config = {
             headers: { Authorization: `Bearer ${token}` }
-        };*/
+        };
         const bodyParams = {
             "id": id,
             "image": image,
@@ -70,7 +74,7 @@ const UpdateVideogame = (loggedUser) => {
         axios.put(
             `http://localhost:8080/videogames`,
             bodyParams,
-            //config
+            config
         )
             .then(function (response) {
                 /*let mealName = response.data.mealName;
@@ -82,7 +86,7 @@ const UpdateVideogame = (loggedUser) => {
             });
     }
 
-    return (
+    /*return (
         <>
             <center>
             <form onSubmit={handleSubmit}>
@@ -99,6 +103,11 @@ const UpdateVideogame = (loggedUser) => {
             </form><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             </center>
         </>
+    )*/
+
+    return (
+        <UpdateVideogameDisplay handleSubmit={handleSubmit} onChangeName={onChangeName} onChangeImage={onChangeImage} onChangePrice={onChangePrice} onChangeDescription={onChangeDescription}
+                                image={image} name={name} price={price} description={description} featured={featured}/>
     )
 }
 export default UpdateVideogame;

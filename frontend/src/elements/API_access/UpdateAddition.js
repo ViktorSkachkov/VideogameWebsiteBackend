@@ -1,13 +1,46 @@
+import {useEffect, useState} from "react";
 import axios from "axios";
-import {useState} from "react";
+import {useParams} from "react-router-dom";
+import Cookies from "universal-cookie";
+import UpdateAdditionDisplay from "../display/UpdateAdditionDisplay";
 
-const AddAddition = (loggedUser) => {
-    const [gameId, setGameId] = useState(1);
-    const [image, setImage] = useState("image");
+const UpdateAddition = (loggedUser) => {
+    const [gameId, setGameId] = useState();
+    const [image, setImage] = useState();
     const [name, setName] = useState();
     const [price, setPrice] = useState();
     const [description, setDescription] = useState();
+    let params = useParams();
+    const id = params.id;
 
+    const cookies = new Cookies();
+    const token = cookies.get("accessToken");
+
+    useEffect(() => {
+        getAddition();
+    }, []);
+
+    const getAddition = () => {
+        var config = {
+            method: "get",
+            url: `http://localhost:8080/additions/${id}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        };
+        axios(config)
+            .then(function (response) {
+                let {description, price, name, image, gameId} = response.data;
+                setName(name);
+                setImage(image);
+                setPrice(price);
+                setDescription(description);
+                setGameId(gameId);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
     const onChangeDescription = event => {
         setDescription(event.target.value);
     }
@@ -26,31 +59,33 @@ const AddAddition = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        /*const config = {
+        const config = {
             headers: { Authorization: `Bearer ${token}` }
-        };*/
+        };
         const bodyParams = {
+            "id": id,
             "gameId": gameId,
             "image": image,
             "description": description,
             "price": price,
             "name": name,
         };
-        axios.post(
+        axios.put(
             `http://localhost:8080/additions`,
             bodyParams,
-            //config
+            config
         )
             .then(function (response) {
                 /*let mealName = response.data.mealName;
                 navigate(`/successfullyUpdatedMeal/${mealName}`);*/
-                alert('Addition successfully added!');
+                alert('Addition successfully updated!');
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
-    return (
+
+    /*return (
         <>
             <center>
                 <form onSubmit={handleSubmit}>
@@ -67,6 +102,12 @@ const AddAddition = (loggedUser) => {
                 </form><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             </center>
         </>
+    )*/
+
+    return (
+        <UpdateAdditionDisplay handleSubmit={handleSubmit} onChangeName={onChangeName} onChangePrice={onChangePrice} onChangeDescription={onChangeDescription} onChangeImage={onChangeImage}
+                               name={name} price={price} description={description}/>
     )
 }
-export default AddAddition;
+
+export default UpdateAddition;
