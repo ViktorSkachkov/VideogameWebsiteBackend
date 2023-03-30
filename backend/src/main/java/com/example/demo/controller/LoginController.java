@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins="*", allowedHeaders = "*")
+@CrossOrigin(origins="http://localhost:3000/", allowedHeaders = "*")
 @RequestMapping("/login")
 @RequiredArgsConstructor
 public class LoginController {

@@ -30,6 +30,5 @@ public class GetNewsUseCaseImpl implements GetNewsUseCase {
             newsList.add(news);
         }
         return newsList;
-        //return newsRepository.GetNews();
     }
 }

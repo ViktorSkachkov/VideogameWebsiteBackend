@@ -26,7 +26,7 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
         if(up.isEmpty()) {
 
         }
-        //userRepository.deleteById(Long.valueOf(id));
+
         User user = User.builder()
                 .id(Math.toIntExact(up.get().getId()))
                 .username(up.get().getUsername())

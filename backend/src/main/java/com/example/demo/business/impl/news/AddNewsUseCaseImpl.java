@@ -27,6 +27,5 @@ public class AddNewsUseCaseImpl implements AddNewsUseCase {
 
         }
         return news;
-        //return newsRepository.AddNews(news);
     }
 }

@@ -27,7 +27,7 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
         if(up.isEmpty()) {
 
         }
-        //String decodedPassword = passwordEncoder.decode(up.get().getPwd());
+
         User user = User.builder()
                 .id(Math.toIntExact(up.get().getId()))
                 .username(up.get().getUsername())

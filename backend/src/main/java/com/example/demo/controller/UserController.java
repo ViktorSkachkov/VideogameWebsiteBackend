@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="*", allowedHeaders = "*")
+@CrossOrigin(origins="http://localhost:3000/", allowedHeaders = "*")
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
