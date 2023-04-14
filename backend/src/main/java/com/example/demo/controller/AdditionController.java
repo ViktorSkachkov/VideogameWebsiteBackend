@@ -21,6 +21,10 @@ public class AdditionController {
     private final DeleteAdditionUseCase deleteAdditionUseCase;
     private final UpdateAdditionUseCase updateAdditionUseCase;
 
+    /**
+     *
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("")
@@ -28,6 +32,11 @@ public class AdditionController {
         return getAdditionsUseCase.GetAdditions();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/{id}")
@@ -35,6 +44,11 @@ public class AdditionController {
         return getAdditionUseCase.GetAddition(id);
     }
 
+    /**
+     *
+     * @param addition
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @PostMapping("")
@@ -42,6 +56,11 @@ public class AdditionController {
         return addAdditionUseCase.AddAddition(addition);
     }
 
+    /**
+     *
+     * @param addition
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @PutMapping("")
@@ -49,6 +68,11 @@ public class AdditionController {
         return updateAdditionUseCase.UpdateAddition(addition);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @DeleteMapping("/{id}")

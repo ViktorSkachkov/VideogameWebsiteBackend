@@ -22,6 +22,10 @@ public class UserController {
     private final UpdateUserUseCase updateUserUseCase;
     private final DeleteUserUseCase deleteUserUseCase;
 
+    /**
+     *
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("")
@@ -29,6 +33,11 @@ public class UserController {
         return getUsersUseCase.GetUsers();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/{id}")
@@ -36,6 +45,11 @@ public class UserController {
         return getUserUseCase.GetUser(id);
     }
 
+    /**
+     *
+     * @param user
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PostMapping("")
@@ -43,6 +57,11 @@ public class UserController {
         return addUserUseCase.AddUser(user);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @DeleteMapping("/{id}")
@@ -50,6 +69,11 @@ public class UserController {
         return deleteUserUseCase.DeleteUser(id);
     }
 
+    /**
+     *
+     * @param user
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PutMapping("")

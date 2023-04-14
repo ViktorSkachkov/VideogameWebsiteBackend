@@ -1,14 +1,18 @@
 package com.example.demo.controller;
 
+import com.example.demo.business.cases.AccessTokenDecoder;
+import com.example.demo.business.cases.AccessTokenEncoder;
 import com.example.demo.business.cases.news.*;
 import com.example.demo.domain.News;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -24,6 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
+//@WebMvcTest(controllers = NewsController.class)
 public class NewsControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -39,8 +44,14 @@ public class NewsControllerTest {
     private DeleteNewsUseCase deleteNewsUseCase;
     @MockBean
     private UpdateNewsUseCase updateNewsUseCase;
+    @MockBean
+    private AccessTokenDecoder accessTokenDecoder;
+    @MockBean
+    private AccessTokenEncoder accessTokenEncoder;
+
 
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"EMPLOYEE"})
     void AddNews() throws Exception{
         News news = News.builder()
                 .id(3)
@@ -65,6 +76,7 @@ public class NewsControllerTest {
         verify(addNewsUseCase).AddNews(news);
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void GetNewsByGame() throws Exception{
         News news1 = News.builder()
                 .id(1)
@@ -91,6 +103,7 @@ public class NewsControllerTest {
         verify(getNewsByGameUseCase).GetNewsByGame(1);
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void GetNews() throws Exception{
         News news1 = News.builder()
                 .id(1)
@@ -117,6 +130,7 @@ public class NewsControllerTest {
         verify(getNewsUseCase).GetNews();
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void GetOneNews() throws Exception{
         News news = News.builder()
                 .id(1)
@@ -136,6 +150,7 @@ public class NewsControllerTest {
         verify(getOneNewsUseCase).GetOneNews(1);
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"EMPLOYEE"})
     void DeleteNews() throws Exception{
         News news = News.builder()
                 .id(1)
@@ -155,6 +170,7 @@ public class NewsControllerTest {
         verify(deleteNewsUseCase).DeleteNews(1);
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"EMPLOYEE"})
     void UpdateNews() throws Exception{
         News news = News.builder()
                 .id(1)

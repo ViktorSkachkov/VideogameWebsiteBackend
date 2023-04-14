@@ -22,6 +22,10 @@ public class NewsController {
     private final DeleteNewsUseCase deleteNewsUseCase;
     private final UpdateNewsUseCase updateNewsUseCase;
 
+    /**
+     *
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("")
@@ -29,6 +33,11 @@ public class NewsController {
         return getNewsUseCase.GetNews();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/getByGame/{id}")
@@ -36,6 +45,11 @@ public class NewsController {
         return getNewsByGameUseCase.GetNewsByGame(id);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/{id}")
@@ -43,6 +57,11 @@ public class NewsController {
         return getOneNewsUseCase.GetOneNews(id);
     }
 
+    /**
+     *
+     * @param news
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @PostMapping("")
@@ -50,13 +69,23 @@ public class NewsController {
         return addNewsUseCase.AddNews(news);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public News DeleteNews(@PathVariable(value = "id") final int id) {
         return deleteNewsUseCase.DeleteNews(id);
     }
 
+    /**
+     *
+     * @param news
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @PutMapping("")

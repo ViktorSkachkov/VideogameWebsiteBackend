@@ -4,6 +4,7 @@ import com.example.demo.domain.Role;
 import com.example.demo.domain.User;
 import com.example.demo.domain.persistenceClasses.RolePersistence;
 import com.example.demo.domain.persistenceClasses.UserPersistence;
+import com.example.demo.persistence.repositories.RoleRepository;
 import com.example.demo.persistence.repositories.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,6 +24,8 @@ import static org.mockito.Mockito.when;
 class DeleteUserUseCaseImplTest {
     @Mock
     private UserRepository userRepository;
+    @Mock
+    private RoleRepository roleRepository;
     @InjectMocks
     private DeleteUserUseCaseImpl deleteUserUseCase;
 

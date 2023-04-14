@@ -16,6 +16,11 @@ public class LoginController {
 
     private final LoginUseCase loginUseCase;
 
+    /**
+     *
+     * @param loginRequest
+     * @return
+     */
     @PostMapping
     public ResponseEntity<LoginResponse> login(@RequestBody @Valid LoginRequest loginRequest) {
         LoginResponse loginResponse = loginUseCase.login(loginRequest);

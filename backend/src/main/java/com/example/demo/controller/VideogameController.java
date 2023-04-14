@@ -23,6 +23,10 @@ public class VideogameController {
     private final GetFeaturedVideogamesUseCase getFeaturedVideogamesUseCase;
     private final GetUpcomingVideogamesUseCase getUpcomingVideogamesUseCase;
 
+    /**
+     *
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("")
@@ -30,6 +34,10 @@ public class VideogameController {
         return getVideogamesUseCase.GetVideogames();
     }
 
+    /**
+     *
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/featured")
@@ -37,11 +45,20 @@ public class VideogameController {
         return getFeaturedVideogamesUseCase.GetFeaturedVideogames();
     }
 
+    /**
+     *
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/upcoming")
     public List<Videogame> GetUpcoming() { return getUpcomingVideogamesUseCase.GetUpcomingVideogames(); }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/{id}")
@@ -49,6 +66,11 @@ public class VideogameController {
         return getVideogameUseCase.GetVideogame(id);
     }
 
+    /**
+     *
+     * @param videogame
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @PostMapping("")
@@ -56,6 +78,11 @@ public class VideogameController {
         return addVideogameUseCase.AddVideogame(videogame);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @DeleteMapping("/{id}")
@@ -63,6 +90,11 @@ public class VideogameController {
         return deleteVideogameUseCase.DeleteVideogame(id);
     }
 
+    /**
+     *
+     * @param videogame
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @PutMapping("")

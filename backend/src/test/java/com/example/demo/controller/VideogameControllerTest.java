@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -43,6 +44,7 @@ class VideogameControllerTest {
     private GetUpcomingVideogamesUseCase getUpcomingVideogamesUseCase;
 
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void AddVideogame() throws Exception{
         Videogame videogame = Videogame.builder()
                 .id(5)
@@ -69,6 +71,7 @@ class VideogameControllerTest {
         verify(addVideogameUseCase).AddVideogame(videogame);
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void DeleteVideogame() throws Exception{
         Videogame videogame = Videogame.builder()
                 .id(1)
@@ -89,6 +92,7 @@ class VideogameControllerTest {
         verify(deleteVideogameUseCase).DeleteVideogame(1);
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void GetVideogames() throws Exception{
         Videogame videogame1 = Videogame.builder()
                 .id(1)
@@ -117,6 +121,7 @@ class VideogameControllerTest {
         verify(getVideogamesUseCase).GetVideogames();
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void GetVideogame() throws Exception{
         Videogame videogame = Videogame.builder()
                 .id(1)
@@ -137,10 +142,12 @@ class VideogameControllerTest {
         verify(getVideogameUseCase).GetVideogame(1);
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void GetUpcomingVideogames() {
 
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void GetFeaturedVideogames() throws Exception {
         Videogame videogame1 = Videogame.builder()
                 .id(1)
@@ -171,6 +178,7 @@ class VideogameControllerTest {
         verify(getFeaturedVideogamesUseCase).GetFeaturedVideogames();
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void UpdateVideogame() throws Exception{
         Videogame videogame = Videogame.builder()
                 .id(1)

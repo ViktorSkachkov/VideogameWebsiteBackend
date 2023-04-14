@@ -14,10 +14,10 @@ repositories {
 }
 
 sonar {
-  properties {
-    property "sonar.projectKey", "I459452_individual_track_semester3_viktor_skachkov_AYdWmceBcrLZnydSOt3I"
-    property "sonar.qualitygate.wait", true 
-  }
+	properties {
+		property "sonar.projectKey", "I459452_individual_track_semester3_viktor_skachkov_AYdWmceBcrLZnydSOt3I"
+		property "sonar.qualitygate.wait", true
+	}
 }
 
 dependencies {

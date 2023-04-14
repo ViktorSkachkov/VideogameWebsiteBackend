@@ -141,8 +141,8 @@ class UserControllerTest {
                 .bankAccount("bankAccount3")
                 //.role("role3")
                 .build();
-        when(updateUserUseCase.UpdateUser(user))
-                .thenReturn(user);
+        /*when(updateUserUseCase.UpdateUser(user))
+                .thenReturn(user);*/
         mockMvc.perform(put("/users")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content("""

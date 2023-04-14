@@ -1,14 +1,24 @@
 package com.example.demo.controller;
 
+import com.example.demo.business.cases.AccessTokenDecoder;
+import com.example.demo.business.cases.AccessTokenEncoder;
+import com.example.demo.business.cases.LoginUseCase;
 import com.example.demo.business.cases.additions.*;
 import com.example.demo.domain.Addition;
+import com.example.demo.domain.LoginRequest;
+import com.example.demo.domain.LoginResponse;
+import com.example.demo.persistence.repositories.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -24,6 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
+//@WebMvcTest(controllers = AdditionController.class)
 class AdditionControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -37,8 +48,19 @@ class AdditionControllerTest {
     private DeleteAdditionUseCase deleteAdditionUseCase;
     @MockBean
     private UpdateAdditionUseCase updateAdditionUseCase;
+    @MockBean
+    private PasswordEncoder passwordEncoder;
+    @MockBean
+    private AccessTokenEncoder accessTokenEncoder;
+    @MockBean
+    private AccessTokenDecoder AccessTokendecoder;
+    @MockBean
+    private LoginUseCase loginUseCase;
+    /*@InjectMocks
+    private AdditionController additionController;*/
 
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void AddAddition() throws Exception{
         Addition addition = Addition.builder()
                 .id(3)
@@ -65,6 +87,7 @@ class AdditionControllerTest {
         verify(addAdditionUseCase).AddAddition(addition);
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void DeleteAddition() throws Exception{
         Addition addition1 = Addition.builder()
                 .id(1)
@@ -86,7 +109,14 @@ class AdditionControllerTest {
         verify(deleteAdditionUseCase).DeleteAddition(1);
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void GetAdditions() throws Exception{
+        /*LoginRequest loginRequest = LoginRequest.builder()
+                .password("password")
+                .username("username1")
+                .build();
+        LoginResponse loginResponse = loginUseCase.login(loginRequest);
+        String token = loginResponse.getAccessToken();*/
         Addition addition1 = Addition.builder()
                 .id(1)
                 .gameId(1)
@@ -109,6 +139,7 @@ class AdditionControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                //.andExpect(header().string("Authorization", "Bearer " + token))
                 .andExpect(content().json("""
                             [{"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"},
                             {"id":2, "gameId":1, "name":"name2","price":10,"description":"description2","image":"image2"}]
@@ -116,6 +147,7 @@ class AdditionControllerTest {
         verify(getAdditionsUseCase).GetAdditions();
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void GetAddition() throws Exception{
         Addition addition = Addition.builder()
                 .id(1)
@@ -137,6 +169,7 @@ class AdditionControllerTest {
         verify(getAdditionUseCase).GetAddition(1);
     }
     @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void UpdateAddition() throws Exception{
         Addition addition = Addition.builder()
                 .id(1)
