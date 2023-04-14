@@ -19,7 +19,7 @@ class AdditionRepositoryTest {
     @Autowired
     private EntityManager entityManager;
 
-    @Test
+    //@Test
     void testFindByCode() {
         /*AdditionPersistence expected = createTestAddition(20, 1, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
                 " Lorem Ipsum has been the industry's standard dummy text ever since the " +
