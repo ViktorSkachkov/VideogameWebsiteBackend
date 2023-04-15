@@ -5,13 +5,18 @@ import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class AdditionRepositoryTest {
     @Autowired
     private AdditionRepository additionRepository;
@@ -19,18 +24,63 @@ class AdditionRepositoryTest {
     @Autowired
     private EntityManager entityManager;
 
-    //@Test
-    void testFindByCode() {
-        /*AdditionPersistence expected = createTestAddition(20, 1, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+    @Test
+    void findAll() {
+        AdditionPersistence expected2 = createTestAddition(5L,20, 1, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
                 " Lorem Ipsum has been the industry's standard dummy text ever since the " +
-                        "1500s, when an unknown printer took a galley of type and scrambled it to " +
-                        "make a type specimen book.", "NewName");
-        AdditionPersistence actual = additionRepository.getAdditionPersistenceByName("NewName");
-        assertEquals(expected, actual);*/
+                "1500s, when an unknown printer took a galley of type and scrambled it to " +
+                "make a type specimen book.", "NewName");
+        AdditionPersistence expected = createTestAddition(5L,20, 1, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+                " Lorem Ipsum has been the industry's standard dummy text ever since the " +
+                "1500s, when an unknown printer took a galley of type and scrambled it to " +
+                "make a type specimen book.", "name5");
+        List<AdditionPersistence> expectedList = new ArrayList<>();
+        expectedList.add(expected);
+        List<AdditionPersistence> actualList = additionRepository.findAllTest();
+        AdditionPersistence actual = AdditionPersistence.builder().build();
+        for(AdditionPersistence ap : actualList) {
+            if(ap.getName() == "name5") {
+                actual = ap;
+            }
+        }
+        assertEquals(expected, actual);
     }
 
-    private AdditionPersistence createTestAddition(double price, int game_id, String image, String description, String name) {
+    @Test
+    void findAdditionByName() {
+        AdditionPersistence expected2 = createTestAddition(5L,20, 1, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+                " Lorem Ipsum has been the industry's standard dummy text ever since the " +
+                "1500s, when an unknown printer took a galley of type and scrambled it to " +
+                "make a type specimen book.", "NewName");
+        AdditionPersistence expected = createTestAddition(5L,10, 2, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+                " Lorem Ipsum has been the industry's standard dummy text ever since the " +
+                "1500s, when an unknown printer took a galley of type and scrambled it to " +
+                "make a type specimen book.", "name5");
+        List<AdditionPersistence> expectedList = new ArrayList<>();
+        expectedList.add(expected);
+        List<AdditionPersistence> actualList = additionRepository.findByName("name5");
+        assertEquals(expectedList, actualList);
+    }
+
+    @Test
+    void findAdditionById() {
+        AdditionPersistence expected2 = createTestAddition(5L,20, 1, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+                " Lorem Ipsum has been the industry's standard dummy text ever since the " +
+                "1500s, when an unknown printer took a galley of type and scrambled it to " +
+                "make a type specimen book.", "NewName");
+        AdditionPersistence expected = createTestAddition(5L,10, 2, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+                " Lorem Ipsum has been the industry's standard dummy text ever since the " +
+                "1500s, when an unknown printer took a galley of type and scrambled it to " +
+                "make a type specimen book.", "name5");
+        List<AdditionPersistence> expectedList = new ArrayList<>();
+        expectedList.add(expected);
+        List<AdditionPersistence> actualList = additionRepository.findByid(5L);
+        assertEquals(expectedList, actualList);
+    }
+
+    private AdditionPersistence createTestAddition(Long id, double price, int game_id, String image, String description, String name) {
         return entityManager.merge(AdditionPersistence.builder()
+                        .id(id)
                         .price(price)
                         .game_id(game_id)
                         .image(image)
