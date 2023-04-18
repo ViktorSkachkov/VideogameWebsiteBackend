@@ -36,6 +36,9 @@ public class UserPersistence {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private Set<RolePersistence> userRoles;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private Set<GameOrderPersistence> gameOrders;
     @NotBlank
     @Length(min = 2 ,max = 200)
     @Column(name = "pwd")

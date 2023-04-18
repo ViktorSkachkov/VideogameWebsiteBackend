@@ -7,6 +7,7 @@ import com.example.demo.domain.User;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -50,12 +51,14 @@ public class UserController {
      * @param user
      * @return
      */
-    @IsAuthenticated
-    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PostMapping("")
     public User AddUser(@RequestBody @Valid User user) {
         return addUserUseCase.AddUser(user);
     }
+    /*@PostMapping("")
+    public ResponseEntity<LoginResponse> AddUser(@RequestBody @Valid User user) {
+        return ResponseEntity.ok(addUserUseCase.AddUser(user));
+    }*/
 
     /**
      *
