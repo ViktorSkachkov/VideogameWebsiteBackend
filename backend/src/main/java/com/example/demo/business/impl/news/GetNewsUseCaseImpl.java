@@ -2,8 +2,8 @@ package com.example.demo.business.impl.news;
 
 import com.example.demo.business.cases.news.GetNewsUseCase;
 import com.example.demo.domain.News;
-import com.example.demo.domain.persistenceClasses.NewsPersistence;
-import com.example.demo.persistence.repositories.NewsRepository;
+import com.example.demo.persistence.domain.persistenceClass.NewsPersistence;
+import com.example.demo.persistence.repository.NewsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,10 @@ import java.util.List;
 public class GetNewsUseCaseImpl implements GetNewsUseCase {
     private final NewsRepository newsRepository;
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<News> GetNews() {
         List<NewsPersistence> list = newsRepository.findAll();

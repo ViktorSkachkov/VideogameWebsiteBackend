@@ -2,8 +2,8 @@ package com.example.demo.business.impl.news;
 
 import com.example.demo.business.cases.news.GetNewsByGameUseCase;
 import com.example.demo.domain.News;
-import com.example.demo.domain.persistenceClasses.NewsPersistence;
-import com.example.demo.persistence.repositories.NewsRepository;
+import com.example.demo.persistence.domain.persistenceClass.NewsPersistence;
+import com.example.demo.persistence.repository.NewsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,11 @@ import java.util.List;
 public class GetNewsByGameUseCaseImpl implements GetNewsByGameUseCase {
     private final NewsRepository newsRepository;
 
+    /**
+     *
+     * @param index
+     * @return
+     */
     @Override
     public List<News> GetNewsByGame(int index) {
         List<NewsPersistence> list = newsRepository.findAll();

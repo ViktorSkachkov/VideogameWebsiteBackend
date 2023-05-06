@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.business.cases.videogames.*;
+import com.example.demo.business.cases.videogame.*;
 import com.example.demo.domain.Videogame;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

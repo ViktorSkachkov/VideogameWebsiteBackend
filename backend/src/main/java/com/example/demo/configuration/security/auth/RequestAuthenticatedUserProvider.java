@@ -13,6 +13,10 @@ import org.springframework.web.context.WebApplicationContext;
 @Configuration
 public class RequestAuthenticatedUserProvider {
 
+    /**
+     *
+     * @return
+     */
     @Bean
     @Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
     public AccessToken getAuthenticatedUserInRequest() {

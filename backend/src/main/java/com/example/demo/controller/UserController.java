@@ -1,13 +1,12 @@
 package com.example.demo.controller;
 
-import com.example.demo.business.cases.users.*;
+import com.example.demo.business.cases.user.*;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.LoginResponse;
 import com.example.demo.domain.User;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

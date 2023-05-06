@@ -1,9 +1,9 @@
 package com.example.demo.controller;
 
-import com.example.demo.business.cases.reviews.AddReviewUseCase;
-import com.example.demo.business.cases.reviews.DeleteReviewUseCase;
-import com.example.demo.business.cases.reviews.GetReviewsByItemUseCase;
-import com.example.demo.business.cases.reviews.UpdateReviewUseCase;
+import com.example.demo.business.cases.review.AddReviewUseCase;
+import com.example.demo.business.cases.review.DeleteReviewUseCase;
+import com.example.demo.business.cases.review.GetReviewsByItemUseCase;
+import com.example.demo.business.cases.review.UpdateReviewUseCase;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.Review;
 import jakarta.annotation.security.RolesAllowed;
@@ -24,6 +24,11 @@ public class ReviewController {
     private final GetReviewsByItemUseCase getReviewsByItemUseCase;
     private final UpdateReviewUseCase updateReviewUseCase;
 
+    /**
+     *
+     * @param review
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PostMapping("")
@@ -32,6 +37,11 @@ public class ReviewController {
         return addReviewUseCase.AddReview(review);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @DeleteMapping("{id}")
@@ -46,6 +56,12 @@ public class ReviewController {
         return getReviewsByItemUseCase.GetReviewsByItem(reviewRequest);
     }*/
 
+    /**
+     *
+     * @param itemId
+     * @param type
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/{itemId}/{type}")
@@ -53,6 +69,11 @@ public class ReviewController {
         return getReviewsByItemUseCase.GetReviewsByItem(itemId, type);
     }
 
+    /**
+     *
+     * @param review
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PutMapping("")

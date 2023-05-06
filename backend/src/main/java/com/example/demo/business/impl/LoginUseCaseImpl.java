@@ -2,12 +2,12 @@ package com.example.demo.business.impl;
 
 import com.example.demo.business.cases.AccessTokenEncoder;
 import com.example.demo.business.cases.LoginUseCase;
-import com.example.demo.business.exception.InvalidCredentialsException;
+import com.example.demo.exception.InvalidCredentialsException;
 import com.example.demo.domain.AccessToken;
 import com.example.demo.domain.LoginRequest;
 import com.example.demo.domain.LoginResponse;
-import com.example.demo.domain.persistenceClasses.UserPersistence;
-import com.example.demo.persistence.repositories.UserRepository;
+import com.example.demo.persistence.domain.persistenceClass.UserPersistence;
+import com.example.demo.persistence.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,6 +21,11 @@ public class LoginUseCaseImpl implements LoginUseCase {
     private final PasswordEncoder passwordEncoder;
     private final AccessTokenEncoder accessTokenEncoder;
 
+    /**
+     *
+     * @param loginRequest
+     * @return
+     */
     @Override
     public LoginResponse login(LoginRequest loginRequest) {
         UserPersistence user = userRepository.findByUsername(loginRequest.getUsername());
@@ -44,6 +49,11 @@ public class LoginUseCaseImpl implements LoginUseCase {
         return passwordEncoder.matches(rawPassword, encodedPassword);
     }
 
+    /**
+     *
+     * @param user
+     * @return
+     */
     private String generateAccessToken(UserPersistence user) {
         Long userId = user != null ? user.getId() : null;
         List<String> roles = user.getUserRoles().stream()

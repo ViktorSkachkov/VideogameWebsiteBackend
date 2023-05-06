@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.business.cases.videogames.*;
+import com.example.demo.business.cases.videogame.*;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.Videogame;
 import jakarta.annotation.security.RolesAllowed;

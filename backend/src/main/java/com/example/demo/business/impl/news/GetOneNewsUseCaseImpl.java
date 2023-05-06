@@ -2,8 +2,8 @@ package com.example.demo.business.impl.news;
 
 import com.example.demo.business.cases.news.GetOneNewsUseCase;
 import com.example.demo.domain.News;
-import com.example.demo.domain.persistenceClasses.NewsPersistence;
-import com.example.demo.persistence.repositories.NewsRepository;
+import com.example.demo.persistence.domain.persistenceClass.NewsPersistence;
+import com.example.demo.persistence.repository.NewsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +13,12 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class GetOneNewsUseCaseImpl implements GetOneNewsUseCase {
     private final NewsRepository newsRepository;
+
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public News GetOneNews(int id) {
         Optional<NewsPersistence> np = newsRepository.findById(Long.valueOf(id));

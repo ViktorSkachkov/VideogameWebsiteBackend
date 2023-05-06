@@ -2,8 +2,8 @@ package com.example.demo.business.impl.news;
 
 import com.example.demo.business.cases.news.AddNewsUseCase;
 import com.example.demo.domain.News;
-import com.example.demo.domain.persistenceClasses.NewsPersistence;
-import com.example.demo.persistence.repositories.NewsRepository;
+import com.example.demo.persistence.domain.persistenceClass.NewsPersistence;
+import com.example.demo.persistence.repository.NewsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +12,14 @@ import org.springframework.stereotype.Service;
 public class AddNewsUseCaseImpl implements AddNewsUseCase {
     private final NewsRepository newsRepository;
 
+    /**
+     *
+     * @param news
+     * @return
+     */
     @Override
     public News AddNews(News news) {
-        if(news.getText().length() <= 500) {
+        if(news.getText().length() <= 1000) {
             NewsPersistence np = NewsPersistence.builder()
                     .game_id(news.getGameId())
                     .text(news.getText())

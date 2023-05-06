@@ -2,11 +2,11 @@
 
 import com.example.demo.business.cases.AccessTokenEncoder;
 import com.example.demo.business.cases.LoginAfterUpdateUseCase;
-import com.example.demo.business.exception.InvalidCredentialsException;
+import com.example.demo.exception.InvalidCredentialsException;
 import com.example.demo.domain.AccessToken;
 import com.example.demo.domain.LoginRequest;
 import com.example.demo.domain.LoginResponse;
-import com.example.demo.domain.persistenceClasses.UserPersistence;
+import com.example.demo.persistence.domain.persistenceClasses.UserPersistence;
 import com.example.demo.persistence.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

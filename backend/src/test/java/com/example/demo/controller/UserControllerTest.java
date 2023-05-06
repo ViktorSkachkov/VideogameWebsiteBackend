@@ -2,13 +2,13 @@ package com.example.demo.controller;
 
 import com.example.demo.business.cases.AccessTokenDecoder;
 import com.example.demo.business.cases.AccessTokenEncoder;
-import com.example.demo.business.cases.users.*;
+import com.example.demo.business.cases.user.*;
 import com.example.demo.domain.AccessToken;
 import com.example.demo.domain.LoginResponse;
 import com.example.demo.domain.Role;
 import com.example.demo.domain.User;
-import com.example.demo.domain.persistenceClasses.RolePersistence;
-import com.example.demo.domain.persistenceClasses.UserPersistence;
+import com.example.demo.persistence.domain.persistenceClass.RolePersistence;
+import com.example.demo.persistence.domain.persistenceClass.UserPersistence;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

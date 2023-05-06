@@ -30,6 +30,11 @@ public class AccessTokenEncoderDecoderImpl implements AccessTokenEncoder, Access
         this.key = Keys.hmacShaKeyFor(keyBytes);
     }
 
+    /**
+     *
+     * @param accessToken
+     * @return
+     */
     @Override
     public String encode(AccessToken accessToken) {
         Map<String, Object> claimsMap = new HashMap<>();
@@ -50,6 +55,11 @@ public class AccessTokenEncoderDecoderImpl implements AccessTokenEncoder, Access
                 .compact();
     }
 
+    /**
+     *
+     * @param accessTokenEncoded
+     * @return
+     */
     @Override
     public AccessToken decode(String accessTokenEncoded) {
         try {

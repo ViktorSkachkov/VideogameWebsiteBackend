@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.business.cases.additions.*;
+import com.example.demo.business.cases.addition.*;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.Addition;
 import jakarta.annotation.security.RolesAllowed;

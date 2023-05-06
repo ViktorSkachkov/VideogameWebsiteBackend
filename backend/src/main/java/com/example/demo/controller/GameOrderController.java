@@ -1,12 +1,10 @@
 package com.example.demo.controller;
 
-import com.example.demo.business.cases.gameOrders.AddGameOrderUseCase;
-import com.example.demo.business.cases.gameOrders.GetGameOrderUseCase;
-import com.example.demo.business.cases.gameOrders.GetGameOrdersByUserUseCase;
+import com.example.demo.business.cases.gameorder.AddGameOrderUseCase;
+import com.example.demo.business.cases.gameorder.GetGameOrderUseCase;
+import com.example.demo.business.cases.gameorder.GetGameOrdersByUserUseCase;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
-import com.example.demo.domain.Addition;
 import com.example.demo.domain.GameOrder;
-import com.example.demo.domain.News;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -23,12 +21,23 @@ public class GameOrderController {
     private final GetGameOrderUseCase getGameOrderUseCase;
     private final GetGameOrdersByUserUseCase getGameOrdersByUserUseCase;
 
+    /**
+     *
+     * @param gameOrder
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PostMapping("")
     public GameOrder AddGameOrder(@RequestBody @Valid GameOrder gameOrder) {
         return addGameOrderUseCase.AddGameOrder(gameOrder);
     }
+
+    /**
+     *
+     * @param id
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/getByUser/{id}")
@@ -36,6 +45,11 @@ public class GameOrderController {
         return getGameOrdersByUserUseCase.GetGameOrdersByUser(id);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/{id}")

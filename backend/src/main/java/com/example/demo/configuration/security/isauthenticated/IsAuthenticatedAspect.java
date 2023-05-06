@@ -31,6 +31,12 @@ public class IsAuthenticatedAspect {
     public void annotatedClass() {
     }
 
+    /**
+     *
+     * @param interceptedMethod
+     * @return
+     * @throws Throwable
+     */
     @Around("(annotatedMethod() || annotatedClass()) && execution(* *(..))")
     public Object interceptMethod(final ProceedingJoinPoint interceptedMethod) throws Throwable {
         final SecurityContext context = SecurityContextHolder.getContext();
