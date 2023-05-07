@@ -24,10 +24,9 @@ public class GetNewsByGameUseCaseImpl implements GetNewsByGameUseCase {
     public List<News> GetNewsByGame(int index) {
         List<NewsPersistence> list = newsRepository.findAll();
         List<News> newsList = new ArrayList<>();
-        News news;
         for(NewsPersistence np : list) {
-            if(np.getGame_id() == index) {
-                news = News.builder()
+            if(index == -1) {
+                News news = News.builder()
                         .id(Math.toIntExact(np.getId()))
                         .image(np.getImage())
                         .title(np.getTitle())
@@ -35,6 +34,18 @@ public class GetNewsByGameUseCaseImpl implements GetNewsByGameUseCase {
                         .gameId(np.getGame_id())
                         .build();
                 newsList.add(news);
+            }
+            else {
+                if(np.getGame_id() == index) {
+                    News news = News.builder()
+                            .id(Math.toIntExact(np.getId()))
+                            .image(np.getImage())
+                            .title(np.getTitle())
+                            .text(np.getText())
+                            .gameId(np.getGame_id())
+                            .build();
+                    newsList.add(news);
+                }
             }
         }
         return newsList;
