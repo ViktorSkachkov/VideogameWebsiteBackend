@@ -16,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdditionController {
     private final GetAdditionsUseCase getAdditionsUseCase;
+    private final GetAdditionsByGameUseCase getAdditionsByGameUseCase;
     private final GetAdditionUseCase getAdditionUseCase;
     private final AddAdditionUseCase addAdditionUseCase;
     private final DeleteAdditionUseCase deleteAdditionUseCase;
@@ -42,6 +43,18 @@ public class AdditionController {
     @GetMapping("/{id}")
     public Addition GetAddition(@PathVariable(value = "id") final int id) {
         return getAdditionUseCase.GetAddition(id);
+    }
+
+    /**
+     * 
+     * @param id
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @GetMapping("/getByGame/{id}")
+    public List<Addition> GetAdditionsByGame(@PathVariable(value = "id") final int id) {
+        return getAdditionsByGameUseCase.GetAdditionsByGame(id);
     }
 
     /**
