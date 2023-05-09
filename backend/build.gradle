@@ -15,7 +15,7 @@ repositories {
 
 sonar {
 	properties {
-		property "sonar.projectKey", "I459452_individual_track_semester3_viktor_skachkov_AYdWmceBcrLZnydSOt3I"
+		property "sonar.projectKey", "I459452_individual_track_semester3_viktor_skachkov_AYf_X11mdwVNeyPpwkco"
 		property "sonar.qualitygate.wait", true
 	}
 }
@@ -43,8 +43,6 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	/*testImplementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:3.1.3'
-	testImplementation 'com.playtika.testcontainers:embedded-mysql:2.2.5'*/
 }
 
 tasks.named('test') {
