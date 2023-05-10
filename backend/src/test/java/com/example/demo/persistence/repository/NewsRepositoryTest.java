@@ -45,20 +45,18 @@ class NewsRepositoryTest {
 
     @Test
     void findNewsById() {
-        createTestNews(1L,1, "title1", "Lorem Ipsum" +
+        NewsPersistence expected = createTestNews(9L,23, "Starcraft: New Update", "Lorem Ipsum" +
                 " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the" +
                 " industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
                 " of type and scrambled it to make a type specimen book.", "image1");
-        NewsPersistence expected = createTestNews(6L,1, "title2", "ggggggggggggggggg",
+        createTestNews(6L,1, "title2", "ggggggggggggggggg",
                 "image");
         //FIXME find a way to create an option list
-        List<NewsPersistence> expectedList = new ArrayList<>();
-        expectedList.add(expected);
-        List<NewsPersistence> actualList = new ArrayList<>();
-        NewsPersistence result = newsRepository.findByid(6L);
-        actualList.add(result);
+        NewsPersistence actual = newsRepository.findByid(9L);
 
-        assertEquals(expectedList, actualList);
+        assertEquals(expected.getId(), actual.getId());
+        assertEquals(expected.getGame_id(), actual.getGame_id());
+        assertEquals(expected.getTitle(), actual.getTitle());
     }
 
     @Test

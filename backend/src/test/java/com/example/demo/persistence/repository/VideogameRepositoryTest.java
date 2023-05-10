@@ -48,12 +48,12 @@ class VideogameRepositoryTest {
                 " Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been " +
                 "the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
                 " of type and scrambled it to make a type specimen book.", "image", true);
-        VideogamePersistence expected = createTestVideogame(12L, "Diablo", 12, "description",
+        VideogamePersistence expected = createTestVideogame(23L, "Starcraft 2", 14, "description",
                 "image", false);
-        List<VideogamePersistence> expectedList = new ArrayList<>();
-        expectedList.add(expected);
-        List<VideogamePersistence> actualList = videogameRepository.findByid(12L);
-        assertEquals(expectedList, actualList);
+        VideogamePersistence actual = videogameRepository.findByid(23L);
+        assertEquals(expected.getId(), actual.getId());
+        assertEquals(expected.getName(), actual.getName());
+        assertEquals(expected.getPrice(), actual.getPrice());
     }
 
     @Test
