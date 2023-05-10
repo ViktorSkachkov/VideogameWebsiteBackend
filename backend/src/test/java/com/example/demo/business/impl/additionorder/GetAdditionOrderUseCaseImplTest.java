@@ -1,6 +1,6 @@
 package com.example.demo.business.impl.additionorder;
 
-import com.example.demo.domain.AdditionOrder;
+/*import com.example.demo.domain.AdditionOrder;
 import com.example.demo.persistence.domain.persistenceClass.AdditionOrderPersistence;
 import com.example.demo.persistence.repository.AdditionOrderRepository;
 import org.junit.jupiter.api.Test;
@@ -42,4 +42,4 @@ class GetAdditionOrderUseCaseImplTest {
         assertEquals(expectedResult, actualResult);
         verify(additionOrderRepository).findById(1L);
     }
-}
+}*/

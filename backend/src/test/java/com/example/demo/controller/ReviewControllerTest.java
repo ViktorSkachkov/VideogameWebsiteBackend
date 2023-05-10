@@ -19,7 +19,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -43,38 +42,6 @@ class ReviewControllerTest {
     private UpdateReviewUseCase updateReviewUseCase;
 
 
-   /* @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER"})
-    void addReview() throws Exception {
-        Review review = Review.builder()
-                .id(1L)
-                .text("text")
-                .reviewed_item_id(24)
-                .user_id(41)
-                .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
-                .type_of_reviewed_item("game")
-                .build();
-        when(addReviewUseCase.AddReview(review))
-                .thenReturn(review);
-        mockMvc.perform(post("/reviews")
-                        .contentType(MediaType.APPLICATION_JSON_VALUE)
-                        .content("""
-                            {"id":1, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"}
-                        """)
-                )
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andDo(print())
-                .andExpect(content().json("""
-                            {"id":1, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"}
-                       """));
-        verify(addReviewUseCase).AddReview(review);
-    }*/
-
-    /**
-     *
-     * @throws Exception
-     */
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER"})
     void deleteReview() throws Exception {
@@ -98,10 +65,6 @@ class ReviewControllerTest {
         verify(deleteReviewUseCase).DeleteReview(1);
     }
 
-    /**
-     *
-     * @throws Exception
-     */
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER"})
     void getReviewsByItem() throws Exception {
@@ -134,10 +97,6 @@ class ReviewControllerTest {
         verify(getReviewsByItemUseCase).GetReviewsByItem(24, "game");
     }
 
-    /**
-     *
-     * @throws Exception
-     */
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER"})
     void updateReview() throws Exception {
