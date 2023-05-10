@@ -1,6 +1,6 @@
 package com.example.demo.business.impl.gameorder;
 
-/*import com.example.demo.domain.GameOrder;
+import com.example.demo.domain.GameOrder;
 import com.example.demo.persistence.domain.persistenceClass.GameOrderPersistence;
 import com.example.demo.persistence.repository.GameOrderRepository;
 import org.junit.jupiter.api.Test;
@@ -42,4 +42,4 @@ class GetGameOrderUseCaseImplTest {
         assertEquals(expectedResult, actualResult);
         verify(gameOrderRepository).findById(1L);
     }
-}*/
+}
