@@ -33,14 +33,6 @@ class GetAdditionsByGameUseCaseImplTest {
                 .description("description1")
                 .image("image1")
                 .build();
-        /*Addition addition2 = Addition.builder()
-                .id(2)
-                .gameId(1)
-                .name("name2")
-                .price(10)
-                .description("description2")
-                .image("image2")
-                .build();*/
         AdditionPersistence additionPersistence1 = AdditionPersistence.builder()
                 .id(1L)
                 .game_id(1)
