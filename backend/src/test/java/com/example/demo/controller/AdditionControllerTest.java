@@ -51,8 +51,6 @@ class AdditionControllerTest {
     private AccessTokenDecoder AccessTokendecoder;
     @MockBean
     private LoginUseCase loginUseCase;
-    /*@InjectMocks
-    private AdditionController additionController;*/
 
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})

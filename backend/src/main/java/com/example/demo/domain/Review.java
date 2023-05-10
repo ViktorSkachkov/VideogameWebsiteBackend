@@ -18,7 +18,6 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 public class Review {
-
     private Long id;
     private int reviewed_item_id;
     private int user_id;

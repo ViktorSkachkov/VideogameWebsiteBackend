@@ -49,13 +49,6 @@ public class ReviewController {
         return deleteReviewUseCase.DeleteReview(id);
     }
 
-    /*@IsAuthenticated
-    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
-    @GetMapping("")
-    public List<Review> GetReviewsByItem(@RequestBody @Valid ReviewRequest reviewRequest) {
-        return getReviewsByItemUseCase.GetReviewsByItem(reviewRequest);
-    }*/
-
     /**
      *
      * @param itemId
