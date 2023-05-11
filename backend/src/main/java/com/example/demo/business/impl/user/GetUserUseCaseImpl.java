@@ -7,7 +7,6 @@ import com.example.demo.persistence.domain.persistenceClass.RolePersistence;
 import com.example.demo.persistence.domain.persistenceClass.UserPersistence;
 import com.example.demo.persistence.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;

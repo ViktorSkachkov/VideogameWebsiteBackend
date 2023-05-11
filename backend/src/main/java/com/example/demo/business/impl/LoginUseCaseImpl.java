@@ -33,10 +33,6 @@ public class LoginUseCaseImpl implements LoginUseCase {
             throw new InvalidCredentialsException();
         }
 
-        /*if (!loginRequest.getPassword().equals(user.getPwd())) {
-            throw new InvalidCredentialsException();
-        }*/
-
         if (!matchesPassword(loginRequest.getPassword(), user.getPwd())) {
             throw new InvalidCredentialsException();
         }

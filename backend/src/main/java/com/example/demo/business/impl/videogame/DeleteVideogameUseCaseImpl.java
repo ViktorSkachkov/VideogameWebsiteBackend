@@ -26,7 +26,7 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
 
         }
         videogameRepository.deleteById(Long.valueOf(id));
-        Videogame videogame = Videogame.builder()
+        return Videogame.builder()
                 .id(Math.toIntExact(vp.get().getId()))
                 .featured(vp.get().getFeatured())
                 .description(vp.get().getDescription())
@@ -34,6 +34,5 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
                 .name(vp.get().getName())
                 .price(vp.get().getPrice())
                 .build();
-        return videogame;
     }
 }

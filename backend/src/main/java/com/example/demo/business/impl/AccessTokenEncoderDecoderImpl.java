@@ -75,7 +75,6 @@ public class AccessTokenEncoderDecoderImpl implements AccessTokenEncoder, Access
                     .build();
         } catch (JwtException e) {
             throw null;
-            //throw new InvalidAccessTokenException(e.getMessage());
         }
     }
 }

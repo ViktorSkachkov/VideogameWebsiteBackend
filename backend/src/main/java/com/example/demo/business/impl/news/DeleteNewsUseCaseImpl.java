@@ -26,13 +26,12 @@ public class DeleteNewsUseCaseImpl implements DeleteNewsUseCase {
 
         }
         newsRepository.deleteById(Long.valueOf(id));
-        News addition = News.builder()
+        return News.builder()
                 .id(Math.toIntExact(np.get().getId()))
                 .image(np.get().getImage())
                 .title(np.get().getTitle())
                 .text(np.get().getText())
                 .gameId(np.get().getGame_id())
                 .build();
-        return addition;
     }
 }

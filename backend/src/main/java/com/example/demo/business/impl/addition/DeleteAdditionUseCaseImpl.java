@@ -26,7 +26,7 @@ public class DeleteAdditionUseCaseImpl implements DeleteAdditionUseCase {
 
         }
         additionRepository.deleteById(Long.valueOf(id));
-        Addition addition = Addition.builder()
+        return Addition.builder()
                 .id(Math.toIntExact(ap.get().getId()))
                 .gameId(ap.get().getGame_id())
                 .image(ap.get().getImage())
@@ -34,6 +34,5 @@ public class DeleteAdditionUseCaseImpl implements DeleteAdditionUseCase {
                 .description(ap.get().getDescription())
                 .price(ap.get().getPrice())
                 .build();
-        return addition;
     }
 }
