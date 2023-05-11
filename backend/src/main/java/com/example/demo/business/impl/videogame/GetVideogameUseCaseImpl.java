@@ -20,7 +20,7 @@ public class GetVideogameUseCaseImpl implements GetVideogameUseCase {
      * @return
      */
     @Override
-    public Videogame GetVideogame(int id) {
+    public Videogame getVideogame(int id) {
         Optional<VideogamePersistence> vp = videogameRepository.findById(Long.valueOf(id));
         if(vp.isEmpty()) {
 

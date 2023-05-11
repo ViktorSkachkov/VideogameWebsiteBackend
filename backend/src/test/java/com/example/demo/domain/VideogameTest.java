@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class VideogameTest {
     @Test
-    void CompareEquals() {
+    void compareEquals() {
         Videogame videogame1 = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -26,7 +26,7 @@ class VideogameTest {
     }
 
     @Test
-    void CompareNotEquals() {
+    void compareNotEquals() {
         /*User user1 = User.builder()
                 .id(5)
                 .username("username5")

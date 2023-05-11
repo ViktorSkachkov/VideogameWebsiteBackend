@@ -5,5 +5,5 @@ import com.example.demo.domain.News;
 import java.util.List;
 
 public interface GetNewsUseCase {
-    List<News> GetNews();
+    List<News> getNews();
 }

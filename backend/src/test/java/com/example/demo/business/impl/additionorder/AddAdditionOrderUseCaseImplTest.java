@@ -35,7 +35,7 @@ class AddAdditionOrderUseCaseImplTest {
                 .build();
         when(additionOrderRepository.save(additionOrder))
                 .thenReturn(additionOrder);
-        AdditionOrder actualResult = addAdditionOrderUseCase.AddAdditionOrder(expectedResult);
+        AdditionOrder actualResult = addAdditionOrderUseCase.addAdditionOrder(expectedResult);
         assertEquals(expectedResult, actualResult);
         verify(additionOrderRepository).save(additionOrder);
     }

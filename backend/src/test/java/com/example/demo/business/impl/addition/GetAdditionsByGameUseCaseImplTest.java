@@ -51,7 +51,7 @@ class GetAdditionsByGameUseCaseImplTest {
                 .build();
         when(additionRepository.findAll())
                 .thenReturn(List.of(additionPersistence1, additionPersistence2));
-        List<Addition> actualResult = getAdditionsByGameUseCase.GetAdditionsByGame(1);
+        List<Addition> actualResult = getAdditionsByGameUseCase.getAdditionsByGame(1);
         List<Addition> expectedResult = new ArrayList<>();
         expectedResult.add(addition1);
         assertEquals(expectedResult, actualResult);

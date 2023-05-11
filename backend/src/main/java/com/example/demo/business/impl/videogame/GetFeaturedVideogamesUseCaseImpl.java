@@ -20,7 +20,7 @@ public class GetFeaturedVideogamesUseCaseImpl implements GetFeaturedVideogamesUs
      * @return
      */
     @Override
-    public List<Videogame> GetFeaturedVideogames() {
+    public List<Videogame> getFeaturedVideogames() {
         List<VideogamePersistence> list = videogameRepository.findAll();
         List<Videogame> videogames = new ArrayList<>();
         Videogame videogame;

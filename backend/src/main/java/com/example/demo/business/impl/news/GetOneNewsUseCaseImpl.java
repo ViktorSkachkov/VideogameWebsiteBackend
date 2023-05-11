@@ -20,7 +20,7 @@ public class GetOneNewsUseCaseImpl implements GetOneNewsUseCase {
      * @return
      */
     @Override
-    public News GetOneNews(int id) {
+    public News getOneNews(int id) {
         Optional<NewsPersistence> np = newsRepository.findById(Long.valueOf(id));
         if(np.isEmpty()) {
 

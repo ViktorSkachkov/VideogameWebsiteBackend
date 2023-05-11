@@ -23,7 +23,7 @@ class GetVideogameUseCaseImplTest {
     private GetVideogameUseCaseImpl getVideogameUseCase;
 
     @Test
-    void GetVideogame() {
+    void getVideogame() {
         Videogame expectedResult = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -40,7 +40,7 @@ class GetVideogameUseCaseImplTest {
                 .build();
         when(videogameRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(videogame));
-        Videogame actualResult = getVideogameUseCase.GetVideogame(1);
+        Videogame actualResult = getVideogameUseCase.getVideogame(1);
         assertEquals(expectedResult, actualResult);
         verify(videogameRepository).findById(1L);
     }

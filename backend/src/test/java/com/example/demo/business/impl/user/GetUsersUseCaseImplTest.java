@@ -28,7 +28,7 @@ class GetUsersUseCaseImplTest {
     private GetUsersUseCaseImpl getUsersUseCase;
 
     @Test
-    void GetUsers() {
+    void getUsers() {
         Set<Role> rolesSet = new HashSet<>();
         Role role = Role.builder()
                 .id(1)
@@ -95,7 +95,7 @@ class GetUsersUseCaseImplTest {
 
         when(userRepository.findAll())
                 .thenReturn(List.of(userPersistence1, userPersistence2));
-        List<User> actualResult = getUsersUseCase.GetUsers();
+        List<User> actualResult = getUsersUseCase.getUsers();
         List<User> expectedResult = new ArrayList<>();
         expectedResult.add(user1);
         expectedResult.add(user2);

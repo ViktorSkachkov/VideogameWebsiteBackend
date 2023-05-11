@@ -54,7 +54,7 @@ class UserControllerTest {
 
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void AddUser() throws Exception{
+    void addUser() throws Exception{
         User user = User.builder()
                 .id(3)
                 .username("username3")
@@ -67,7 +67,7 @@ class UserControllerTest {
                                 .role("EMPLOYEE")
                         .build()))
                 .build();
-        when(addUserUseCase.AddUser(user))
+        when(addUserUseCase.addUser(user))
                 .thenReturn(user);
         mockMvc.perform(post("/users")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -90,11 +90,11 @@ class UserControllerTest {
                                 "role": "EMPLOYEE"
                             }]}
                        """));
-        verify(addUserUseCase).AddUser(user);
+        verify(addUserUseCase).addUser(user);
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void DeleteUser() throws Exception{
+    void deleteUser() throws Exception{
         User user = User.builder()
                 .id(1)
                 .username("username1")
@@ -107,7 +107,7 @@ class UserControllerTest {
                         .role("EMPLOYEE")
                         .build()))
                 .build();
-        when(deleteUserUseCase.DeleteUser(1))
+        when(deleteUserUseCase.deleteUser(1))
                 .thenReturn(user);
         mockMvc.perform(delete("/users/1"))
                 .andDo(print())
@@ -120,11 +120,11 @@ class UserControllerTest {
                                 "role": "EMPLOYEE"
                             }]}
 """));
-        verify(deleteUserUseCase).DeleteUser(1);
+        verify(deleteUserUseCase).deleteUser(1);
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void GetUsers() throws Exception{
+    void getUsers() throws Exception{
         User user1 = User.builder()
                 .id(1)
                 .username("username1")
@@ -149,7 +149,7 @@ class UserControllerTest {
                         .role("EMPLOYEE")
                         .build()))
                 .build();
-        when(getUsersUseCase.GetUsers())
+        when(getUsersUseCase.getUsers())
                 .thenReturn(List.of(user1, user2));
         mockMvc.perform(get("/users"))
                 .andDo(print())
@@ -167,11 +167,11 @@ class UserControllerTest {
                                 "role": "EMPLOYEE"
                             }]}]
                           """));
-        verify(getUsersUseCase).GetUsers();
+        verify(getUsersUseCase).getUsers();
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void GetUser() throws Exception{
+    void getUser() throws Exception{
         User user = User.builder()
                 .id(1)
                 .username("username1")
@@ -184,7 +184,7 @@ class UserControllerTest {
                         .role("EMPLOYEE")
                         .build()))
                 .build();
-        when(getUserUseCase.GetUser(1))
+        when(getUserUseCase.getUser(1))
                 .thenReturn(user);
         mockMvc.perform(get("/users/1"))
                 .andDo(print())
@@ -197,11 +197,11 @@ class UserControllerTest {
                                 "role": "EMPLOYEE"
                             }]}
                           """));
-        verify(getUserUseCase).GetUser(1);
+        verify(getUserUseCase).getUser(1);
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void UpdateUser() throws Exception{
+    void updateUser() throws Exception{
         User user = User.builder()
                 .id(1)
                 .username("username3")
@@ -228,7 +228,7 @@ class UserControllerTest {
                 .build();
         String token = generateAccessToken(userPersistence);
         LoginResponse loginResponse = LoginResponse.builder().accessToken(token).build();
-        when(updateUserUseCase.UpdateUser(user))
+        when(updateUserUseCase.updateUser(user))
                 .thenReturn(loginResponse);
         mockMvc.perform(put("/users")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -250,7 +250,7 @@ class UserControllerTest {
                                 "role": "EMPLOYEE"
                             }]}
                        """))*/;
-        verify(updateUserUseCase).UpdateUser(user);
+        verify(updateUserUseCase).updateUser(user);
     }
     private String generateAccessToken(UserPersistence user) {
         Long userId = user != null ? user.getId() : null;

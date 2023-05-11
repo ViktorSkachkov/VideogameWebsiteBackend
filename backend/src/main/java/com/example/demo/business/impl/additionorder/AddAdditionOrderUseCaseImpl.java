@@ -18,7 +18,7 @@ public class AddAdditionOrderUseCaseImpl implements AddAdditionOrderUseCase {
      * @return
      */
     @Override
-    public AdditionOrder AddAdditionOrder(AdditionOrder additionOrder) {
+    public AdditionOrder addAdditionOrder(AdditionOrder additionOrder) {
         AdditionOrderPersistence additionOrderPersistence = AdditionOrderPersistence.builder()
                 .addition(additionOrder.getAddition())
                 .user(additionOrder.getUser())

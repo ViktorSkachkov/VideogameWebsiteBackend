@@ -25,7 +25,7 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
      * @return
      */
     @Override
-    public User GetUser(int index) {
+    public User getUser(int index) {
 
         Optional<UserPersistence> up = userRepository.findById(Long.valueOf(index));
         if(up.isEmpty()) {

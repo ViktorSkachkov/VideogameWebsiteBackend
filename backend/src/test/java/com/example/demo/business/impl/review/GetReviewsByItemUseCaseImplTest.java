@@ -53,7 +53,7 @@ class GetReviewsByItemUseCaseImplTest {
 
         when(reviewRepository.findAll())
                 .thenReturn(List.of(reviewPersistence1, reviewPersistence2));
-        List<Review> actualResult = getReviewsByItemUseCase.GetReviewsByItem(24, "game");
+        List<Review> actualResult = getReviewsByItemUseCase.getReviewsByItem(24, "game");
         List<Review> expectedResult = new ArrayList<>();
         expectedResult.add(review);
         assertEquals(expectedResult, actualResult);

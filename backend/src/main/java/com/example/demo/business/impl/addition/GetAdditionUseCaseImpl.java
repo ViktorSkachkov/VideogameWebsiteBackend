@@ -20,7 +20,7 @@ public class GetAdditionUseCaseImpl implements GetAdditionUseCase {
      * @return
      */
     @Override
-    public Addition GetAddition(int id) {
+    public Addition getAddition(int id) {
         Optional<AdditionPersistence> ap = additionRepository.findById(Long.valueOf(id));
         if(ap.isEmpty()) {
 

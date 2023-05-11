@@ -26,7 +26,7 @@ public class AddUserUseCaseImpl implements AddUserUseCase {
      * @return
      */
     @Override
-    public User AddUser(User user) {
+    public User addUser(User user) {
         String encodedPassword = passwordEncoder.encode(user.getPwd());
 
         UserPersistence up = UserPersistence.builder()

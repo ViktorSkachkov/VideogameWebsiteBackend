@@ -20,7 +20,7 @@ public class DeleteReviewUseCaseImpl implements DeleteReviewUseCase {
      * @return
      */
     @Override
-    public Review DeleteReview(int index) {
+    public Review deleteReview(int index) {
         Optional<ReviewPersistence> rp = reviewRepository.findById(Long.valueOf(index));
         if(rp.isEmpty()) {
 

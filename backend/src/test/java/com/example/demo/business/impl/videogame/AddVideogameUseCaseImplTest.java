@@ -21,7 +21,7 @@ class AddVideogameUseCaseImplTest {
     private AddVideogameUseCaseImpl addVideogameUseCase;
 
     @Test
-    void AddVideogame() {
+    void addVideogame() {
         Videogame expectedResult = Videogame.builder()
                 .id(5)
                 .name("name5")
@@ -38,7 +38,7 @@ class AddVideogameUseCaseImplTest {
 
         when(videogameRepository.save(videogame))
                 .thenReturn(videogame);
-        Videogame actualResult = addVideogameUseCase.AddVideogame(expectedResult);
+        Videogame actualResult = addVideogameUseCase.addVideogame(expectedResult);
         assertEquals(expectedResult, actualResult);
         verify(videogameRepository).save(videogame);
     }

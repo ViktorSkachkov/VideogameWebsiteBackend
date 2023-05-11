@@ -29,8 +29,8 @@ public class GameOrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PostMapping("")
-    public GameOrder AddGameOrder(@RequestBody @Valid GameOrder gameOrder) {
-        return addGameOrderUseCase.AddGameOrder(gameOrder);
+    public GameOrder addGameOrder(@RequestBody @Valid GameOrder gameOrder) {
+        return addGameOrderUseCase.addGameOrder(gameOrder);
     }
 
     /**
@@ -41,8 +41,8 @@ public class GameOrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/getByUser/{id}")
-    public List<GameOrder> GetGameOrdersByUser(@PathVariable(value = "id") final int id) {
-        return getGameOrdersByUserUseCase.GetGameOrdersByUser(id);
+    public List<GameOrder> getGameOrdersByUser(@PathVariable(value = "id") final int id) {
+        return getGameOrdersByUserUseCase.getGameOrdersByUser(id);
     }
 
     /**
@@ -53,7 +53,7 @@ public class GameOrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/{id}")
-    public GameOrder GetGameOrder(@PathVariable(value = "id") final int id) {
-        return getGameOrderUseCase.GetGameOrder(id);
+    public GameOrder getGameOrder(@PathVariable(value = "id") final int id) {
+        return getGameOrderUseCase.getGameOrder(id);
     }
 }

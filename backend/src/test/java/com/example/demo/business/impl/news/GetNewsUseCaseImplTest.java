@@ -24,7 +24,7 @@ class GetNewsUseCaseImplTest {
     private GetNewsUseCaseImpl getNewsUseCase;
 
     @Test
-    void GetNews() {
+    void getNews() {
         News news1 = News.builder()
                 .id(1)
                 .image("name1")
@@ -56,7 +56,7 @@ class GetNewsUseCaseImplTest {
 
         when(newsRepository.findAll())
                 .thenReturn(List.of(newsPersistence1, newsPersistence2));
-        List<News> actualResult = getNewsUseCase.GetNews();
+        List<News> actualResult = getNewsUseCase.getNews();
         List<News> expectedResult = new ArrayList<>();
         expectedResult.add(news1);
         expectedResult.add(news2);

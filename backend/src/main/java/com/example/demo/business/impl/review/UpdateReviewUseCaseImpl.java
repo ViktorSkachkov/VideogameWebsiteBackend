@@ -20,7 +20,7 @@ public class UpdateReviewUseCaseImpl implements UpdateReviewUseCase {
      * @return
      */
     @Override
-    public Review UpdateReview(Review review) {
+    public Review updateReview(Review review) {
         Optional<ReviewPersistence> rp = reviewRepository.findById(Long.valueOf(review.getId()));
         if(rp.isEmpty()) {
 

@@ -29,7 +29,7 @@ class GetUserUseCaseImplTest {
     private GetUserUseCaseImpl getUserUseCase;
 
     @Test
-    void GetUser() {
+    void getUser() {
         RolePersistence rp = RolePersistence.builder()
                 .id(1L)
                 .role("CUSTOMER")
@@ -56,7 +56,7 @@ class GetUserUseCaseImplTest {
                 .build();
         when(userRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(user));
-        User actualResult = getUserUseCase.GetUser(1);
+        User actualResult = getUserUseCase.getUser(1);
         assertEquals(expectedResult, actualResult);
         verify(userRepository).findById(1L);
     }

@@ -48,7 +48,7 @@ class GameOrderControllerTest {
                 .game(23)
                 .user(41)
                 .build();
-        when(addGameOrderUseCase.AddGameOrder(gameOrder))
+        when(addGameOrderUseCase.addGameOrder(gameOrder))
                 .thenReturn(gameOrder);
         mockMvc.perform(post("/gameOrders")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -62,7 +62,7 @@ class GameOrderControllerTest {
                 .andExpect(content().json("""
                            {"id":1, "units":3, "game":23,"user":41}
                        """));
-        verify(addGameOrderUseCase).AddGameOrder(gameOrder);
+        verify(addGameOrderUseCase).addGameOrder(gameOrder);
     }
 
     @Test
@@ -80,7 +80,7 @@ class GameOrderControllerTest {
                 .game(23)
                 .user(41)
                 .build();
-        when(getGameOrdersByUserUseCase.GetGameOrdersByUser(41))
+        when(getGameOrdersByUserUseCase.getGameOrdersByUser(41))
                 .thenReturn(List.of(gameOrder1, gameOrder2));
         mockMvc.perform(get("/gameOrders/getByUser/41"))
                 .andDo(print())
@@ -90,7 +90,7 @@ class GameOrderControllerTest {
                     [{"id":1, "units":3, "game":23,"user":41},
                     {"id":2, "units":3, "game":23,"user":41}]
 """));
-        verify(getGameOrdersByUserUseCase).GetGameOrdersByUser(41);
+        verify(getGameOrdersByUserUseCase).getGameOrdersByUser(41);
     }
 
     @Test
@@ -102,7 +102,7 @@ class GameOrderControllerTest {
                 .game(23)
                 .user(41)
                 .build();
-        when(getGameOrderUseCase.GetGameOrder(1))
+        when(getGameOrderUseCase.getGameOrder(1))
                 .thenReturn(gameOrder);
         mockMvc.perform(get("/gameOrders/1"))
                 .andDo(print())
@@ -111,6 +111,6 @@ class GameOrderControllerTest {
                 .andExpect(content().json("""
                            {"id":1, "units":3, "game":23,"user":41}
                     """));
-        verify(getGameOrderUseCase).GetGameOrder(1);
+        verify(getGameOrderUseCase).getGameOrder(1);
     }
 }

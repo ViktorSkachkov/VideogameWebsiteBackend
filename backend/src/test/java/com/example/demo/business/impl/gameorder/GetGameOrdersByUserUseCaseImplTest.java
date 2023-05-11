@@ -45,7 +45,7 @@ class GetGameOrdersByUserUseCaseImplTest {
                 .build();
         when(gameOrderRepository.findAll())
                 .thenReturn(List.of(gameOrderPersistence1, gameOrderPersistence2));
-        List<GameOrder> actualResult = getGameOrdersByUserUseCase.GetGameOrdersByUser(41);
+        List<GameOrder> actualResult = getGameOrdersByUserUseCase.getGameOrdersByUser(41);
         List<GameOrder> expectedResult = new ArrayList<>();
         expectedResult.add(additionOrder1);
         assertEquals(expectedResult, actualResult);

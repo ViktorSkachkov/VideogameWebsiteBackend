@@ -29,7 +29,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-//@WebMvcTest(controllers = AdditionController.class)
 class AdditionControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -54,7 +53,7 @@ class AdditionControllerTest {
 
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void AddAddition() throws Exception{
+    void addAddition() throws Exception{
         Addition addition = Addition.builder()
                 .id(3)
                 .gameId(2)
@@ -63,7 +62,7 @@ class AdditionControllerTest {
                 .description("description3")
                 .image("image3")
                 .build();
-        when(addAdditionUseCase.AddAddition(addition))
+        when(addAdditionUseCase.addAddition(addition))
                 .thenReturn(addition);
         mockMvc.perform(post("/additions")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -77,11 +76,11 @@ class AdditionControllerTest {
                 .andExpect(content().json("""
                             {"id":3, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
                        """));
-        verify(addAdditionUseCase).AddAddition(addition);
+        verify(addAdditionUseCase).addAddition(addition);
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void DeleteAddition() throws Exception{
+    void deleteAddition() throws Exception{
         Addition addition1 = Addition.builder()
                 .id(1)
                 .gameId(1)
@@ -90,7 +89,7 @@ class AdditionControllerTest {
                 .description("description1")
                 .image("image1")
                 .build();
-        when(deleteAdditionUseCase.DeleteAddition(1))
+        when(deleteAdditionUseCase.deleteAddition(1))
                 .thenReturn(addition1);
         mockMvc.perform(delete("/additions/1"))
                 .andDo(print())
@@ -99,17 +98,11 @@ class AdditionControllerTest {
                 .andExpect(content().json("""
                                 {"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"}
                           """));
-        verify(deleteAdditionUseCase).DeleteAddition(1);
+        verify(deleteAdditionUseCase).deleteAddition(1);
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void GetAdditions() throws Exception{
-        /*LoginRequest loginRequest = LoginRequest.builder()
-                .password("password")
-                .username("username1")
-                .build();
-        LoginResponse loginResponse = loginUseCase.login(loginRequest);
-        String token = loginResponse.getAccessToken();*/
+    void getAdditions() throws Exception{
         Addition addition1 = Addition.builder()
                 .id(1)
                 .gameId(1)
@@ -126,7 +119,7 @@ class AdditionControllerTest {
                 .description("description2")
                 .image("image2")
                 .build();
-        when(getAdditionsUseCase.GetAdditions())
+        when(getAdditionsUseCase.getAdditions())
                 .thenReturn(List.of(addition1, addition2));
         mockMvc.perform(get("/additions"))
                 .andDo(print())
@@ -137,11 +130,11 @@ class AdditionControllerTest {
                             [{"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"},
                             {"id":2, "gameId":1, "name":"name2","price":10,"description":"description2","image":"image2"}]
                           """));
-        verify(getAdditionsUseCase).GetAdditions();
+        verify(getAdditionsUseCase).getAdditions();
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void GetAddition() throws Exception{
+    void getAddition() throws Exception{
         Addition addition = Addition.builder()
                 .id(1)
                 .gameId(1)
@@ -150,7 +143,7 @@ class AdditionControllerTest {
                 .description("description1")
                 .image("image1")
                 .build();
-        when(getAdditionUseCase.GetAddition(1))
+        when(getAdditionUseCase.getAddition(1))
                 .thenReturn(addition);
         mockMvc.perform(get("/additions/1"))
                 .andDo(print())
@@ -159,11 +152,11 @@ class AdditionControllerTest {
                 .andExpect(content().json("""
                                 {"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"}
                           """));
-        verify(getAdditionUseCase).GetAddition(1);
+        verify(getAdditionUseCase).getAddition(1);
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void UpdateAddition() throws Exception{
+    void updateAddition() throws Exception{
         Addition addition = Addition.builder()
                 .id(1)
                 .gameId(2)
@@ -172,7 +165,7 @@ class AdditionControllerTest {
                 .description("description3")
                 .image("image3")
                 .build();
-        when(updateAdditionUseCase.UpdateAddition(addition))
+        when(updateAdditionUseCase.updateAddition(addition))
                 .thenReturn(addition);
         mockMvc.perform(put("/additions")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -186,6 +179,6 @@ class AdditionControllerTest {
                 .andExpect(content().json("""
                             {"id":1, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
                        """));
-        verify(updateAdditionUseCase).UpdateAddition(addition);
+        verify(updateAdditionUseCase).updateAddition(addition);
     }
 }

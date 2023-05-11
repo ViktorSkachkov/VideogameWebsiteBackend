@@ -30,8 +30,8 @@ public class VideogameController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("")
-    public List<Videogame> GetVideogames() {
-        return getVideogamesUseCase.GetVideogames();
+    public List<Videogame> getVideogames() {
+        return getVideogamesUseCase.getVideogames();
     }
 
     /**
@@ -41,8 +41,8 @@ public class VideogameController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/featured")
-    public List<Videogame> GetFeatured() {
-        return getFeaturedVideogamesUseCase.GetFeaturedVideogames();
+    public List<Videogame> getFeatured() {
+        return getFeaturedVideogamesUseCase.getFeaturedVideogames();
     }
 
     /**
@@ -52,7 +52,7 @@ public class VideogameController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/upcoming")
-    public List<Videogame> GetUpcoming() { return getUpcomingVideogamesUseCase.GetUpcomingVideogames(); }
+    public List<Videogame> getUpcoming() { return getUpcomingVideogamesUseCase.getUpcomingVideogames(); }
 
     /**
      *
@@ -62,8 +62,8 @@ public class VideogameController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/{id}")
-    public Videogame GetVideogame(@PathVariable(value = "id") final int id) {
-        return getVideogameUseCase.GetVideogame(id);
+    public Videogame getVideogame(@PathVariable(value = "id") final int id) {
+        return getVideogameUseCase.getVideogame(id);
     }
 
     /**
@@ -74,8 +74,8 @@ public class VideogameController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @PostMapping("")
-    public Videogame AddVideogame(@RequestBody @Valid Videogame videogame) {
-        return addVideogameUseCase.AddVideogame(videogame);
+    public Videogame addVideogame(@RequestBody @Valid Videogame videogame) {
+        return addVideogameUseCase.addVideogame(videogame);
     }
 
     /**
@@ -86,8 +86,8 @@ public class VideogameController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @DeleteMapping("/{id}")
-    public Videogame DeleteVideogame(@PathVariable(value = "id") final int id) {
-        return deleteVideogameUseCase.DeleteVideogame(id);
+    public Videogame deleteVideogame(@PathVariable(value = "id") final int id) {
+        return deleteVideogameUseCase.deleteVideogame(id);
     }
 
     /**
@@ -98,7 +98,7 @@ public class VideogameController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @PutMapping("")
-    public Videogame UpdateVideogame(@RequestBody @Valid Videogame videogame) {
-        return updateVideogameUseCase.UpdateVideogame(videogame);
+    public Videogame updateVideogame(@RequestBody @Valid Videogame videogame) {
+        return updateVideogameUseCase.updateVideogame(videogame);
     }
 }

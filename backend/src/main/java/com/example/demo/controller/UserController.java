@@ -29,8 +29,8 @@ public class UserController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("")
-    public List<User> GetUsers() {
-        return getUsersUseCase.GetUsers();
+    public List<User> getUsers() {
+        return getUsersUseCase.getUsers();
     }
 
     /**
@@ -41,8 +41,8 @@ public class UserController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/{id}")
-    public User GetUser(@PathVariable(value = "id") final int id) {
-        return getUserUseCase.GetUser(id);
+    public User getUser(@PathVariable(value = "id") final int id) {
+        return getUserUseCase.getUser(id);
     }
 
     /**
@@ -51,13 +51,9 @@ public class UserController {
      * @return
      */
     @PostMapping("")
-    public User AddUser(@RequestBody @Valid User user) {
-        return addUserUseCase.AddUser(user);
+    public User addUser(@RequestBody @Valid User user) {
+        return addUserUseCase.addUser(user);
     }
-    /*@PostMapping("")
-    public ResponseEntity<LoginResponse> AddUser(@RequestBody @Valid User user) {
-        return ResponseEntity.ok(addUserUseCase.AddUser(user));
-    }*/
 
     /**
      *
@@ -67,8 +63,8 @@ public class UserController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @DeleteMapping("/{id}")
-    public User DeleteUser(@PathVariable(value = "id") final int id) {
-        return deleteUserUseCase.DeleteUser(id);
+    public User deleteUser(@PathVariable(value = "id") final int id) {
+        return deleteUserUseCase.deleteUser(id);
     }
 
     /**
@@ -79,7 +75,7 @@ public class UserController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PutMapping("")
-    public LoginResponse UpdateUser(@RequestBody @Valid User user) {
-        return updateUserUseCase.UpdateUser(user);
+    public LoginResponse updateUser(@RequestBody @Valid User user) {
+        return updateUserUseCase.updateUser(user);
     }
 }

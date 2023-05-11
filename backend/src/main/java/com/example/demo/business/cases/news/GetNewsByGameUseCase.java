@@ -5,5 +5,5 @@ import com.example.demo.domain.News;
 import java.util.List;
 
 public interface GetNewsByGameUseCase {
-    List<News> GetNewsByGame(int index);
+    List<News> getNewsByGame(int index);
 }

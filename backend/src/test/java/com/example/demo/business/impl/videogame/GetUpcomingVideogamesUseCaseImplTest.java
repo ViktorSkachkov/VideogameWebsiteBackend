@@ -15,7 +15,7 @@ class GetUpcomingVideogamesUseCaseImplTest {
     private GetUpcomingVideogamesUseCaseImpl getUpcomingVideogamesUseCase;
 
     @Test
-    void GetUpcomingVideogames() {
+    void getUpcomingVideogames() {
 
     }
 }

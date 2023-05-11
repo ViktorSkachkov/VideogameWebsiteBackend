@@ -5,5 +5,5 @@ import com.example.demo.domain.Videogame;
 import java.util.List;
 
 public interface GetUpcomingVideogamesUseCase {
-    List<Videogame> GetUpcomingVideogames();
+    List<Videogame> getUpcomingVideogames();
 }

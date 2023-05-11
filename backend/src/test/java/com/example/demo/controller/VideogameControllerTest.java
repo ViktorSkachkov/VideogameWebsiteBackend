@@ -45,7 +45,7 @@ class VideogameControllerTest {
 
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void AddVideogame() throws Exception{
+    void addVideogame() throws Exception{
         Videogame videogame = Videogame.builder()
                 .id(5)
                 .name("name5")
@@ -54,7 +54,7 @@ class VideogameControllerTest {
                 .featured(false)
                 .image("image5")
                 .build();
-        when(addVideogameUseCase.AddVideogame(videogame))
+        when(addVideogameUseCase.addVideogame(videogame))
                 .thenReturn(videogame);
         mockMvc.perform(post("/videogames")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -68,11 +68,11 @@ class VideogameControllerTest {
                 .andExpect(content().json("""
                             {"id":5, "name":"name5", "price":15,"description":"description5","featured":false,"image":"image5"}
                        """));
-        verify(addVideogameUseCase).AddVideogame(videogame);
+        verify(addVideogameUseCase).addVideogame(videogame);
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void DeleteVideogame() throws Exception{
+    void deleteVideogame() throws Exception{
         Videogame videogame = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -80,7 +80,7 @@ class VideogameControllerTest {
                 .description("description1")
                 .image("image1")
                 .build();
-        when(deleteVideogameUseCase.DeleteVideogame(1))
+        when(deleteVideogameUseCase.deleteVideogame(1))
                 .thenReturn(videogame);
         mockMvc.perform(delete("/videogames/1"))
                 .andDo(print())
@@ -89,11 +89,11 @@ class VideogameControllerTest {
                 .andExpect(content().json("""
                     {"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"}
 """));
-        verify(deleteVideogameUseCase).DeleteVideogame(1);
+        verify(deleteVideogameUseCase).deleteVideogame(1);
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void GetVideogames() throws Exception{
+    void getVideogames() throws Exception{
         Videogame videogame1 = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -108,7 +108,7 @@ class VideogameControllerTest {
                 .description("description2")
                 .image("image2")
                 .build();
-        when(getVideogamesUseCase.GetVideogames())
+        when(getVideogamesUseCase.getVideogames())
                 .thenReturn(List.of(videogame1, videogame2));
         mockMvc.perform(get("/videogames"))
                 .andDo(print())
@@ -118,11 +118,11 @@ class VideogameControllerTest {
                     [{"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"},
                     {"id":2, "name":"name2", "price":10,"description":"description2","image":"image2"}]
 """));
-        verify(getVideogamesUseCase).GetVideogames();
+        verify(getVideogamesUseCase).getVideogames();
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void GetVideogame() throws Exception{
+    void getVideogame() throws Exception{
         Videogame videogame = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -130,7 +130,7 @@ class VideogameControllerTest {
                 .description("description1")
                 .image("image1")
                 .build();
-        when(getVideogameUseCase.GetVideogame(1))
+        when(getVideogameUseCase.getVideogame(1))
                 .thenReturn(videogame);
         mockMvc.perform(get("/videogames/1"))
                 .andDo(print())
@@ -139,16 +139,16 @@ class VideogameControllerTest {
                 .andExpect(content().json("""
                         {"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"}
                     """));
-        verify(getVideogameUseCase).GetVideogame(1);
+        verify(getVideogameUseCase).getVideogame(1);
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void GetUpcomingVideogames() {
+    void getUpcomingVideogames() {
 
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void GetFeaturedVideogames() throws Exception {
+    void getFeaturedVideogames() throws Exception {
         Videogame videogame1 = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -165,7 +165,7 @@ class VideogameControllerTest {
                 .featured(true)
                 .image("image2")
                 .build();
-        when(getFeaturedVideogamesUseCase.GetFeaturedVideogames())
+        when(getFeaturedVideogamesUseCase.getFeaturedVideogames())
                 .thenReturn(List.of(videogame1, videogame2));
         mockMvc.perform(get("/videogames/featured"))
                 .andDo(print())
@@ -175,11 +175,11 @@ class VideogameControllerTest {
                     [{"id":1, "name":"name1", "price":10,"description":"description1","featured":true, "image":"image1"},
                     {"id":2, "name":"name2", "price":10,"description":"description2","featured":true, "image":"image2"}]
 """));
-        verify(getFeaturedVideogamesUseCase).GetFeaturedVideogames();
+        verify(getFeaturedVideogamesUseCase).getFeaturedVideogames();
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void UpdateVideogame() throws Exception{
+    void updateVideogame() throws Exception{
         Videogame videogame = Videogame.builder()
                 .id(1)
                 .name("name3")
@@ -187,7 +187,7 @@ class VideogameControllerTest {
                 .description("description3")
                 .image("image3")
                 .build();
-        when(updateVideogameUseCase.UpdateVideogame(videogame))
+        when(updateVideogameUseCase.updateVideogame(videogame))
                 .thenReturn(videogame);
         mockMvc.perform(put("/videogames")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -201,6 +201,6 @@ class VideogameControllerTest {
                 .andExpect(content().json("""
                             {"id":1, "name":"name3", "price":15,"description":"description3","image":"image3"}
                        """));
-        verify(updateVideogameUseCase).UpdateVideogame(videogame);
+        verify(updateVideogameUseCase).updateVideogame(videogame);
     }
 }

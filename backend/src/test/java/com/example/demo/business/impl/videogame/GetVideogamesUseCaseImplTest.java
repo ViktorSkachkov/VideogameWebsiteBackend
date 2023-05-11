@@ -24,7 +24,7 @@ class GetVideogamesUseCaseImplTest {
     private GetVideogamesUseCaseImpl getVideogamesUseCase;
 
     @Test
-    void GetVideogames() {
+    void getVideogames() {
        Videogame videogame1 = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -59,7 +59,7 @@ class GetVideogamesUseCaseImplTest {
                 .build();
         when(videogameRepository.findAll())
                 .thenReturn(List.of(videogamePersistence1, videogamePersistence2));
-        List<Videogame> actualResult = getVideogamesUseCase.GetVideogames();
+        List<Videogame> actualResult = getVideogamesUseCase.getVideogames();
         List<Videogame> expectedResult = new ArrayList<>();
         expectedResult.add(videogame1);
         expectedResult.add(videogame2);

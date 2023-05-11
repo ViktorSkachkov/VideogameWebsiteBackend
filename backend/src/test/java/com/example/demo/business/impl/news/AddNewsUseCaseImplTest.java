@@ -21,7 +21,7 @@ class AddNewsUseCaseImplTest {
     private AddNewsUseCaseImpl addNewsUseCase;
 
     @Test
-    void AddNews() {
+    void addNews() {
         News expectedResult = News.builder()
                 .id(3)
                 .image("name3")
@@ -37,7 +37,7 @@ class AddNewsUseCaseImplTest {
                 .build();
         when(newsRepository.save(news))
                 .thenReturn(news);
-        News actualResult = addNewsUseCase.AddNews(expectedResult);
+        News actualResult = addNewsUseCase.addNews(expectedResult);
         assertEquals(expectedResult, actualResult);
         verify(newsRepository).save(news);
     }

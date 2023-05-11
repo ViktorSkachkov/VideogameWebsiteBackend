@@ -35,7 +35,7 @@ class AddGameOrderUseCaseImplTest {
                 .build();
         when(gameOrderRepository.save(gameOrder))
                 .thenReturn(gameOrder);
-        GameOrder actualResult = addGameOrderUseCase.AddGameOrder(expectedResult);
+        GameOrder actualResult = addGameOrderUseCase.addGameOrder(expectedResult);
         assertEquals(expectedResult, actualResult);
         verify(gameOrderRepository).save(gameOrder);
     }

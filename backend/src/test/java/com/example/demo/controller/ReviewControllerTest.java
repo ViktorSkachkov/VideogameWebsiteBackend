@@ -53,7 +53,7 @@ class ReviewControllerTest {
                 .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
                 .type_of_reviewed_item("game")
                 .build();
-        when(deleteReviewUseCase.DeleteReview(1))
+        when(deleteReviewUseCase.deleteReview(1))
                 .thenReturn(review);
         mockMvc.perform(delete("/reviews/1"))
                 .andDo(print())
@@ -62,7 +62,7 @@ class ReviewControllerTest {
                 .andExpect(content().json("""
                                              {"id":1, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"}
 """));
-        verify(deleteReviewUseCase).DeleteReview(1);
+        verify(deleteReviewUseCase).deleteReview(1);
     }
 
     @Test
@@ -84,7 +84,7 @@ class ReviewControllerTest {
                 .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
                 .type_of_reviewed_item("game")
                 .build();
-        when(getReviewsByItemUseCase.GetReviewsByItem(24, "game"))
+        when(getReviewsByItemUseCase.getReviewsByItem(24, "game"))
                 .thenReturn(List.of(review1, review2));
         mockMvc.perform(get("/reviews/24/game"))
                 .andDo(print())
@@ -94,7 +94,7 @@ class ReviewControllerTest {
                             [                        {"id":1, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"},
                                                     {"id":2, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"}]
                           """));
-        verify(getReviewsByItemUseCase).GetReviewsByItem(24, "game");
+        verify(getReviewsByItemUseCase).getReviewsByItem(24, "game");
     }
 
     @Test
@@ -108,7 +108,7 @@ class ReviewControllerTest {
                 .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
                 .type_of_reviewed_item("game")
                 .build();
-        when(updateReviewUseCase.UpdateReview(review))
+        when(updateReviewUseCase.updateReview(review))
                 .thenReturn(review);
         mockMvc.perform(put("/reviews")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -122,6 +122,6 @@ class ReviewControllerTest {
                 .andExpect(content().json("""
                         {"id":1, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"}
                        """));
-        verify(updateReviewUseCase).UpdateReview(review);
+        verify(updateReviewUseCase).updateReview(review);
     }
 }

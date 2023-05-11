@@ -21,7 +21,7 @@ public class GetGameOrdersByUserUseCaseImpl implements GetGameOrdersByUserUseCas
      * @return
      */
     @Override
-    public List<GameOrder> GetGameOrdersByUser(int userIndex) {
+    public List<GameOrder> getGameOrdersByUser(int userIndex) {
         List<GameOrderPersistence> list = gameOrderRepository.findAll();
         List<GameOrder> gameOrders = new ArrayList<>();
         for(GameOrderPersistence gop : list) {

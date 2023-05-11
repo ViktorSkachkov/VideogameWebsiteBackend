@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class NewsTest {
     @Test
-    void CompareEquals() {
+    void compareEquals() {
         News news1 = News.builder()
                 .id(1)
                 .image("name1")
@@ -24,7 +24,7 @@ class NewsTest {
         assertEquals(news1, news2);
     }
     @Test
-    void CompareNotEquals() {
+    void compareNotEquals() {
         News news1 = News.builder()
                 .id(1)
                 .image("name1")

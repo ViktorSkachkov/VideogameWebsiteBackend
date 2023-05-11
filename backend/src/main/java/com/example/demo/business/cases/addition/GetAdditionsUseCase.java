@@ -5,7 +5,7 @@ import com.example.demo.domain.Addition;
 import java.util.List;
 
 public interface GetAdditionsUseCase {
-    List<Addition> GetAdditions();
+    List<Addition> getAdditions();
 }
 
 

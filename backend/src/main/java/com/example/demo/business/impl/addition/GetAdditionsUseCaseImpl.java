@@ -20,7 +20,7 @@ public class GetAdditionsUseCaseImpl implements GetAdditionsUseCase {
      * @return
      */
     @Override
-    public List<Addition> GetAdditions() {
+    public List<Addition> getAdditions() {
         List<AdditionPersistence> list = additionRepository.findAll();
         List<Addition> additions = new ArrayList<>();
         for(AdditionPersistence ap : list) {

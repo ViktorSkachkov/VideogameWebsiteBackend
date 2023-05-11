@@ -24,7 +24,7 @@ public class GetUsersUseCaseImpl implements GetUsersUseCase {
      * @return
      */
     @Override
-    public List<User> GetUsers() {
+    public List<User> getUsers() {
         List<UserPersistence> list = userRepository.findAll();
         List<User> users = new ArrayList<>();
         for(UserPersistence up : list) {

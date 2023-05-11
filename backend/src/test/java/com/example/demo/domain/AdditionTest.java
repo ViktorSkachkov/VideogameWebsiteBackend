@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class AdditionTest {
     @Test
-    void CompareEquals() {
+    void compareEquals() {
         Addition addition1 = Addition.builder()
                 .id(1)
                 .gameId(1)
@@ -27,7 +27,7 @@ class AdditionTest {
         assertEquals(addition1, addition2);
     }
     @Test
-    void CompareNotEquals() {
+    void compareNotEquals() {
         Addition addition1 = Addition.builder()
                 .id(1)
                 .gameId(1)

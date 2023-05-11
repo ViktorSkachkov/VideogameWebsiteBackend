@@ -20,7 +20,7 @@ public class UpdateNewsUseCaseImpl implements UpdateNewsUseCase {
      * @return
      */
     @Override
-    public News UpdateNews(News news) {
+    public News updateNews(News news) {
         Optional<NewsPersistence> np = newsRepository.findById(Long.valueOf(news.getId()));
         if(np.isEmpty()) {
 

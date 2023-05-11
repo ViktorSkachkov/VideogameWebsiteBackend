@@ -32,9 +32,9 @@ public class ReviewController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PostMapping("")
-    public Review AddReview(@RequestBody @Valid Review review) {
+    public Review addReview(@RequestBody @Valid Review review) {
         review.setTime(LocalDateTime.now());
-        return addReviewUseCase.AddReview(review);
+        return addReviewUseCase.addReview(review);
     }
 
     /**
@@ -45,8 +45,8 @@ public class ReviewController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @DeleteMapping("{id}")
-    public Review DeleteReview(@PathVariable(value = "id") final int id) {
-        return deleteReviewUseCase.DeleteReview(id);
+    public Review deleteReview(@PathVariable(value = "id") final int id) {
+        return deleteReviewUseCase.deleteReview(id);
     }
 
     /**
@@ -58,8 +58,8 @@ public class ReviewController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/{itemId}/{type}")
-    public List<Review> GetReviewsByItem(@PathVariable(value = "itemId") final int itemId, @PathVariable(value = "type") final String type) {
-        return getReviewsByItemUseCase.GetReviewsByItem(itemId, type);
+    public List<Review> getReviewsByItem(@PathVariable(value = "itemId") final int itemId, @PathVariable(value = "type") final String type) {
+        return getReviewsByItemUseCase.getReviewsByItem(itemId, type);
     }
 
     /**
@@ -70,8 +70,8 @@ public class ReviewController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PutMapping("")
-    public Review UpdateReview(@RequestBody @Valid Review review) {
-        return updateReviewUseCase.UpdateReview(review);
+    public Review updateReview(@RequestBody @Valid Review review) {
+        return updateReviewUseCase.updateReview(review);
     }
 
 

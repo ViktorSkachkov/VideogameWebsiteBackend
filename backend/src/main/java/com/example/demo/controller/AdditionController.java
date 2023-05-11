@@ -29,8 +29,8 @@ public class AdditionController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("")
-    public List<Addition> GetAdditions() {
-        return getAdditionsUseCase.GetAdditions();
+    public List<Addition> getAdditions() {
+        return getAdditionsUseCase.getAdditions();
     }
 
     /**
@@ -41,8 +41,8 @@ public class AdditionController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/{id}")
-    public Addition GetAddition(@PathVariable(value = "id") final int id) {
-        return getAdditionUseCase.GetAddition(id);
+    public Addition getAddition(@PathVariable(value = "id") final int id) {
+        return getAdditionUseCase.getAddition(id);
     }
 
     /**
@@ -53,8 +53,8 @@ public class AdditionController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/getByGame/{id}")
-    public List<Addition> GetAdditionsByGame(@PathVariable(value = "id") final int id) {
-        return getAdditionsByGameUseCase.GetAdditionsByGame(id);
+    public List<Addition> getAdditionsByGame(@PathVariable(value = "id") final int id) {
+        return getAdditionsByGameUseCase.getAdditionsByGame(id);
     }
 
     /**
@@ -65,8 +65,8 @@ public class AdditionController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @PostMapping("")
-    public Addition AddAddition(@RequestBody @Valid Addition addition) {
-        return addAdditionUseCase.AddAddition(addition);
+    public Addition addAddition(@RequestBody @Valid Addition addition) {
+        return addAdditionUseCase.addAddition(addition);
     }
 
     /**
@@ -77,8 +77,8 @@ public class AdditionController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @PutMapping("")
-    public Addition UpdateAddition(@RequestBody @Valid Addition addition) {
-        return updateAdditionUseCase.UpdateAddition(addition);
+    public Addition updateAddition(@RequestBody @Valid Addition addition) {
+        return updateAdditionUseCase.updateAddition(addition);
     }
 
     /**
@@ -89,7 +89,7 @@ public class AdditionController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @DeleteMapping("/{id}")
-    public Addition DeleteAddition(@PathVariable(value = "id") final int id) {
-        return deleteAdditionUseCase.DeleteAddition(id);
+    public Addition deleteAddition(@PathVariable(value = "id") final int id) {
+        return deleteAdditionUseCase.deleteAddition(id);
     }
 }

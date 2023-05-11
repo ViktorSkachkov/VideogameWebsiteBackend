@@ -21,7 +21,7 @@ public class GetAdditionsByGameUseCaseImpl implements GetAdditionsByGameUseCase 
      * @return
      */
     @Override
-    public List<Addition> GetAdditionsByGame(int index) {
+    public List<Addition> getAdditionsByGame(int index) {
         List<AdditionPersistence> list = additionRepository.findAll();
         List<Addition> additionsList = new ArrayList<>();
         for(AdditionPersistence ap : list) {

@@ -45,7 +45,7 @@ class AddReviewUseCaseImplTest {
                 .build();
         when(reviewRepository.save(review))
                 .thenReturn(review);
-        Review actualResult = addReviewUseCase.AddReview(expectedResult);
+        Review actualResult = addReviewUseCase.addReview(expectedResult);
         assertEquals(expectedResult, actualResult);
         verify(reviewRepository).save(review);
     }

@@ -29,8 +29,8 @@ public class AdditionOrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PostMapping("")
-    public AdditionOrder AddAdditionOrder(@RequestBody @Valid AdditionOrder additionOrder) {
-        return addAdditionOrderUseCase.AddAdditionOrder(additionOrder);
+    public AdditionOrder addAdditionOrder(@RequestBody @Valid AdditionOrder additionOrder) {
+        return addAdditionOrderUseCase.addAdditionOrder(additionOrder);
     }
 
     /**
@@ -41,8 +41,8 @@ public class AdditionOrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/getByUser/{id}")
-    public List<AdditionOrder> GetAdditionOrdersByUser(@PathVariable(value = "id") final int id) {
-        return getAdditionOrdersByUserUseCase.GetAdditionOrdersByUser(id);
+    public List<AdditionOrder> getAdditionOrdersByUser(@PathVariable(value = "id") final int id) {
+        return getAdditionOrdersByUserUseCase.getAdditionOrdersByUser(id);
     }
 
     /**
@@ -53,7 +53,7 @@ public class AdditionOrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/{id}")
-    public AdditionOrder GetAdditionOrder(@PathVariable(value = "id") final int id) {
-        return getAdditionOrderUseCase.GetAdditionOrder(id);
+    public AdditionOrder geGetAdditionOrder(@PathVariable(value = "id") final int id) {
+        return getAdditionOrderUseCase.getAdditionOrder(id);
     }
 }

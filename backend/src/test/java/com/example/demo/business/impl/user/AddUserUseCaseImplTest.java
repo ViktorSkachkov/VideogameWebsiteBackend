@@ -30,7 +30,7 @@ class AddUserUseCaseImplTest {
     private AddUserUseCaseImpl addUserUseCase;
 
     @Test
-    void AddUser() {
+    void addUser() {
         String encodedPassword = passwordEncoder.encode("password");
 
         User expectedResult = User.builder()

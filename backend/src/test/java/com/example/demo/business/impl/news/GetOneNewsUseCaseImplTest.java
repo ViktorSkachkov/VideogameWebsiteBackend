@@ -23,7 +23,7 @@ class GetOneNewsUseCaseImplTest {
     private GetOneNewsUseCaseImpl getOneNewsUseCase;
 
     @Test
-    void GetOneNews() {
+    void getOneNews() {
         News expectedResult = News.builder()
                 .id(1)
                 .image("name3")
@@ -40,7 +40,7 @@ class GetOneNewsUseCaseImplTest {
                 .build();
         when(newsRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(news));
-        News actualResult = getOneNewsUseCase.GetOneNews(1);
+        News actualResult = getOneNewsUseCase.getOneNews(1);
         assertEquals(expectedResult, actualResult);
         verify(newsRepository).findById(1L);
     }

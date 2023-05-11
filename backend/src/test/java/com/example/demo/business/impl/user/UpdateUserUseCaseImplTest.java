@@ -36,7 +36,7 @@ class UpdateUserUseCaseImplTest {
     private UpdateUserUseCaseImpl updateUserUseCase;
 
     @Test
-    void UpdateUser() {
+    void updateUser() {
         RolePersistence rp = RolePersistence.builder()
                 .id(1L)
                 .role("CUSTOMER")
@@ -68,7 +68,7 @@ class UpdateUserUseCaseImplTest {
 
         when(userRepository.save(user))
                 .thenReturn(user);
-        LoginResponse actualResult = updateUserUseCase.UpdateUser(expectedResult);
+        LoginResponse actualResult = updateUserUseCase.updateUser(expectedResult);
 
         //assertEquals(expectedResult, actualResult);
         verify(userRepository).save(user);

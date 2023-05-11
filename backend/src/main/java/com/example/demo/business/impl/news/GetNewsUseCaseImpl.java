@@ -20,7 +20,7 @@ public class GetNewsUseCaseImpl implements GetNewsUseCase {
      * @return
      */
     @Override
-    public List<News> GetNews() {
+    public List<News> getNews() {
         List<NewsPersistence> list = newsRepository.findAll();
         List<News> newsList = new ArrayList<>();
         for(NewsPersistence np : list) {

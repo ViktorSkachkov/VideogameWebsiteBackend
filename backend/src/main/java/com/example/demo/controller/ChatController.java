@@ -44,23 +44,3 @@ public class ChatController {
     }
 }
 
-/*@RestController
-@CrossOrigin(origins="http://localhost:3000/", allowedHeaders = "*")
-@RequestMapping("/chat")
-@RequiredArgsConstructor
-public class ChatController {
-    @Autowired
-    private SimpMessagingTemplate simpMessagingTemplate;
-
-    @MessageMapping("/message")
-    @SendTo("/chatroom/public")
-    private Message receivePublicMessage(@RequestBody @Valid Message message) {
-        return message;
-    }
-
-    @MessageMapping("/private-message")
-    private Message receivePrivateMessage(@RequestBody @Valid Message message) {
-        simpMessagingTemplate.convertAndSendToUser(message.getReceiverName(), "/private", message);
-        return message;
-    }
-}*/

@@ -30,7 +30,7 @@ class DeleteUserUseCaseImplTest {
     private DeleteUserUseCaseImpl deleteUserUseCase;
 
     @Test
-    void DeleteUser() {
+    void deleteUser() {
         Set<Role> rolesSet = new HashSet<>();
         Role role = Role.builder()
                 .id(1)
@@ -65,7 +65,7 @@ class DeleteUserUseCaseImplTest {
 
         when(userRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(user));
-        User actualResult = deleteUserUseCase.DeleteUser(1);
+        User actualResult = deleteUserUseCase.deleteUser(1);
         assertEquals(expectedResult, actualResult);
         verify(userRepository).deleteById(Long.valueOf(1));
     }

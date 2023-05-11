@@ -18,7 +18,7 @@ public class AddGameOrderUseCaseImpl implements AddGameOrderUseCase {
      * @return
      */
     @Override
-    public GameOrder AddGameOrder(GameOrder gameOrder) {
+    public GameOrder addGameOrder(GameOrder gameOrder) {
         GameOrderPersistence gameOrderPersistence = GameOrderPersistence.builder()
                 .game(gameOrder.getGame())
                 .user(gameOrder.getUser())

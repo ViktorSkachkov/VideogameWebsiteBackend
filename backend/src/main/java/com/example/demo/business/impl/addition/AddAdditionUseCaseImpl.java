@@ -18,7 +18,7 @@ public class AddAdditionUseCaseImpl implements AddAdditionUseCase {
      * @return
      */
     @Override
-    public Addition AddAddition(Addition addition) {
+    public Addition addAddition(Addition addition) {
         if(addition.getDescription().length() <= 500) {
             AdditionPersistence ap = AdditionPersistence.builder()
                     .description(addition.getDescription())

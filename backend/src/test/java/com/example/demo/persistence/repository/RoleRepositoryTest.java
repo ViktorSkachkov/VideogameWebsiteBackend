@@ -40,7 +40,7 @@ class RoleRepositoryTest {
     }
 
     @Test
-    void FindById() {
+    void findById() {
         RolePersistence expected2 = createTestRole(1L,1L, "EMPLOYEE");
         RolePersistence expected = createTestRole(6L,20L, "EMPLOYEE");
         List<RolePersistence> expectedList = new ArrayList<>();

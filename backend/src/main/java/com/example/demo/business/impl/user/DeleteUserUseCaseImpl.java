@@ -26,7 +26,7 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
      * @return
      */
     @Override
-    public User DeleteUser(int id) {
+    public User deleteUser(int id) {
         Optional<UserPersistence> up = userRepository.findById(Long.valueOf(id));
         if(up.isEmpty()) {
 

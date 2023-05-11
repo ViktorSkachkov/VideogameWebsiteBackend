@@ -5,5 +5,5 @@ import com.example.demo.domain.AdditionOrder;
 import java.util.List;
 
 public interface GetAdditionOrdersByUserUseCase {
-    List<AdditionOrder> GetAdditionOrdersByUser(int gameIndex);
+    List<AdditionOrder> getAdditionOrdersByUser(int gameIndex);
 }

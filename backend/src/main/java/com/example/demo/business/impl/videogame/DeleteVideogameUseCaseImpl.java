@@ -20,7 +20,7 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
      * @return
      */
     @Override
-    public Videogame DeleteVideogame(int id) {
+    public Videogame deleteVideogame(int id) {
         Optional<VideogamePersistence> vp = videogameRepository.findById(Long.valueOf(id));
         if(vp.isEmpty()) {
 

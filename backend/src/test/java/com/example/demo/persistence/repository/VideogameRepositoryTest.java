@@ -43,7 +43,7 @@ class VideogameRepositoryTest {
     }
 
     @Test
-    void FindById() {
+    void findById() {
         VideogamePersistence expected2 = createTestVideogame(1L, "Name5", 15, "Lorem" +
                 " Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been " +
                 "the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
@@ -57,7 +57,7 @@ class VideogameRepositoryTest {
     }
 
     @Test
-    void FindByName() {
+    void findByName() {
         VideogamePersistence expected2 = createTestVideogame(1L, "Name5", 15, "Lorem" +
                 " Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been " +
                 "the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +

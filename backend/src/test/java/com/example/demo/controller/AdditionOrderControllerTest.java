@@ -48,7 +48,7 @@ class AdditionOrderControllerTest {
                 .addition(43)
                 .user(41)
                 .build();
-        when(addAdditionOrderUseCase.AddAdditionOrder(additionOrder))
+        when(addAdditionOrderUseCase.addAdditionOrder(additionOrder))
                 .thenReturn(additionOrder);
         mockMvc.perform(post("/additionOrders")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -62,7 +62,7 @@ class AdditionOrderControllerTest {
                 .andExpect(content().json("""
                            {"id":1, "units":3, "addition":43,"user":41}
                        """));
-        verify(addAdditionOrderUseCase).AddAdditionOrder(additionOrder);
+        verify(addAdditionOrderUseCase).addAdditionOrder(additionOrder);
     }
 
     @Test
@@ -80,7 +80,7 @@ class AdditionOrderControllerTest {
                 .addition(43)
                 .user(41)
                 .build();
-        when(getAdditionOrdersByUserUseCase.GetAdditionOrdersByUser(41))
+        when(getAdditionOrdersByUserUseCase.getAdditionOrdersByUser(41))
                 .thenReturn(List.of(additionOrder1, additionOrder2));
         mockMvc.perform(get("/additionOrders/getByUser/41"))
                 .andDo(print())
@@ -90,7 +90,7 @@ class AdditionOrderControllerTest {
                     [{"id":1, "units":3, "addition":43,"user":41},
                     {"id":2, "units":3, "addition":43,"user":41}]
 """));
-        verify(getAdditionOrdersByUserUseCase).GetAdditionOrdersByUser(41);
+        verify(getAdditionOrdersByUserUseCase).getAdditionOrdersByUser(41);
     }
 
     @Test
@@ -102,7 +102,7 @@ class AdditionOrderControllerTest {
                 .addition(43)
                 .user(41)
                 .build();
-        when(getAdditionOrderUseCase.GetAdditionOrder(1))
+        when(getAdditionOrderUseCase.getAdditionOrder(1))
                 .thenReturn(additionOrder);
         mockMvc.perform(get("/additionOrders/1"))
                 .andDo(print())
@@ -111,6 +111,6 @@ class AdditionOrderControllerTest {
                 .andExpect(content().json("""
                            {"id":1, "units":3, "addition":43,"user":41}
                     """));
-        verify(getAdditionOrderUseCase).GetAdditionOrder(1);
+        verify(getAdditionOrderUseCase).getAdditionOrder(1);
     }
 }

@@ -20,7 +20,7 @@ public class GetAdditionOrderUseCaseImpl implements GetAdditionOrderUseCase {
      * @return
      */
     @Override
-    public AdditionOrder GetAdditionOrder(int index) {
+    public AdditionOrder getAdditionOrder(int index) {
         Optional<AdditionOrderPersistence> aop = additionOrderRepository.findById(Long.valueOf(index));
         if(aop.isEmpty()) {
 

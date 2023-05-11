@@ -23,7 +23,7 @@ class UpdateVideogameUseCaseImplTest {
     private UpdateVideogameUseCaseImpl updateVideogameUseCase;
 
     @Test
-    void UpdateVideogame() {
+    void updateVideogame() {
         Videogame expectedResult = Videogame.builder()
                 .id(1)
                 .name("name3")
@@ -45,7 +45,7 @@ class UpdateVideogameUseCaseImplTest {
 
         when(videogameRepository.save(videogame))
                 .thenReturn(videogame);
-        Videogame actualResult = updateVideogameUseCase.UpdateVideogame(expectedResult);
+        Videogame actualResult = updateVideogameUseCase.updateVideogame(expectedResult);
 
         assertEquals(expectedResult, actualResult);
         verify(videogameRepository).save(videogame);

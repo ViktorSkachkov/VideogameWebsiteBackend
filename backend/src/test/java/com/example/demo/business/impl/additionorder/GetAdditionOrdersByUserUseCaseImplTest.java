@@ -45,7 +45,7 @@ class GetAdditionOrdersByUserUseCaseImplTest {
                 .build();
         when(additionOrderRepository.findAll())
                 .thenReturn(List.of(additionOrderPersistence1, additionOrderPersistence2));
-        List<AdditionOrder> actualResult = getAdditionOrdersByUserUseCase.GetAdditionOrdersByUser(41);
+        List<AdditionOrder> actualResult = getAdditionOrdersByUserUseCase.getAdditionOrdersByUser(41);
         List<AdditionOrder> expectedResult = new ArrayList<>();
         expectedResult.add(additionOrder1);
         assertEquals(expectedResult, actualResult);

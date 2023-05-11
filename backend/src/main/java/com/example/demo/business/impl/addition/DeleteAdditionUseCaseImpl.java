@@ -20,7 +20,7 @@ public class DeleteAdditionUseCaseImpl implements DeleteAdditionUseCase {
      * @return
      */
     @Override
-    public Addition DeleteAddition(int id) {
+    public Addition deleteAddition(int id) {
         Optional<AdditionPersistence> ap = additionRepository.findById(Long.valueOf(id));
         if(ap.isEmpty()) {
 

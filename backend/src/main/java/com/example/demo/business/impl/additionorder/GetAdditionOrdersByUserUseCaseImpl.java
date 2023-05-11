@@ -20,7 +20,7 @@ public class GetAdditionOrdersByUserUseCaseImpl implements GetAdditionOrdersByUs
      * @return
      */
     @Override
-    public List<AdditionOrder> GetAdditionOrdersByUser(int userIndex) {
+    public List<AdditionOrder> getAdditionOrdersByUser(int userIndex) {
         List<AdditionOrderPersistence> list = additionOrderRepository.findAll();
         List<AdditionOrder> additionOrders = new ArrayList<>();
         for(AdditionOrderPersistence aop : list) {

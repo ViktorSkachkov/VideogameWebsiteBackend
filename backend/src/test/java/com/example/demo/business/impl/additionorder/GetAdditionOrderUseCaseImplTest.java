@@ -38,7 +38,7 @@ class GetAdditionOrderUseCaseImplTest {
                 .build();
         when(additionOrderRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(additionOrder));
-        AdditionOrder actualResult = getAdditionOrderUseCase.GetAdditionOrder(1);
+        AdditionOrder actualResult = getAdditionOrderUseCase.getAdditionOrder(1);
         assertEquals(expectedResult, actualResult);
         verify(additionOrderRepository).findById(1L);
     }

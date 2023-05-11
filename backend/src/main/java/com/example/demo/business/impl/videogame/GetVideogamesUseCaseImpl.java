@@ -20,7 +20,7 @@ public class GetVideogamesUseCaseImpl implements GetVideogamesUseCase {
      * @return
      */
     @Override
-    public List<Videogame> GetVideogames() {
+    public List<Videogame> getVideogames() {
         List<VideogamePersistence> list = videogameRepository.findAll();
         List<Videogame> videogames = new ArrayList<>();
         for(VideogamePersistence vp : list) {

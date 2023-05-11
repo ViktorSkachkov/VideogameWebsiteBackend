@@ -28,7 +28,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-//@WebMvcTest(controllers = NewsController.class)
 public class NewsControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -52,14 +51,14 @@ public class NewsControllerTest {
 
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"EMPLOYEE"})
-    void AddNews() throws Exception{
+    void addNews() throws Exception{
         News news = News.builder()
                 .id(3)
                 .gameId(1)
                 .text("text3")
                 .title("title3")
                 .build();
-        when(addNewsUseCase.AddNews(news))
+        when(addNewsUseCase.addNews(news))
                 .thenReturn(news);
         mockMvc.perform(post("/news")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -73,11 +72,11 @@ public class NewsControllerTest {
                 .andExpect(content().json("""
                             {"id":3, "gameId":1, "text":"text3", "title":"title3"}
                        """));
-        verify(addNewsUseCase).AddNews(news);
+        verify(addNewsUseCase).addNews(news);
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void GetNewsByGame() throws Exception{
+    void getNewsByGame() throws Exception{
         News news1 = News.builder()
                 .id(1)
                 .gameId(1)
@@ -90,7 +89,7 @@ public class NewsControllerTest {
                 .text("text2")
                 .title("title2")
                 .build();
-        when(getNewsByGameUseCase.GetNewsByGame(1))
+        when(getNewsByGameUseCase.getNewsByGame(1))
                 .thenReturn(List.of(news1, news2));
         mockMvc.perform(get("/news/getByGame/1"))
                 .andDo(print())
@@ -100,11 +99,11 @@ public class NewsControllerTest {
                             [{"id":1, "gameId":1, "text":"text1", "title":"title1"},
                             {"id":2, "gameId":1, "text":"text2", "title":"title2"}]
                           """));
-        verify(getNewsByGameUseCase).GetNewsByGame(1);
+        verify(getNewsByGameUseCase).getNewsByGame(1);
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void GetNews() throws Exception{
+    void getNews() throws Exception{
         News news1 = News.builder()
                 .id(1)
                 .gameId(1)
@@ -117,7 +116,7 @@ public class NewsControllerTest {
                 .text("text2")
                 .title("title2")
                 .build();
-        when(getNewsUseCase.GetNews())
+        when(getNewsUseCase.getNews())
                 .thenReturn(List.of(news1, news2));
         mockMvc.perform(get("/news"))
                 .andDo(print())
@@ -127,18 +126,18 @@ public class NewsControllerTest {
                             [{"id":1, "gameId":1, "text":"text1", "title":"title1"},
                             {"id":2, "gameId":1, "text":"text2", "title":"title2"}]
                           """));
-        verify(getNewsUseCase).GetNews();
+        verify(getNewsUseCase).getNews();
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void GetOneNews() throws Exception{
+    void getOneNews() throws Exception{
         News news = News.builder()
                 .id(1)
                 .gameId(1)
                 .text("text1")
                 .title("title1")
                 .build();
-        when(getOneNewsUseCase.GetOneNews(1))
+        when(getOneNewsUseCase.getOneNews(1))
                 .thenReturn(news);
         mockMvc.perform(get("/news/1"))
                 .andDo(print())
@@ -147,18 +146,18 @@ public class NewsControllerTest {
                 .andExpect(content().json("""
                             {"id":1, "gameId":1, "text":"text1", "title":"title1"}
                           """));
-        verify(getOneNewsUseCase).GetOneNews(1);
+        verify(getOneNewsUseCase).getOneNews(1);
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"EMPLOYEE"})
-    void DeleteNews() throws Exception{
+    void deleteNews() throws Exception{
         News news = News.builder()
                 .id(1)
                 .gameId(1)
                 .text("text1")
                 .title("title1")
                 .build();
-        when(deleteNewsUseCase.DeleteNews(1))
+        when(deleteNewsUseCase.deleteNews(1))
                 .thenReturn(news);
         mockMvc.perform(delete("/news/1"))
                 .andDo(print())
@@ -167,18 +166,18 @@ public class NewsControllerTest {
                 .andExpect(content().json("""
                      {"id":1, "gameId":1, "text":"text1", "title":"title1"}
 """));
-        verify(deleteNewsUseCase).DeleteNews(1);
+        verify(deleteNewsUseCase).deleteNews(1);
     }
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"EMPLOYEE"})
-    void UpdateNews() throws Exception{
+    void updateNews() throws Exception{
         News news = News.builder()
                 .id(1)
                 .gameId(1)
                 .text("text3")
                 .title("title3")
                 .build();
-        when(updateNewsUseCase.UpdateNews(news))
+        when(updateNewsUseCase.updateNews(news))
                 .thenReturn(news);
         mockMvc.perform(put("/news")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -192,6 +191,6 @@ public class NewsControllerTest {
                 .andExpect(content().json("""
                             {"id":1, "gameId":1, "text":"text3", "title":"title3"}
                        """));
-        verify(updateNewsUseCase).UpdateNews(news);
+        verify(updateNewsUseCase).updateNews(news);
     }
 }

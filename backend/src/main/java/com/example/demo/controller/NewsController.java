@@ -29,8 +29,8 @@ public class NewsController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("")
-    public List<News> GetNews() {
-        return getNewsUseCase.GetNews();
+    public List<News> getNews() {
+        return getNewsUseCase.getNews();
     }
 
     /**
@@ -41,8 +41,8 @@ public class NewsController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/getByGame/{id}")
-    public List<News> GetNewsByGame(@PathVariable(value = "id") final int id) {
-        return getNewsByGameUseCase.GetNewsByGame(id);
+    public List<News> getNewsByGame(@PathVariable(value = "id") final int id) {
+        return getNewsByGameUseCase.getNewsByGame(id);
     }
 
     /**
@@ -53,8 +53,8 @@ public class NewsController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/{id}")
-    public News GetOneNews(@PathVariable(value = "id") final int id) {
-        return getOneNewsUseCase.GetOneNews(id);
+    public News getOneNews(@PathVariable(value = "id") final int id) {
+        return getOneNewsUseCase.getOneNews(id);
     }
 
     /**
@@ -65,8 +65,8 @@ public class NewsController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @PostMapping("")
-    public News AddNews(@RequestBody @Valid News news) {
-        return addNewsUseCase.AddNews(news);
+    public News addNews(@RequestBody @Valid News news) {
+        return addNewsUseCase.addNews(news);
     }
 
     /**
@@ -77,8 +77,8 @@ public class NewsController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @DeleteMapping("{id}")
-    public News DeleteNews(@PathVariable(value = "id") final int id) {
-        return deleteNewsUseCase.DeleteNews(id);
+    public News deleteNews(@PathVariable(value = "id") final int id) {
+        return deleteNewsUseCase.deleteNews(id);
     }
 
     /**
@@ -89,7 +89,7 @@ public class NewsController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @PutMapping("")
-    public News UpdateNews(@RequestBody @Valid News news) {
-        return updateNewsUseCase.UpdateNews(news);
+    public News updateNews(@RequestBody @Valid News news) {
+        return updateNewsUseCase.updateNews(news);
     }
 }

@@ -27,7 +27,7 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
      * @return
      */
     @Override
-    public LoginResponse UpdateUser(User user) {
+    public LoginResponse updateUser(User user) {
         Optional<UserPersistence> up = userRepository.findById(Long.valueOf(user.getId()));
         String encodedPassword = passwordEncoder.encode(user.getPwd());
 

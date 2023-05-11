@@ -23,7 +23,7 @@ class DeleteVideogameUseCaseImplTest {
     private DeleteVideogameUseCaseImpl deleteVideogameUseCase;
 
     @Test
-    void DeleteVideogame() {
+    void deleteVideogame() {
         Videogame expectedResult = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -40,7 +40,7 @@ class DeleteVideogameUseCaseImplTest {
                 .build();
         when(videogameRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(videogame));
-        Videogame actualResult = deleteVideogameUseCase.DeleteVideogame(1);
+        Videogame actualResult = deleteVideogameUseCase.deleteVideogame(1);
         assertEquals(expectedResult, actualResult);
         verify(videogameRepository).deleteById(Long.valueOf(1));
     }

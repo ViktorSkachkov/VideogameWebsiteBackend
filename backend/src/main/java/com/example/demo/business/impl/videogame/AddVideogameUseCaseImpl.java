@@ -18,7 +18,7 @@ public class AddVideogameUseCaseImpl implements AddVideogameUseCase {
      * @return
      */
     @Override
-    public Videogame AddVideogame(Videogame videogame) {
+    public Videogame addVideogame(Videogame videogame) {
         //if(videogame.getDescription().length() <= 500) {
             VideogamePersistence vp = VideogamePersistence.builder()
                     .name(videogame.getName())

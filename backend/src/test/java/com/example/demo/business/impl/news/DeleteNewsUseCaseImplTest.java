@@ -23,7 +23,7 @@ class DeleteNewsUseCaseImplTest {
     private DeleteNewsUseCaseImpl deleteNewsUseCase;
 
     @Test
-    void DeleteNews() {
+    void deleteNews() {
         News expectedResult = News.builder()
                 .id(1)
                 .image("name3")
@@ -40,7 +40,7 @@ class DeleteNewsUseCaseImplTest {
                 .build();
         when(newsRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(news));
-        News actualResult = deleteNewsUseCase.DeleteNews(1);
+        News actualResult = deleteNewsUseCase.deleteNews(1);
         assertEquals(expectedResult, actualResult);
         verify(newsRepository).deleteById(Long.valueOf(1));
     }

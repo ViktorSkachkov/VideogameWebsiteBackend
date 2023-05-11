@@ -44,7 +44,7 @@ class DeleteReviewUseCaseImplTest {
                 .build();
         when(reviewRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(review));
-        Review actualResult = deleteReviewUseCase.DeleteReview(1);
+        Review actualResult = deleteReviewUseCase.deleteReview(1);
         assertEquals(expectedResult, actualResult);
         verify(reviewRepository).deleteById(Long.valueOf(1));
     }

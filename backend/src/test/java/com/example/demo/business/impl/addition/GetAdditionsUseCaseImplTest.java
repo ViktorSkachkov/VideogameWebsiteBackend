@@ -24,7 +24,7 @@ class GetAdditionsUseCaseImplTest {
     private GetAdditionsUseCaseImpl getAdditionsUseCase;
 
     @Test
-    void GetAdditions() {
+    void getAdditions() {
         Addition addition1 = Addition.builder()
                 .id(1)
                 .gameId(1)
@@ -59,7 +59,7 @@ class GetAdditionsUseCaseImplTest {
                 .build();
         when(additionRepository.findAll())
                 .thenReturn(List.of(additionPersistence1, additionPersistence2));
-        List<Addition> actualResult = getAdditionsUseCase.GetAdditions();
+        List<Addition> actualResult = getAdditionsUseCase.getAdditions();
         List<Addition> expectedResult = new ArrayList<>();
         expectedResult.add(addition1);
         expectedResult.add(addition2);

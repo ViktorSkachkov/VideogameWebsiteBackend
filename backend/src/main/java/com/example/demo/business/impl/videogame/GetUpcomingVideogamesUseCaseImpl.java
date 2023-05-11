@@ -20,7 +20,7 @@ public class GetUpcomingVideogamesUseCaseImpl implements GetUpcomingVideogamesUs
      * @return
      */
     @Override
-    public List<Videogame> GetUpcomingVideogames() {
+    public List<Videogame> getUpcomingVideogames() {
         List<VideogamePersistence> list = videogameRepository.findAll();
         List<Videogame> videogames = new ArrayList<>();
         Videogame videogame;

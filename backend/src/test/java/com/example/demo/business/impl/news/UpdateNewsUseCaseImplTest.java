@@ -23,7 +23,7 @@ class UpdateNewsUseCaseImplTest {
     private UpdateNewsUseCaseImpl updateNewsUseCase;
 
     @Test
-    void UpdateNews() {
+    void updateNews() {
         News expectedResult = News.builder()
                 .id(1)
                 .image("name3")
@@ -44,7 +44,7 @@ class UpdateNewsUseCaseImplTest {
 
         when(newsRepository.save(news))
                 .thenReturn(news);
-        News actualResult = updateNewsUseCase.UpdateNews(expectedResult);
+        News actualResult = updateNewsUseCase.updateNews(expectedResult);
 
         assertEquals(expectedResult, actualResult);
         verify(newsRepository).save(news);

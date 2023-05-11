@@ -38,7 +38,7 @@ class GetGameOrderUseCaseImplTest {
                 .build();
         when(gameOrderRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(gameOrder));
-        GameOrder actualResult = getGameOrderUseCase.GetGameOrder(1);
+        GameOrder actualResult = getGameOrderUseCase.getGameOrder(1);
         assertEquals(expectedResult, actualResult);
         verify(gameOrderRepository).findById(1L);
     }

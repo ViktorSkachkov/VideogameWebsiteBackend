@@ -18,7 +18,7 @@ public class AddReviewUseCaseImpl implements AddReviewUseCase {
      * @return
      */
     @Override
-    public Review AddReview(Review review) {
+    public Review addReview(Review review) {
         if(review.getText().length() <= 500) {
             ReviewPersistence rp = ReviewPersistence.builder()
                     .text(review.getText())

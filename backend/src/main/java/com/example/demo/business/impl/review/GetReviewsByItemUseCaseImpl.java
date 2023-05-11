@@ -21,7 +21,7 @@ public class GetReviewsByItemUseCaseImpl implements GetReviewsByItemUseCase {
      * @return
      */
     @Override
-    public List<Review> GetReviewsByItem(int itemId, String type) {
+    public List<Review> getReviewsByItem(int itemId, String type) {
         List<ReviewPersistence> list = reviewRepository.findAll();
         List<Review> newReviewList = new ArrayList<>();
         Review review;

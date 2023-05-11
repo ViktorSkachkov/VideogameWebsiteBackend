@@ -21,7 +21,7 @@ class AddAdditionUseCaseImplTest {
     private AddAdditionUseCaseImpl addAdditionUseCase;
 
     @Test
-    void AddAddition() {
+    void addAddition() {
         Addition expectedResult = Addition.builder()
                 .id(1)
                 .gameId(1)
@@ -39,7 +39,7 @@ class AddAdditionUseCaseImplTest {
                 .build();
         when(additionRepository.save(addition))
                 .thenReturn(addition);
-        Addition actualResult = addAdditionUseCase.AddAddition(expectedResult);
+        Addition actualResult = addAdditionUseCase.addAddition(expectedResult);
         assertEquals(expectedResult, actualResult);
         verify(additionRepository).save(addition);
     }

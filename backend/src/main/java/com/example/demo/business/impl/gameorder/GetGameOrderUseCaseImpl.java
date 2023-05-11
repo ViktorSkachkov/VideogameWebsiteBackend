@@ -20,7 +20,7 @@ public class GetGameOrderUseCaseImpl implements GetGameOrderUseCase {
      * @return
      */
     @Override
-    public GameOrder GetGameOrder(int index) {
+    public GameOrder getGameOrder(int index) {
         Optional<GameOrderPersistence> gop = gameOrderRepository.findById(Long.valueOf(index));
         if(gop.isEmpty()) {
 

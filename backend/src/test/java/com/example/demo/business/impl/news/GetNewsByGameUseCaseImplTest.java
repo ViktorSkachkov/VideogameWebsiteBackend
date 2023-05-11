@@ -24,7 +24,7 @@ class GetNewsByGameUseCaseImplTest {
     private GetNewsByGameUseCaseImpl getNewsByGameUseCase;
 
     @Test
-    void GetNewsByGame() {
+    void getNewsByGame() {
         News news1 = News.builder()
                 .id(1)
                 .image("name1")
@@ -49,7 +49,7 @@ class GetNewsByGameUseCaseImplTest {
 
         when(newsRepository.findAll())
                 .thenReturn(List.of(newsPersistence1, newsPersistence2));
-        List<News> actualResult = getNewsByGameUseCase.GetNewsByGame(1);
+        List<News> actualResult = getNewsByGameUseCase.getNewsByGame(1);
         List<News> expectedResult = new ArrayList<>();
         expectedResult.add(news1);
         assertEquals(expectedResult, actualResult);

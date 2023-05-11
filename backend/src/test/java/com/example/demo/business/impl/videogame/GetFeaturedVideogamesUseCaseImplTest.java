@@ -24,7 +24,7 @@ class GetFeaturedVideogamesUseCaseImplTest {
     private GetFeaturedVideogamesUseCaseImpl getFeaturedVideogamesUseCase;
 
     @Test
-    void GetFeaturedVideogames() {
+    void getFeaturedVideogames() {
         Videogame videogame1 = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -51,7 +51,7 @@ class GetFeaturedVideogamesUseCaseImplTest {
                 .build();
         when(videogameRepository.findAll())
                 .thenReturn(List.of(videogamePersistence1, videogamePersistence2));
-        List<Videogame> actualResult = getFeaturedVideogamesUseCase.GetFeaturedVideogames();
+        List<Videogame> actualResult = getFeaturedVideogamesUseCase.getFeaturedVideogames();
         List<Videogame> expectedResult = new ArrayList<>();
         expectedResult.add(videogame1);
         assertEquals(expectedResult, actualResult);

@@ -23,7 +23,7 @@ class UpdateAdditionUseCaseImplTest {
     private UpdateAdditionUseCaseImpl updateAdditionUseCase;
 
     @Test
-    void UpdateAddition() {
+    void updateAddition() {
         AdditionPersistence addition = AdditionPersistence.builder()
                 .id(1L)
                 .game_id(2)
@@ -47,7 +47,7 @@ class UpdateAdditionUseCaseImplTest {
 
         when(additionRepository.save(addition))
                 .thenReturn(addition);
-        Addition actualResult = updateAdditionUseCase.UpdateAddition(expectedResult);
+        Addition actualResult = updateAdditionUseCase.updateAddition(expectedResult);
 
         assertEquals(expectedResult, actualResult);
         verify(additionRepository).save(addition);
