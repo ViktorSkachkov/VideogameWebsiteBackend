@@ -19,7 +19,6 @@ public class AddVideogameUseCaseImpl implements AddVideogameUseCase {
      */
     @Override
     public Videogame addVideogame(Videogame videogame) {
-        //if(videogame.getDescription().length() <= 500) {
             VideogamePersistence vp = VideogamePersistence.builder()
                     .name(videogame.getName())
                     .price(videogame.getPrice())
@@ -28,10 +27,6 @@ public class AddVideogameUseCaseImpl implements AddVideogameUseCase {
                     .image(videogame.getImage())
                     .build();
             videogameRepository.save(vp);
-        /*}
-        else {
-
-        }*/
         return videogame;
     }
 }

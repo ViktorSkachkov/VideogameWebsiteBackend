@@ -26,6 +26,7 @@ public class DeleteAdditionUseCaseImpl implements DeleteAdditionUseCase {
 
         }
         additionRepository.deleteById(Long.valueOf(id));
+        
         return Addition.builder()
                 .id(Math.toIntExact(ap.get().getId()))
                 .gameId(ap.get().getGame_id())
