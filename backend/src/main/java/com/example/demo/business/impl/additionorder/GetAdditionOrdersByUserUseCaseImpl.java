@@ -2,7 +2,7 @@ package com.example.demo.business.impl.additionorder;
 
 import com.example.demo.business.cases.additionorder.GetAdditionOrdersByUserUseCase;
 import com.example.demo.domain.AdditionOrder;
-import com.example.demo.persistence.domain.persistenceClass.AdditionOrderPersistence;
+import com.example.demo.persistence.entity.AdditionOrderPersistence;
 import com.example.demo.persistence.repository.AdditionOrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

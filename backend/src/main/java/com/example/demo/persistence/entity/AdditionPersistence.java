@@ -1,18 +1,17 @@
-package com.example.demo.persistence.domain.persistenceClass;
+package com.example.demo.persistence.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name = "news")
+@Table(name = "addition")
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class NewsPersistence {
+public class AdditionPersistence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -22,13 +21,17 @@ public class NewsPersistence {
     @EqualsAndHashCode.Exclude
     private int game_id;
     @NotBlank
-    @Length(min = 2 ,max = 250)
-    @Column(name = "title")
-    private String title;
+    @Length(min = 2 ,max = 100)
+    @Column(name = "name")
+    private String name;
+    @Column(name = "price")
+    @NotNull
+    @EqualsAndHashCode.Exclude
+    private double price;
     @NotBlank
     @Length(min = 2 ,max = 1000)
-    @Column(name = "text")
-    private String text;
+    @Column(name = "description")
+    private String description;
     @Lob @Basic(fetch = FetchType.LAZY)
     @Column(name = "image", length=100000)
     private String image;

@@ -2,7 +2,7 @@ package com.example.demo.business.impl.news;
 
 import com.example.demo.business.cases.news.UpdateNewsUseCase;
 import com.example.demo.domain.News;
-import com.example.demo.persistence.domain.persistenceClass.NewsPersistence;
+import com.example.demo.persistence.entity.NewsPersistence;
 import com.example.demo.persistence.repository.NewsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

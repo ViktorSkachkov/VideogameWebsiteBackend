@@ -1,6 +1,6 @@
 package com.example.demo.persistence.repository;
 
-import com.example.demo.persistence.domain.persistenceClass.AdditionPersistence;
+import com.example.demo.persistence.entity.AdditionPersistence;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

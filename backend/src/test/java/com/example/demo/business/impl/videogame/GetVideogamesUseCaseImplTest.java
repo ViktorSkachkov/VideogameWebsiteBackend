@@ -1,7 +1,7 @@
 package com.example.demo.business.impl.videogame;
 
 import com.example.demo.domain.Videogame;
-import com.example.demo.persistence.domain.persistenceClass.VideogamePersistence;
+import com.example.demo.persistence.entity.VideogamePersistence;
 import com.example.demo.persistence.repository.VideogameRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

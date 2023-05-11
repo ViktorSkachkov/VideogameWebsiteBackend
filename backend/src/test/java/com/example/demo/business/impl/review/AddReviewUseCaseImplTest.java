@@ -1,9 +1,7 @@
 package com.example.demo.business.impl.review;
 
-import com.example.demo.domain.News;
 import com.example.demo.domain.Review;
-import com.example.demo.persistence.domain.persistenceClass.NewsPersistence;
-import com.example.demo.persistence.domain.persistenceClass.ReviewPersistence;
+import com.example.demo.persistence.entity.ReviewPersistence;
 import com.example.demo.persistence.repository.ReviewRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,7 +10,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;

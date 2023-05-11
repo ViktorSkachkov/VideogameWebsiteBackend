@@ -2,8 +2,8 @@ package com.example.demo.business.impl.user;
 
 import com.example.demo.domain.Role;
 import com.example.demo.domain.User;
-import com.example.demo.persistence.domain.persistenceClass.RolePersistence;
-import com.example.demo.persistence.domain.persistenceClass.UserPersistence;
+import com.example.demo.persistence.entity.RolePersistence;
+import com.example.demo.persistence.entity.UserPersistence;
 import com.example.demo.persistence.repository.RoleRepository;
 import com.example.demo.persistence.repository.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -14,9 +14,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class AddUserUseCaseImplTest {

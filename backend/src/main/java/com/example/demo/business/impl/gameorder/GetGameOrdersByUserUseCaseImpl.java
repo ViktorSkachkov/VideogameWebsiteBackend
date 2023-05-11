@@ -2,7 +2,7 @@ package com.example.demo.business.impl.gameorder;
 
 import com.example.demo.business.cases.gameorder.GetGameOrdersByUserUseCase;
 import com.example.demo.domain.GameOrder;
-import com.example.demo.persistence.domain.persistenceClass.GameOrderPersistence;
+import com.example.demo.persistence.entity.GameOrderPersistence;
 import com.example.demo.persistence.repository.GameOrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

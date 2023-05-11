@@ -1,6 +1,6 @@
 package com.example.demo.persistence.repository;
 
-import com.example.demo.persistence.domain.persistenceClass.AdditionPersistence;
+import com.example.demo.persistence.entity.AdditionPersistence;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

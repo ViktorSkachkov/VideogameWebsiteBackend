@@ -1,6 +1,6 @@
 package com.example.demo.persistence.repository;
 
-import com.example.demo.persistence.domain.persistenceClass.UserPersistence;
+import com.example.demo.persistence.entity.UserPersistence;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -1,7 +1,7 @@
 package com.example.demo.persistence.repository;
 
-import com.example.demo.persistence.domain.persistenceClass.RolePersistence;
-import com.example.demo.persistence.domain.persistenceClass.UserPersistence;
+import com.example.demo.persistence.entity.RolePersistence;
+import com.example.demo.persistence.entity.UserPersistence;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,7 +1,7 @@
 package com.example.demo.business.impl.review;
 
 import com.example.demo.domain.Review;
-import com.example.demo.persistence.domain.persistenceClass.ReviewPersistence;
+import com.example.demo.persistence.entity.ReviewPersistence;
 import com.example.demo.persistence.repository.ReviewRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,7 +1,7 @@
 package com.example.demo.business.impl.news;
 
 import com.example.demo.domain.News;
-import com.example.demo.persistence.domain.persistenceClass.NewsPersistence;
+import com.example.demo.persistence.entity.NewsPersistence;
 import com.example.demo.persistence.repository.NewsRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

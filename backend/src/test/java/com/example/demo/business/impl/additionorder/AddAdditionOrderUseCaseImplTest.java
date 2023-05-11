@@ -1,7 +1,7 @@
 package com.example.demo.business.impl.additionorder;
 
 import com.example.demo.domain.AdditionOrder;
-import com.example.demo.persistence.domain.persistenceClass.AdditionOrderPersistence;
+import com.example.demo.persistence.entity.AdditionOrderPersistence;
 import com.example.demo.persistence.repository.AdditionOrderRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

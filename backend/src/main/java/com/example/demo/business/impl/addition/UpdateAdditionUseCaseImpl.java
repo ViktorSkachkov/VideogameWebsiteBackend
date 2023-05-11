@@ -2,7 +2,7 @@ package com.example.demo.business.impl.addition;
 
 import com.example.demo.business.cases.addition.UpdateAdditionUseCase;
 import com.example.demo.domain.Addition;
-import com.example.demo.persistence.domain.persistenceClass.AdditionPersistence;
+import com.example.demo.persistence.entity.AdditionPersistence;
 import com.example.demo.persistence.repository.AdditionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.example.demo.business.impl.addition;
 
 import com.example.demo.domain.Addition;
-import com.example.demo.persistence.domain.persistenceClass.AdditionPersistence;
+import com.example.demo.persistence.entity.AdditionPersistence;
 import com.example.demo.persistence.repository.AdditionRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

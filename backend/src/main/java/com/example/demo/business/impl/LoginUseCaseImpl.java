@@ -6,7 +6,7 @@ import com.example.demo.exception.InvalidCredentialsException;
 import com.example.demo.domain.AccessToken;
 import com.example.demo.domain.LoginRequest;
 import com.example.demo.domain.LoginResponse;
-import com.example.demo.persistence.domain.persistenceClass.UserPersistence;
+import com.example.demo.persistence.entity.UserPersistence;
 import com.example.demo.persistence.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
