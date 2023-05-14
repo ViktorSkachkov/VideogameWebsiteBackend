@@ -32,6 +32,7 @@ public class GetUpcomingVideogamesUseCaseImpl implements GetUpcomingVideogamesUs
                     .description(vp.getDescription())
                     .price(vp.getPrice())
                     .name(vp.getName())
+                    .time(vp.getTime())
                     .build();
             videogames.add(videogame);
         }

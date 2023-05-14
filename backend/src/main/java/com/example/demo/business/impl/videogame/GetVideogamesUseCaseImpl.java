@@ -7,7 +7,10 @@ import com.example.demo.persistence.repository.VideogameRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -29,11 +32,15 @@ public class GetVideogamesUseCaseImpl implements GetVideogamesUseCase {
                     .featured(vp.getFeatured())
                     .image(vp.getImage())
                     .description(vp.getDescription())
+                    .time(vp.getTime())
                     .price(vp.getPrice())
                     .name(vp.getName())
                     .build();
             videogames.add(videogame);
         }
+
+        videogames.sort(Comparator.comparing(videogame -> videogame.getTime(), Collections.reverseOrder()));
+
         return videogames;
     }
 }

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "game_order")
 @Builder
@@ -27,4 +29,8 @@ public class GameOrderPersistence {
     @NotNull
     @EqualsAndHashCode.Exclude
     private int units;
+    @Column(name = "time")
+    @NotNull
+    @EqualsAndHashCode.Exclude
+    private LocalDateTime time;
 }

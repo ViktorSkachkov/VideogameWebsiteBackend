@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -31,10 +33,14 @@ public class GetGameOrdersByUserUseCaseImpl implements GetGameOrdersByUserUseCas
                         .game(gop.getGame())
                         .user(gop.getUser())
                         .units(gop.getUnits())
+                        .time(gop.getTime())
                         .build();
                 gameOrders.add(gameOrder);
             }
         }
+
+        gameOrders.sort(Comparator.comparing(gameOrder -> gameOrder.getTime(), Collections.reverseOrder()));
+
         return gameOrders;
     }
 }

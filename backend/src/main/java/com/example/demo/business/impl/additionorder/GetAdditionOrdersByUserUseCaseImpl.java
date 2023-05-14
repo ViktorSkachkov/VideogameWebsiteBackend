@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -30,10 +32,14 @@ public class GetAdditionOrdersByUserUseCaseImpl implements GetAdditionOrdersByUs
                         .addition(aop.getAddition())
                         .user(aop.getUser())
                         .units(aop.getUnits())
+                        .time(aop.getTime())
                         .build();
                 additionOrders.add(additionOrder);
             }
         }
+
+        additionOrders.sort(Comparator.comparing(additionOrder -> additionOrder.getTime(), Collections.reverseOrder()));
+
         return additionOrders;
     }
 }

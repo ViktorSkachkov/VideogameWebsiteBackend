@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @AllArgsConstructor
 @Data
 @Builder
@@ -13,5 +15,5 @@ public class News {
     private String title;
     private String text;
     private String image;
-    //private LocalDateTime date;
+    private LocalDateTime time;
 }

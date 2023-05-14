@@ -7,6 +7,8 @@ import com.example.demo.persistence.repository.AdditionOrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class AddAdditionOrderUseCaseImpl implements AddAdditionOrderUseCase {
@@ -23,6 +25,7 @@ public class AddAdditionOrderUseCaseImpl implements AddAdditionOrderUseCase {
                 .addition(additionOrder.getAddition())
                 .user(additionOrder.getUser())
                 .units(additionOrder.getUnits())
+                .time(LocalDateTime.now())
                 .build();
         additionOrderRepository.save(additionOrderPersistence);
         return additionOrder;

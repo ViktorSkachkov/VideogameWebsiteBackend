@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -31,9 +33,13 @@ public class GetAdditionsUseCaseImpl implements GetAdditionsUseCase {
                     .name(ap.getName())
                     .description(ap.getDescription())
                     .price(ap.getPrice())
+                    .time(ap.getTime())
                     .build();
             additions.add(addition);
         }
+
+        additions.sort(Comparator.comparing(addition -> addition.getTime(), Collections.reverseOrder()));
+
         return additions;
     }
 }

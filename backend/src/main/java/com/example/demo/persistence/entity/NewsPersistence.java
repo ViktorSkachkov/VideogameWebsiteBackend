@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "news")
 @Builder
@@ -32,4 +34,8 @@ public class NewsPersistence {
     @Lob @Basic(fetch = FetchType.LAZY)
     @Column(name = "image", length=100000)
     private String image;
+    @Column(name = "time")
+    @NotNull
+    @EqualsAndHashCode.Exclude
+    private LocalDateTime time;
 }

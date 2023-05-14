@@ -2,6 +2,8 @@ package com.example.demo.domain;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @AllArgsConstructor
 @Data
 @Builder
@@ -12,4 +14,5 @@ public class Addition {
     private double price;
     private String description;
     private String image;
+    private LocalDateTime time;
 }

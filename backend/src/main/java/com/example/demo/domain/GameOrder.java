@@ -10,6 +10,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.time.LocalDateTime;
+
 @AllArgsConstructor
 @Data
 @Builder
@@ -18,4 +20,5 @@ public class GameOrder {
     private int game;
     private int user;
     private int units;
+    private LocalDateTime time;
 }

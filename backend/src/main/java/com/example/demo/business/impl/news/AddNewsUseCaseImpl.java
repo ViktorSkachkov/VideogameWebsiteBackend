@@ -7,6 +7,8 @@ import com.example.demo.persistence.repository.NewsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class AddNewsUseCaseImpl implements AddNewsUseCase {
@@ -25,6 +27,7 @@ public class AddNewsUseCaseImpl implements AddNewsUseCase {
                     .text(news.getText())
                     .image(news.getImage())
                     .title(news.getTitle())
+                    .time(LocalDateTime.now())
                     .build();
             newsRepository.save(np);
         }

@@ -7,6 +7,8 @@ import com.example.demo.persistence.repository.VideogameRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class AddVideogameUseCaseImpl implements AddVideogameUseCase {
@@ -25,6 +27,7 @@ public class AddVideogameUseCaseImpl implements AddVideogameUseCase {
                     .description(videogame.getDescription())
                     .featured(videogame.getFeatured())
                     .image(videogame.getImage())
+                    .time(LocalDateTime.now())
                     .build();
             videogameRepository.save(vp);
         return videogame;

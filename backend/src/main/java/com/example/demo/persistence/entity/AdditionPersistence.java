@@ -5,6 +5,8 @@ import jakarta.validation.constraints.*;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "addition")
 @Builder
@@ -35,4 +37,8 @@ public class AdditionPersistence {
     @Lob @Basic(fetch = FetchType.LAZY)
     @Column(name = "image", length=100000)
     private String image;
+    @Column(name = "time")
+    @NotNull
+    @EqualsAndHashCode.Exclude
+    private LocalDateTime time;
 }

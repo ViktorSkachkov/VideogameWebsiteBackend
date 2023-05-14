@@ -7,6 +7,8 @@ import com.example.demo.persistence.repository.AdditionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class AddAdditionUseCaseImpl implements AddAdditionUseCase {
@@ -26,6 +28,7 @@ public class AddAdditionUseCaseImpl implements AddAdditionUseCase {
                     .image(addition.getImage())
                     .game_id(addition.getGameId())
                     .price(addition.getPrice())
+                    .time(LocalDateTime.now())
                     .build();
             additionRepository.save(ap);
         }

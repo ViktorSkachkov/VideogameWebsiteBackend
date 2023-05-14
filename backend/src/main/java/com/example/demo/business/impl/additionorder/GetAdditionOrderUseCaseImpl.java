@@ -30,6 +30,7 @@ public class GetAdditionOrderUseCaseImpl implements GetAdditionOrderUseCase {
                 .user(aop.get().getUser())
                 .addition(aop.get().getAddition())
                 .units(aop.get().getUnits())
+                .time(aop.get().getTime())
                 .build();
         return additionOrder;
     }

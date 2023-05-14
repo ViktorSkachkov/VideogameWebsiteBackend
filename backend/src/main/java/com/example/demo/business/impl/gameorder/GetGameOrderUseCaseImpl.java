@@ -30,6 +30,7 @@ public class GetGameOrderUseCaseImpl implements GetGameOrderUseCase {
                 .user(gop.get().getUser())
                 .game(gop.get().getGame())
                 .units(gop.get().getUnits())
+                .time(gop.get().getTime())
                 .build();
         return gameOrder;
     }

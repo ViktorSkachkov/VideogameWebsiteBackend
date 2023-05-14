@@ -32,6 +32,7 @@ public class GetVideogameUseCaseImpl implements GetVideogameUseCase {
                 .image(vp.get().getImage())
                 .name(vp.get().getName())
                 .price(vp.get().getPrice())
+                .time(vp.get().getTime())
                 .build();
         return videogame;
     }

@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @AllArgsConstructor
 @Data
 @Builder
@@ -12,4 +14,5 @@ public class AdditionOrder {
     private int addition;
     private int user;
     private int units;
+    private LocalDateTime time;
 }

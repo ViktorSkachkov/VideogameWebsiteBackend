@@ -31,6 +31,7 @@ public class GetOneNewsUseCaseImpl implements GetOneNewsUseCase {
                 .title(np.get().getTitle())
                 .text(np.get().getText())
                 .gameId(np.get().getGame_id())
+                .time(np.get().getTime())
                 .build();
         return news;
     }
