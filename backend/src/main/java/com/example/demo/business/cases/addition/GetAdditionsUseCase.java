@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface GetAdditionsUseCase {
     List<Addition> getAdditions();
+    List<Addition> reverseOrder(List<Addition> additions);
 }
 
 

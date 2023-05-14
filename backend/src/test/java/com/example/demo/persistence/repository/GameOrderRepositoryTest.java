@@ -27,8 +27,10 @@ class GameOrderRepositoryTest {
 
     @Test
     void findAll() {
-        GameOrderPersistence expected = createTestGameOrder(9,25, 2, 41);
-        GameOrderPersistence expected2 = createTestGameOrder(10,23, 2, 41);
+        GameOrderPersistence expected = createTestGameOrder(9,25, 2, 41,
+                LocalDateTime.of(2023, 04, 19, 17, 04, 32));
+        GameOrderPersistence expected2 = createTestGameOrder(10,23, 2, 41,
+                LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         List<GameOrderPersistence> expectedList = new ArrayList<>();
         expectedList.add(expected);
         List<GameOrderPersistence> actualList = gameOrderRepository.findAllTest();
@@ -43,8 +45,10 @@ class GameOrderRepositoryTest {
 
     @Test
     void findGameOrderById() {
-        GameOrderPersistence expected2 = createTestGameOrder(10,23, 2, 41);
-        GameOrderPersistence expected = createTestGameOrder(9,25, 2, 41);
+        GameOrderPersistence expected2 = createTestGameOrder(10,23, 2, 41,
+                LocalDateTime.of(2023, 04, 19, 17, 04, 32));
+        GameOrderPersistence expected = createTestGameOrder(9,25, 2, 41,
+                LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         GameOrderPersistence actual = gameOrderRepository.findByid(9L);
         assertEquals(expected.getId(), actual.getId());
         assertEquals(expected.getGame(), actual.getGame());
@@ -52,12 +56,13 @@ class GameOrderRepositoryTest {
         assertEquals(expected.getUser(), actual.getUser());
     }
 
-    private GameOrderPersistence createTestGameOrder(int id, int game, int units, int user) {
+    private GameOrderPersistence createTestGameOrder(int id, int game, int units, int user, LocalDateTime time) {
         return entityManager.merge(GameOrderPersistence.builder()
                 .id(id)
                 .game(game)
                 .units(units)
                 .user(user)
+                .time(time)
                 .build());
     }
 }

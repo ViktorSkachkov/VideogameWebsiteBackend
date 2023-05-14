@@ -8,8 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -37,8 +35,18 @@ public class GetNewsUseCaseImpl implements GetNewsUseCase {
             newsList.add(news);
         }
 
-        newsList.sort(Comparator.comparing(news -> news.getTime(), Collections.reverseOrder()));
+        List<News> newList = reverseOrder(newsList);
+        return newList;
+    }
 
-        return newsList;
+    @Override
+    public List<News> reverseOrder(List<News> newsList) {
+        List<News> result = new ArrayList<>();
+
+        for(int i = newsList.size() - 1; i >= 0; i--) {
+            result.add(newsList.get(i));
+        }
+
+        return result;
     }
 }

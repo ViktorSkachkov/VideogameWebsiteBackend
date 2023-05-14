@@ -61,8 +61,8 @@ class GetVideogamesUseCaseImplTest {
                 .thenReturn(List.of(videogamePersistence1, videogamePersistence2));
         List<Videogame> actualResult = getVideogamesUseCase.getVideogames();
         List<Videogame> expectedResult = new ArrayList<>();
-        expectedResult.add(videogame1);
         expectedResult.add(videogame2);
+        expectedResult.add(videogame1);
         assertEquals(expectedResult, actualResult);
         verify(videogameRepository).findAll();
     }

@@ -8,9 +8,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -55,8 +56,18 @@ public class GetAdditionsByGameUseCaseImpl implements GetAdditionsByGameUseCase 
             }
         }
 
-        additionsList.sort(Comparator.comparing(addition -> addition.getTime(), Collections.reverseOrder()));
+        List<Addition> newList = reverseOrder(additionsList);
+        return newList;
+    }
 
-        return additionsList;
+    @Override
+    public List<Addition> reverseOrder(List<Addition> additions) {
+        List<Addition> result = new ArrayList<>();
+
+        for(int i = additions.size() - 1; i >= 0; i--) {
+            result.add(additions.get(i));
+        }
+
+        return result;
     }
 }

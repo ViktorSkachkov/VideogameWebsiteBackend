@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface GetGameOrdersByUserUseCase {
     List<GameOrder> getGameOrdersByUser(int userIndex);
+    List<GameOrder> reverseOrder(List<GameOrder> gameOrders);
 }

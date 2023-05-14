@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,9 +29,9 @@ class NewsRepositoryTest {
         NewsPersistence expected2 = createTestNews(1L,1, "title1", "Lorem Ipsum" +
                 " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the" +
                 " industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
-                " of type and scrambled it to make a type specimen book.", "image1");
+                " of type and scrambled it to make a type specimen book.", "image1", LocalDateTime.of(2023, 04, 19, 17, 12, 57));
         NewsPersistence expected = createTestNews(6L,1, "title2", "ggggggggggggggggg",
-                "image");
+                "image", LocalDateTime.of(2023, 04, 19, 17, 12, 57));
         List<NewsPersistence> expectedList = new ArrayList<>();
         expectedList.add(expected);
         List<NewsPersistence> actualList = newsRepository.findAllTest();
@@ -48,9 +49,10 @@ class NewsRepositoryTest {
         NewsPersistence expected = createTestNews(9L,23, "Starcraft: New Update", "Lorem Ipsum" +
                 " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the" +
                 " industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
-                " of type and scrambled it to make a type specimen book.", "image1");
+                " of type and scrambled it to make a type specimen book.", "image1",
+                LocalDateTime.of(2023, 04, 19, 17, 12, 57));
         createTestNews(6L,1, "title2", "ggggggggggggggggg",
-                "image");
+                "image", LocalDateTime.of(2023, 04, 19, 17, 12, 57));
         //FIXME find a way to create an option list
         NewsPersistence actual = newsRepository.findByid(9L);
 
@@ -64,9 +66,10 @@ class NewsRepositoryTest {
         NewsPersistence expected2 = createTestNews(1L,1, "title1", "Lorem Ipsum" +
                 " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the" +
                 " industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
-                " of type and scrambled it to make a type specimen book.", "image1");
+                " of type and scrambled it to make a type specimen book.", "image1",
+                LocalDateTime.of(2023, 04, 19, 17, 12, 57));
         NewsPersistence expected = createTestNews(6L,1, "title2", "ggggggggggggggggg",
-                "image");
+                "image", LocalDateTime.of(2023, 04, 19, 17, 12, 57));
         List<NewsPersistence> expectedList = new ArrayList<>();
         expectedList.add(expected);
         List<NewsPersistence> actualList = newsRepository.findByTitle("title2");
@@ -74,13 +77,14 @@ class NewsRepositoryTest {
         assertEquals(expectedList, actualList);
     }
 
-    private NewsPersistence createTestNews(Long id, int game_id, String title, String text, String image) {
+    private NewsPersistence createTestNews(Long id, int game_id, String title, String text, String image, LocalDateTime time) {
         return entityManager.merge(NewsPersistence.builder()
                 .id(id)
                 .title(title)
                 .text(text)
                 .game_id(game_id)
                 .image(image)
+                .time(time)
                 .build());
     }
 }

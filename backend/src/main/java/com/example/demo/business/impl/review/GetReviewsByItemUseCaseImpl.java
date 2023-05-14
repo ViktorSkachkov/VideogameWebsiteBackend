@@ -8,9 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class GetReviewsByItemUseCaseImpl implements GetReviewsByItemUseCase {
@@ -42,8 +41,18 @@ public class GetReviewsByItemUseCaseImpl implements GetReviewsByItemUseCase {
             }
         }
 
-        newReviewList.sort(Comparator.comparing(review1 -> review1.getTime(), Collections.reverseOrder()));
+        List<Review> newList = reverseOrder(newReviewList);
+        return newList;
+    }
 
-        return newReviewList;
+    @Override
+    public List<Review> reverseOrder(List<Review> reviews) {
+        List<Review> result = new ArrayList<>();
+
+        for(int i = reviews.size() - 1; i >= 0; i--) {
+            result.add(reviews.get(i));
+        }
+
+        return result;
     }
 }

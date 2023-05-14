@@ -38,8 +38,18 @@ public class GetAdditionsUseCaseImpl implements GetAdditionsUseCase {
             additions.add(addition);
         }
 
-        additions.sort(Comparator.comparing(addition -> addition.getTime(), Collections.reverseOrder()));
+        List<Addition> newList = reverseOrder(additions);
+        return newList;
+    }
 
-        return additions;
+    @Override
+    public List<Addition> reverseOrder(List<Addition> additions) {
+        List<Addition> result = new ArrayList<>();
+
+        for(int i = additions.size() - 1; i >= 0; i--) {
+            result.add(additions.get(i));
+        }
+
+        return result;
     }
 }

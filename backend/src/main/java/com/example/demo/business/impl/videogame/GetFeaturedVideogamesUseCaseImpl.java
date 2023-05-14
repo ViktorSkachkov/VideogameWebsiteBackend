@@ -8,8 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -41,8 +39,18 @@ public class GetFeaturedVideogamesUseCaseImpl implements GetFeaturedVideogamesUs
             }
         }
 
-        videogames.sort(Comparator.comparing(videogame1 -> videogame1.getTime(), Collections.reverseOrder()));
+        List<Videogame> newList = reverseOrder(videogames);
+        return newList;
+    }
 
-        return videogames;
+    @Override
+    public List<Videogame> reverseOrder(List<Videogame> videogames) {
+        List<Videogame> result = new ArrayList<>();
+
+        for(int i = videogames.size() - 1; i >= 0; i--) {
+            result.add(videogames.get(i));
+        }
+
+        return result;
     }
 }

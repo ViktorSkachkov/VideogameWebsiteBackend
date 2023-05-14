@@ -58,8 +58,8 @@ class GetNewsUseCaseImplTest {
                 .thenReturn(List.of(newsPersistence1, newsPersistence2));
         List<News> actualResult = getNewsUseCase.getNews();
         List<News> expectedResult = new ArrayList<>();
-        expectedResult.add(news1);
         expectedResult.add(news2);
+        expectedResult.add(news1);
         assertEquals(expectedResult, actualResult);
         verify(newsRepository).findAll();
     }

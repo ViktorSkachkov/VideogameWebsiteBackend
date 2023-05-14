@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,11 +30,11 @@ class AdditionRepositoryTest {
         AdditionPersistence expected2 = createTestAddition(5L,20, 1, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
                 " Lorem Ipsum has been the industry's standard dummy text ever since the " +
                 "1500s, when an unknown printer took a galley of type and scrambled it to " +
-                "make a type specimen book.", "NewName");
+                "make a type specimen book.", "NewName", LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         AdditionPersistence expected = createTestAddition(5L,20, 1, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
                 " Lorem Ipsum has been the industry's standard dummy text ever since the " +
                 "1500s, when an unknown printer took a galley of type and scrambled it to " +
-                "make a type specimen book.", "name5");
+                "make a type specimen book.", "name5", LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         List<AdditionPersistence> expectedList = new ArrayList<>();
         expectedList.add(expected);
         List<AdditionPersistence> actualList = additionRepository.findAllTest();
@@ -51,11 +52,11 @@ class AdditionRepositoryTest {
         AdditionPersistence expected2 = createTestAddition(5L,20, 1, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
                 " Lorem Ipsum has been the industry's standard dummy text ever since the " +
                 "1500s, when an unknown printer took a galley of type and scrambled it to " +
-                "make a type specimen book.", "NewName");
+                "make a type specimen book.", "NewName", LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         AdditionPersistence expected = createTestAddition(5L,10, 2, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
                 " Lorem Ipsum has been the industry's standard dummy text ever since the " +
                 "1500s, when an unknown printer took a galley of type and scrambled it to " +
-                "make a type specimen book.", "name5");
+                "make a type specimen book.", "name5", LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         List<AdditionPersistence> expectedList = new ArrayList<>();
         expectedList.add(expected);
         List<AdditionPersistence> actualList = additionRepository.findByName("name5");
@@ -67,18 +68,19 @@ class AdditionRepositoryTest {
         AdditionPersistence expected2 = createTestAddition(4L,20, 1, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
                 " Lorem Ipsum has been the industry's standard dummy text ever since the " +
                 "1500s, when an unknown printer took a galley of type and scrambled it to " +
-                "make a type specimen book.", "NewName");
+                "make a type specimen book.", "NewName", LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         AdditionPersistence expected = createTestAddition(41L,6, 23, "image", "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
                 " Lorem Ipsum has been the industry's standard dummy text ever since the " +
                 "1500s, when an unknown printer took a galley of type and scrambled it to " +
-                "make a type specimen book.", "name5");
+                "make a type specimen book.", "name5", LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         AdditionPersistence actual = additionRepository.findByid(41L);
         assertEquals(expected.getId(), actual.getId());
         assertEquals(expected.getGame_id(), actual.getGame_id());
         assertEquals(expected.getPrice(), actual.getPrice());
     }
 
-    private AdditionPersistence createTestAddition(Long id, double price, int game_id, String image, String description, String name) {
+    private AdditionPersistence createTestAddition(Long id, double price, int game_id, String image, String description,
+                                                   String name, LocalDateTime time) {
         return entityManager.merge(AdditionPersistence.builder()
                         .id(id)
                         .price(price)
@@ -86,6 +88,7 @@ class AdditionRepositoryTest {
                         .image(image)
                         .description(description)
                         .name(name)
+                        .time(time)
                 .build());
     }
 }

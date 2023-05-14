@@ -61,8 +61,11 @@ class GetAdditionsUseCaseImplTest {
                 .thenReturn(List.of(additionPersistence1, additionPersistence2));
         List<Addition> actualResult = getAdditionsUseCase.getAdditions();
         List<Addition> expectedResult = new ArrayList<>();
-        expectedResult.add(addition1);
         expectedResult.add(addition2);
+        expectedResult.add(addition1);
+
+        //expectedResult.sort(Comparator.comparing(addition -> addition.getTime(), Collections.reverseOrder()));
+
         assertEquals(expectedResult, actualResult);
         verify(additionRepository).findAll();
     }

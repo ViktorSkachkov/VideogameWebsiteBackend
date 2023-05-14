@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface GetVideogamesUseCase {
     List<Videogame> getVideogames();
+    List<Videogame> reverseOrder(List<Videogame> videogames);
 }

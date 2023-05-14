@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface GetNewsByGameUseCase {
     List<News> getNewsByGame(int index);
+    List<News> reverseOrder(List<News> newsList);
 }

@@ -8,9 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class GetAdditionOrdersByUserUseCaseImpl implements GetAdditionOrdersByUserUseCase {
@@ -38,8 +37,18 @@ public class GetAdditionOrdersByUserUseCaseImpl implements GetAdditionOrdersByUs
             }
         }
 
-        additionOrders.sort(Comparator.comparing(additionOrder -> additionOrder.getTime(), Collections.reverseOrder()));
+        List<AdditionOrder> newList = reverseOrder(additionOrders);
+        return newList;
+    }
 
-        return additionOrders;
+    @Override
+    public List<AdditionOrder> reverseOrder(List<AdditionOrder> additionOrders) {
+        List<AdditionOrder> result = new ArrayList<>();
+
+        for(int i = additionOrders.size() - 1; i >= 0; i--) {
+            result.add(additionOrders.get(i));
+        }
+
+        return result;
     }
 }
