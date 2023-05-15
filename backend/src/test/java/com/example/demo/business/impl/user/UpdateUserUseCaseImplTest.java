@@ -50,6 +50,7 @@ class UpdateUserUseCaseImplTest {
         User expectedResult = User.builder()
                 .id(1)
                 .username("username3")
+                .pwd("pwd")
                 .email("email3")
                 .bankAccount("bankAccount3")
                 .userRoles(Set.of(role))
@@ -57,6 +58,7 @@ class UpdateUserUseCaseImplTest {
         UserPersistence user = UserPersistence.builder()
                 .id(1L)
                 .username("username3")
+                .pwd("pwd")
                 .email("email3")
                 .bank_account("bankAccount3")
                 .userRoles(Set.of(rp))
@@ -69,8 +71,7 @@ class UpdateUserUseCaseImplTest {
         when(userRepository.save(user))
                 .thenReturn(user);
         LoginResponse actualResult = updateUserUseCase.updateUser(expectedResult);
-
-        //assertEquals(expectedResult, actualResult);
+        
         verify(userRepository).save(user);
     }
 }
