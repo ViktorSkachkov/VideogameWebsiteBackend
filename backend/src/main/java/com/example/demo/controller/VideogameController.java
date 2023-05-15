@@ -22,6 +22,8 @@ public class VideogameController {
     private final DeleteVideogameUseCase deleteVideogameUseCase;
     private final GetFeaturedVideogamesUseCase getFeaturedVideogamesUseCase;
     private final GetUpcomingVideogamesUseCase getUpcomingVideogamesUseCase;
+    private final GetVideogamesForAdditionsFilterUseCase getVideogamesForAdditionsFilterUseCase;
+    private final GetVideogamesForNewsFilterUseCase getVideogamesForNewsFilterUseCase;
 
     /**
      *
@@ -32,6 +34,28 @@ public class VideogameController {
     @GetMapping("")
     public List<Videogame> getVideogames() {
         return getVideogamesUseCase.getVideogames();
+    }
+
+    /**
+     *
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @GetMapping("/newsFilter")
+    public List<Videogame> getVideogamesForNewsFilter() {
+        return getVideogamesForNewsFilterUseCase.getVideogamesorNewsFilter();
+    }
+
+    /**
+     *
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @GetMapping("/additionsFilter")
+    public List<Videogame> getVideogamesForAdditionsFilter() {
+        return getVideogamesForAdditionsFilterUseCase.getVideogamesorAdditionsFilter();
     }
 
     /**
