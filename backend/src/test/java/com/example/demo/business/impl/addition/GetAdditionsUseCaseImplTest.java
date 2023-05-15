@@ -64,8 +64,6 @@ class GetAdditionsUseCaseImplTest {
         expectedResult.add(addition2);
         expectedResult.add(addition1);
 
-        //expectedResult.sort(Comparator.comparing(addition -> addition.getTime(), Collections.reverseOrder()));
-
         assertEquals(expectedResult, actualResult);
         verify(additionRepository).findAll();
     }
