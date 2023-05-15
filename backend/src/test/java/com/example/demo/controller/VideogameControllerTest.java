@@ -42,6 +42,10 @@ class VideogameControllerTest {
     private GetFeaturedVideogamesUseCase getFeaturedVideogamesUseCase;
     @MockBean
     private GetUpcomingVideogamesUseCase getUpcomingVideogamesUseCase;
+    @MockBean
+    private GetVideogamesForAdditionsFilterUseCase getVideogamesForAdditionsFilterUseCase;
+    @MockBean
+    private GetVideogamesForNewsFilterUseCase getVideogamesForNewsFilterUseCase;
 
     @Test
     @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
@@ -202,5 +206,65 @@ class VideogameControllerTest {
                             {"id":1, "name":"name3", "price":15,"description":"description3","image":"image3"}
                        """));
         verify(updateVideogameUseCase).updateVideogame(videogame);
+    }
+
+    @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void getVideogamesForAdditionsFilter() throws Exception{
+        Videogame videogame1 = Videogame.builder()
+                .id(1)
+                .name("name1")
+                .price(10)
+                .description("description1")
+                .image("image1")
+                .build();
+        Videogame videogame2 = Videogame.builder()
+                .id(2)
+                .name("name2")
+                .price(10)
+                .description("description2")
+                .image("image2")
+                .build();
+        when(getVideogamesUseCase.getVideogames())
+                .thenReturn(List.of(videogame1, videogame2));
+        mockMvc.perform(get("/videogames"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                .andExpect(content().json("""
+                    [{"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"},
+                    {"id":2, "name":"name2", "price":10,"description":"description2","image":"image2"}]
+"""));
+        verify(getVideogamesUseCase).getVideogames();
+    }
+
+    @Test
+    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void getVideogamesForNewsFilter() throws Exception{
+        Videogame videogame1 = Videogame.builder()
+                .id(1)
+                .name("name1")
+                .price(10)
+                .description("description1")
+                .image("image1")
+                .build();
+        Videogame videogame2 = Videogame.builder()
+                .id(2)
+                .name("name2")
+                .price(10)
+                .description("description2")
+                .image("image2")
+                .build();
+        when(getVideogamesUseCase.getVideogames())
+                .thenReturn(List.of(videogame1, videogame2));
+        mockMvc.perform(get("/videogames"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                .andExpect(content().json("""
+                    [{"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"},
+                    {"id":2, "name":"name2", "price":10,"description":"description2","image":"image2"}]
+"""));
+        verify(getVideogamesUseCase).getVideogames();
     }
 }
