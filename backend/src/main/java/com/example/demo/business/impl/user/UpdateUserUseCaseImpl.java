@@ -29,15 +29,17 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
     @Override
     public LoginResponse updateUser(User user) {
         Optional<UserPersistence> up = userRepository.findById(Long.valueOf(user.getId()));
-        String encodedPassword = passwordEncoder.encode(user.getPwd());
 
         if(up.isEmpty()) {
 
         }
         up.get().setUsername(user.getUsername());
         up.get().setEmail(user.getEmail());
-        up.get().setPwd(encodedPassword);
         up.get().setBank_account(user.getBankAccount());
+        if(user.getPwd() != "") {
+            String encodedPassword = passwordEncoder.encode(user.getPwd());
+            up.get().setPwd(encodedPassword);
+        }
 
         UserPersistence userPersistence = userRepository.save(up.get());
 
