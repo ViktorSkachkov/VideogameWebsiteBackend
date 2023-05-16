@@ -36,6 +36,7 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
                 .pwd(up.get().getPwd())
                 .bankAccount(up.get().getBank_account())
                 .email(up.get().getEmail())
+                .deleted(up.get().getDeleted())
                 .build();
 
         Set<Role> userRoles = new HashSet<>();

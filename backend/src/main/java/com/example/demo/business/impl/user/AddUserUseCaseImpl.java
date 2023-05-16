@@ -33,6 +33,7 @@ public class AddUserUseCaseImpl implements AddUserUseCase {
                 .email(user.getEmail())
                 .pwd(encodedPassword)
                 .username(user.getUsername())
+                .deleted(false)
                 .build();
 
         UserPersistence up2 = userRepository.save(up);

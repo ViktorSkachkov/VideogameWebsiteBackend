@@ -32,6 +32,7 @@ public class GetAdditionUseCaseImpl implements GetAdditionUseCase {
                 .description(ap.get().getDescription())
                 .price(ap.get().getPrice())
                 .time(ap.get().getTime())
+                .deleted(ap.get().getDeleted())
                 .build();
         return addition;
     }

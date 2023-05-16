@@ -27,7 +27,7 @@ public class GetAdditionsByGameUseCaseImpl implements GetAdditionsByGameUseCase 
         List<AdditionPersistence> list = additionRepository.findAll();
         List<Addition> additionsList = new ArrayList<>();
         for (AdditionPersistence ap : list) {
-            if (index == -1) {
+            if (index == -1 && !ap.getDeleted()) {
                 Addition addition = Addition.builder()
                         .id(Math.toIntExact(ap.getId()))
                         .image(ap.getImage())
@@ -36,10 +36,11 @@ public class GetAdditionsByGameUseCaseImpl implements GetAdditionsByGameUseCase 
                         .description(ap.getDescription())
                         .name(ap.getName())
                         .time(ap.getTime())
+                        .deleted(ap.getDeleted())
                         .build();
                 additionsList.add(addition);
             } else {
-                if (ap.getGame_id() == index) {
+                if (ap.getGame_id() == index && !ap.getDeleted()) {
                     Addition addition = Addition.builder()
                             .id(Math.toIntExact(ap.getId()))
                             .image(ap.getImage())
@@ -48,6 +49,7 @@ public class GetAdditionsByGameUseCaseImpl implements GetAdditionsByGameUseCase 
                             .description(ap.getDescription())
                             .name(ap.getName())
                             .time(ap.getTime())
+                            .deleted(ap.getDeleted())
                             .build();
                     additionsList.add(addition);
                 }

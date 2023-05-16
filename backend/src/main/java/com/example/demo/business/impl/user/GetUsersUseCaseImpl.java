@@ -27,24 +27,27 @@ public class GetUsersUseCaseImpl implements GetUsersUseCase {
         List<UserPersistence> list = userRepository.findAll();
         List<User> users = new ArrayList<>();
         for (UserPersistence up : list) {
-            Set<Role> roles = new HashSet<>();
-            for (RolePersistence rp : up.getUserRoles()) {
-                roles.add(Role.builder()
-                        .id(Math.toIntExact(rp.getId()))
-                        .role(rp.getRole())
-                        .user_id(Math.toIntExact(rp.getUser()))
-                        .build());
-            }
+            if(!up.getDeleted()) {
+                Set<Role> roles = new HashSet<>();
+                for (RolePersistence rp : up.getUserRoles()) {
+                    roles.add(Role.builder()
+                            .id(Math.toIntExact(rp.getId()))
+                            .role(rp.getRole())
+                            .user_id(Math.toIntExact(rp.getUser()))
+                            .build());
+                }
 
-            User user = User.builder()
-                    .id(Math.toIntExact(up.getId()))
-                    .username(up.getUsername())
-                    .pwd(up.getPwd())
-                    .bankAccount(up.getBank_account())
-                    .userRoles(roles)
-                    .email(up.getEmail())
-                    .build();
-            users.add(user);
+                User user = User.builder()
+                        .id(Math.toIntExact(up.getId()))
+                        .username(up.getUsername())
+                        .pwd(up.getPwd())
+                        .bankAccount(up.getBank_account())
+                        .userRoles(roles)
+                        .email(up.getEmail())
+                        .deleted(up.getDeleted())
+                        .build();
+                users.add(user);
+            }
         }
         return users;
     }

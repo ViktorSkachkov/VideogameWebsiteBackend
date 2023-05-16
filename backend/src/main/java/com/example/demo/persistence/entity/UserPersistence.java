@@ -2,10 +2,8 @@ package com.example.demo.persistence.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.Set;
@@ -43,5 +41,9 @@ public class UserPersistence {
     @Length(min = 2, max = 200)
     @Column(name = "pwd")
     private String pwd;
+    @Column(name = "deleted")
+    @NotNull
+    @EqualsAndHashCode.Exclude
+    private Boolean deleted;
 }
 

@@ -42,4 +42,8 @@ public class AdditionPersistence {
     @NotNull
     @EqualsAndHashCode.Exclude
     private LocalDateTime time;
+    @Column(name = "deleted")
+    @NotNull
+    @EqualsAndHashCode.Exclude
+    private Boolean deleted;
 }

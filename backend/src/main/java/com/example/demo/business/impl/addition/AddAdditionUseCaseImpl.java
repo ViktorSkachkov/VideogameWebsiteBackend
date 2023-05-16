@@ -28,6 +28,7 @@ public class AddAdditionUseCaseImpl implements AddAdditionUseCase {
                     .game_id(addition.getGameId())
                     .price(addition.getPrice())
                     .time(LocalDateTime.now())
+                    .deleted(false)
                     .build();
             additionRepository.save(ap);
         } else {

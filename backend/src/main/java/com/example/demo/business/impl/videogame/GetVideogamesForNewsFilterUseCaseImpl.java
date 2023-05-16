@@ -32,7 +32,7 @@ public class GetVideogamesForNewsFilterUseCaseImpl implements GetVideogamesForNe
 
         List<Videogame> videogames = new ArrayList<>();
         for (VideogamePersistence vp : videogameList) {
-            if (videogameInts.contains(vp.getId())) {
+            if (videogameInts.contains(vp.getId()) && !vp.getDeleted()) {
                 Videogame videogame = Videogame.builder()
                         .id(Math.toIntExact(vp.getId()))
                         .featured(vp.getFeatured())
@@ -41,6 +41,7 @@ public class GetVideogamesForNewsFilterUseCaseImpl implements GetVideogamesForNe
                         .time(vp.getTime())
                         .price(vp.getPrice())
                         .name(vp.getName())
+                        .deleted(vp.getDeleted())
                         .build();
                 videogames.add(videogame);
             }

@@ -32,6 +32,7 @@ public class GetVideogameUseCaseImpl implements GetVideogameUseCase {
                 .name(vp.get().getName())
                 .price(vp.get().getPrice())
                 .time(vp.get().getTime())
+                .deleted(vp.get().getDeleted())
                 .build();
         return videogame;
     }

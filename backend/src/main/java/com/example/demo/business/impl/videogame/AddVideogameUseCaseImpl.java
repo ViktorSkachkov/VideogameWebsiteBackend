@@ -27,6 +27,7 @@ public class AddVideogameUseCaseImpl implements AddVideogameUseCase {
                 .featured(videogame.getFeatured())
                 .image(videogame.getImage())
                 .time(LocalDateTime.now())
+                .deleted(false)
                 .build();
         videogameRepository.save(vp);
         return videogame;

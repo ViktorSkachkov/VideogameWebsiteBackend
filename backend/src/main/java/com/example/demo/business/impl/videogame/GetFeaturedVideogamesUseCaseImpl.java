@@ -24,7 +24,7 @@ public class GetFeaturedVideogamesUseCaseImpl implements GetFeaturedVideogamesUs
         List<Videogame> videogames = new ArrayList<>();
         Videogame videogame;
         for (VideogamePersistence vp : list) {
-            if (vp.getFeatured()) {
+            if (vp.getFeatured() && !vp.getDeleted()) {
                 videogame = Videogame.builder()
                         .id(Math.toIntExact(vp.getId()))
                         .featured(vp.getFeatured())
@@ -33,6 +33,7 @@ public class GetFeaturedVideogamesUseCaseImpl implements GetFeaturedVideogamesUs
                         .price(vp.getPrice())
                         .name(vp.getName())
                         .time(vp.getTime())
+                        .deleted(vp.getDeleted())
                         .build();
                 videogames.add(videogame);
             }

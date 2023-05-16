@@ -25,16 +25,19 @@ public class GetAdditionsUseCaseImpl implements GetAdditionsUseCase {
         List<AdditionPersistence> list = additionRepository.findAll();
         List<Addition> additions = new ArrayList<>();
         for (AdditionPersistence ap : list) {
-            Addition addition = Addition.builder()
-                    .id(Math.toIntExact(ap.getId()))
-                    .gameId(ap.getGame_id())
-                    .image(ap.getImage())
-                    .name(ap.getName())
-                    .description(ap.getDescription())
-                    .price(ap.getPrice())
-                    .time(ap.getTime())
-                    .build();
-            additions.add(addition);
+            if(!ap.getDeleted()) {
+                Addition addition = Addition.builder()
+                        .id(Math.toIntExact(ap.getId()))
+                        .gameId(ap.getGame_id())
+                        .image(ap.getImage())
+                        .name(ap.getName())
+                        .description(ap.getDescription())
+                        .price(ap.getPrice())
+                        .time(ap.getTime())
+                        .deleted(ap.getDeleted())
+                        .build();
+                additions.add(addition);
+            }
         }
 
         List<Addition> newList = reverseOrder(additions);

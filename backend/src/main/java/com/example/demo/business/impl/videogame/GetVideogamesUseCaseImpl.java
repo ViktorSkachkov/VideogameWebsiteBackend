@@ -23,16 +23,19 @@ public class GetVideogamesUseCaseImpl implements GetVideogamesUseCase {
         List<VideogamePersistence> list = videogameRepository.findAll();
         List<Videogame> videogames = new ArrayList<>();
         for (VideogamePersistence vp : list) {
-            Videogame videogame = Videogame.builder()
-                    .id(Math.toIntExact(vp.getId()))
-                    .featured(vp.getFeatured())
-                    .image(vp.getImage())
-                    .description(vp.getDescription())
-                    .time(vp.getTime())
-                    .price(vp.getPrice())
-                    .name(vp.getName())
-                    .build();
-            videogames.add(videogame);
+            if(!vp.getDeleted()) {
+                Videogame videogame = Videogame.builder()
+                        .id(Math.toIntExact(vp.getId()))
+                        .featured(vp.getFeatured())
+                        .image(vp.getImage())
+                        .description(vp.getDescription())
+                        .time(vp.getTime())
+                        .price(vp.getPrice())
+                        .name(vp.getName())
+                        .deleted(vp.getDeleted())
+                        .build();
+                videogames.add(videogame);
+            }
         }
 
         List<Videogame> newList = reverseOrder(videogames);

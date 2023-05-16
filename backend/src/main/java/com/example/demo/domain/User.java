@@ -16,4 +16,5 @@ public class User {
     private String email;
     private String bankAccount;
     private Set<Role> userRoles;
+    private Boolean deleted;
 }

@@ -15,4 +15,5 @@ public class Addition {
     private String description;
     private String image;
     private LocalDateTime time;
+    private Boolean deleted;
 }
