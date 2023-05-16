@@ -30,6 +30,7 @@ class GetVideogameUseCaseImplTest {
                 .price(10)
                 .description("description1")
                 .image("image1")
+                .deleted(false)
                 .build();
         VideogamePersistence videogame = VideogamePersistence.builder()
                 .id(1L)
@@ -37,6 +38,7 @@ class GetVideogameUseCaseImplTest {
                 .price(10)
                 .description("description1")
                 .image("image1")
+                .deleted(false)
                 .build();
         when(videogameRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(videogame));

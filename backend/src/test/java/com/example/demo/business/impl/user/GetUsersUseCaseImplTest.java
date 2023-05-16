@@ -43,6 +43,7 @@ class GetUsersUseCaseImplTest {
                 .email("email1")
                 .bankAccount("bankAccount1")
                 .userRoles(rolesSet)
+                .deleted(false)
                 .build();
 
         Set<Role> rolesSet2 = new HashSet<>();
@@ -59,6 +60,7 @@ class GetUsersUseCaseImplTest {
                 .email("email2")
                 .bankAccount("bankAccount2")
                 .userRoles(rolesSet2)
+                .deleted(false)
                 .build();
 
         Set<RolePersistence> rolePersistenceSet = new HashSet<>();
@@ -75,6 +77,7 @@ class GetUsersUseCaseImplTest {
                 .email("email1")
                 .bank_account("bankAccount1")
                 .userRoles(rolePersistenceSet)
+                .deleted(false)
                 .build();
 
         Set<RolePersistence> rolePersistenceSet2 = new HashSet<>();
@@ -91,6 +94,7 @@ class GetUsersUseCaseImplTest {
                 .email("email2")
                 .bank_account("bankAccount2")
                 .userRoles(rolePersistenceSet2)
+                .deleted(false)
                 .build();
 
         when(userRepository.findAll())

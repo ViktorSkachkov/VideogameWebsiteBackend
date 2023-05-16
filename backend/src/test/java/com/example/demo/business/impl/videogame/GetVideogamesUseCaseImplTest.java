@@ -32,6 +32,7 @@ class GetVideogamesUseCaseImplTest {
                 .featured(true)
                 .description("description1")
                 .image("image1")
+                .deleted(false)
                 .build();
         Videogame videogame2 = Videogame.builder()
                 .id(2)
@@ -40,6 +41,7 @@ class GetVideogamesUseCaseImplTest {
                 .featured(true)
                 .description("description2")
                 .image("image2")
+                .deleted(false)
                 .build();
         VideogamePersistence videogamePersistence1 = VideogamePersistence.builder()
                 .id(1L)
@@ -48,6 +50,7 @@ class GetVideogamesUseCaseImplTest {
                 .featured(true)
                 .description("description1")
                 .image("image1")
+                .deleted(false)
                 .build();
         VideogamePersistence videogamePersistence2 = VideogamePersistence.builder()
                 .id(2L)
@@ -56,6 +59,7 @@ class GetVideogamesUseCaseImplTest {
                 .featured(true)
                 .description("description2")
                 .image("image2")
+                .deleted(false)
                 .build();
         when(videogameRepository.findAll())
                 .thenReturn(List.of(videogamePersistence1, videogamePersistence2));

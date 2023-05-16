@@ -28,12 +28,14 @@ class AddVideogameUseCaseImplTest {
                 .price(15)
                 .description("description5")
                 .image("image5")
+                .deleted(false)
                 .build();
         VideogamePersistence videogame = VideogamePersistence.builder()
                 .name("name5")
                 .price(15)
                 .description("description5")
                 .image("image5")
+                .deleted(false)
                 .build();
 
         when(videogameRepository.save(videogame))

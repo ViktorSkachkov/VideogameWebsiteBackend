@@ -46,6 +46,7 @@ class GetUserUseCaseImplTest {
                 .email("email1")
                 .bankAccount("bankAccount1")
                 .userRoles(Set.of(role))
+                .deleted(false)
                 .build();
         UserPersistence user = UserPersistence.builder()
                 .id(1L)
@@ -53,6 +54,7 @@ class GetUserUseCaseImplTest {
                 .email("email1")
                 .bank_account("bankAccount1")
                 .userRoles(Set.of(rp))
+                .deleted(false)
                 .build();
         when(userRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(user));

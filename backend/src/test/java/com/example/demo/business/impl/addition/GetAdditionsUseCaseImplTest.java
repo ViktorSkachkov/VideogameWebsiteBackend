@@ -32,6 +32,7 @@ class GetAdditionsUseCaseImplTest {
                 .price(10)
                 .description("description1")
                 .image("image1")
+                .deleted(false)
                 .build();
         Addition addition2 = Addition.builder()
                 .id(2)
@@ -40,6 +41,7 @@ class GetAdditionsUseCaseImplTest {
                 .price(10)
                 .description("description2")
                 .image("image2")
+                .deleted(false)
                 .build();
         AdditionPersistence additionPersistence1 = AdditionPersistence.builder()
                 .id(1L)
@@ -48,6 +50,7 @@ class GetAdditionsUseCaseImplTest {
                 .price(10)
                 .description("description1")
                 .image("image1")
+                .deleted(false)
                 .build();
         AdditionPersistence additionPersistence2 = AdditionPersistence.builder()
                 .id(2L)
@@ -56,6 +59,7 @@ class GetAdditionsUseCaseImplTest {
                 .price(10)
                 .description("description2")
                 .image("image2")
+                .deleted(false)
                 .build();
         when(additionRepository.findAll())
                 .thenReturn(List.of(additionPersistence1, additionPersistence2));

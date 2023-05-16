@@ -29,6 +29,7 @@ class AddAdditionUseCaseImplTest {
                 .price(10)
                 .description("description3")
                 .image("image3")
+                .deleted(false)
                 .build();
         AdditionPersistence addition = AdditionPersistence.builder()
                 .game_id(1)
@@ -36,6 +37,7 @@ class AddAdditionUseCaseImplTest {
                 .price(10)
                 .description("description3")
                 .image("image3")
+                .deleted(false)
                 .build();
         when(additionRepository.save(addition))
                 .thenReturn(addition);

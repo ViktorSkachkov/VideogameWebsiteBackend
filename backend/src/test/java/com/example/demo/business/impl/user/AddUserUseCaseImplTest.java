@@ -41,6 +41,7 @@ class AddUserUseCaseImplTest {
                         .role("EMPLOYEE")
                         .user_id(3)
                         .build()))
+                .deleted(false)
                 .build();
 
         UserPersistence user = UserPersistence.builder()
@@ -53,6 +54,7 @@ class AddUserUseCaseImplTest {
                         .role("EMPLOYEE")
                         .user(3L)
                         .build()))
+                .deleted(false)
                 .build();
 
         /*when(userRepository.save(user))

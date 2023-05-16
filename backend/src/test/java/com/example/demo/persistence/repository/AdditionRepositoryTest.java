@@ -89,6 +89,7 @@ class AdditionRepositoryTest {
                 .description(description)
                 .name(name)
                 .time(time)
+                .deleted(false)
                 .build());
     }
 }

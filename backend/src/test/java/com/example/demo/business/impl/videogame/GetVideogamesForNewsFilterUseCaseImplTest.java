@@ -37,6 +37,7 @@ class GetVideogamesForNewsFilterUseCaseImplTest {
                 .featured(true)
                 .description("description1")
                 .image("image1")
+                .deleted(false)
                 .build();
         VideogamePersistence videogamePersistence1 = VideogamePersistence.builder()
                 .id(1L)
@@ -45,6 +46,7 @@ class GetVideogamesForNewsFilterUseCaseImplTest {
                 .featured(true)
                 .description("description1")
                 .image("image1")
+                .deleted(false)
                 .build();
         VideogamePersistence videogamePersistence2 = VideogamePersistence.builder()
                 .id(2L)
@@ -53,6 +55,7 @@ class GetVideogamesForNewsFilterUseCaseImplTest {
                 .featured(true)
                 .description("description2")
                 .image("image2")
+                .deleted(false)
                 .build();
 
         NewsPersistence newsPersistence1 = NewsPersistence.builder()

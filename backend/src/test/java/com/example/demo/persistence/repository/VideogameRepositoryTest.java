@@ -86,6 +86,7 @@ class VideogameRepositoryTest {
                 .image(image)
                 .featured(featured)
                 .time(time)
+                .deleted(false)
                 .build());
     }
 }
