@@ -2,7 +2,7 @@ package com.example.demo.business.impl.videogame;
 
 import com.example.demo.domain.Videogame;
 import com.example.demo.persistence.entity.VideogamePersistence;
-import com.example.demo.persistence.repository.VideogameRepository;
+import com.example.demo.persistence.repository.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -19,6 +19,16 @@ import static org.mockito.Mockito.when;
 class DeleteVideogameUseCaseImplTest {
     @Mock
     private VideogameRepository videogameRepository;
+    @Mock
+    private AdditionRepository additionRepository;
+    @Mock
+    private NewsRepository newsRepository;
+    @Mock
+    private GameOrderRepository gameOrderRepository;
+    @Mock
+    private AdditionOrderRepository additionOrderRepository;
+    @Mock
+    private ReviewRepository reviewRepository;
     @InjectMocks
     private DeleteVideogameUseCaseImpl deleteVideogameUseCase;
 
