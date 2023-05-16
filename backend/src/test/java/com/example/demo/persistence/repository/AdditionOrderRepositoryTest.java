@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -26,16 +27,16 @@ class AdditionOrderRepositoryTest {
 
     @Test
     void findAll() {
-        AdditionOrderPersistence expected = createTestAdditionOrder(1,43, 3, 41,
+        AdditionOrderPersistence expected = createTestAdditionOrder(1, 43, 3, 41,
                 LocalDateTime.of(2023, 04, 19, 17, 04, 32));
-        AdditionOrderPersistence expected2 = createTestAdditionOrder(10,41, 2, 20,
+        AdditionOrderPersistence expected2 = createTestAdditionOrder(10, 41, 2, 20,
                 LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         List<AdditionOrderPersistence> expectedList = new ArrayList<>();
         expectedList.add(expected);
         List<AdditionOrderPersistence> actualList = additionOrderRepository.findAllTest();
         AdditionOrderPersistence actual = AdditionOrderPersistence.builder().build();
-        for(AdditionOrderPersistence aop : actualList) {
-            if(aop.getId() == 1) {
+        for (AdditionOrderPersistence aop : actualList) {
+            if (aop.getId() == 1) {
                 actual = aop;
             }
         }
@@ -44,9 +45,9 @@ class AdditionOrderRepositoryTest {
 
     @Test
     void findGameOrderById() {
-        AdditionOrderPersistence expected2 = createTestAdditionOrder(10,41, 2, 20,
+        AdditionOrderPersistence expected2 = createTestAdditionOrder(10, 41, 2, 20,
                 LocalDateTime.of(2023, 04, 19, 17, 04, 32));
-        AdditionOrderPersistence expected = createTestAdditionOrder(1,43, 3, 41,
+        AdditionOrderPersistence expected = createTestAdditionOrder(1, 43, 3, 41,
                 LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         AdditionOrderPersistence actual = additionOrderRepository.findByid(1L);
         assertEquals(expected.getId(), actual.getId());

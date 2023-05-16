@@ -23,6 +23,7 @@ class NewsTest {
                 .build();
         assertEquals(news1, news2);
     }
+
     @Test
     void compareNotEquals() {
         News news1 = News.builder()

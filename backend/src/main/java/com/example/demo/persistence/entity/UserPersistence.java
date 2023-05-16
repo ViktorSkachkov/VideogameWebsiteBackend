@@ -22,15 +22,15 @@ public class UserPersistence {
     @Column(name = "id")
     private Long id;
     @NotBlank
-    @Length(min = 2 ,max = 250)
+    @Length(min = 2, max = 250)
     @Column(name = "username")
     private String username;
     @NotBlank
-    @Length(min = 2 ,max = 100)
+    @Length(min = 2, max = 100)
     @Column(name = "email")
     private String email;
     @NotBlank
-    @Length(min = 2 ,max = 250)
+    @Length(min = 2, max = 250)
     @Column(name = "bank_account")
     private String bank_account;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -40,7 +40,7 @@ public class UserPersistence {
     @JoinColumn(name = "user_id")
     private Set<GameOrderPersistence> gameOrders;
     @NotBlank
-    @Length(min = 2 ,max = 200)
+    @Length(min = 2, max = 200)
     @Column(name = "pwd")
     private String pwd;
 }

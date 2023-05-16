@@ -15,14 +15,13 @@ public class UpdateNewsUseCaseImpl implements UpdateNewsUseCase {
     private final NewsRepository newsRepository;
 
     /**
-     *
      * @param news
      * @return
      */
     @Override
     public News updateNews(News news) {
         Optional<NewsPersistence> np = newsRepository.findById(Long.valueOf(news.getId()));
-        if(np.isEmpty()) {
+        if (np.isEmpty()) {
 
         }
         np.get().setGame_id(news.getGameId());

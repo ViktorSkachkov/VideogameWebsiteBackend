@@ -21,7 +21,6 @@ public class AddUserUseCaseImpl implements AddUserUseCase {
     private final AccessTokenEncoder accessTokenEncoder;
 
     /**
-     *
      * @param user
      * @return
      */
@@ -37,7 +36,7 @@ public class AddUserUseCaseImpl implements AddUserUseCase {
                 .build();
 
         UserPersistence up2 = userRepository.save(up);
-        for(Role role : user.getUserRoles()) {
+        for (Role role : user.getUserRoles()) {
             RolePersistence rp = RolePersistence.builder()
                     .role(role.getRole())
                     .user(up2.getId())

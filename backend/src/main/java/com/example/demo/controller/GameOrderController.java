@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000/", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "*")
 @RequestMapping("/gameOrders")
 @RequiredArgsConstructor
 public class GameOrderController {
@@ -22,7 +22,6 @@ public class GameOrderController {
     private final GetGameOrdersByUserUseCase getGameOrdersByUserUseCase;
 
     /**
-     *
      * @param gameOrder
      * @return
      */
@@ -34,7 +33,6 @@ public class GameOrderController {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -46,7 +44,6 @@ public class GameOrderController {
     }
 
     /**
-     *
      * @param id
      * @return
      */

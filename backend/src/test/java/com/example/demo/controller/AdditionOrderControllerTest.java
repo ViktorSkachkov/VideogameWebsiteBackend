@@ -39,7 +39,7 @@ class AdditionOrderControllerTest {
     private GetAdditionOrderUseCase getAdditionOrderUseCase;
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER"})
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
     void addAdditionOrder() throws Exception {
         AdditionOrder additionOrder = AdditionOrder.builder()
                 .id(1)
@@ -52,20 +52,20 @@ class AdditionOrderControllerTest {
         mockMvc.perform(post("/additionOrders")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content("""
-                            {"id":1, "units":3, "addition":43,"user":41}
-                        """)
+                                    {"id":1, "units":3, "addition":43,"user":41}
+                                """)
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().json("""
-                           {"id":1, "units":3, "addition":43,"user":41}
-                       """));
+                            {"id":1, "units":3, "addition":43,"user":41}
+                        """));
         verify(addAdditionOrderUseCase).addAdditionOrder(additionOrder);
     }
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER"})
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
     void getAdditionOrdersByUser() throws Exception {
         AdditionOrder additionOrder1 = AdditionOrder.builder()
                 .id(1)
@@ -86,14 +86,14 @@ class AdditionOrderControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                    [{"id":1, "units":3, "addition":43,"user":41},
-                    {"id":2, "units":3, "addition":43,"user":41}]
-"""));
+                                            [{"id":1, "units":3, "addition":43,"user":41},
+                                            {"id":2, "units":3, "addition":43,"user":41}]
+                        """));
         verify(getAdditionOrdersByUserUseCase).getAdditionOrdersByUser(41);
     }
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER"})
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
     void getAdditionOrder() throws Exception {
         AdditionOrder additionOrder = AdditionOrder.builder()
                 .id(1)
@@ -108,8 +108,8 @@ class AdditionOrderControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                           {"id":1, "units":3, "addition":43,"user":41}
-                    """));
+                               {"id":1, "units":3, "addition":43,"user":41}
+                        """));
         verify(getAdditionOrderUseCase).getAdditionOrder(1);
     }
 }

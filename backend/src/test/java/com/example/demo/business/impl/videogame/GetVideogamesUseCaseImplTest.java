@@ -25,7 +25,7 @@ class GetVideogamesUseCaseImplTest {
 
     @Test
     void getVideogames() {
-       Videogame videogame1 = Videogame.builder()
+        Videogame videogame1 = Videogame.builder()
                 .id(1)
                 .name("name1")
                 .price(10)
@@ -33,7 +33,7 @@ class GetVideogamesUseCaseImplTest {
                 .description("description1")
                 .image("image1")
                 .build();
-       Videogame videogame2 = Videogame.builder()
+        Videogame videogame2 = Videogame.builder()
                 .id(2)
                 .name("name2")
                 .price(10)

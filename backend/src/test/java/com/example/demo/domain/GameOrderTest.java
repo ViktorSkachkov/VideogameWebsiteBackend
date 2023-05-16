@@ -21,6 +21,7 @@ class GameOrderTest {
                 .build();
         assertEquals(gameOrder1, gameOrder2);
     }
+
     @Test
     void compareNotEquals() {
         GameOrder gameOrder1 = GameOrder.builder()

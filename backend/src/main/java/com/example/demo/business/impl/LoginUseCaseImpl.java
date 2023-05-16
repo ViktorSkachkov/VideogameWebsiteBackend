@@ -22,7 +22,6 @@ public class LoginUseCaseImpl implements LoginUseCase {
     private final AccessTokenEncoder accessTokenEncoder;
 
     /**
-     *
      * @param loginRequest
      * @return
      */
@@ -46,7 +45,6 @@ public class LoginUseCaseImpl implements LoginUseCase {
     }
 
     /**
-     *
      * @param user
      * @return
      */

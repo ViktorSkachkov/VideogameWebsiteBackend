@@ -15,13 +15,12 @@ public class AddNewsUseCaseImpl implements AddNewsUseCase {
     private final NewsRepository newsRepository;
 
     /**
-     *
      * @param news
      * @return
      */
     @Override
     public News addNews(News news) {
-        if(news.getText().length() <= 1000) {
+        if (news.getText().length() <= 1000) {
             NewsPersistence np = NewsPersistence.builder()
                     .game_id(news.getGameId())
                     .text(news.getText())
@@ -30,8 +29,7 @@ public class AddNewsUseCaseImpl implements AddNewsUseCase {
                     .time(LocalDateTime.now())
                     .build();
             newsRepository.save(np);
-        }
-        else {
+        } else {
 
         }
         return news;

@@ -16,14 +16,13 @@ public class GetVideogamesUseCaseImpl implements GetVideogamesUseCase {
     private final VideogameRepository videogameRepository;
 
     /**
-     *
      * @return
      */
     @Override
     public List<Videogame> getVideogames() {
         List<VideogamePersistence> list = videogameRepository.findAll();
         List<Videogame> videogames = new ArrayList<>();
-        for(VideogamePersistence vp : list) {
+        for (VideogamePersistence vp : list) {
             Videogame videogame = Videogame.builder()
                     .id(Math.toIntExact(vp.getId()))
                     .featured(vp.getFeatured())
@@ -44,7 +43,7 @@ public class GetVideogamesUseCaseImpl implements GetVideogamesUseCase {
     public List<Videogame> reverseOrder(List<Videogame> videogames) {
         List<Videogame> result = new ArrayList<>();
 
-        for(int i = videogames.size() - 1; i >= 0; i--) {
+        for (int i = videogames.size() - 1; i >= 0; i--) {
             result.add(videogames.get(i));
         }
 

@@ -14,7 +14,6 @@ import java.io.IOException;
 @Configuration
 public class CSPFilter implements Filter {
     /**
-     *
      * @param servletRequest
      * @param servletResponse
      * @param filterChain
@@ -32,14 +31,15 @@ public class CSPFilter implements Filter {
     }
 
     /**
-     *
      * @param filterConfig
      * @throws ServletException
      */
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException { }
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
 
     @Override
-    public void destroy() { }
+    public void destroy() {
+    }
 
 }

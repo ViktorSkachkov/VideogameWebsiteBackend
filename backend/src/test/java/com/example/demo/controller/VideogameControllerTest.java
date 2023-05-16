@@ -48,8 +48,8 @@ class VideogameControllerTest {
     private GetVideogamesForNewsFilterUseCase getVideogamesForNewsFilterUseCase;
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void addVideogame() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void addVideogame() throws Exception {
         Videogame videogame = Videogame.builder()
                 .id(5)
                 .name("name5")
@@ -63,20 +63,21 @@ class VideogameControllerTest {
         mockMvc.perform(post("/videogames")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content("""
-                            {"id":5, "name":"name5", "price":15,"description":"description5","featured":false,"image":"image5"}
-                        """)
+                                    {"id":5, "name":"name5", "price":15,"description":"description5","featured":false,"image":"image5"}
+                                """)
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().json("""
-                            {"id":5, "name":"name5", "price":15,"description":"description5","featured":false,"image":"image5"}
-                       """));
+                             {"id":5, "name":"name5", "price":15,"description":"description5","featured":false,"image":"image5"}
+                        """));
         verify(addVideogameUseCase).addVideogame(videogame);
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void deleteVideogame() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void deleteVideogame() throws Exception {
         Videogame videogame = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -91,13 +92,14 @@ class VideogameControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                    {"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"}
-"""));
+                                            {"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"}
+                        """));
         verify(deleteVideogameUseCase).deleteVideogame(1);
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void getVideogames() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void getVideogames() throws Exception {
         Videogame videogame1 = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -119,14 +121,15 @@ class VideogameControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                    [{"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"},
-                    {"id":2, "name":"name2", "price":10,"description":"description2","image":"image2"}]
-"""));
+                                            [{"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"},
+                                            {"id":2, "name":"name2", "price":10,"description":"description2","image":"image2"}]
+                        """));
         verify(getVideogamesUseCase).getVideogames();
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void getVideogame() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void getVideogame() throws Exception {
         Videogame videogame = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -141,17 +144,19 @@ class VideogameControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                        {"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"}
-                    """));
+                            {"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"}
+                        """));
         verify(getVideogameUseCase).getVideogame(1);
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void getUpcomingVideogames() {
 
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void getFeaturedVideogames() throws Exception {
         Videogame videogame1 = Videogame.builder()
                 .id(1)
@@ -176,14 +181,15 @@ class VideogameControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                    [{"id":1, "name":"name1", "price":10,"description":"description1","featured":true, "image":"image1"},
-                    {"id":2, "name":"name2", "price":10,"description":"description2","featured":true, "image":"image2"}]
-"""));
+                                            [{"id":1, "name":"name1", "price":10,"description":"description1","featured":true, "image":"image1"},
+                                            {"id":2, "name":"name2", "price":10,"description":"description2","featured":true, "image":"image2"}]
+                        """));
         verify(getFeaturedVideogamesUseCase).getFeaturedVideogames();
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void updateVideogame() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void updateVideogame() throws Exception {
         Videogame videogame = Videogame.builder()
                 .id(1)
                 .name("name3")
@@ -196,21 +202,21 @@ class VideogameControllerTest {
         mockMvc.perform(put("/videogames")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content("""
-                            {"id":1, "name":"name3", "price":15,"description":"description3","image":"image3"}
-                        """)
+                                    {"id":1, "name":"name3", "price":15,"description":"description3","image":"image3"}
+                                """)
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().json("""
-                            {"id":1, "name":"name3", "price":15,"description":"description3","image":"image3"}
-                       """));
+                             {"id":1, "name":"name3", "price":15,"description":"description3","image":"image3"}
+                        """));
         verify(updateVideogameUseCase).updateVideogame(videogame);
     }
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void getVideogamesForAdditionsFilter() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void getVideogamesForAdditionsFilter() throws Exception {
         Videogame videogame1 = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -232,15 +238,15 @@ class VideogameControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                    [{"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"},
-                    {"id":2, "name":"name2", "price":10,"description":"description2","image":"image2"}]
-"""));
+                                            [{"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"},
+                                            {"id":2, "name":"name2", "price":10,"description":"description2","image":"image2"}]
+                        """));
         verify(getVideogamesUseCase).getVideogames();
     }
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void getVideogamesForNewsFilter() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void getVideogamesForNewsFilter() throws Exception {
         Videogame videogame1 = Videogame.builder()
                 .id(1)
                 .name("name1")
@@ -262,9 +268,9 @@ class VideogameControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                    [{"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"},
-                    {"id":2, "name":"name2", "price":10,"description":"description2","image":"image2"}]
-"""));
+                                            [{"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"},
+                                            {"id":2, "name":"name2", "price":10,"description":"description2","image":"image2"}]
+                        """));
         verify(getVideogamesUseCase).getVideogames();
     }
 }

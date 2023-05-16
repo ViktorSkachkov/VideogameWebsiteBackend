@@ -31,7 +31,6 @@ public class AccessTokenEncoderDecoderImpl implements AccessTokenEncoder, Access
     }
 
     /**
-     *
      * @param accessToken
      * @return
      */
@@ -56,7 +55,6 @@ public class AccessTokenEncoderDecoderImpl implements AccessTokenEncoder, Access
     }
 
     /**
-     *
      * @param accessTokenEncoded
      * @return
      */

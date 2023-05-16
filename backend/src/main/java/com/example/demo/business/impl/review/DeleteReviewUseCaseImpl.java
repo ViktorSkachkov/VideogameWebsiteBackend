@@ -15,14 +15,13 @@ public class DeleteReviewUseCaseImpl implements DeleteReviewUseCase {
     private final ReviewRepository reviewRepository;
 
     /**
-     *
      * @param index
      * @return
      */
     @Override
     public Review deleteReview(int index) {
         Optional<ReviewPersistence> rp = reviewRepository.findById(Long.valueOf(index));
-        if(rp.isEmpty()) {
+        if (rp.isEmpty()) {
 
         }
         reviewRepository.deleteById(Long.valueOf(index));

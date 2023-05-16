@@ -15,21 +15,20 @@ public class UpdateAdditionUseCaseImpl implements UpdateAdditionUseCase {
     private final AdditionRepository additionRepository;
 
     /**
-     *
      * @param addition
      * @return
      */
     @Override
     public Addition updateAddition(Addition addition) {
         Optional<AdditionPersistence> ap = additionRepository.findById(Long.valueOf(addition.getId()));
-        if(ap.isEmpty()) {
+        if (ap.isEmpty()) {
 
         }
-                ap.get().setDescription(addition.getDescription());
-                ap.get().setName(addition.getName());
-                ap.get().setImage(addition.getImage());
-                ap.get().setGame_id(addition.getGameId());
-                ap.get().setPrice(addition.getPrice());
+        ap.get().setDescription(addition.getDescription());
+        ap.get().setName(addition.getName());
+        ap.get().setImage(addition.getImage());
+        ap.get().setGame_id(addition.getGameId());
+        ap.get().setPrice(addition.getPrice());
         additionRepository.save(ap.get());
         return addition;
     }

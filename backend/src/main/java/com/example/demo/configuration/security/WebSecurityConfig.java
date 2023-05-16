@@ -19,7 +19,7 @@ public class WebSecurityConfig /*extends WebSecurityConfigurerAdapter*/ {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }*/
     @Bean
-    protected SecurityFilterChain filterChain (HttpSecurity httpSecurity) throws Exception {
+    protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .csrf().disable()
                 .formLogin().disable()

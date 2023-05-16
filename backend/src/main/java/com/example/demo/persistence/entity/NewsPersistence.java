@@ -24,15 +24,16 @@ public class NewsPersistence {
     @EqualsAndHashCode.Exclude
     private int game_id;
     @NotBlank
-    @Length(min = 2 ,max = 250)
+    @Length(min = 2, max = 250)
     @Column(name = "title")
     private String title;
     @NotBlank
-    @Length(min = 2 ,max = 1000)
+    @Length(min = 2, max = 1000)
     @Column(name = "text")
     private String text;
-    @Lob @Basic(fetch = FetchType.LAZY)
-    @Column(name = "image", length=100000)
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    @Column(name = "image", length = 100000)
     private String image;
     @Column(name = "time")
     @NotNull

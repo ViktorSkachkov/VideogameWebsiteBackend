@@ -13,13 +13,12 @@ public class AddReviewUseCaseImpl implements AddReviewUseCase {
     private final ReviewRepository reviewRepository;
 
     /**
-     *
      * @param review
      * @return
      */
     @Override
     public Review addReview(Review review) {
-        if(review.getText().length() <= 500) {
+        if (review.getText().length() <= 500) {
             ReviewPersistence rp = ReviewPersistence.builder()
                     .text(review.getText())
                     .reviewed_item_id(review.getReviewed_item_id())
@@ -28,8 +27,7 @@ public class AddReviewUseCaseImpl implements AddReviewUseCase {
                     .type_of_reviewed_item(review.getType_of_reviewed_item())
                     .build();
             reviewRepository.save(rp);
-        }
-        else {
+        } else {
 
         }
         return review;

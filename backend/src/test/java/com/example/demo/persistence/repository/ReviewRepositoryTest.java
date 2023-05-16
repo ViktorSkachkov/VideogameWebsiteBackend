@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -26,11 +27,11 @@ class ReviewRepositoryTest {
 
     @Test
     void findAll() {
-        ReviewPersistence expected = createTestReview(16L,24, "game", "Lorem Ipsum" +
+        ReviewPersistence expected = createTestReview(16L, 24, "game", "Lorem Ipsum" +
                 " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the" +
                 " industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
                 " of type and scrambled it to make a type specimen book.", 41, LocalDateTime.of(2023, 05, 9, 10, 42, 41));
-        ReviewPersistence expected2 = createTestReview(72L,26, "game", "Lorem Ipsum" +
+        ReviewPersistence expected2 = createTestReview(72L, 26, "game", "Lorem Ipsum" +
                 " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the" +
                 " industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
                 " of type and scrambled it to make a type specimen book.", 41, LocalDateTime.of(2023, 05, 9, 10, 42, 41));
@@ -38,8 +39,8 @@ class ReviewRepositoryTest {
         expectedList.add(expected);
         List<ReviewPersistence> actualList = reviewRepository.findAllTest();
         ReviewPersistence actual = ReviewPersistence.builder().build();
-        for(ReviewPersistence rp : actualList) {
-            if(rp.getId() == 16) {
+        for (ReviewPersistence rp : actualList) {
+            if (rp.getId() == 16) {
                 actual = rp;
             }
         }
@@ -48,11 +49,11 @@ class ReviewRepositoryTest {
 
     @Test
     void findNewsById() {
-       ReviewPersistence expected = createTestReview(16L,24, "game", "Lorem Ipsum" +
+        ReviewPersistence expected = createTestReview(16L, 24, "game", "Lorem Ipsum" +
                 " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the" +
                 " industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
                 " of type and scrambled it to make a type specimen book.", 41, LocalDateTime.of(2023, 05, 9, 10, 42, 41));
-        createTestReview(72L,26, "game", "Lorem Ipsum" +
+        createTestReview(72L, 26, "game", "Lorem Ipsum" +
                 " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the" +
                 " industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
                 " of type and scrambled it to make a type specimen book.", 41, LocalDateTime.of(2023, 05, 9, 10, 42, 41));
@@ -64,13 +65,13 @@ class ReviewRepositoryTest {
 
     @Test
     void findReviewsByUser() {
-        createTestReview(72L,26, "game", "Lorem Ipsum" +
+        createTestReview(72L, 26, "game", "Lorem Ipsum" +
                 " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the" +
                 " industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
                 " of type and scrambled it to make a type specimen book.", 41, LocalDateTime.of(2023, 05, 9, 10, 42, 41));
-        ReviewPersistence expected = createTestReview(1L,12, "game", "Very awesome game!" +
-                " Very awesome game! Very awesome game! Very awesome game! Very awesome game! Very awesome game!  Very awesome game!" +
-                "  Very awesome game!  Very awesome game!", 41,
+        ReviewPersistence expected = createTestReview(1L, 12, "game", "Very awesome game!" +
+                        " Very awesome game! Very awesome game! Very awesome game! Very awesome game! Very awesome game!  Very awesome game!" +
+                        "  Very awesome game!  Very awesome game!", 41,
                 LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         List<ReviewPersistence> expectedList = new ArrayList<>();
         expectedList.add(expected);

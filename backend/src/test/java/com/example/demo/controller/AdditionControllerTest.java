@@ -52,8 +52,8 @@ class AdditionControllerTest {
     private LoginUseCase loginUseCase;
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void addAddition() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void addAddition() throws Exception {
         Addition addition = Addition.builder()
                 .id(3)
                 .gameId(2)
@@ -65,22 +65,23 @@ class AdditionControllerTest {
         when(addAdditionUseCase.addAddition(addition))
                 .thenReturn(addition);
         mockMvc.perform(post("/additions")
-                .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content("""
-                            {"id":3, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
-                        """)
-        )
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content("""
+                                    {"id":3, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
+                                """)
+                )
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().json("""
-                            {"id":3, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
-                       """));
+                             {"id":3, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
+                        """));
         verify(addAdditionUseCase).addAddition(addition);
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void deleteAddition() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void deleteAddition() throws Exception {
         Addition addition1 = Addition.builder()
                 .id(1)
                 .gameId(1)
@@ -96,13 +97,14 @@ class AdditionControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                                {"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"}
-                          """));
+                              {"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"}
+                        """));
         verify(deleteAdditionUseCase).deleteAddition(1);
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void getAdditions() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void getAdditions() throws Exception {
         Addition addition1 = Addition.builder()
                 .id(1)
                 .gameId(1)
@@ -127,14 +129,15 @@ class AdditionControllerTest {
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 //.andExpect(header().string("Authorization", "Bearer " + token))
                 .andExpect(content().json("""
-                            [{"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"},
-                            {"id":2, "gameId":1, "name":"name2","price":10,"description":"description2","image":"image2"}]
-                          """));
+                          [{"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"},
+                          {"id":2, "gameId":1, "name":"name2","price":10,"description":"description2","image":"image2"}]
+                        """));
         verify(getAdditionsUseCase).getAdditions();
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void getAddition() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void getAddition() throws Exception {
         Addition addition = Addition.builder()
                 .id(1)
                 .gameId(1)
@@ -150,13 +153,14 @@ class AdditionControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                                {"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"}
-                          """));
+                              {"id":1, "gameId":1, "name":"name1","price":10,"description":"description1","image":"image1"}
+                        """));
         verify(getAdditionUseCase).getAddition(1);
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void updateAddition() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void updateAddition() throws Exception {
         Addition addition = Addition.builder()
                 .id(1)
                 .gameId(2)
@@ -170,15 +174,15 @@ class AdditionControllerTest {
         mockMvc.perform(put("/additions")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content("""
-                            {"id":1, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
-                        """)
+                                    {"id":1, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
+                                """)
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().json("""
-                            {"id":1, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
-                       """));
+                             {"id":1, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
+                        """));
         verify(updateAdditionUseCase).updateAddition(addition);
     }
 }

@@ -53,8 +53,8 @@ class UserControllerTest {
     private AccessTokenEncoder accessTokenEncoder;
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void addUser() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void addUser() throws Exception {
         User user = User.builder()
                 .id(3)
                 .username("username3")
@@ -62,9 +62,9 @@ class UserControllerTest {
                 .email("email3")
                 .bankAccount("bankAccount3")
                 .userRoles(Set.of(Role.builder()
-                                .id(1)
-                                .user_id(3)
-                                .role("EMPLOYEE")
+                        .id(1)
+                        .user_id(3)
+                        .role("EMPLOYEE")
                         .build()))
                 .build();
         when(addUserUseCase.addUser(user))
@@ -72,29 +72,30 @@ class UserControllerTest {
         mockMvc.perform(post("/users")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content("""
-                            {"id":3, "username":"username3", "pwd": "password", "email":"email3","bankAccount":"bankAccount3","userRoles":[{
-                                "id": 1,
-                                "user_id": 3,
-                                "role": "EMPLOYEE"
-                            }]
-                            }
-                        """)
+                                    {"id":3, "username":"username3", "pwd": "password", "email":"email3","bankAccount":"bankAccount3","userRoles":[{
+                                        "id": 1,
+                                        "user_id": 3,
+                                        "role": "EMPLOYEE"
+                                    }]
+                                    }
+                                """)
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().json("""
-                            {"id":3, "username":"username3", "pwd": "password", "email":"email3","bankAccount":"bankAccount3","userRoles":[{
-                                "id": 1,
-                                "user_id": 3,
-                                "role": "EMPLOYEE"
-                            }]}
-                       """));
+                             {"id":3, "username":"username3", "pwd": "password", "email":"email3","bankAccount":"bankAccount3","userRoles":[{
+                                 "id": 1,
+                                 "user_id": 3,
+                                 "role": "EMPLOYEE"
+                             }]}
+                        """));
         verify(addUserUseCase).addUser(user);
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void deleteUser() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void deleteUser() throws Exception {
         User user = User.builder()
                 .id(1)
                 .username("username1")
@@ -114,17 +115,18 @@ class UserControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                    {"id":1, "username":"username1", "pwd": "password", "email":"email1","bankAccount":"bankAccount1","userRoles":[{
-                                "id": 1,
-                                "user_id": 1,
-                                "role": "EMPLOYEE"
-                            }]}
-"""));
+                                            {"id":1, "username":"username1", "pwd": "password", "email":"email1","bankAccount":"bankAccount1","userRoles":[{
+                                                        "id": 1,
+                                                        "user_id": 1,
+                                                        "role": "EMPLOYEE"
+                                                    }]}
+                        """));
         verify(deleteUserUseCase).deleteUser(1);
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void getUsers() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void getUsers() throws Exception {
         User user1 = User.builder()
                 .id(1)
                 .username("username1")
@@ -156,22 +158,23 @@ class UserControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                            [{"id":1, "username":"username1", "pwd": "password1", "email":"email1","bankAccount":"bankAccount1","userRoles":[{
-                                "id": 1,
-                                "user_id": 1,
-                                "role": "EMPLOYEE"
-                            }]},
-                            {"id":2, "username":"username2", "pwd": "password2", "email":"email2","bankAccount":"bankAccount2","userRoles":[{
-                                "id": 1,
-                                "user_id": 2,
-                                "role": "EMPLOYEE"
-                            }]}]
-                          """));
+                          [{"id":1, "username":"username1", "pwd": "password1", "email":"email1","bankAccount":"bankAccount1","userRoles":[{
+                              "id": 1,
+                              "user_id": 1,
+                              "role": "EMPLOYEE"
+                          }]},
+                          {"id":2, "username":"username2", "pwd": "password2", "email":"email2","bankAccount":"bankAccount2","userRoles":[{
+                              "id": 1,
+                              "user_id": 2,
+                              "role": "EMPLOYEE"
+                          }]}]
+                        """));
         verify(getUsersUseCase).getUsers();
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void getUser() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void getUser() throws Exception {
         User user = User.builder()
                 .id(1)
                 .username("username1")
@@ -191,17 +194,18 @@ class UserControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                            {"id":1, "username":"username1", "pwd": "password", "email":"email1","bankAccount":"bankAccount1","userRoles":[{
-                                "id": 1,
-                                "user_id": 1,
-                                "role": "EMPLOYEE"
-                            }]}
-                          """));
+                          {"id":1, "username":"username1", "pwd": "password", "email":"email1","bankAccount":"bankAccount1","userRoles":[{
+                              "id": 1,
+                              "user_id": 1,
+                              "role": "EMPLOYEE"
+                          }]}
+                        """));
         verify(getUserUseCase).getUser(1);
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void updateUser() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void updateUser() throws Exception {
         User user = User.builder()
                 .id(1)
                 .username("username3")
@@ -233,12 +237,12 @@ class UserControllerTest {
         mockMvc.perform(put("/users")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content("""
-                            {"id":1, "username":"username3", "pwd": "password", "email":"email3","bankAccount":"bankAccount3","userRoles":[{
-                                "id": 1,
-                                "user_id": 1,
-                                "role": "EMPLOYEE"
-                            }]}
-                        """)
+                                    {"id":1, "username":"username3", "pwd": "password", "email":"email3","bankAccount":"bankAccount3","userRoles":[{
+                                        "id": 1,
+                                        "user_id": 1,
+                                        "role": "EMPLOYEE"
+                                    }]}
+                                """)
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -252,6 +256,7 @@ class UserControllerTest {
                        """))*/;
         verify(updateUserUseCase).updateUser(user);
     }
+
     private String generateAccessToken(UserPersistence user) {
         Long userId = user != null ? user.getId() : null;
         List<String> roles = user.getUserRoles().stream()

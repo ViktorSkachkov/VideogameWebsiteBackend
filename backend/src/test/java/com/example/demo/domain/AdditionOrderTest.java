@@ -21,6 +21,7 @@ class AdditionOrderTest {
                 .build();
         assertEquals(additionOrder1, additionOrder2);
     }
+
     @Test
     void compareNotEquals() {
         AdditionOrder additionOrder1 = AdditionOrder.builder()

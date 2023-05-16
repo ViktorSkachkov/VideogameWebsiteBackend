@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000/", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "*")
 @RequestMapping("/reviews")
 @RequiredArgsConstructor
 public class ReviewController {
@@ -25,7 +25,6 @@ public class ReviewController {
     private final UpdateReviewUseCase updateReviewUseCase;
 
     /**
-     *
      * @param review
      * @return
      */
@@ -38,7 +37,6 @@ public class ReviewController {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -50,7 +48,6 @@ public class ReviewController {
     }
 
     /**
-     *
      * @param itemId
      * @param type
      * @return
@@ -63,7 +60,6 @@ public class ReviewController {
     }
 
     /**
-     *
      * @param review
      * @return
      */

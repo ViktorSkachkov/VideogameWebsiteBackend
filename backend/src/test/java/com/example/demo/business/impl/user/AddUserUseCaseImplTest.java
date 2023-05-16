@@ -37,9 +37,9 @@ class AddUserUseCaseImplTest {
                 .pwd(encodedPassword)
                 .bankAccount("bankAccount3")
                 .userRoles(Set.of(Role.builder()
-                                .id(1)
-                                .role("EMPLOYEE")
-                                .user_id(3)
+                        .id(1)
+                        .role("EMPLOYEE")
+                        .user_id(3)
                         .build()))
                 .build();
 
@@ -49,9 +49,9 @@ class AddUserUseCaseImplTest {
                 .bank_account("bankAccount3")
                 .pwd(encodedPassword)
                 .userRoles(Set.of(RolePersistence.builder()
-                            .id(1L)
-                            .role("EMPLOYEE")
-                            .user(3L)
+                        .id(1L)
+                        .role("EMPLOYEE")
+                        .user(3L)
                         .build()))
                 .build();
 

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000/", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "*")
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
@@ -23,7 +23,6 @@ public class UserController {
     private final DeleteUserUseCase deleteUserUseCase;
 
     /**
-     *
      * @return
      */
     @IsAuthenticated
@@ -34,7 +33,6 @@ public class UserController {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -46,7 +44,6 @@ public class UserController {
     }
 
     /**
-     *
      * @param user
      * @return
      */
@@ -56,7 +53,6 @@ public class UserController {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -68,7 +64,6 @@ public class UserController {
     }
 
     /**
-     *
      * @param user
      * @return
      */

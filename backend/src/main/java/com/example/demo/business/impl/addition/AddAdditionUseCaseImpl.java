@@ -15,13 +15,12 @@ public class AddAdditionUseCaseImpl implements AddAdditionUseCase {
     private final AdditionRepository additionRepository;
 
     /**
-     *
      * @param addition
      * @return
      */
     @Override
     public Addition addAddition(Addition addition) {
-        if(addition.getDescription().length() <= 500) {
+        if (addition.getDescription().length() <= 500) {
             AdditionPersistence ap = AdditionPersistence.builder()
                     .description(addition.getDescription())
                     .name(addition.getName())
@@ -31,8 +30,7 @@ public class AddAdditionUseCaseImpl implements AddAdditionUseCase {
                     .time(LocalDateTime.now())
                     .build();
             additionRepository.save(ap);
-        }
-        else {
+        } else {
 
         }
         return addition;

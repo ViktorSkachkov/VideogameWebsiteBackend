@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000/", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "*")
 @RequestMapping("/videogames")
 @RequiredArgsConstructor
 public class VideogameController {
@@ -26,7 +26,6 @@ public class VideogameController {
     private final GetVideogamesForNewsFilterUseCase getVideogamesForNewsFilterUseCase;
 
     /**
-     *
      * @return
      */
     @IsAuthenticated
@@ -37,7 +36,6 @@ public class VideogameController {
     }
 
     /**
-     *
      * @return
      */
     @IsAuthenticated
@@ -48,7 +46,6 @@ public class VideogameController {
     }
 
     /**
-     *
      * @return
      */
     @IsAuthenticated
@@ -59,7 +56,6 @@ public class VideogameController {
     }
 
     /**
-     *
      * @return
      */
     @IsAuthenticated
@@ -70,16 +66,16 @@ public class VideogameController {
     }
 
     /**
-     *
      * @return
      */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/upcoming")
-    public List<Videogame> getUpcoming() { return getUpcomingVideogamesUseCase.getUpcomingVideogames(); }
+    public List<Videogame> getUpcoming() {
+        return getUpcomingVideogamesUseCase.getUpcomingVideogames();
+    }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -91,7 +87,6 @@ public class VideogameController {
     }
 
     /**
-     *
      * @param videogame
      * @return
      */
@@ -103,7 +98,6 @@ public class VideogameController {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -115,7 +109,6 @@ public class VideogameController {
     }
 
     /**
-     *
      * @param videogame
      * @return
      */

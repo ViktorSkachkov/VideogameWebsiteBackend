@@ -17,6 +17,7 @@ class LoginRequestTest {
                 .build();
         assertEquals(loginRequest1, loginRequest2);
     }
+
     @Test
     void compareNotEquals() {
         LoginRequest loginRequest1 = LoginRequest.builder()

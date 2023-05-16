@@ -32,8 +32,8 @@ class UserRepositoryTest {
         //expectedList.add(expected);
         List<UserPersistence> actualList = userRepository.findAllTest();
         UserPersistence actual = UserPersistence.builder().build();
-        for(UserPersistence up : actualList) {
-            if(up.getId() == 6) {
+        for (UserPersistence up : actualList) {
+            if (up.getId() == 6) {
                 actual = up;
             }
         }
@@ -48,9 +48,9 @@ class UserRepositoryTest {
                 .pwd(pwd)
                 .bank_account(bank_account)
                 .userRoles(Set.of(RolePersistence.builder()
-                                .user(id)
-                                .role("EMPLOYEE")
-                                .build()))
+                        .user(id)
+                        .role("EMPLOYEE")
+                        .build()))
                 .build());
     }
 }

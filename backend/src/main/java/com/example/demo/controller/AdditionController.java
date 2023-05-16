@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000/", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "*")
 @RequestMapping("/additions")
 @RequiredArgsConstructor
 public class AdditionController {
@@ -23,7 +23,6 @@ public class AdditionController {
     private final UpdateAdditionUseCase updateAdditionUseCase;
 
     /**
-     *
      * @return
      */
     @IsAuthenticated
@@ -34,7 +33,6 @@ public class AdditionController {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -46,7 +44,6 @@ public class AdditionController {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -58,7 +55,6 @@ public class AdditionController {
     }
 
     /**
-     *
      * @param addition
      * @return
      */
@@ -70,7 +66,6 @@ public class AdditionController {
     }
 
     /**
-     *
      * @param addition
      * @return
      */
@@ -82,7 +77,6 @@ public class AdditionController {
     }
 
     /**
-     *
      * @param id
      * @return
      */

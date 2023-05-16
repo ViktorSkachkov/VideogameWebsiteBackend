@@ -18,14 +18,13 @@ public class GetAdditionsUseCaseImpl implements GetAdditionsUseCase {
     private final AdditionRepository additionRepository;
 
     /**
-     *
      * @return
      */
     @Override
     public List<Addition> getAdditions() {
         List<AdditionPersistence> list = additionRepository.findAll();
         List<Addition> additions = new ArrayList<>();
-        for(AdditionPersistence ap : list) {
+        for (AdditionPersistence ap : list) {
             Addition addition = Addition.builder()
                     .id(Math.toIntExact(ap.getId()))
                     .gameId(ap.getGame_id())
@@ -46,7 +45,7 @@ public class GetAdditionsUseCaseImpl implements GetAdditionsUseCase {
     public List<Addition> reverseOrder(List<Addition> additions) {
         List<Addition> result = new ArrayList<>();
 
-        for(int i = additions.size() - 1; i >= 0; i--) {
+        for (int i = additions.size() - 1; i >= 0; i--) {
             result.add(additions.get(i));
         }
 

@@ -22,7 +22,6 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
     private final PasswordEncoder passwordEncoder;
 
     /**
-     *
      * @param user
      * @return
      */
@@ -30,13 +29,13 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
     public LoginResponse updateUser(User user) {
         Optional<UserPersistence> up = userRepository.findById(Long.valueOf(user.getId()));
 
-        if(up.isEmpty()) {
+        if (up.isEmpty()) {
 
         }
         up.get().setUsername(user.getUsername());
         up.get().setEmail(user.getEmail());
         up.get().setBank_account(user.getBankAccount());
-        if(!user.getPwd().equals("")) {
+        if (!user.getPwd().equals("")) {
             String encodedPassword = passwordEncoder.encode(user.getPwd());
             up.get().setPwd(encodedPassword);
         }
@@ -46,6 +45,7 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
         String accessToken = generateAccessToken(userPersistence);
         return LoginResponse.builder().accessToken(accessToken).build();
     }
+
     private String generateAccessToken(UserPersistence user) {
         Long userId = user != null ? user.getId() : null;
         List<String> roles = user.getUserRoles().stream()

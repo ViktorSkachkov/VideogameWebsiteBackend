@@ -14,7 +14,6 @@ import org.springframework.web.context.WebApplicationContext;
 public class RequestAuthenticatedUserProvider {
 
     /**
-     *
      * @return
      */
     @Bean

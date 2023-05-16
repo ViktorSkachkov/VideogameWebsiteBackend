@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000/", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "*")
 @RequestMapping("/news")
 @RequiredArgsConstructor
 public class NewsController {
@@ -23,7 +23,6 @@ public class NewsController {
     private final UpdateNewsUseCase updateNewsUseCase;
 
     /**
-     *
      * @return
      */
     @IsAuthenticated
@@ -34,7 +33,6 @@ public class NewsController {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -46,7 +44,6 @@ public class NewsController {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -58,7 +55,6 @@ public class NewsController {
     }
 
     /**
-     *
      * @param news
      * @return
      */
@@ -70,7 +66,6 @@ public class NewsController {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -82,7 +77,6 @@ public class NewsController {
     }
 
     /**
-     *
      * @param news
      * @return
      */

@@ -23,7 +23,7 @@ public class AdditionPersistence {
     @EqualsAndHashCode.Exclude
     private int game_id;
     @NotBlank
-    @Length(min = 2 ,max = 100)
+    @Length(min = 2, max = 100)
     @Column(name = "name")
     private String name;
     @Column(name = "price")
@@ -31,11 +31,12 @@ public class AdditionPersistence {
     @EqualsAndHashCode.Exclude
     private double price;
     @NotBlank
-    @Length(min = 2 ,max = 1000)
+    @Length(min = 2, max = 1000)
     @Column(name = "description")
     private String description;
-    @Lob @Basic(fetch = FetchType.LAZY)
-    @Column(name = "image", length=100000)
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    @Column(name = "image", length = 100000)
     private String image;
     @Column(name = "time")
     @NotNull

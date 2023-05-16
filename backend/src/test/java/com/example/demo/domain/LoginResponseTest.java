@@ -15,6 +15,7 @@ class LoginResponseTest {
                 .build();
         assertEquals(loginResponse1, loginResponse2);
     }
+
     @Test
     void compareNotEquals() {
         LoginResponse loginResponse1 = LoginResponse.builder()

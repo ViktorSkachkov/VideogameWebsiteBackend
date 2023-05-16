@@ -15,14 +15,13 @@ public class UpdateReviewUseCaseImpl implements UpdateReviewUseCase {
     private final ReviewRepository reviewRepository;
 
     /**
-     *
      * @param review
      * @return
      */
     @Override
     public Review updateReview(Review review) {
         Optional<ReviewPersistence> rp = reviewRepository.findById(Long.valueOf(review.getId()));
-        if(rp.isEmpty()) {
+        if (rp.isEmpty()) {
 
         }
 

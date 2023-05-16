@@ -15,14 +15,13 @@ public class GetAdditionOrderUseCaseImpl implements GetAdditionOrderUseCase {
     private final AdditionOrderRepository additionOrderRepository;
 
     /**
-     *
      * @param index
      * @return
      */
     @Override
     public AdditionOrder getAdditionOrder(int index) {
         Optional<AdditionOrderPersistence> aop = additionOrderRepository.findById(Long.valueOf(index));
-        if(aop.isEmpty()) {
+        if (aop.isEmpty()) {
 
         }
         AdditionOrder additionOrder = AdditionOrder.builder()

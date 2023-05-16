@@ -26,6 +26,7 @@ class AdditionTest {
                 .build();
         assertEquals(addition1, addition2);
     }
+
     @Test
     void compareNotEquals() {
         Addition addition1 = Addition.builder()

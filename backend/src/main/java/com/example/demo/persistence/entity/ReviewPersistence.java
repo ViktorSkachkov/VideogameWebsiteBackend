@@ -28,7 +28,7 @@ public class ReviewPersistence {
     @EqualsAndHashCode.Exclude
     private int user_id;
     @NotBlank
-    @Length(min = 2 ,max = 1000)
+    @Length(min = 2, max = 1000)
     @Column(name = "text")
     private String text;
     @Column(name = "time")
@@ -36,7 +36,7 @@ public class ReviewPersistence {
     @EqualsAndHashCode.Exclude
     private LocalDateTime time;
     @NotBlank
-    @Length(min = 2 ,max = 45)
+    @Length(min = 2, max = 45)
     @Column(name = "type_of_reviewed_item")
     private String type_of_reviewed_item;
 }

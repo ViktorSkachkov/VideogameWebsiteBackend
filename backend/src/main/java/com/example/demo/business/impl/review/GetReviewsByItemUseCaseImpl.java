@@ -16,7 +16,6 @@ public class GetReviewsByItemUseCaseImpl implements GetReviewsByItemUseCase {
     private final ReviewRepository reviewRepository;
 
     /**
-     *
      * @param itemId
      * @param type
      * @return
@@ -26,8 +25,8 @@ public class GetReviewsByItemUseCaseImpl implements GetReviewsByItemUseCase {
         List<ReviewPersistence> list = reviewRepository.findAll();
         List<Review> newReviewList = new ArrayList<>();
         Review review;
-        for(ReviewPersistence rp : list) {
-            if(rp.getReviewed_item_id() == itemId &&
+        for (ReviewPersistence rp : list) {
+            if (rp.getReviewed_item_id() == itemId &&
                     rp.getType_of_reviewed_item().equals(type)) {
                 review = Review.builder()
                         .id((long) Math.toIntExact(rp.getId()))
@@ -49,7 +48,7 @@ public class GetReviewsByItemUseCaseImpl implements GetReviewsByItemUseCase {
     public List<Review> reverseOrder(List<Review> reviews) {
         List<Review> result = new ArrayList<>();
 
-        for(int i = reviews.size() - 1; i >= 0; i--) {
+        for (int i = reviews.size() - 1; i >= 0; i--) {
             result.add(reviews.get(i));
         }
 

@@ -15,21 +15,20 @@ public class AddVideogameUseCaseImpl implements AddVideogameUseCase {
     private final VideogameRepository videogameRepository;
 
     /**
-     *
      * @param videogame
      * @return
      */
     @Override
     public Videogame addVideogame(Videogame videogame) {
-            VideogamePersistence vp = VideogamePersistence.builder()
-                    .name(videogame.getName())
-                    .price(videogame.getPrice())
-                    .description(videogame.getDescription())
-                    .featured(videogame.getFeatured())
-                    .image(videogame.getImage())
-                    .time(LocalDateTime.now())
-                    .build();
-            videogameRepository.save(vp);
+        VideogamePersistence vp = VideogamePersistence.builder()
+                .name(videogame.getName())
+                .price(videogame.getPrice())
+                .description(videogame.getDescription())
+                .featured(videogame.getFeatured())
+                .image(videogame.getImage())
+                .time(LocalDateTime.now())
+                .build();
+        videogameRepository.save(vp);
         return videogame;
     }
 }

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -25,14 +26,14 @@ class RoleRepositoryTest {
 
     @Test
     void findAll() {
-        RolePersistence expected2 = createTestRole(1L,1L, "EMPLOYEE");
-        RolePersistence expected = createTestRole(6L,20L, "EMPLOYEE");
+        RolePersistence expected2 = createTestRole(1L, 1L, "EMPLOYEE");
+        RolePersistence expected = createTestRole(6L, 20L, "EMPLOYEE");
         List<RolePersistence> expectedList = new ArrayList<>();
         expectedList.add(expected);
         List<RolePersistence> actualList = roleRepository.findAllTest();
         RolePersistence actual = RolePersistence.builder().build();
-        for(RolePersistence rp : actualList) {
-            if(rp.getId() == 6) {
+        for (RolePersistence rp : actualList) {
+            if (rp.getId() == 6) {
                 actual = rp;
             }
         }
@@ -41,8 +42,8 @@ class RoleRepositoryTest {
 
     @Test
     void findById() {
-        RolePersistence expected2 = createTestRole(1L,1L, "EMPLOYEE");
-        RolePersistence expected = createTestRole(6L,20L, "EMPLOYEE");
+        RolePersistence expected2 = createTestRole(1L, 1L, "EMPLOYEE");
+        RolePersistence expected = createTestRole(6L, 20L, "EMPLOYEE");
         List<RolePersistence> expectedList = new ArrayList<>();
         expectedList.add(expected);
         List<RolePersistence> actualList = roleRepository.findByid(6L);

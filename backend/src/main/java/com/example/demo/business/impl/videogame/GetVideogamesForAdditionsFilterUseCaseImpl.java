@@ -19,7 +19,6 @@ public class GetVideogamesForAdditionsFilterUseCaseImpl implements GetVideogames
     private final AdditionRepository additionRepository;
 
     /**
-     *
      * @return
      */
     @Override
@@ -27,14 +26,14 @@ public class GetVideogamesForAdditionsFilterUseCaseImpl implements GetVideogames
         List<VideogamePersistence> videogameList = videogameRepository.findAll();
         List<AdditionPersistence> additionList = additionRepository.findAll();
         List<Long> videogameInts = new ArrayList<>();
-        for(AdditionPersistence ap : additionList) {
+        for (AdditionPersistence ap : additionList) {
             videogameInts.add((long) ap.getGame_id());
         }
 
         List<Videogame> videogames = new ArrayList<>();
 
-        for(VideogamePersistence vp : videogameList) {
-            if(videogameInts.contains(vp.getId())) {
+        for (VideogamePersistence vp : videogameList) {
+            if (videogameInts.contains(vp.getId())) {
                 Videogame videogame = Videogame.builder()
                         .id(Math.toIntExact(vp.getId()))
                         .featured(vp.getFeatured())

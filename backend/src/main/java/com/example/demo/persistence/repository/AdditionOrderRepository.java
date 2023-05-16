@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface AdditionOrderRepository extends JpaRepository<AdditionOrderPersistence, Long> {
+    boolean deleteAllByAddition(int additionId);
 
     @Query("select aop from AdditionOrderPersistence aop")
     List<AdditionOrderPersistence> findAllTest();

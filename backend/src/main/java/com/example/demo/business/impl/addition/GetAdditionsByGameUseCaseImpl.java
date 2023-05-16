@@ -19,7 +19,6 @@ public class GetAdditionsByGameUseCaseImpl implements GetAdditionsByGameUseCase 
     private final AdditionRepository additionRepository;
 
     /**
-     *
      * @param index
      * @return
      */
@@ -27,8 +26,8 @@ public class GetAdditionsByGameUseCaseImpl implements GetAdditionsByGameUseCase 
     public List<Addition> getAdditionsByGame(int index) {
         List<AdditionPersistence> list = additionRepository.findAll();
         List<Addition> additionsList = new ArrayList<>();
-        for(AdditionPersistence ap : list) {
-            if(index == -1) {
+        for (AdditionPersistence ap : list) {
+            if (index == -1) {
                 Addition addition = Addition.builder()
                         .id(Math.toIntExact(ap.getId()))
                         .image(ap.getImage())
@@ -39,9 +38,8 @@ public class GetAdditionsByGameUseCaseImpl implements GetAdditionsByGameUseCase 
                         .time(ap.getTime())
                         .build();
                 additionsList.add(addition);
-            }
-            else {
-                if(ap.getGame_id() == index) {
+            } else {
+                if (ap.getGame_id() == index) {
                     Addition addition = Addition.builder()
                             .id(Math.toIntExact(ap.getId()))
                             .image(ap.getImage())
@@ -64,7 +62,7 @@ public class GetAdditionsByGameUseCaseImpl implements GetAdditionsByGameUseCase 
     public List<Addition> reverseOrder(List<Addition> additions) {
         List<Addition> result = new ArrayList<>();
 
-        for(int i = additions.size() - 1; i >= 0; i--) {
+        for (int i = additions.size() - 1; i >= 0; i--) {
             result.add(additions.get(i));
         }
 

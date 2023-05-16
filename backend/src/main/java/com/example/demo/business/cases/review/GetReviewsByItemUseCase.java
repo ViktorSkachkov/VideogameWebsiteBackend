@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface GetReviewsByItemUseCase {
     List<Review> getReviewsByItem(int itemId, String type);
+
     List<Review> reverseOrder(List<Review> reviews);
 }

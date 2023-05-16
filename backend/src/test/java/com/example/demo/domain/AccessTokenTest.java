@@ -22,6 +22,7 @@ class AccessTokenTest {
                 .build();
         assertEquals(accessToken1, accessToken2);
     }
+
     @Test
     void compareNotEquals() {
         AccessToken accessToken1 = AccessToken.builder()

@@ -16,7 +16,6 @@ public class GetGameOrdersByUserUseCaseImpl implements GetGameOrdersByUserUseCas
     private final GameOrderRepository gameOrderRepository;
 
     /**
-     *
      * @param userIndex
      * @return
      */
@@ -24,8 +23,8 @@ public class GetGameOrdersByUserUseCaseImpl implements GetGameOrdersByUserUseCas
     public List<GameOrder> getGameOrdersByUser(int userIndex) {
         List<GameOrderPersistence> list = gameOrderRepository.findAll();
         List<GameOrder> gameOrders = new ArrayList<>();
-        for(GameOrderPersistence gop : list) {
-            if(gop.getUser() == userIndex) {
+        for (GameOrderPersistence gop : list) {
+            if (gop.getUser() == userIndex) {
                 GameOrder gameOrder = GameOrder.builder()
                         .id(Math.toIntExact(gop.getId()))
                         .game(gop.getGame())
@@ -45,7 +44,7 @@ public class GetGameOrdersByUserUseCaseImpl implements GetGameOrdersByUserUseCas
     public List<GameOrder> reverseOrder(List<GameOrder> gameOrders) {
         List<GameOrder> result = new ArrayList<>();
 
-        for(int i = gameOrders.size() - 1; i >= 0; i--) {
+        for (int i = gameOrders.size() - 1; i >= 0; i--) {
             result.add(gameOrders.get(i));
         }
 

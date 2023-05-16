@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000/", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "*")
 @RequestMapping("/login")
 @RequiredArgsConstructor
 public class LoginController {
@@ -19,7 +19,6 @@ public class LoginController {
     private final LoginUseCase loginUseCase;
 
     /**
-     *
      * @param loginRequest
      * @return
      */

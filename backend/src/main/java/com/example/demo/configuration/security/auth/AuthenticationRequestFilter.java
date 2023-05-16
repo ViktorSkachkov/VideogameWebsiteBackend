@@ -27,7 +27,6 @@ public class AuthenticationRequestFilter extends OncePerRequestFilter {
     private AccessTokenDecoder accessTokenDecoder;
 
     /**
-     *
      * @param request
      * @param response
      * @param chain
@@ -56,7 +55,6 @@ public class AuthenticationRequestFilter extends OncePerRequestFilter {
     }
 
     /**
-     *
      * @param response
      * @throws IOException
      */
@@ -66,7 +64,6 @@ public class AuthenticationRequestFilter extends OncePerRequestFilter {
     }
 
     /**
-     * 
      * @param accessToken
      */
     private void setupSpringSecurityContext(AccessToken accessToken) {

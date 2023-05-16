@@ -20,16 +20,15 @@ public class GetUsersUseCaseImpl implements GetUsersUseCase {
     private final UserRepository userRepository;
 
     /**
-     *
      * @return
      */
     @Override
     public List<User> getUsers() {
         List<UserPersistence> list = userRepository.findAll();
         List<User> users = new ArrayList<>();
-        for(UserPersistence up : list) {
+        for (UserPersistence up : list) {
             Set<Role> roles = new HashSet<>();
-            for(RolePersistence rp : up.getUserRoles()) {
+            for (RolePersistence rp : up.getUserRoles()) {
                 roles.add(Role.builder()
                         .id(Math.toIntExact(rp.getId()))
                         .role(rp.getRole())

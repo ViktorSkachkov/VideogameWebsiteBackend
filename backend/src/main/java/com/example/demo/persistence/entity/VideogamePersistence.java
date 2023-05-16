@@ -20,7 +20,7 @@ public class VideogamePersistence {
     @Column(name = "id")
     private Long id;
     @NotBlank
-    @Length(min = 2 ,max = 200)
+    @Length(min = 2, max = 200)
     @Column(name = "name")
     private String name;
     @Column(name = "price")
@@ -28,15 +28,16 @@ public class VideogamePersistence {
     @EqualsAndHashCode.Exclude
     private double price;
     @NotBlank
-    @Length(min = 2 ,max = 1000)
+    @Length(min = 2, max = 1000)
     @Column(name = "description")
     private String description;
     @Column(name = "featured")
     @NotNull
     @EqualsAndHashCode.Exclude
     private Boolean featured;
-    @Lob @Basic(fetch = FetchType.LAZY)
-    @Column(name = "image", length=100000)
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    @Column(name = "image", length = 100000)
     private String image;
     @Column(name = "time")
     @NotNull

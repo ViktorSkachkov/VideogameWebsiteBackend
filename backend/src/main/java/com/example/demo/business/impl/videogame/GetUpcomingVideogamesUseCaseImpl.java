@@ -16,7 +16,6 @@ public class GetUpcomingVideogamesUseCaseImpl implements GetUpcomingVideogamesUs
     private final VideogameRepository videogameRepository;
 
     /**
-     *
      * @return
      */
     @Override
@@ -24,7 +23,7 @@ public class GetUpcomingVideogamesUseCaseImpl implements GetUpcomingVideogamesUs
         List<VideogamePersistence> list = videogameRepository.findAll();
         List<Videogame> videogames = new ArrayList<>();
         Videogame videogame;
-        for(VideogamePersistence vp : list) {
+        for (VideogamePersistence vp : list) {
             videogame = Videogame.builder()
                     .id(Math.toIntExact(vp.getId()))
                     .featured(vp.getFeatured())

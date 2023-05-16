@@ -20,6 +20,7 @@ class RoleTest {
                 .build();
         assertEquals(role1, role2);
     }
+
     @Test
     void compareNotEquals() {
         Role role1 = Role.builder()

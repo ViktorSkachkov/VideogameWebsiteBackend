@@ -15,14 +15,13 @@ public class GetGameOrderUseCaseImpl implements GetGameOrderUseCase {
     private final GameOrderRepository gameOrderRepository;
 
     /**
-     *
      * @param index
      * @return
      */
     @Override
     public GameOrder getGameOrder(int index) {
         Optional<GameOrderPersistence> gop = gameOrderRepository.findById(Long.valueOf(index));
-        if(gop.isEmpty()) {
+        if (gop.isEmpty()) {
 
         }
         GameOrder gameOrder = GameOrder.builder()

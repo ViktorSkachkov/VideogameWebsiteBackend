@@ -16,7 +16,6 @@ public class GetAdditionOrdersByUserUseCaseImpl implements GetAdditionOrdersByUs
     private final AdditionOrderRepository additionOrderRepository;
 
     /**
-     *
      * @param userIndex
      * @return
      */
@@ -24,8 +23,8 @@ public class GetAdditionOrdersByUserUseCaseImpl implements GetAdditionOrdersByUs
     public List<AdditionOrder> getAdditionOrdersByUser(int userIndex) {
         List<AdditionOrderPersistence> list = additionOrderRepository.findAll();
         List<AdditionOrder> additionOrders = new ArrayList<>();
-        for(AdditionOrderPersistence aop : list) {
-            if(aop.getUser() == userIndex) {
+        for (AdditionOrderPersistence aop : list) {
+            if (aop.getUser() == userIndex) {
                 AdditionOrder additionOrder = AdditionOrder.builder()
                         .id(Math.toIntExact(aop.getId()))
                         .addition(aop.getAddition())
@@ -45,7 +44,7 @@ public class GetAdditionOrdersByUserUseCaseImpl implements GetAdditionOrdersByUs
     public List<AdditionOrder> reverseOrder(List<AdditionOrder> additionOrders) {
         List<AdditionOrder> result = new ArrayList<>();
 
-        for(int i = additionOrders.size() - 1; i >= 0; i--) {
+        for (int i = additionOrders.size() - 1; i >= 0; i--) {
             result.add(additionOrders.get(i));
         }
 

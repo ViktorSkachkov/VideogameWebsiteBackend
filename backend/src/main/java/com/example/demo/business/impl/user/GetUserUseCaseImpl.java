@@ -19,7 +19,6 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
     private final UserRepository userRepository;
 
     /**
-     *
      * @param index
      * @return
      */
@@ -27,7 +26,7 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
     public User getUser(int index) {
 
         Optional<UserPersistence> up = userRepository.findById(Long.valueOf(index));
-        if(up.isEmpty()) {
+        if (up.isEmpty()) {
 
         }
 
@@ -40,7 +39,7 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
                 .build();
 
         Set<Role> userRoles = new HashSet<>();
-        for(RolePersistence role : up.get().getUserRoles()) {
+        for (RolePersistence role : up.get().getUserRoles()) {
             Role newRole = Role.builder()
                     .id(Math.toIntExact(role.getId()))
                     .role(role.getRole())

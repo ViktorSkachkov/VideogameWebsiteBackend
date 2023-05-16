@@ -15,14 +15,13 @@ public class GetAdditionUseCaseImpl implements GetAdditionUseCase {
     private final AdditionRepository additionRepository;
 
     /**
-     *
      * @param id
      * @return
      */
     @Override
     public Addition getAddition(int id) {
         Optional<AdditionPersistence> ap = additionRepository.findById(Long.valueOf(id));
-        if(ap.isEmpty()) {
+        if (ap.isEmpty()) {
 
         }
         Addition addition = Addition.builder()

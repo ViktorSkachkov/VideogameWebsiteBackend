@@ -28,6 +28,7 @@ class ReviewTest {
                 .build();
         assertEquals(review1, review2);
     }
+
     @Test
     void compareNotEquals() {
         Review review1 = Review.builder()

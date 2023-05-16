@@ -21,24 +21,22 @@ public class ChatController {
     private SimpMessagingTemplate simpMessagingTemplate;
 
     /**
-     *
      * @param message
      * @return
      */
     @MessageMapping("/message")
     @SendTo("/chatroom/public")
-    public Message receiveMessage(@Payload Message message){
+    public Message receiveMessage(@Payload Message message) {
         return message;
     }
 
     /**
-     *
      * @param message
      * @return
      */
     @MessageMapping("/private-message")
-    public Message recMessage(@Payload Message message){
-        simpMessagingTemplate.convertAndSendToUser(message.getReceiverName(),"/private",message);
+    public Message recMessage(@Payload Message message) {
+        simpMessagingTemplate.convertAndSendToUser(message.getReceiverName(), "/private", message);
         System.out.println(message.toString());
         return message;
     }

@@ -38,7 +38,7 @@ class GameOrderControllerTest {
     private GetGameOrdersByUserUseCase getGameOrdersByUserUseCase;
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER"})
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
     void addGameOrder() throws Exception {
         GameOrder gameOrder = GameOrder.builder()
                 .id(1)
@@ -51,20 +51,20 @@ class GameOrderControllerTest {
         mockMvc.perform(post("/gameOrders")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content("""
-                            {"id":1, "units":3, "game":23,"user":41}
-                        """)
+                                    {"id":1, "units":3, "game":23,"user":41}
+                                """)
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().json("""
-                           {"id":1, "units":3, "game":23,"user":41}
-                       """));
+                            {"id":1, "units":3, "game":23,"user":41}
+                        """));
         verify(addGameOrderUseCase).addGameOrder(gameOrder);
     }
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER"})
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
     void getGameOrdersByUser() throws Exception {
         GameOrder gameOrder1 = GameOrder.builder()
                 .id(1)
@@ -85,14 +85,14 @@ class GameOrderControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                    [{"id":1, "units":3, "game":23,"user":41},
-                    {"id":2, "units":3, "game":23,"user":41}]
-"""));
+                                            [{"id":1, "units":3, "game":23,"user":41},
+                                            {"id":2, "units":3, "game":23,"user":41}]
+                        """));
         verify(getGameOrdersByUserUseCase).getGameOrdersByUser(41);
     }
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER"})
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
     void getGameOrder() throws Exception {
         GameOrder gameOrder = GameOrder.builder()
                 .id(1)
@@ -107,8 +107,8 @@ class GameOrderControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                           {"id":1, "units":3, "game":23,"user":41}
-                    """));
+                               {"id":1, "units":3, "game":23,"user":41}
+                        """));
         verify(getGameOrderUseCase).getGameOrder(1);
     }
 }

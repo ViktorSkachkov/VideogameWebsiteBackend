@@ -18,7 +18,7 @@ public class RolePersistence {
     @Column(name = "id")
     private Long id;
     @NotBlank
-    @Length(min = 2 ,max = 100)
+    @Length(min = 2, max = 100)
     @Column(name = "role")
     private String role;
     @Column(name = "user_id")

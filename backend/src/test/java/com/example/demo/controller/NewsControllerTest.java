@@ -49,8 +49,8 @@ public class NewsControllerTest {
 
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"EMPLOYEE"})
-    void addNews() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"EMPLOYEE"})
+    void addNews() throws Exception {
         News news = News.builder()
                 .id(3)
                 .gameId(1)
@@ -62,20 +62,21 @@ public class NewsControllerTest {
         mockMvc.perform(post("/news")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content("""
-                            {"id":3, "gameId":1, "text":"text3", "title":"title3"}
-                        """)
+                                    {"id":3, "gameId":1, "text":"text3", "title":"title3"}
+                                """)
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().json("""
-                            {"id":3, "gameId":1, "text":"text3", "title":"title3"}
-                       """));
+                             {"id":3, "gameId":1, "text":"text3", "title":"title3"}
+                        """));
         verify(addNewsUseCase).addNews(news);
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void getNewsByGame() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void getNewsByGame() throws Exception {
         News news1 = News.builder()
                 .id(1)
                 .gameId(1)
@@ -95,14 +96,15 @@ public class NewsControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                            [{"id":1, "gameId":1, "text":"text1", "title":"title1"},
-                            {"id":2, "gameId":1, "text":"text2", "title":"title2"}]
-                          """));
+                          [{"id":1, "gameId":1, "text":"text1", "title":"title1"},
+                          {"id":2, "gameId":1, "text":"text2", "title":"title2"}]
+                        """));
         verify(getNewsByGameUseCase).getNewsByGame(1);
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void getNews() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void getNews() throws Exception {
         News news1 = News.builder()
                 .id(1)
                 .gameId(1)
@@ -122,14 +124,15 @@ public class NewsControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                            [{"id":1, "gameId":1, "text":"text1", "title":"title1"},
-                            {"id":2, "gameId":1, "text":"text2", "title":"title2"}]
-                          """));
+                          [{"id":1, "gameId":1, "text":"text1", "title":"title1"},
+                          {"id":2, "gameId":1, "text":"text2", "title":"title2"}]
+                        """));
         verify(getNewsUseCase).getNews();
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void getOneNews() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void getOneNews() throws Exception {
         News news = News.builder()
                 .id(1)
                 .gameId(1)
@@ -143,13 +146,14 @@ public class NewsControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                            {"id":1, "gameId":1, "text":"text1", "title":"title1"}
-                          """));
+                          {"id":1, "gameId":1, "text":"text1", "title":"title1"}
+                        """));
         verify(getOneNewsUseCase).getOneNews(1);
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"EMPLOYEE"})
-    void deleteNews() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"EMPLOYEE"})
+    void deleteNews() throws Exception {
         News news = News.builder()
                 .id(1)
                 .gameId(1)
@@ -163,13 +167,14 @@ public class NewsControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                     {"id":1, "gameId":1, "text":"text1", "title":"title1"}
-"""));
+                                             {"id":1, "gameId":1, "text":"text1", "title":"title1"}
+                        """));
         verify(deleteNewsUseCase).deleteNews(1);
     }
+
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"EMPLOYEE"})
-    void updateNews() throws Exception{
+    @WithMockUser(username = "username1", password = "password", roles = {"EMPLOYEE"})
+    void updateNews() throws Exception {
         News news = News.builder()
                 .id(1)
                 .gameId(1)
@@ -181,15 +186,15 @@ public class NewsControllerTest {
         mockMvc.perform(put("/news")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content("""
-                            {"id":1, "gameId":1, "text":"text3", "title":"title3"}
-                        """)
+                                    {"id":1, "gameId":1, "text":"text3", "title":"title3"}
+                                """)
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().json("""
-                            {"id":1, "gameId":1, "text":"text3", "title":"title3"}
-                       """));
+                             {"id":1, "gameId":1, "text":"text3", "title":"title3"}
+                        """));
         verify(updateNewsUseCase).updateNews(news);
     }
 }

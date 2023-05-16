@@ -19,7 +19,6 @@ public class GetVideogamesForNewsFilterUseCaseImpl implements GetVideogamesForNe
     private final NewsRepository newsRepository;
 
     /**
-     *
      * @return
      */
     @Override
@@ -27,13 +26,13 @@ public class GetVideogamesForNewsFilterUseCaseImpl implements GetVideogamesForNe
         List<VideogamePersistence> videogameList = videogameRepository.findAll();
         List<NewsPersistence> newsList = newsRepository.findAll();
         List<Long> videogameInts = new ArrayList<>();
-        for(NewsPersistence np : newsList) {
+        for (NewsPersistence np : newsList) {
             videogameInts.add((long) np.getGame_id());
         }
 
         List<Videogame> videogames = new ArrayList<>();
-        for(VideogamePersistence vp : videogameList) {
-            if(videogameInts.contains(vp.getId())) {
+        for (VideogamePersistence vp : videogameList) {
+            if (videogameInts.contains(vp.getId())) {
                 Videogame videogame = Videogame.builder()
                         .id(Math.toIntExact(vp.getId()))
                         .featured(vp.getFeatured())

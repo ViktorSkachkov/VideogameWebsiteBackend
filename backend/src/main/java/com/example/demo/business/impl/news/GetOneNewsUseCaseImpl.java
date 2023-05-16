@@ -15,14 +15,13 @@ public class GetOneNewsUseCaseImpl implements GetOneNewsUseCase {
     private final NewsRepository newsRepository;
 
     /**
-     *
      * @param id
      * @return
      */
     @Override
     public News getOneNews(int id) {
         Optional<NewsPersistence> np = newsRepository.findById(Long.valueOf(id));
-        if(np.isEmpty()) {
+        if (np.isEmpty()) {
 
         }
         News news = News.builder()

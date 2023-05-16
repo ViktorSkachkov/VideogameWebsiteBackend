@@ -15,14 +15,13 @@ public class DeleteNewsUseCaseImpl implements DeleteNewsUseCase {
     private final NewsRepository newsRepository;
 
     /**
-     *
      * @param id
      * @return
      */
     @Override
     public News deleteNews(int id) {
         Optional<NewsPersistence> np = newsRepository.findById(Long.valueOf(id));
-        if(np.isEmpty()) {
+        if (np.isEmpty()) {
 
         }
         newsRepository.deleteById(Long.valueOf(id));

@@ -32,7 +32,6 @@ public class IsAuthenticatedAspect {
     }
 
     /**
-     *
      * @param interceptedMethod
      * @return
      * @throws Throwable

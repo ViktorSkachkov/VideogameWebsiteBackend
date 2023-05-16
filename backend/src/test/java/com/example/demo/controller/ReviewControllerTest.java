@@ -43,7 +43,7 @@ class ReviewControllerTest {
 
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER"})
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
     void deleteReview() throws Exception {
         Review review = Review.builder()
                 .id(1L)
@@ -60,13 +60,13 @@ class ReviewControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                                             {"id":1, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"}
-"""));
+                                                                     {"id":1, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"}
+                        """));
         verify(deleteReviewUseCase).deleteReview(1);
     }
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER"})
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
     void getReviewsByItem() throws Exception {
         Review review1 = Review.builder()
                 .id(1L)
@@ -91,14 +91,14 @@ class ReviewControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
                 .andExpect(content().json("""
-                            [                        {"id":1, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"},
-                                                    {"id":2, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"}]
-                          """));
+                          [                        {"id":1, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"},
+                                                  {"id":2, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"}]
+                        """));
         verify(getReviewsByItemUseCase).getReviewsByItem(24, "game");
     }
 
     @Test
-    @WithMockUser(username="username1", password = "password", roles = {"CUSTOMER"})
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
     void updateReview() throws Exception {
         Review review = Review.builder()
                 .id(1L)
@@ -113,15 +113,15 @@ class ReviewControllerTest {
         mockMvc.perform(put("/reviews")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content("""
-                                        {"id":1, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"}
-                        """)
+                                                {"id":1, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"}
+                                """)
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().json("""
-                        {"id":1, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"}
-                       """));
+                         {"id":1, "text":"text", "reviewed_item_id":24,"user_id":41,"time":"2017-12-13T15:56:30","type_of_reviewed_item":"game"}
+                        """));
         verify(updateReviewUseCase).updateReview(review);
     }
 }

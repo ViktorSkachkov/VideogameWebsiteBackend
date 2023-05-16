@@ -71,7 +71,7 @@ class UpdateUserUseCaseImplTest {
         when(userRepository.save(user))
                 .thenReturn(user);
         LoginResponse actualResult = updateUserUseCase.updateUser(expectedResult);
-        
+
         verify(userRepository).save(user);
     }
 }

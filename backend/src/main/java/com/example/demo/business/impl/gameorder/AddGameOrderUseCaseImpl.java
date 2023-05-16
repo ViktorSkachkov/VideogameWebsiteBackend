@@ -15,7 +15,6 @@ public class AddGameOrderUseCaseImpl implements AddGameOrderUseCase {
     private final GameOrderRepository gameOrderRepository;
 
     /**
-     *
      * @param gameOrder
      * @return
      */

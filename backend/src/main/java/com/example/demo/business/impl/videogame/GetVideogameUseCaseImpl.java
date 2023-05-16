@@ -15,14 +15,13 @@ public class GetVideogameUseCaseImpl implements GetVideogameUseCase {
     private final VideogameRepository videogameRepository;
 
     /**
-     *
      * @param id
      * @return
      */
     @Override
     public Videogame getVideogame(int id) {
         Optional<VideogamePersistence> vp = videogameRepository.findById(Long.valueOf(id));
-        if(vp.isEmpty()) {
+        if (vp.isEmpty()) {
 
         }
         Videogame videogame = Videogame.builder()

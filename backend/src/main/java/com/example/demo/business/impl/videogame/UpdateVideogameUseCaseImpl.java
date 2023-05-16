@@ -15,14 +15,13 @@ public class UpdateVideogameUseCaseImpl implements UpdateVideogameUseCase {
     private final VideogameRepository videogameRepository;
 
     /**
-     *
      * @param videogame
      * @return
      */
     @Override
     public Videogame updateVideogame(Videogame videogame) {
         Optional<VideogamePersistence> vp = videogameRepository.findById(Long.valueOf(videogame.getId()));
-        if(vp.isEmpty()) {
+        if (vp.isEmpty()) {
 
         }
         vp.get().setDescription(videogame.getDescription());

@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface GetNewsUseCase {
     List<News> getNews();
+
     List<News> reverseOrder(List<News> newsList);
 }

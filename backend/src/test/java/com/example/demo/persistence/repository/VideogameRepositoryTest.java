@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -23,12 +24,13 @@ class VideogameRepositoryTest {
 
     @Autowired
     private EntityManager entityManager;
+
     @Test
     void findAll() {
         VideogamePersistence expected2 = createTestVideogame(1L, "Name5", 15, "Lorem" +
-                " Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been " +
-                "the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
-                " of type and scrambled it to make a type specimen book.", "image", true,
+                        " Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been " +
+                        "the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
+                        " of type and scrambled it to make a type specimen book.", "image", true,
                 LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         VideogamePersistence expected = createTestVideogame(12L, "Diablo", 12, "description",
                 "image", false, LocalDateTime.of(2023, 04, 19, 17, 04, 32));
@@ -36,8 +38,8 @@ class VideogameRepositoryTest {
         expectedList.add(expected);
         List<VideogamePersistence> actualList = videogameRepository.findAllTest();
         VideogamePersistence actual = VideogamePersistence.builder().build();
-        for(VideogamePersistence vp : actualList) {
-            if(vp.getName() == "Diablo") {
+        for (VideogamePersistence vp : actualList) {
+            if (vp.getName() == "Diablo") {
                 actual = vp;
             }
         }
@@ -47,9 +49,9 @@ class VideogameRepositoryTest {
     @Test
     void findById() {
         VideogamePersistence expected2 = createTestVideogame(1L, "Name5", 15, "Lorem" +
-                " Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been " +
-                "the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
-                " of type and scrambled it to make a type specimen book.", "image", true,
+                        " Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been " +
+                        "the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
+                        " of type and scrambled it to make a type specimen book.", "image", true,
                 LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         VideogamePersistence expected = createTestVideogame(23L, "Starcraft 2", 14, "description",
                 "image", false, LocalDateTime.of(2023, 04, 19, 17, 04, 32));
@@ -62,9 +64,9 @@ class VideogameRepositoryTest {
     @Test
     void findByName() {
         VideogamePersistence expected2 = createTestVideogame(1L, "Name5", 15, "Lorem" +
-                " Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been " +
-                "the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
-                " of type and scrambled it to make a type specimen book.", "image", true,
+                        " Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been " +
+                        "the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" +
+                        " of type and scrambled it to make a type specimen book.", "image", true,
                 LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         VideogamePersistence expected = createTestVideogame(12L, "Diablo", 12, "description",
                 "image", false, LocalDateTime.of(2023, 04, 19, 17, 04, 32));
