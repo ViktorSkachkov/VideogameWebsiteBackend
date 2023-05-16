@@ -2,7 +2,9 @@ package com.example.demo.business.impl.addition;
 
 import com.example.demo.domain.Addition;
 import com.example.demo.persistence.entity.AdditionPersistence;
+import com.example.demo.persistence.repository.AdditionOrderRepository;
 import com.example.demo.persistence.repository.AdditionRepository;
+import com.example.demo.persistence.repository.ReviewRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -19,6 +21,10 @@ import static org.mockito.Mockito.when;
 class DeleteAdditionUseCaseImplTest {
     @Mock
     private AdditionRepository additionRepository;
+    @Mock
+    private AdditionOrderRepository additionOrderRepository;
+    @Mock
+    private ReviewRepository reviewRepository;
     @InjectMocks
     private DeleteAdditionUseCaseImpl deleteAdditionUseCase;
 
