@@ -3,14 +3,19 @@ package com.example.demo.business.impl.user;
 import com.example.demo.business.cases.user.DeleteUserUseCase;
 import com.example.demo.domain.Role;
 import com.example.demo.domain.User;
+import com.example.demo.persistence.entity.AdditionOrderPersistence;
+import com.example.demo.persistence.entity.GameOrderPersistence;
 import com.example.demo.persistence.entity.RolePersistence;
 import com.example.demo.persistence.entity.UserPersistence;
+import com.example.demo.persistence.repository.AdditionOrderRepository;
+import com.example.demo.persistence.repository.GameOrderRepository;
 import com.example.demo.persistence.repository.RoleRepository;
 import com.example.demo.persistence.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -19,6 +24,8 @@ import java.util.Set;
 public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final AdditionOrderRepository additionOrderRepository;
+    private final GameOrderRepository gameOrderRepository;
 
     /**
      * @param id
@@ -51,6 +58,23 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
         }
         user.setUserRoles(userRoles);
         userRepository.deleteById(Long.valueOf(id));
+
+        List<AdditionOrderPersistence> additionOrders = additionOrderRepository.findAll();
+
+        List<GameOrderPersistence> gameOrders = gameOrderRepository.findAll();
+
+        for(AdditionOrderPersistence aop : additionOrders) {
+            if(aop.getUser() == id) {
+                additionOrderRepository.deleteById((long) aop.getId());
+            }
+        }
+
+        for(GameOrderPersistence gop : gameOrders) {
+            if(gop.getUser() == id) {
+                gameOrderRepository.deleteById((long) gop.getId());
+            }
+        }
+
         return user;
     }
 }

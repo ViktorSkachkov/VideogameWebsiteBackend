@@ -4,6 +4,8 @@ import com.example.demo.domain.Role;
 import com.example.demo.domain.User;
 import com.example.demo.persistence.entity.RolePersistence;
 import com.example.demo.persistence.entity.UserPersistence;
+import com.example.demo.persistence.repository.AdditionOrderRepository;
+import com.example.demo.persistence.repository.GameOrderRepository;
 import com.example.demo.persistence.repository.RoleRepository;
 import com.example.demo.persistence.repository.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -26,6 +28,10 @@ class DeleteUserUseCaseImplTest {
     private UserRepository userRepository;
     @Mock
     private RoleRepository roleRepository;
+    @Mock
+    private AdditionOrderRepository additionOrderRepository;
+    @Mock
+    private GameOrderRepository gameOrderRepository;
     @InjectMocks
     private DeleteUserUseCaseImpl deleteUserUseCase;
 
