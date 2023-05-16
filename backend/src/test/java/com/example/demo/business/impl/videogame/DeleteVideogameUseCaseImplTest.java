@@ -19,16 +19,12 @@ import static org.mockito.Mockito.when;
 class DeleteVideogameUseCaseImplTest {
     @Mock
     private VideogameRepository videogameRepository;
-    /*@Mock
+    @Mock
     private AdditionRepository additionRepository;
     @Mock
     private NewsRepository newsRepository;
     @Mock
-    private GameOrderRepository gameOrderRepository;
-    @Mock
-    private AdditionOrderRepository additionOrderRepository;
-    @Mock
-    private ReviewRepository reviewRepository;*/
+    private ReviewRepository reviewRepository;
     @InjectMocks
     private DeleteVideogameUseCaseImpl deleteVideogameUseCase;
 
