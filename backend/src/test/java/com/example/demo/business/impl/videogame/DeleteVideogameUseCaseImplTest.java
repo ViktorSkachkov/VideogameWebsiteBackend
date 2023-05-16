@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 class DeleteVideogameUseCaseImplTest {
     @Mock
     private VideogameRepository videogameRepository;
-    @Mock
+    /*@Mock
     private AdditionRepository additionRepository;
     @Mock
     private NewsRepository newsRepository;
@@ -28,7 +28,7 @@ class DeleteVideogameUseCaseImplTest {
     @Mock
     private AdditionOrderRepository additionOrderRepository;
     @Mock
-    private ReviewRepository reviewRepository;
+    private ReviewRepository reviewRepository;*/
     @InjectMocks
     private DeleteVideogameUseCaseImpl deleteVideogameUseCase;
 

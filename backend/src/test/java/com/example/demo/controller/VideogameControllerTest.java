@@ -41,8 +41,6 @@ class VideogameControllerTest {
     @MockBean
     private GetFeaturedVideogamesUseCase getFeaturedVideogamesUseCase;
     @MockBean
-    private GetUpcomingVideogamesUseCase getUpcomingVideogamesUseCase;
-    @MockBean
     private GetVideogamesForAdditionsFilterUseCase getVideogamesForAdditionsFilterUseCase;
     @MockBean
     private GetVideogamesForNewsFilterUseCase getVideogamesForNewsFilterUseCase;
@@ -147,12 +145,6 @@ class VideogameControllerTest {
                             {"id":1, "name":"name1", "price":10,"description":"description1","image":"image1"}
                         """));
         verify(getVideogameUseCase).getVideogame(1);
-    }
-
-    @Test
-    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
-    void getUpcomingVideogames() {
-
     }
 
     @Test

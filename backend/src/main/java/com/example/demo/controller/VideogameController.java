@@ -21,7 +21,6 @@ public class VideogameController {
     private final UpdateVideogameUseCase updateVideogameUseCase;
     private final DeleteVideogameUseCase deleteVideogameUseCase;
     private final GetFeaturedVideogamesUseCase getFeaturedVideogamesUseCase;
-    private final GetUpcomingVideogamesUseCase getUpcomingVideogamesUseCase;
     private final GetVideogamesForAdditionsFilterUseCase getVideogamesForAdditionsFilterUseCase;
     private final GetVideogamesForNewsFilterUseCase getVideogamesForNewsFilterUseCase;
 
@@ -63,16 +62,6 @@ public class VideogameController {
     @GetMapping("/featured")
     public List<Videogame> getFeatured() {
         return getFeaturedVideogamesUseCase.getFeaturedVideogames();
-    }
-
-    /**
-     * @return
-     */
-    @IsAuthenticated
-    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
-    @GetMapping("/upcoming")
-    public List<Videogame> getUpcoming() {
-        return getUpcomingVideogamesUseCase.getUpcomingVideogames();
     }
 
     /**

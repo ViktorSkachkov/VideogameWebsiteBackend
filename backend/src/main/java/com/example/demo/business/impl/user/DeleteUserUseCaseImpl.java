@@ -24,8 +24,8 @@ import java.util.Set;
 public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    private final AdditionOrderRepository additionOrderRepository;
-    private final GameOrderRepository gameOrderRepository;
+    //private final AdditionOrderRepository additionOrderRepository;
+    //private final GameOrderRepository gameOrderRepository;
 
     /**
      * @param id
@@ -58,22 +58,6 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
         }
         user.setUserRoles(userRoles);
         userRepository.deleteById(Long.valueOf(id));
-
-        List<AdditionOrderPersistence> additionOrders = additionOrderRepository.findAll();
-
-        List<GameOrderPersistence> gameOrders = gameOrderRepository.findAll();
-
-        for(AdditionOrderPersistence aop : additionOrders) {
-            if(aop.getUser() == id) {
-                additionOrderRepository.deleteById((long) aop.getId());
-            }
-        }
-
-        for(GameOrderPersistence gop : gameOrders) {
-            if(gop.getUser() == id) {
-                gameOrderRepository.deleteById((long) gop.getId());
-            }
-        }
 
         return user;
     }
