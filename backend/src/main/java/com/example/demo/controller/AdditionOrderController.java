@@ -62,8 +62,8 @@ public class AdditionOrderController {
      */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
-    @GetMapping("/ranked")
-    public List<RankingAdditionOrder> getAdditionOrdersRanked() {
-        return getAdditionOrdersRankedUseCase.getAdditionOrdersRanked();
+    @GetMapping("/ranked/{id}")
+    public List<RankingAdditionOrder> getAdditionOrdersRanked(@PathVariable(value = "id") final int id) {
+        return getAdditionOrdersRankedUseCase.getAdditionOrdersRanked(id);
     }
 }

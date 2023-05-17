@@ -11,6 +11,7 @@ import com.example.demo.persistence.repository.VideogameRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,17 +24,34 @@ public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCas
     private final VideogameRepository videogameRepository;
 
     @Override
-    public List<RankingGameOrder> getGameOrdersRanked() {
+    public List<RankingGameOrder> getGameOrdersRanked(int id) {
+
+        LocalDateTime endDate = LocalDateTime.now();
+
+        if(id == 0) {
+            endDate = LocalDateTime.of(1970, 12, 18, 14, 30, 40);
+        }
+        if(id == 1) {
+            endDate = LocalDateTime.now().minusMonths(1);
+        }
+        if(id == 6) {
+            endDate = LocalDateTime.now().minusMonths(6);
+        }
+        if(id == 12) {
+            endDate = LocalDateTime.now().minusMonths(12);
+        }
+
         List<GameOrderPersistence> list = gameOrderRepository.findAll();
 
-        List<RankingGameOrder> rankingGameOrders = getRankings(list);
+        List<RankingGameOrder> rankingGameOrders = getRankings(list, endDate);
 
         List<RankingGameOrder> rankingGameOrders2 = reverseOrder(rankingGameOrders);
 
         return rankingGameOrders2;
     }
 
-    List<RankingGameOrder> getRankings(List<GameOrderPersistence> gameOrderPersistences) {
+    List<RankingGameOrder> getRankings(List<GameOrderPersistence> gameOrderPersistences,
+                                       LocalDateTime endDate) {
         List<RankingGameOrder> rankingGameOrders = new ArrayList<>();
 
         Long id = Long.valueOf(0);
@@ -45,7 +63,7 @@ public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCas
            String name = videogameRepository.findNameById((long) aop.getGame());
            double price = videogameRepository.findPriceById((long) aop.getGame());
 
-            if(!gameIds.contains(aop.getGame())) {
+            if(!gameIds.contains(aop.getGame()) && aop.getTime().isAfter(endDate)) {
                 id++;
                 RankingGameOrder rankingGameOrder = RankingGameOrder.builder()
                         .id((long) aop.getId())
@@ -70,7 +88,8 @@ public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCas
                 List<GameOrder> gameOrders = new ArrayList<>();
 
                 for(int i=0; i<rankingGameOrders.size(); i++) {
-                    if(aop.getGame() == rankingGameOrders.get(i).getReviewed_item_id()) {
+                    if(aop.getGame() == rankingGameOrders.get(i).getReviewed_item_id()
+                            && aop.getTime().isAfter(endDate)) {
                         rankingGameOrder = rankingGameOrders.get(i);
                         for(GameOrder ao : rankingGameOrder.getGameOrderList()) {
                             //additionOrders = rankingAdditionOrder.getAdditionOrderList();

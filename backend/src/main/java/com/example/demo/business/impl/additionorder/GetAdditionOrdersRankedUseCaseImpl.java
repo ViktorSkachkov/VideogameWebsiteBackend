@@ -9,6 +9,7 @@ import com.example.demo.persistence.repository.AdditionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -21,17 +22,34 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
     private final AdditionRepository additionRepository;
 
     @Override
-    public List<RankingAdditionOrder> getAdditionOrdersRanked(/*LocalDateTime startDate, LocalDateTime endDate*/) {
+    public List<RankingAdditionOrder> getAdditionOrdersRanked(int id) {
+
+        LocalDateTime endDate = LocalDateTime.now();
+
+        if(id == 0) {
+            endDate = LocalDateTime.of(1970, 12, 18, 14, 30, 40);
+        }
+        if(id == 1) {
+            endDate = LocalDateTime.now().minusMonths(1);
+        }
+        if(id == 6) {
+            endDate = LocalDateTime.now().minusMonths(6);
+        }
+        if(id == 12) {
+            endDate = LocalDateTime.now().minusMonths(12);
+        }
+
         List<AdditionOrderPersistence> list = additionOrderRepository.findAll();
 
-        List<RankingAdditionOrder> rankingAdditionOrders = getRankings(list);
+        List<RankingAdditionOrder> rankingAdditionOrders = getRankings(list, endDate);
 
         List<RankingAdditionOrder> rankingAdditionOrders2 = reverseOrder(rankingAdditionOrders);
 
         return rankingAdditionOrders2;
     }
 
-    List<RankingAdditionOrder> getRankings(List<AdditionOrderPersistence> additionOrderPersistences) {
+    List<RankingAdditionOrder> getRankings(List<AdditionOrderPersistence> additionOrderPersistences,
+                                           LocalDateTime endDate) {
         List<RankingAdditionOrder> rankingAdditionOrders = new ArrayList<>();
 
         Long id = Long.valueOf(0);
@@ -43,7 +61,7 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
             String name = additionRepository.findNameById((long) aop.getAddition());
             double price = additionRepository.findPriceById((long) aop.getAddition());
 
-            if(!additionIds.contains(aop.getAddition())) {
+            if(!additionIds.contains(aop.getAddition()) && aop.getTime().isAfter(endDate)) {
                 id++;
                 RankingAdditionOrder rankingAdditionOrder = RankingAdditionOrder.builder()
                         .id((long) aop.getId())
@@ -68,7 +86,8 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
                 List<AdditionOrder> additionOrders = new ArrayList<>();
 
                 for(int i=0; i<rankingAdditionOrders.size(); i++) {
-                    if(aop.getAddition() == rankingAdditionOrders.get(i).getReviewed_item_id()) {
+                    if(aop.getAddition() == rankingAdditionOrders.get(i).getReviewed_item_id()
+                            && aop.getTime().isAfter(endDate)) {
                         rankingAdditionOrder = rankingAdditionOrders.get(i);
                         for(AdditionOrder ao : rankingAdditionOrder.getAdditionOrderList()) {
                             //additionOrders = rankingAdditionOrder.getAdditionOrderList();

@@ -62,8 +62,8 @@ public class GameOrderController {
      */
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
-    @GetMapping("/ranked")
-    public List<RankingGameOrder> getAdditionOrdersRanked() {
-        return getGameOrdersRankedUseCase.getGameOrdersRanked();
+    @GetMapping("/ranked/{id}")
+    public List<RankingGameOrder> getAdditionOrdersRanked(@PathVariable(value = "id") final int id) {
+        return getGameOrdersRankedUseCase.getGameOrdersRanked(id);
     }
 }
