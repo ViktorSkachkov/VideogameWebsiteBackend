@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface GetGameOrdersRankedUseCase {
     List<RankingGameOrder> getGameOrdersRanked(/*LocalDateTime startDate, LocalDateTime endDate*/);
+
+    List<RankingGameOrder> reverseOrder(List<RankingGameOrder> rankingGameOrders);
 }

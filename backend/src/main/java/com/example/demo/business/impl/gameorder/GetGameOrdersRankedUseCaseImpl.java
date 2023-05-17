@@ -4,19 +4,23 @@ import com.example.demo.business.cases.gameorder.GetGameOrdersRankedUseCase;
 import com.example.demo.domain.GameOrder;
 import com.example.demo.domain.RankingAdditionOrder;
 import com.example.demo.domain.RankingGameOrder;
+import com.example.demo.domain.Videogame;
 import com.example.demo.persistence.entity.GameOrderPersistence;
 import com.example.demo.persistence.repository.GameOrderRepository;
+import com.example.demo.persistence.repository.VideogameRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCase {
     private final GameOrderRepository gameOrderRepository;
-
+    private final VideogameRepository videogameRepository;
 
     @Override
     public List<RankingGameOrder> getGameOrdersRanked() {
@@ -24,7 +28,9 @@ public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCas
 
         List<RankingGameOrder> rankingGameOrders = getRankings(list);
 
-        return rankingGameOrders;
+        List<RankingGameOrder> rankingGameOrders2 = reverseOrder(rankingGameOrders);
+
+        return rankingGameOrders2;
     }
 
     List<RankingGameOrder> getRankings(List<GameOrderPersistence> gameOrderPersistences) {
@@ -36,11 +42,15 @@ public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCas
 
         for(GameOrderPersistence aop : gameOrderPersistences) {
 
+           String name = videogameRepository.findNameById((long) aop.getGame());
+           double price = videogameRepository.findPriceById((long) aop.getGame());
+
             if(!gameIds.contains(aop.getGame())) {
                 id++;
                 RankingGameOrder rankingGameOrder = RankingGameOrder.builder()
                         .id((long) aop.getId())
-                        .totalPrice(0)
+                        .price(price)
+                        .name(name)
                         .reviewed_item_id(aop.getGame())
                         .gameOrderList(List.of(GameOrder.builder()
                                 .time(aop.getTime())
@@ -51,6 +61,7 @@ public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCas
                         .build();
                 gameIds.add(aop.getGame());
                 rankingGameOrder.calculateNumberOfTimesBought();
+                rankingGameOrder.calculateTotalPrice();
                 rankingGameOrders.add(rankingGameOrder);
             }
             else {
@@ -77,12 +88,26 @@ public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCas
                         rankingGameOrder.setGameOrderList(gameOrders);
 
                         rankingGameOrder.calculateNumberOfTimesBought();
+                        rankingGameOrder.calculateTotalPrice();
                         rankingGameOrders.set(i, rankingGameOrder);
                     }
                 }
 
             }
         }
+
+        return rankingGameOrders;
+    }
+
+    @Override
+    public List<RankingGameOrder> reverseOrder(List<RankingGameOrder> rankingGameOrders) {
+
+        Collections.sort(rankingGameOrders, new Comparator<RankingGameOrder>() {
+            public int compare(RankingGameOrder c1, RankingGameOrder c2) {
+                if (c1.getTotalPrice() > c2.getTotalPrice()) return -1;
+                if (c1.getTotalPrice() < c2.getTotalPrice()) return 1;
+                return 0;
+            }});
 
         return rankingGameOrders;
     }

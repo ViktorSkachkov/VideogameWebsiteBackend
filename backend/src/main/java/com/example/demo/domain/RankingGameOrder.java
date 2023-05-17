@@ -13,8 +13,10 @@ public class RankingGameOrder {
     private Long id;
     private int reviewed_item_id;
     private int numberOfTimesBought;
+    private double price;
     private double totalPrice;
     private List<GameOrder> gameOrderList;
+    private String name;
 
     public int calculateNumberOfTimesBought() {
         numberOfTimesBought = 0;
@@ -22,5 +24,12 @@ public class RankingGameOrder {
             numberOfTimesBought += gop.getUnits();
         }
         return numberOfTimesBought;
+    }
+
+    public double calculateTotalPrice() {
+        totalPrice = 0;
+            totalPrice = numberOfTimesBought * price;
+
+        return totalPrice;
     }
 }

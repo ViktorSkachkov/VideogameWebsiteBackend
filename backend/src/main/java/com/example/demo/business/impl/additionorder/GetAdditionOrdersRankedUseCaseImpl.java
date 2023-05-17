@@ -5,17 +5,20 @@ import com.example.demo.domain.AdditionOrder;
 import com.example.demo.domain.RankingAdditionOrder;
 import com.example.demo.persistence.entity.AdditionOrderPersistence;
 import com.example.demo.persistence.repository.AdditionOrderRepository;
+import com.example.demo.persistence.repository.AdditionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRankedUseCase {
     private final AdditionOrderRepository additionOrderRepository;
-    //private final AdditionRepository additionRepository;
+    private final AdditionRepository additionRepository;
 
     @Override
     public List<RankingAdditionOrder> getAdditionOrdersRanked(/*LocalDateTime startDate, LocalDateTime endDate*/) {
@@ -23,7 +26,9 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
 
         List<RankingAdditionOrder> rankingAdditionOrders = getRankings(list);
 
-        return rankingAdditionOrders;
+        List<RankingAdditionOrder> rankingAdditionOrders2 = reverseOrder(rankingAdditionOrders);
+
+        return rankingAdditionOrders2;
     }
 
     List<RankingAdditionOrder> getRankings(List<AdditionOrderPersistence> additionOrderPersistences) {
@@ -35,11 +40,15 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
 
         for(AdditionOrderPersistence aop : additionOrderPersistences) {
 
+            String name = additionRepository.findNameById((long) aop.getAddition());
+            double price = additionRepository.findPriceById((long) aop.getAddition());
+
             if(!additionIds.contains(aop.getAddition())) {
                 id++;
                 RankingAdditionOrder rankingAdditionOrder = RankingAdditionOrder.builder()
                         .id((long) aop.getId())
-                        .totalPrice(0)
+                        .price(price)
+                        .name(name)
                         .reviewed_item_id(aop.getAddition())
                         .additionOrderList(List.of(AdditionOrder.builder()
                                         .time(aop.getTime())
@@ -50,6 +59,7 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
                         .build();
                 additionIds.add(aop.getAddition());
                 rankingAdditionOrder.calculateNumberOfTimesBought();
+                rankingAdditionOrder.calculateTotalPrice();
                 rankingAdditionOrders.add(rankingAdditionOrder);
             }
             else {
@@ -76,12 +86,26 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
                         rankingAdditionOrder.setAdditionOrderList(additionOrders);
 
                         rankingAdditionOrder.calculateNumberOfTimesBought();
+                        rankingAdditionOrder.calculateTotalPrice();
                         rankingAdditionOrders.set(i, rankingAdditionOrder);
                     }
                 }
 
             }
         }
+
+        return rankingAdditionOrders;
+    }
+
+    @Override
+    public List<RankingAdditionOrder> reverseOrder(List<RankingAdditionOrder> rankingAdditionOrders) {
+
+        Collections.sort(rankingAdditionOrders, new Comparator<RankingAdditionOrder>() {
+            public int compare(RankingAdditionOrder c1, RankingAdditionOrder c2) {
+                if (c1.getTotalPrice() > c2.getTotalPrice()) return -1;
+                if (c1.getTotalPrice() < c2.getTotalPrice()) return 1;
+                return 0;
+            }});
 
         return rankingAdditionOrders;
     }

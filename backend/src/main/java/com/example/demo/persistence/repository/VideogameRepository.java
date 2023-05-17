@@ -15,6 +15,12 @@ public interface VideogameRepository extends JpaRepository<VideogamePersistence,
     @Query("select v from VideogamePersistence v where v.name = ?1")
     List<VideogamePersistence> findByName(String name);
 
+    @Query("select v.name from VideogamePersistence v where v.id = ?1")
+    String findNameById(Long id);
+
+    @Query("select v.price from VideogamePersistence v where v.id = ?1")
+    double findPriceById(Long id);
+
     @Query("select v from VideogamePersistence v where v.id = ?1")
     VideogamePersistence findByid(Long id);
 }
