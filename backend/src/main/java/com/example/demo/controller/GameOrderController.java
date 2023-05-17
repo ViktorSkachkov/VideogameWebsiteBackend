@@ -3,8 +3,10 @@ package com.example.demo.controller;
 import com.example.demo.business.cases.gameorder.AddGameOrderUseCase;
 import com.example.demo.business.cases.gameorder.GetGameOrderUseCase;
 import com.example.demo.business.cases.gameorder.GetGameOrdersByUserUseCase;
+import com.example.demo.business.cases.gameorder.GetGameOrdersRankedUseCase;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.GameOrder;
+import com.example.demo.domain.RankingGameOrder;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +22,7 @@ public class GameOrderController {
     private final AddGameOrderUseCase addGameOrderUseCase;
     private final GetGameOrderUseCase getGameOrderUseCase;
     private final GetGameOrdersByUserUseCase getGameOrdersByUserUseCase;
+    private final GetGameOrdersRankedUseCase getGameOrdersRankedUseCase;
 
     /**
      * @param gameOrder
@@ -52,5 +55,15 @@ public class GameOrderController {
     @GetMapping("/{id}")
     public GameOrder getGameOrder(@PathVariable(value = "id") final int id) {
         return getGameOrderUseCase.getGameOrder(id);
+    }
+
+    /**
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @GetMapping("/ranked")
+    public List<RankingGameOrder> getAdditionOrdersRanked() {
+        return getGameOrdersRankedUseCase.getGameOrdersRanked();
     }
 }

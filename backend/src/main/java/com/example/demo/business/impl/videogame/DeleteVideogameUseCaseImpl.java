@@ -29,7 +29,9 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
         if (vp.isEmpty()) {
 
         }
-        videogameRepository.deleteById(Long.valueOf(id));
+        //videogameRepository.deleteById(Long.valueOf(id));
+        vp.get().setDeleted(true);
+        videogameRepository.save(vp.get());
 
         List<NewsPersistence> newsArticles = newsRepository.findAll();
 

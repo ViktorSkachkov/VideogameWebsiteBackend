@@ -31,7 +31,9 @@ public class DeleteAdditionUseCaseImpl implements DeleteAdditionUseCase {
         if (ap.isEmpty()) {
 
         }
-        additionRepository.deleteById(Long.valueOf(id));
+        //additionRepository.deleteById(Long.valueOf(id));
+        ap.get().setDeleted(true);
+        additionRepository.save(ap.get());
 
         List<ReviewPersistence> reviewsList = reviewRepository.findAll();
 

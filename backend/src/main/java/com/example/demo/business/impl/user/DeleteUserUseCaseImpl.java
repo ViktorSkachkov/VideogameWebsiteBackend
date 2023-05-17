@@ -57,7 +57,9 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
             userRoles.add(newRole);
         }
         user.setUserRoles(userRoles);
-        userRepository.deleteById(Long.valueOf(id));
+        //userRepository.deleteById(Long.valueOf(id));
+        up.get().setDeleted(true);
+        userRepository.save(up.get());
 
         return user;
     }
