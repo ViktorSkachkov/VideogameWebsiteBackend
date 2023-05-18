@@ -33,4 +33,8 @@ public class GameOrderPersistence {
     @NotNull
     @EqualsAndHashCode.Exclude
     private LocalDateTime time;
+    @Column(name = "approved")
+    @NotNull
+    @EqualsAndHashCode.Exclude
+    private Boolean approved;
 }

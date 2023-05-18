@@ -25,6 +25,7 @@ public class AddAdditionOrderUseCaseImpl implements AddAdditionOrderUseCase {
                 .user(additionOrder.getUser())
                 .units(additionOrder.getUnits())
                 .time(LocalDateTime.now())
+                .approved(false)
                 .build();
         additionOrderRepository.save(additionOrderPersistence);
         return additionOrder;

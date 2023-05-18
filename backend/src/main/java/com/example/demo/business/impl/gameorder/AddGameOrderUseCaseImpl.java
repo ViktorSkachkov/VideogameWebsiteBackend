@@ -25,6 +25,7 @@ public class AddGameOrderUseCaseImpl implements AddGameOrderUseCase {
                 .user(gameOrder.getUser())
                 .units(gameOrder.getUnits())
                 .time(LocalDateTime.now())
+                .approved(false)
                 .build();
         gameOrderRepository.save(gameOrderPersistence);
         return gameOrder;

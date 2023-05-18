@@ -63,7 +63,7 @@ public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCas
            String name = videogameRepository.findNameById((long) aop.getGame());
            double price = videogameRepository.findPriceById((long) aop.getGame());
 
-            if(!gameIds.contains(aop.getGame()) && aop.getTime().isAfter(endDate)) {
+            if(!gameIds.contains(aop.getGame()) && aop.getTime().isAfter(endDate) && aop.getApproved()) {
                 id++;
                 RankingGameOrder rankingGameOrder = RankingGameOrder.builder()
                         .id((long) aop.getId())
@@ -89,7 +89,7 @@ public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCas
 
                 for(int i=0; i<rankingGameOrders.size(); i++) {
                     if(aop.getGame() == rankingGameOrders.get(i).getReviewed_item_id()
-                            && aop.getTime().isAfter(endDate)) {
+                            && aop.getTime().isAfter(endDate) && aop.getApproved()) {
                         rankingGameOrder = rankingGameOrders.get(i);
                         for(GameOrder ao : rankingGameOrder.getGameOrderList()) {
                             //additionOrders = rankingAdditionOrder.getAdditionOrderList();

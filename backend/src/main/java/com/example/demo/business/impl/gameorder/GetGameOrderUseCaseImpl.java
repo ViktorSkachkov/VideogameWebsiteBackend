@@ -7,6 +7,7 @@ import com.example.demo.persistence.repository.GameOrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Service
@@ -24,12 +25,17 @@ public class GetGameOrderUseCaseImpl implements GetGameOrderUseCase {
         if (gop.isEmpty()) {
 
         }
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDateTime = gop.get().getTime().format(dateTimeFormatter);
+
         GameOrder gameOrder = GameOrder.builder()
                 .id(Math.toIntExact(gop.get().getId()))
                 .user(gop.get().getUser())
                 .game(gop.get().getGame())
                 .units(gop.get().getUnits())
                 .time(gop.get().getTime())
+                .dateFormatted(formattedDateTime)
                 .build();
         return gameOrder;
     }

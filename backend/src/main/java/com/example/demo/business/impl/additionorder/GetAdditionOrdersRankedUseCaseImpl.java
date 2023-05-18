@@ -26,16 +26,16 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
 
         LocalDateTime endDate = LocalDateTime.now();
 
-        if(id == 0) {
+        if (id == 0) {
             endDate = LocalDateTime.of(1970, 12, 18, 14, 30, 40);
         }
-        if(id == 1) {
+        if (id == 1) {
             endDate = LocalDateTime.now().minusMonths(1);
         }
-        if(id == 6) {
+        if (id == 6) {
             endDate = LocalDateTime.now().minusMonths(6);
         }
-        if(id == 12) {
+        if (id == 12) {
             endDate = LocalDateTime.now().minusMonths(12);
         }
 
@@ -56,12 +56,13 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
 
         List<Integer> additionIds = new ArrayList<>();
 
-        for(AdditionOrderPersistence aop : additionOrderPersistences) {
+        for (AdditionOrderPersistence aop : additionOrderPersistences) {
 
             String name = additionRepository.findNameById((long) aop.getAddition());
             double price = additionRepository.findPriceById((long) aop.getAddition());
 
-            if(!additionIds.contains(aop.getAddition()) && aop.getTime().isAfter(endDate)) {
+            if (!additionIds.contains(aop.getAddition()) && aop.getTime().isAfter(endDate)
+                    && aop.getApproved()) {
                 id++;
                 RankingAdditionOrder rankingAdditionOrder = RankingAdditionOrder.builder()
                         .id((long) aop.getId())
@@ -69,33 +70,32 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
                         .name(name)
                         .reviewed_item_id(aop.getAddition())
                         .additionOrderList(List.of(AdditionOrder.builder()
-                                        .time(aop.getTime())
-                                        .user(aop.getUser())
-                                        .addition(aop.getAddition())
-                                        .units(aop.getUnits())
+                                .time(aop.getTime())
+                                .user(aop.getUser())
+                                .addition(aop.getAddition())
+                                .units(aop.getUnits())
                                 .build()))
                         .build();
                 additionIds.add(aop.getAddition());
                 rankingAdditionOrder.calculateNumberOfTimesBought();
                 rankingAdditionOrder.calculateTotalPrice();
                 rankingAdditionOrders.add(rankingAdditionOrder);
-            }
-            else {
+            } else {
                 RankingAdditionOrder rankingAdditionOrder = RankingAdditionOrder.builder().build();
 
                 List<AdditionOrder> additionOrders = new ArrayList<>();
 
-                for(int i=0; i<rankingAdditionOrders.size(); i++) {
-                    if(aop.getAddition() == rankingAdditionOrders.get(i).getReviewed_item_id()
-                            && aop.getTime().isAfter(endDate)) {
+                for (int i = 0; i < rankingAdditionOrders.size(); i++) {
+                    if (aop.getAddition() == rankingAdditionOrders.get(i).getReviewed_item_id()
+                            && aop.getTime().isAfter(endDate) && aop.getApproved()) {
                         rankingAdditionOrder = rankingAdditionOrders.get(i);
-                        for(AdditionOrder ao : rankingAdditionOrder.getAdditionOrderList()) {
+                        for (AdditionOrder ao : rankingAdditionOrder.getAdditionOrderList()) {
                             //additionOrders = rankingAdditionOrder.getAdditionOrderList();
                             additionOrders.add(ao);
                         }
 
                         additionOrders.add(AdditionOrder.builder()
-                                        .id(aop.getId())
+                                .id(aop.getId())
                                 .time(aop.getTime())
                                 .user(aop.getUser())
                                 .addition(aop.getAddition())
@@ -124,7 +124,8 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
                 if (c1.getTotalPrice() > c2.getTotalPrice()) return -1;
                 if (c1.getTotalPrice() < c2.getTotalPrice()) return 1;
                 return 0;
-            }});
+            }
+        });
 
         return rankingAdditionOrders;
     }

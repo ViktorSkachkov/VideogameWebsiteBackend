@@ -7,6 +7,7 @@ import com.example.demo.persistence.repository.AdditionOrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Service
@@ -24,12 +25,17 @@ public class GetAdditionOrderUseCaseImpl implements GetAdditionOrderUseCase {
         if (aop.isEmpty()) {
 
         }
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDateTime = aop.get().getTime().format(dateTimeFormatter);
+
         AdditionOrder additionOrder = AdditionOrder.builder()
                 .id(Math.toIntExact(aop.get().getId()))
                 .user(aop.get().getUser())
                 .addition(aop.get().getAddition())
                 .units(aop.get().getUnits())
                 .time(aop.get().getTime())
+                .dateFormatted(formattedDateTime)
                 .build();
         return additionOrder;
     }

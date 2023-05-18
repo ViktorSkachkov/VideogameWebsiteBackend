@@ -21,4 +21,6 @@ public class GameOrder {
     private int user;
     private int units;
     private LocalDateTime time;
+    private String dateFormatted;
+    private Boolean approved;
 }

@@ -6,7 +6,7 @@ import com.example.demo.domain.RankingGameOrder;
 import java.util.List;
 
 public interface GetGameOrdersRankedUseCase {
-    List<RankingGameOrder> getGameOrdersRanked(/*LocalDateTime startDate, LocalDateTime endDate*/int id);
+    List<RankingGameOrder> getGameOrdersRanked(int id);
 
     List<RankingGameOrder> reverseOrder(List<RankingGameOrder> rankingGameOrders);
 }

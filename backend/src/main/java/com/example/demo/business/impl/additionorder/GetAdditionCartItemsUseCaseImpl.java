@@ -1,6 +1,6 @@
 package com.example.demo.business.impl.additionorder;
 
-import com.example.demo.business.cases.additionorder.GetAdditionOrdersByUserUseCase;
+import com.example.demo.business.cases.additionorder.GetAdditionCartItemsUseCase;
 import com.example.demo.domain.AdditionOrder;
 import com.example.demo.persistence.entity.AdditionOrderPersistence;
 import com.example.demo.persistence.repository.AdditionOrderRepository;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class GetAdditionOrdersByUserUseCaseImpl implements GetAdditionOrdersByUserUseCase {
+public class GetAdditionCartItemsUseCaseImpl implements GetAdditionCartItemsUseCase {
     private final AdditionOrderRepository additionOrderRepository;
 
     /**
@@ -21,13 +21,14 @@ public class GetAdditionOrdersByUserUseCaseImpl implements GetAdditionOrdersByUs
      * @return
      */
     @Override
-    public List<AdditionOrder> getAdditionOrdersByUser(int userIndex) {
+    public List<AdditionOrder> getGameCartItems(int userIndex) {
         List<AdditionOrderPersistence> list = additionOrderRepository.findAll();
         List<AdditionOrder> additionOrders = new ArrayList<>();
         for (AdditionOrderPersistence aop : list) {
 
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             String formattedDateTime = aop.getTime().format(dateTimeFormatter);
+
 
             if (aop.getUser() == userIndex && aop.getApproved()) {
                 AdditionOrder additionOrder = AdditionOrder.builder()
@@ -46,6 +47,10 @@ public class GetAdditionOrdersByUserUseCaseImpl implements GetAdditionOrdersByUs
         return newList;
     }
 
+    /**
+     * @param additionOrders
+     * @return
+     */
     @Override
     public List<AdditionOrder> reverseOrder(List<AdditionOrder> additionOrders) {
         List<AdditionOrder> result = new ArrayList<>();
