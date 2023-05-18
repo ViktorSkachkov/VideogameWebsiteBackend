@@ -21,7 +21,7 @@ public class GetAdditionCartItemsUseCaseImpl implements GetAdditionCartItemsUseC
      * @return
      */
     @Override
-    public List<AdditionOrder> getGameCartItems(int userIndex) {
+    public List<AdditionOrder> getAdditionCartItems(int userIndex) {
         List<AdditionOrderPersistence> list = additionOrderRepository.findAll();
         List<AdditionOrder> additionOrders = new ArrayList<>();
         for (AdditionOrderPersistence aop : list) {
@@ -30,7 +30,7 @@ public class GetAdditionCartItemsUseCaseImpl implements GetAdditionCartItemsUseC
             String formattedDateTime = aop.getTime().format(dateTimeFormatter);
 
 
-            if (aop.getUser() == userIndex && aop.getApproved()) {
+            if (aop.getUser() == userIndex && !aop.getApproved()) {
                 AdditionOrder additionOrder = AdditionOrder.builder()
                         .id(Math.toIntExact(aop.getId()))
                         .addition(aop.getAddition())
@@ -38,6 +38,7 @@ public class GetAdditionCartItemsUseCaseImpl implements GetAdditionCartItemsUseC
                         .units(aop.getUnits())
                         .time(aop.getTime())
                         .dateFormatted(formattedDateTime)
+                        .approved(aop.getApproved())
                         .build();
                 additionOrders.add(additionOrder);
             }

@@ -1,9 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.business.cases.gameorder.AddGameOrderUseCase;
-import com.example.demo.business.cases.gameorder.GetGameOrderUseCase;
-import com.example.demo.business.cases.gameorder.GetGameOrdersByUserUseCase;
-import com.example.demo.business.cases.gameorder.GetGameOrdersRankedUseCase;
+import com.example.demo.business.cases.gameorder.*;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.GameOrder;
 import com.example.demo.domain.RankingGameOrder;
@@ -23,6 +20,8 @@ public class GameOrderController {
     private final GetGameOrderUseCase getGameOrderUseCase;
     private final GetGameOrdersByUserUseCase getGameOrdersByUserUseCase;
     private final GetGameOrdersRankedUseCase getGameOrdersRankedUseCase;
+    private final GetGameCartItemsUseCase getGameCartItemsUseCase;
+    private final ConfirmGameOrderUseCase confirmGameOrderUseCase;
 
     /**
      * @param gameOrder
@@ -65,5 +64,27 @@ public class GameOrderController {
     @GetMapping("/ranked/{id}")
     public List<RankingGameOrder> getAdditionOrdersRanked(@PathVariable(value = "id") final int id) {
         return getGameOrdersRankedUseCase.getGameOrdersRanked(id);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_CUSTOMER"})
+    @GetMapping("/cart/{id}")
+    public List<GameOrder> getGameCartItems(@PathVariable(value = "id") final int id) {
+        return getGameCartItemsUseCase.getGameCartItems(id);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @PutMapping("/{id}")
+    public int confirmAdditionOrders(@PathVariable(value = "id") final int id) {
+        return confirmGameOrderUseCase.confirmGameOrder(id);
     }
 }

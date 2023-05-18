@@ -14,4 +14,7 @@ public interface AdditionOrderRepository extends JpaRepository<AdditionOrderPers
 
     @Query("select aop from AdditionOrderPersistence aop where aop.id = ?1")
     AdditionOrderPersistence findByid(Long id);
+
+    @Query("select aop from AdditionOrderPersistence aop where aop.user = ?1")
+    List<AdditionOrderPersistence> findByUserId(Long id);
 }

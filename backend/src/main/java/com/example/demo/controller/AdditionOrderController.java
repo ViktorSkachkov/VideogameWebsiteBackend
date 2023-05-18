@@ -1,9 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.business.cases.additionorder.AddAdditionOrderUseCase;
-import com.example.demo.business.cases.additionorder.GetAdditionOrderUseCase;
-import com.example.demo.business.cases.additionorder.GetAdditionOrdersByUserUseCase;
-import com.example.demo.business.cases.additionorder.GetAdditionOrdersRankedUseCase;
+import com.example.demo.business.cases.additionorder.*;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.AdditionOrder;
 import com.example.demo.domain.RankingAdditionOrder;
@@ -23,6 +20,8 @@ public class AdditionOrderController {
     private final GetAdditionOrdersByUserUseCase getAdditionOrdersByUserUseCase;
     private final GetAdditionOrderUseCase getAdditionOrderUseCase;
     private final GetAdditionOrdersRankedUseCase getAdditionOrdersRankedUseCase;
+    private final GetAdditionCartItemsUseCase getAdditionCartItemsUseCase;
+    private final ConfirmAdditionOrderUseCase confirmAdditionOrderUseCase;
 
     /**
      * @param additionOrder
@@ -65,5 +64,27 @@ public class AdditionOrderController {
     @GetMapping("/ranked/{id}")
     public List<RankingAdditionOrder> getAdditionOrdersRanked(@PathVariable(value = "id") final int id) {
         return getAdditionOrdersRankedUseCase.getAdditionOrdersRanked(id);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_CUSTOMER"})
+    @GetMapping("/cart/{id}")
+    public List<AdditionOrder> getAdditionCartItems(@PathVariable(value = "id") final int id) {
+        return getAdditionCartItemsUseCase.getAdditionCartItems(id);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @PutMapping("/{id}")
+    public int confirmAdditionOrders(@PathVariable(value = "id") final int id) {
+        return confirmAdditionOrderUseCase.confirmAdditionOrder(id);
     }
 }
