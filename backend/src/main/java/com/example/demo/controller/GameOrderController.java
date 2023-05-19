@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.business.cases.gameorder.DecreaseGameOrderUnitsUseCase;
+import com.example.demo.business.cases.gameorder.IncreaseGameOrderUnitsUseCase;
 import com.example.demo.business.cases.gameorder.*;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.GameOrder;
@@ -22,6 +24,9 @@ public class GameOrderController {
     private final GetGameOrdersRankedUseCase getGameOrdersRankedUseCase;
     private final GetGameCartItemsUseCase getGameCartItemsUseCase;
     private final ConfirmGameOrderUseCase confirmGameOrderUseCase;
+    private final DeleteGameOrderUseCase deleteGameOrderUseCase;
+    private final DecreaseGameOrderUnitsUseCase decreaseGameOrderUnitsUseCase;
+    private final IncreaseGameOrderUnitsUseCase increaseGameOrderUnitsUseCase;
 
     /**
      * @param gameOrder
@@ -86,5 +91,38 @@ public class GameOrderController {
     @PutMapping("/{id}")
     public int confirmAdditionOrders(@PathVariable(value = "id") final int id) {
         return confirmGameOrderUseCase.confirmGameOrder(id);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @DeleteMapping("/{id}")
+    public int deleteGameOrder(@PathVariable(value = "id") final int id) {
+        return deleteGameOrderUseCase.deleteGame(id);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @PutMapping("/increase/{id}")
+    public int increaseGameOrderUnits(@PathVariable(value = "id") final int id) {
+        return increaseGameOrderUnitsUseCase.increaseGameOrderUnits(id);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @PutMapping("/decrease/{id}")
+    public int decreaseGameOrderUnits(@PathVariable(value = "id") final int id) {
+        return decreaseGameOrderUnitsUseCase.decreaseGameOrderUnits(id);
     }
 }

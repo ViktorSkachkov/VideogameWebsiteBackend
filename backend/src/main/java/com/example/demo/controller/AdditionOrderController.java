@@ -22,6 +22,9 @@ public class AdditionOrderController {
     private final GetAdditionOrdersRankedUseCase getAdditionOrdersRankedUseCase;
     private final GetAdditionCartItemsUseCase getAdditionCartItemsUseCase;
     private final ConfirmAdditionOrderUseCase confirmAdditionOrderUseCase;
+    private final DeleteAdditionOrderUseCase deleteAdditionOrderUseCase;
+    private final DecreaseAdditionOrderUnitsUseCase decreaseAdditionOrderUnitsUseCase;
+    private final IncreaseAdditionOrderUnitsUseCase increaseAdditionOrderUnitsUseCase;
 
     /**
      * @param additionOrder
@@ -86,5 +89,38 @@ public class AdditionOrderController {
     @PutMapping("/{id}")
     public int confirmAdditionOrders(@PathVariable(value = "id") final int id) {
         return confirmAdditionOrderUseCase.confirmAdditionOrder(id);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @DeleteMapping("/{id}")
+    public int deleteGameOrder(@PathVariable(value = "id") final int id) {
+        return deleteAdditionOrderUseCase.deleteAddition(id);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @PutMapping("/increase/{id}")
+    public int increaseGameOrderUnits(@PathVariable(value = "id") final Long id) {
+        return increaseAdditionOrderUnitsUseCase.increaseAdditionOrderUnits(id);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @PutMapping("/decrease/{id}")
+    public int decreaseGameOrderUnits(@PathVariable(value = "id") final Long id) {
+        return decreaseAdditionOrderUnitsUseCase.decreaseAdditionOrderUnits(id);
     }
 }
