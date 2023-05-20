@@ -33,7 +33,7 @@ public class GetUsersUseCaseImpl implements GetUsersUseCase {
                     roles.add(Role.builder()
                             .id(Math.toIntExact(rp.getId()))
                             .role(rp.getRole())
-                            .user_id(Math.toIntExact(rp.getUser()))
+                            .userId(Math.toIntExact(rp.getUser()))
                             .build());
                 }
 
@@ -41,7 +41,7 @@ public class GetUsersUseCaseImpl implements GetUsersUseCase {
                         .id(Math.toIntExact(up.getId()))
                         .username(up.getUsername())
                         .pwd(up.getPwd())
-                        .bankAccount(up.getBank_account())
+                        .bankAccount(up.getBankAccount())
                         .userRoles(roles)
                         .email(up.getEmail())
                         .deleted(up.getDeleted())

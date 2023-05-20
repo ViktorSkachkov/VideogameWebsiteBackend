@@ -30,7 +30,7 @@ public class DeleteNewsUseCaseImpl implements DeleteNewsUseCase {
                 .image(np.get().getImage())
                 .title(np.get().getTitle())
                 .text(np.get().getText())
-                .gameId(np.get().getGame_id())
+                .gameId(np.get().getGameId())
                 .build();
     }
 }

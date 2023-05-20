@@ -22,11 +22,11 @@ public class ReviewPersistence {
     @Column(name = "reviewed_item_id")
     @NotNull
     @EqualsAndHashCode.Exclude
-    private int reviewed_item_id;
+    private int reviewedItemId;
     @Column(name = "user_id")
     @NotNull
     @EqualsAndHashCode.Exclude
-    private int user_id;
+    private int userId;
     @NotBlank
     @Length(min = 2, max = 1000)
     @Column(name = "text")
@@ -38,5 +38,5 @@ public class ReviewPersistence {
     @NotBlank
     @Length(min = 2, max = 45)
     @Column(name = "type_of_reviewed_item")
-    private String type_of_reviewed_item;
+    private String typeOfReviewedItem;
 }

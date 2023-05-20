@@ -34,7 +34,7 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
         }
         up.get().setUsername(user.getUsername());
         up.get().setEmail(user.getEmail());
-        up.get().setBank_account(user.getBankAccount());
+        up.get().setBankAccount(user.getBankAccount());
         if (!user.getPwd().equals("")) {
             String encodedPassword = passwordEncoder.encode(user.getPwd());
             up.get().setPwd(encodedPassword);

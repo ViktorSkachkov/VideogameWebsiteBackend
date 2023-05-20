@@ -21,10 +21,10 @@ public class AddReviewUseCaseImpl implements AddReviewUseCase {
         if (review.getText().length() <= 500) {
             ReviewPersistence rp = ReviewPersistence.builder()
                     .text(review.getText())
-                    .reviewed_item_id(review.getReviewed_item_id())
+                    .reviewedItemId(review.getReviewedItemId())
                     .time(review.getTime())
-                    .user_id(review.getUser_id())
-                    .type_of_reviewed_item(review.getType_of_reviewed_item())
+                    .userId(review.getUserId())
+                    .typeOfReviewedItem(review.getTypeOfReviewedItem())
                     .build();
             reviewRepository.save(rp);
         } else {

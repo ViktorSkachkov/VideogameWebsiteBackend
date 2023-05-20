@@ -41,7 +41,7 @@ public class DeleteAdditionUseCaseImpl implements DeleteAdditionUseCase {
 
         return Addition.builder()
                 .id(Math.toIntExact(ap.get().getId()))
-                .gameId(ap.get().getGame_id())
+                .gameId(ap.get().getGameId())
                 .image(ap.get().getImage())
                 .name(ap.get().getName())
                 .description(ap.get().getDescription())
@@ -52,7 +52,7 @@ public class DeleteAdditionUseCaseImpl implements DeleteAdditionUseCase {
     @Override
     public List<ReviewPersistence> deleteReviews(List<ReviewPersistence> reviewsList, int id) {
         for(ReviewPersistence rp : reviewsList) {
-            if(rp.getReviewed_item_id() == id && rp.getType_of_reviewed_item().equals("addition")) {
+            if(rp.getReviewedItemId() == id && rp.getTypeOfReviewedItem().equals("addition")) {
                 reviewRepository.deleteById((long) rp.getId());
             }
         }

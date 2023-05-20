@@ -69,7 +69,7 @@ public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCas
                         .id((long) aop.getId())
                         .price(price)
                         .name(name)
-                        .reviewed_item_id(aop.getGame())
+                        .reviewedItemId(aop.getGame())
                         .gameOrderList(List.of(GameOrder.builder()
                                 .time(aop.getTime())
                                 .user(aop.getUser())
@@ -88,7 +88,7 @@ public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCas
                 List<GameOrder> gameOrders = new ArrayList<>();
 
                 for(int i=0; i<rankingGameOrders.size(); i++) {
-                    if(aop.getGame() == rankingGameOrders.get(i).getReviewed_item_id()
+                    if(aop.getGame() == rankingGameOrders.get(i).getReviewedItemId()
                             && aop.getTime().isAfter(endDate) && aop.getApproved()) {
                         rankingGameOrder = rankingGameOrders.get(i);
                         for(GameOrder ao : rankingGameOrder.getGameOrderList()) {

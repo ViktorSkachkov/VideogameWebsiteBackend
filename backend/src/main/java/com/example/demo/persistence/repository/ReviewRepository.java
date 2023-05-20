@@ -14,6 +14,6 @@ public interface ReviewRepository extends JpaRepository<ReviewPersistence, Long>
     @Query("select r from ReviewPersistence r where r.id = ?1")
     ReviewPersistence findByid(Long id);
 
-    @Query("select r from ReviewPersistence r where r.user_id = ?1")
+    @Query("select r from ReviewPersistence r where r.userId = ?1")
     List<ReviewPersistence> findByUser(int userId);
 }

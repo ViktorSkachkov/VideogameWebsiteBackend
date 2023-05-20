@@ -28,7 +28,7 @@ public class GetAdditionsUseCaseImpl implements GetAdditionsUseCase {
             if(!ap.getDeleted()) {
                 Addition addition = Addition.builder()
                         .id(Math.toIntExact(ap.getId()))
-                        .gameId(ap.getGame_id())
+                        .gameId(ap.getGameId())
                         .image(ap.getImage())
                         .name(ap.getName())
                         .description(ap.getDescription())

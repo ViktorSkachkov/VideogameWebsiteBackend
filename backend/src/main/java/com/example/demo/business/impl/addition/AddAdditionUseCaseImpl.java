@@ -25,7 +25,7 @@ public class AddAdditionUseCaseImpl implements AddAdditionUseCase {
                     .description(addition.getDescription())
                     .name(addition.getName())
                     .image(addition.getImage())
-                    .game_id(addition.getGameId())
+                    .gameId(addition.getGameId())
                     .price(addition.getPrice())
                     .time(LocalDateTime.now())
                     .deleted(false)

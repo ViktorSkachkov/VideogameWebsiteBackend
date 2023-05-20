@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 public class RankingGameOrder {
     private Long id;
-    private int reviewed_item_id;
+    private int reviewedItemId;
     private int numberOfTimesBought;
     private double price;
     private double totalPrice;

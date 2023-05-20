@@ -27,7 +27,9 @@ public class GetVideogamesForAdditionsFilterUseCaseImpl implements GetVideogames
         List<AdditionPersistence> additionList = additionRepository.findAll();
         List<Long> videogameInts = new ArrayList<>();
         for (AdditionPersistence ap : additionList) {
-            videogameInts.add((long) ap.getGame_id());
+            if(!ap.getDeleted()) {
+                videogameInts.add((long) ap.getGameId());
+            }
         }
 
         List<Videogame> videogames = new ArrayList<>();

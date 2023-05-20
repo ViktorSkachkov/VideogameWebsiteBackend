@@ -27,7 +27,7 @@ public class GetVideogamesForNewsFilterUseCaseImpl implements GetVideogamesForNe
         List<NewsPersistence> newsList = newsRepository.findAll();
         List<Long> videogameInts = new ArrayList<>();
         for (NewsPersistence np : newsList) {
-            videogameInts.add((long) np.getGame_id());
+            videogameInts.add((long) np.getGameId());
         }
 
         List<Videogame> videogames = new ArrayList<>();

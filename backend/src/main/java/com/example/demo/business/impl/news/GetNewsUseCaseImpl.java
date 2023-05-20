@@ -28,7 +28,7 @@ public class GetNewsUseCaseImpl implements GetNewsUseCase {
                     .image(np.getImage())
                     .title(np.getTitle())
                     .text(np.getText())
-                    .gameId(np.getGame_id())
+                    .gameId(np.getGameId())
                     .time(np.getTime())
                     .build();
             newsList.add(news);

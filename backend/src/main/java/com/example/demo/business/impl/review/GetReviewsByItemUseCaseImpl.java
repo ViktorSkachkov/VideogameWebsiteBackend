@@ -26,15 +26,15 @@ public class GetReviewsByItemUseCaseImpl implements GetReviewsByItemUseCase {
         List<Review> newReviewList = new ArrayList<>();
         Review review;
         for (ReviewPersistence rp : list) {
-            if (rp.getReviewed_item_id() == itemId &&
-                    rp.getType_of_reviewed_item().equals(type)) {
+            if (rp.getReviewedItemId() == itemId &&
+                    rp.getTypeOfReviewedItem().equals(type)) {
                 review = Review.builder()
                         .id((long) Math.toIntExact(rp.getId()))
                         .text(rp.getText())
-                        .reviewed_item_id(rp.getReviewed_item_id())
+                        .reviewedItemId(rp.getReviewedItemId())
                         .time(rp.getTime())
-                        .user_id(rp.getUser_id())
-                        .type_of_reviewed_item(rp.getType_of_reviewed_item())
+                        .userId(rp.getUserId())
+                        .typeOfReviewedItem(rp.getTypeOfReviewedItem())
                         .build();
                 newReviewList.add(review);
             }

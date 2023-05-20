@@ -27,7 +27,7 @@ public class UpdateAdditionUseCaseImpl implements UpdateAdditionUseCase {
         ap.get().setDescription(addition.getDescription());
         ap.get().setName(addition.getName());
         ap.get().setImage(addition.getImage());
-        ap.get().setGame_id(addition.getGameId());
+        ap.get().setGameId(addition.getGameId());
         ap.get().setPrice(addition.getPrice());
         additionRepository.save(ap.get());
         return addition;

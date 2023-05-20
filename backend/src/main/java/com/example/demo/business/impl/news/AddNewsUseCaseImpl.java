@@ -22,7 +22,7 @@ public class AddNewsUseCaseImpl implements AddNewsUseCase {
     public News addNews(News news) {
         if (news.getText().length() <= 1000) {
             NewsPersistence np = NewsPersistence.builder()
-                    .game_id(news.getGameId())
+                    .gameId(news.getGameId())
                     .text(news.getText())
                     .image(news.getImage())
                     .title(news.getTitle())

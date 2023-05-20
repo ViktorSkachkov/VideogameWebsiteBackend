@@ -26,9 +26,9 @@ public class UpdateReviewUseCaseImpl implements UpdateReviewUseCase {
         }
 
         rp.get().setText(review.getText());
-        rp.get().setReviewed_item_id(review.getReviewed_item_id());
-        rp.get().setType_of_reviewed_item(review.getType_of_reviewed_item());
-        rp.get().setUser_id(review.getUser_id());
+        rp.get().setReviewedItemId(review.getReviewedItemId());
+        rp.get().setTypeOfReviewedItem(review.getTypeOfReviewedItem());
+        rp.get().setUserId(review.getUserId());
         rp.get().setTime(review.getTime());
         reviewRepository.save(rp.get());
         return review;

@@ -68,7 +68,7 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
                         .id((long) aop.getId())
                         .price(price)
                         .name(name)
-                        .reviewed_item_id(aop.getAddition())
+                        .reviewedItemId(aop.getAddition())
                         .additionOrderList(List.of(AdditionOrder.builder()
                                 .time(aop.getTime())
                                 .user(aop.getUser())
@@ -86,7 +86,7 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
                 List<AdditionOrder> additionOrders = new ArrayList<>();
 
                 for (int i = 0; i < rankingAdditionOrders.size(); i++) {
-                    if (aop.getAddition() == rankingAdditionOrders.get(i).getReviewed_item_id()
+                    if (aop.getAddition() == rankingAdditionOrders.get(i).getReviewedItemId()
                             && aop.getTime().isAfter(endDate) && aop.getApproved()) {
                         rankingAdditionOrder = rankingAdditionOrders.get(i);
                         for (AdditionOrder ao : rankingAdditionOrder.getAdditionOrderList()) {

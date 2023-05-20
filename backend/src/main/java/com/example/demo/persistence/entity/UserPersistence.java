@@ -30,7 +30,7 @@ public class UserPersistence {
     @NotBlank
     @Length(min = 2, max = 250)
     @Column(name = "bank_account")
-    private String bank_account;
+    private String bankAccount;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private Set<RolePersistence> userRoles;

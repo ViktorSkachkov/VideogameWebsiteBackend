@@ -26,7 +26,7 @@ public class GetAdditionUseCaseImpl implements GetAdditionUseCase {
         }
         Addition addition = Addition.builder()
                 .id(Math.toIntExact(ap.get().getId()))
-                .gameId(ap.get().getGame_id())
+                .gameId(ap.get().getGameId())
                 .image(ap.get().getImage())
                 .name(ap.get().getName())
                 .description(ap.get().getDescription())

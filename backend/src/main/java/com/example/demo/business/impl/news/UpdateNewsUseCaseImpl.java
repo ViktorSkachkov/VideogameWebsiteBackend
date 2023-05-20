@@ -24,7 +24,7 @@ public class UpdateNewsUseCaseImpl implements UpdateNewsUseCase {
         if (np.isEmpty()) {
 
         }
-        np.get().setGame_id(news.getGameId());
+        np.get().setGameId(news.getGameId());
         np.get().setText(news.getText());
         np.get().setImage(news.getImage());
         np.get().setTitle(news.getTitle());

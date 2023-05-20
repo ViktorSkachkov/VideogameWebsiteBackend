@@ -21,7 +21,7 @@ public class AdditionPersistence {
     @Column(name = "game_id")
     @NotNull
     @EqualsAndHashCode.Exclude
-    private int game_id;
+    private int gameId;
     @NotBlank
     @Length(min = 2, max = 100)
     @Column(name = "name")

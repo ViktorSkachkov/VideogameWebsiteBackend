@@ -29,7 +29,7 @@ public class AddUserUseCaseImpl implements AddUserUseCase {
         String encodedPassword = passwordEncoder.encode(user.getPwd());
 
         UserPersistence up = UserPersistence.builder()
-                .bank_account(user.getBankAccount())
+                .bankAccount(user.getBankAccount())
                 .email(user.getEmail())
                 .pwd(encodedPassword)
                 .username(user.getUsername())

@@ -58,8 +58,8 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
     @Override
     public List<ReviewPersistence> deleteReviews(List<ReviewPersistence> reviewsList, List<Integer> additionsIds, int id) {
         for(ReviewPersistence rp : reviewsList) {
-            if((rp.getReviewed_item_id() == id && rp.getType_of_reviewed_item().equals("game")) ||
-                    (additionsIds.contains(rp.getReviewed_item_id()) && rp.getType_of_reviewed_item().equals("addition"))) {
+            if((rp.getReviewedItemId() == id && rp.getTypeOfReviewedItem().equals("game")) ||
+                    (additionsIds.contains(rp.getReviewedItemId()) && rp.getTypeOfReviewedItem().equals("addition"))) {
                 reviewRepository.deleteById(rp.getId());
             }
         }
@@ -70,9 +70,11 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
     public List<Integer> deleteAdditions(List<AdditionPersistence> additionsList, int id) {
         List<Integer> additionsIds = new ArrayList<>();
         for(AdditionPersistence ap : additionsList) {
-            if(ap.getGame_id() == id) {
+            if(ap.getGameId() == id) {
                 additionsIds.add(Math.toIntExact(ap.getId()));
-                additionRepository.deleteById(ap.getId());
+                ap.setDeleted(true);
+                additionRepository.save(ap);
+                //additionRepository.deleteById(ap.getId());
             }
         }
         return additionsIds;
@@ -81,7 +83,7 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
     @Override
     public List<NewsPersistence> deleteNews(List<NewsPersistence> newsList, int id) {
         for(NewsPersistence np : newsList) {
-            if(np.getGame_id() == id) {
+            if(np.getGameId() == id) {
                 newsRepository.deleteById(np.getId());
             }
         }

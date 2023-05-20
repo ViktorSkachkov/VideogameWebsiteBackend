@@ -28,10 +28,10 @@ public class DeleteReviewUseCaseImpl implements DeleteReviewUseCase {
         return Review.builder()
                 .id((long) Math.toIntExact(rp.get().getId()))
                 .text(rp.get().getText())
-                .reviewed_item_id(rp.get().getReviewed_item_id())
+                .reviewedItemId(rp.get().getReviewedItemId())
                 .time(rp.get().getTime())
-                .user_id(rp.get().getUser_id())
-                .type_of_reviewed_item(rp.get().getType_of_reviewed_item())
+                .userId(rp.get().getUserId())
+                .typeOfReviewedItem(rp.get().getTypeOfReviewedItem())
                 .build();
     }
 }

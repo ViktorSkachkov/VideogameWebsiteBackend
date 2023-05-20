@@ -9,6 +9,6 @@ import lombok.Data;
 @Builder
 public class ReviewRequest {
     private int id;
-    private int reviewed_item_id;
-    private String type_of_reviewed_item;
+    private int reviewedItemId;
+    private String typeOfReviewedItem;
 }

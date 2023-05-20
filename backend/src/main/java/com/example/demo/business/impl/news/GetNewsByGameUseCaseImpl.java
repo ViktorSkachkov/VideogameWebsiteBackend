@@ -30,18 +30,18 @@ public class GetNewsByGameUseCaseImpl implements GetNewsByGameUseCase {
                         .image(np.getImage())
                         .title(np.getTitle())
                         .text(np.getText())
-                        .gameId(np.getGame_id())
+                        .gameId(np.getGameId())
                         .time(np.getTime())
                         .build();
                 newsList.add(news);
             } else {
-                if (np.getGame_id() == index) {
+                if (np.getGameId() == index) {
                     News news = News.builder()
                             .id(Math.toIntExact(np.getId()))
                             .image(np.getImage())
                             .title(np.getTitle())
                             .text(np.getText())
-                            .gameId(np.getGame_id())
+                            .gameId(np.getGameId())
                             .time(np.getTime())
                             .build();
                     newsList.add(news);

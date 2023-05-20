@@ -31,7 +31,7 @@ public class GetAdditionsByGameUseCaseImpl implements GetAdditionsByGameUseCase 
                 Addition addition = Addition.builder()
                         .id(Math.toIntExact(ap.getId()))
                         .image(ap.getImage())
-                        .gameId(ap.getGame_id())
+                        .gameId(ap.getGameId())
                         .price(ap.getPrice())
                         .description(ap.getDescription())
                         .name(ap.getName())
@@ -40,11 +40,11 @@ public class GetAdditionsByGameUseCaseImpl implements GetAdditionsByGameUseCase 
                         .build();
                 additionsList.add(addition);
             } else {
-                if (ap.getGame_id() == index && !ap.getDeleted()) {
+                if (ap.getGameId() == index && !ap.getDeleted()) {
                     Addition addition = Addition.builder()
                             .id(Math.toIntExact(ap.getId()))
                             .image(ap.getImage())
-                            .gameId(ap.getGame_id())
+                            .gameId(ap.getGameId())
                             .price(ap.getPrice())
                             .description(ap.getDescription())
                             .name(ap.getName())

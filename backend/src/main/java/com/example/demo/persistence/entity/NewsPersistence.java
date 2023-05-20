@@ -22,7 +22,7 @@ public class NewsPersistence {
     @Column(name = "game_id")
     @NotNull
     @EqualsAndHashCode.Exclude
-    private int game_id;
+    private int gameId;
     @NotBlank
     @Length(min = 2, max = 250)
     @Column(name = "title")

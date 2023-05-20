@@ -24,8 +24,6 @@ import java.util.Set;
 public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    //private final AdditionOrderRepository additionOrderRepository;
-    //private final GameOrderRepository gameOrderRepository;
 
     /**
      * @param id
@@ -42,7 +40,7 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
                 .id(Math.toIntExact(up.get().getId()))
                 .username(up.get().getUsername())
                 .pwd(up.get().getPwd())
-                .bankAccount(up.get().getBank_account())
+                .bankAccount(up.get().getBankAccount())
                 .email(up.get().getEmail())
                 .build();
 
@@ -52,7 +50,7 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
             Role newRole = Role.builder()
                     .id(Math.toIntExact(role.getId()))
                     .role(role.getRole())
-                    .user_id(Math.toIntExact(role.getUser()))
+                    .userId(Math.toIntExact(role.getUser()))
                     .build();
             userRoles.add(newRole);
         }

@@ -19,9 +19,9 @@ import java.time.LocalDateTime;
 @Builder
 public class Review {
     private Long id;
-    private int reviewed_item_id;
-    private int user_id;
+    private int reviewedItemId;
+    private int userId;
     private String text;
     private LocalDateTime time;
-    private String type_of_reviewed_item;
+    private String typeOfReviewedItem;
 }
