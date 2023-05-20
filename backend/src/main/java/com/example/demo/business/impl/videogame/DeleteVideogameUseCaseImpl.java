@@ -52,6 +52,7 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
                 .image(vp.get().getImage())
                 .name(vp.get().getName())
                 .price(vp.get().getPrice())
+                .deleted(vp.get().getDeleted())
                 .build();
     }
 
@@ -74,7 +75,6 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
                 additionsIds.add(Math.toIntExact(ap.getId()));
                 ap.setDeleted(true);
                 additionRepository.save(ap);
-                //additionRepository.deleteById(ap.getId());
             }
         }
         return additionsIds;

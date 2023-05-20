@@ -37,7 +37,7 @@ class GetUserUseCaseImplTest {
                 .build();
         Role role = Role.builder()
                 .id(1)
-                .user_id(1)
+                .userId(1)
                 .role("CUSTOMER")
                 .build();
         User expectedResult = User.builder()
@@ -52,7 +52,7 @@ class GetUserUseCaseImplTest {
                 .id(1L)
                 .username("username1")
                 .email("email1")
-                .bank_account("bankAccount1")
+                .bankAccount("bankAccount1")
                 .userRoles(Set.of(rp))
                 .deleted(false)
                 .build();

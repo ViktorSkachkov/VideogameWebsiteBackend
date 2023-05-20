@@ -28,17 +28,17 @@ class AddReviewUseCaseImplTest {
         Review expectedResult = Review.builder()
                 .id(1L)
                 .text("text")
-                .reviewed_item_id(24)
-                .user_id(41)
+                .reviewedItemId(24)
+                .userId(41)
                 .time(date)
-                .type_of_reviewed_item("game")
+                .typeOfReviewedItem("game")
                 .build();
         ReviewPersistence review = ReviewPersistence.builder()
                 .text("text")
-                .reviewed_item_id(24)
-                .user_id(41)
+                .reviewedItemId(24)
+                .userId(41)
                 .time(date)
-                .type_of_reviewed_item("game")
+                .typeOfReviewedItem("game")
                 .build();
         when(reviewRepository.save(review))
                 .thenReturn(review);

@@ -9,6 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,17 +26,25 @@ class GetAdditionOrderUseCaseImplTest {
 
     @Test
     void getAdditionOrder() {
+        LocalDateTime time = LocalDateTime.now();
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDateTime = time.format(dateTimeFormatter);
+
         AdditionOrder expectedResult = AdditionOrder.builder()
                 .id(1)
                 .addition(41)
                 .user(41)
                 .units(2)
+                .dateFormatted(formattedDateTime)
+                .time(time)
                 .build();
         AdditionOrderPersistence additionOrder = AdditionOrderPersistence.builder()
                 .id(1)
                 .addition(41)
                 .user(41)
                 .units(2)
+                .time(time)
                 .build();
         when(additionOrderRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(additionOrder));

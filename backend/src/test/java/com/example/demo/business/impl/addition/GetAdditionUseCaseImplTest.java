@@ -34,7 +34,7 @@ class GetAdditionUseCaseImplTest {
                 .build();
         AdditionPersistence addition = AdditionPersistence.builder()
                 .id(1L)
-                .game_id(1)
+                .gameId(1)
                 .name("name1")
                 .price(10)
                 .description("description1")

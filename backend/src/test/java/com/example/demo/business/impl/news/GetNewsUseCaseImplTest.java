@@ -37,7 +37,7 @@ class GetNewsUseCaseImplTest {
                 .image("name1")
                 .title("title1")
                 .text("text1")
-                .game_id(1)
+                .gameId(1)
                 .build();
         News news2 = News.builder()
                 .id(2)
@@ -51,7 +51,7 @@ class GetNewsUseCaseImplTest {
                 .image("name2")
                 .title("title2")
                 .text("text2")
-                .game_id(1)
+                .gameId(1)
                 .build();
 
         when(newsRepository.findAll())

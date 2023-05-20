@@ -46,6 +46,7 @@ public class DeleteAdditionUseCaseImpl implements DeleteAdditionUseCase {
                 .name(ap.get().getName())
                 .description(ap.get().getDescription())
                 .price(ap.get().getPrice())
+                .deleted(ap.get().getDeleted())
                 .build();
     }
 

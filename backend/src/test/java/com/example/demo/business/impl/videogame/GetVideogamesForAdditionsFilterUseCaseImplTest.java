@@ -60,7 +60,7 @@ class GetVideogamesForAdditionsFilterUseCaseImplTest {
 
         AdditionPersistence additionPersistence1 = AdditionPersistence.builder()
                 .id(1L)
-                .game_id(2)
+                .gameId(2)
                 .name("name1")
                 .price(10)
                 .description("description1")

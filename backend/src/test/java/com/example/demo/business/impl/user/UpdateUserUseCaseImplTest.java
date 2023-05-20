@@ -44,7 +44,7 @@ class UpdateUserUseCaseImplTest {
                 .build();
         Role role = Role.builder()
                 .id(1)
-                .user_id(1)
+                .userId(1)
                 .role("CUSTOMER")
                 .build();
         User expectedResult = User.builder()
@@ -60,7 +60,7 @@ class UpdateUserUseCaseImplTest {
                 .username("username3")
                 .pwd("pwd")
                 .email("email3")
-                .bank_account("bankAccount3")
+                .bankAccount("bankAccount3")
                 .userRoles(Set.of(rp))
                 .build();
 

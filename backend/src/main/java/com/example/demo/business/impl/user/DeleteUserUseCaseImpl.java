@@ -42,6 +42,7 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
                 .pwd(up.get().getPwd())
                 .bankAccount(up.get().getBankAccount())
                 .email(up.get().getEmail())
+                .deleted(up.get().getDeleted())
                 .build();
 
         Set<Role> userRoles = new HashSet<>();

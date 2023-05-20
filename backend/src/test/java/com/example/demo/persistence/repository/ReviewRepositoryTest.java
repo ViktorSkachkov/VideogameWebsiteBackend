@@ -84,10 +84,10 @@ class ReviewRepositoryTest {
         return entityManager.merge(ReviewPersistence.builder()
                 .id(id)
                 .text(text)
-                .reviewed_item_id(reviewed_item_id)
+                .reviewedItemId(reviewed_item_id)
                 .time(time)
-                .user_id(user_id)
-                .type_of_reviewed_item(type_of_reviewed_item)
+                .userId(user_id)
+                .typeOfReviewedItem(type_of_reviewed_item)
                 .build());
     }
 }

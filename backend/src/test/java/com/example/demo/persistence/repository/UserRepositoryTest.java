@@ -26,10 +26,7 @@ class UserRepositoryTest {
 
     @Test
     void findAll() {
-        //UserPersistence expected2 = createTestUser(19L, "username1", "password", "bank_account", "email");
-        //UserPersistence expected = createTestUser(20L, "newUsername", "password", "newBankAccount", "newEmail");
         List<UserPersistence> expectedList = new ArrayList<>();
-        //expectedList.add(expected);
         List<UserPersistence> actualList = userRepository.findAllTest();
         UserPersistence actual = UserPersistence.builder().build();
         for (UserPersistence up : actualList) {
@@ -46,7 +43,7 @@ class UserRepositoryTest {
                 .username(username)
                 .email(email)
                 .pwd(pwd)
-                .bank_account(bank_account)
+                .bankAccount(bank_account)
                 .userRoles(Set.of(RolePersistence.builder()
                         .user(id)
                         .role("EMPLOYEE")

@@ -75,7 +75,7 @@ class AdditionRepositoryTest {
                 "make a type specimen book.", "name5", LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         AdditionPersistence actual = additionRepository.findByid(41L);
         assertEquals(expected.getId(), actual.getId());
-        assertEquals(expected.getGame_id(), actual.getGame_id());
+        assertEquals(expected.getGameId(), actual.getGameId());
         assertEquals(expected.getPrice(), actual.getPrice());
     }
 
@@ -84,7 +84,7 @@ class AdditionRepositoryTest {
         return entityManager.merge(AdditionPersistence.builder()
                 .id(id)
                 .price(price)
-                .game_id(game_id)
+                .gameId(game_id)
                 .image(image)
                 .description(description)
                 .name(name)

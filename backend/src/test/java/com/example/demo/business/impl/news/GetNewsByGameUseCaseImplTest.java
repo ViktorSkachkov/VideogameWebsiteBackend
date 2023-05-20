@@ -37,14 +37,14 @@ class GetNewsByGameUseCaseImplTest {
                 .image("name1")
                 .title("title1")
                 .text("text1")
-                .game_id(1)
+                .gameId(1)
                 .build();
         NewsPersistence newsPersistence2 = NewsPersistence.builder()
                 .id(2L)
                 .image("name2")
                 .title("title2")
                 .text("text2")
-                .game_id(2)
+                .gameId(2)
                 .build();
 
         when(newsRepository.findAll())

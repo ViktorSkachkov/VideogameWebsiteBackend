@@ -9,6 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,23 +27,36 @@ class GetAdditionOrdersByUserUseCaseImplTest {
 
     @Test
     void getAdditionOrdersByUser() {
+        LocalDateTime time = LocalDateTime.now();
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDateTime = time.format(dateTimeFormatter);
+
         AdditionOrder additionOrder1 = AdditionOrder.builder()
                 .id(1)
                 .addition(41)
                 .user(41)
                 .units(2)
+                .totalPrice(0)
+                .approved(true)
+                .time(time)
+                .dateFormatted(formattedDateTime)
                 .build();
         AdditionOrderPersistence additionOrderPersistence1 = AdditionOrderPersistence.builder()
                 .id(1)
                 .addition(41)
                 .user(41)
                 .units(2)
+                .approved(true)
+                .time(time)
                 .build();
         AdditionOrderPersistence additionOrderPersistence2 = AdditionOrderPersistence.builder()
                 .id(2)
                 .addition(41)
                 .user(20)
                 .units(2)
+                .approved(true)
+                .time(time)
                 .build();
         when(additionOrderRepository.findAll())
                 .thenReturn(List.of(additionOrderPersistence1, additionOrderPersistence2));

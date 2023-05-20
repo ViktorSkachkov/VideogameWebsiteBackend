@@ -11,13 +11,13 @@ class ReviewRequestTest {
     void compareEquals() {
         ReviewRequest reviewRequest1 = ReviewRequest.builder()
                 .id(1)
-                .type_of_reviewed_item("game")
-                .reviewed_item_id(4)
+                .typeOfReviewedItem("game")
+                .reviewedItemId(4)
                 .build();
         ReviewRequest reviewRequest2 = ReviewRequest.builder()
                 .id(1)
-                .type_of_reviewed_item("game")
-                .reviewed_item_id(4)
+                .typeOfReviewedItem("game")
+                .reviewedItemId(4)
                 .build();
         assertEquals(reviewRequest1, reviewRequest2);
     }
@@ -26,13 +26,13 @@ class ReviewRequestTest {
     void compareNotEquals() {
         ReviewRequest reviewRequest1 = ReviewRequest.builder()
                 .id(1)
-                .type_of_reviewed_item("game")
-                .reviewed_item_id(4)
+                .typeOfReviewedItem("game")
+                .reviewedItemId(4)
                 .build();
         ReviewRequest reviewRequest2 = ReviewRequest.builder()
                 .id(2)
-                .type_of_reviewed_item("game")
-                .reviewed_item_id(4)
+                .typeOfReviewedItem("game")
+                .reviewedItemId(4)
                 .build();
         assertNotEquals(reviewRequest1, reviewRequest2);
     }

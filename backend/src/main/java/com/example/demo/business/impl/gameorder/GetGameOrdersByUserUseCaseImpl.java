@@ -39,6 +39,7 @@ public class GetGameOrdersByUserUseCaseImpl implements GetGameOrdersByUserUseCas
                         .units(gop.getUnits())
                         .time(gop.getTime())
                         .dateFormatted(formattedDateTime)
+                        .approved(gop.getApproved())
                         .build();
                 gameOrders.add(gameOrder);
             }

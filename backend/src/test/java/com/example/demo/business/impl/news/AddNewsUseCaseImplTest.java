@@ -33,7 +33,7 @@ class AddNewsUseCaseImplTest {
                 .image("name3")
                 .title("title3")
                 .text("text3")
-                .game_id(1)
+                .gameId(1)
                 .build();
         when(newsRepository.save(news))
                 .thenReturn(news);

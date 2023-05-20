@@ -41,7 +41,7 @@ class DeleteUserUseCaseImplTest {
         Role role = Role.builder()
                 .id(1)
                 .role("EMPLOYEE")
-                .user_id(1)
+                .userId(1)
                 .build();
         rolesSet.add(role);
         User expectedResult = User.builder()
@@ -51,6 +51,7 @@ class DeleteUserUseCaseImplTest {
                 .email("email1")
                 .bankAccount("bankAccount1")
                 .userRoles(rolesSet)
+                .deleted(true)
                 .build();
 
         Set<RolePersistence> rolePersistenceSet = new HashSet<>();
@@ -65,14 +66,16 @@ class DeleteUserUseCaseImplTest {
                 .username("username1")
                 .pwd("password")
                 .email("email1")
-                .bank_account("bankAccount1")
+                .bankAccount("bankAccount1")
                 .userRoles(rolePersistenceSet)
+                .deleted(true)
                 .build();
 
         when(userRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(user));
         User actualResult = deleteUserUseCase.deleteUser(1);
         assertEquals(expectedResult, actualResult);
-        verify(userRepository).deleteById(Long.valueOf(1));
+        verify(userRepository).save(user);
+        //verify(userRepository).deleteById(Long.valueOf(1));
     }
 }

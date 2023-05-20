@@ -39,7 +39,7 @@ class AddUserUseCaseImplTest {
                 .userRoles(Set.of(Role.builder()
                         .id(1)
                         .role("EMPLOYEE")
-                        .user_id(3)
+                        .userId(3)
                         .build()))
                 .deleted(false)
                 .build();
@@ -47,7 +47,7 @@ class AddUserUseCaseImplTest {
         UserPersistence user = UserPersistence.builder()
                 .username("username3")
                 .email("email3")
-                .bank_account("bankAccount3")
+                .bankAccount("bankAccount3")
                 .pwd(encodedPassword)
                 .userRoles(Set.of(RolePersistence.builder()
                         .id(1L)

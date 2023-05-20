@@ -33,7 +33,7 @@ class GetUsersUseCaseImplTest {
         Role role = Role.builder()
                 .id(1)
                 .role("EMPLOYEE")
-                .user_id(1)
+                .userId(1)
                 .build();
         rolesSet.add(role);
         User user1 = User.builder()
@@ -50,7 +50,7 @@ class GetUsersUseCaseImplTest {
         Role role2 = Role.builder()
                 .id(2)
                 .role("EMPLOYEE")
-                .user_id(2)
+                .userId(2)
                 .build();
         rolesSet.add(role2);
         User user2 = User.builder()
@@ -75,7 +75,7 @@ class GetUsersUseCaseImplTest {
                 .username("username1")
                 .pwd("password")
                 .email("email1")
-                .bank_account("bankAccount1")
+                .bankAccount("bankAccount1")
                 .userRoles(rolePersistenceSet)
                 .deleted(false)
                 .build();
@@ -92,7 +92,7 @@ class GetUsersUseCaseImplTest {
                 .username("username2")
                 .pwd("password")
                 .email("email2")
-                .bank_account("bankAccount2")
+                .bankAccount("bankAccount2")
                 .userRoles(rolePersistenceSet2)
                 .deleted(false)
                 .build();

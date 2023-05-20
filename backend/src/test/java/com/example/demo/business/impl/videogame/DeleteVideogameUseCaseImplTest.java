@@ -36,6 +36,7 @@ class DeleteVideogameUseCaseImplTest {
                 .price(10)
                 .description("description1")
                 .image("image1")
+                .deleted(true)
                 .build();
         VideogamePersistence videogame = VideogamePersistence.builder()
                 .id(1L)
@@ -43,11 +44,13 @@ class DeleteVideogameUseCaseImplTest {
                 .price(10)
                 .description("description1")
                 .image("image1")
+                .deleted(true)
                 .build();
         when(videogameRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(videogame));
         Videogame actualResult = deleteVideogameUseCase.deleteVideogame(1);
         assertEquals(expectedResult, actualResult);
-        verify(videogameRepository).deleteById(Long.valueOf(1));
+        verify(videogameRepository).save(videogame);
+        //verify(videogameRepository).deleteById(Long.valueOf(1));
     }
 }

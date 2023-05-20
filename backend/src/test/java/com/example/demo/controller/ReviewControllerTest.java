@@ -48,10 +48,10 @@ class ReviewControllerTest {
         Review review = Review.builder()
                 .id(1L)
                 .text("text")
-                .reviewed_item_id(24)
-                .user_id(41)
+                .reviewedItemId(24)
+                .userId(41)
                 .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
-                .type_of_reviewed_item("game")
+                .typeOfReviewedItem("game")
                 .build();
         when(deleteReviewUseCase.deleteReview(1))
                 .thenReturn(review);
@@ -71,18 +71,18 @@ class ReviewControllerTest {
         Review review1 = Review.builder()
                 .id(1L)
                 .text("text")
-                .reviewed_item_id(24)
-                .user_id(41)
+                .reviewedItemId(24)
+                .userId(41)
                 .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
-                .type_of_reviewed_item("game")
+                .typeOfReviewedItem("game")
                 .build();
         Review review2 = Review.builder()
                 .id(2L)
                 .text("text")
-                .reviewed_item_id(24)
-                .user_id(41)
+                .reviewedItemId(24)
+                .userId(41)
                 .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
-                .type_of_reviewed_item("game")
+                .typeOfReviewedItem("game")
                 .build();
         when(getReviewsByItemUseCase.getReviewsByItem(24, "game"))
                 .thenReturn(List.of(review1, review2));
@@ -103,10 +103,10 @@ class ReviewControllerTest {
         Review review = Review.builder()
                 .id(1L)
                 .text("text")
-                .reviewed_item_id(24)
-                .user_id(41)
+                .reviewedItemId(24)
+                .userId(41)
                 .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
-                .type_of_reviewed_item("game")
+                .typeOfReviewedItem("game")
                 .build();
         when(updateReviewUseCase.updateReview(review))
                 .thenReturn(review);

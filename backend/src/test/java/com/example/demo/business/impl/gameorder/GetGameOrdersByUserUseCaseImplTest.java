@@ -9,6 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,23 +27,37 @@ class GetGameOrdersByUserUseCaseImplTest {
 
     @Test
     void getGameOrdersByUser() {
+        LocalDateTime time = LocalDateTime.now();
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDateTime = time.format(dateTimeFormatter);
+
         GameOrder additionOrder1 = GameOrder.builder()
                 .id(1)
                 .game(23)
                 .user(41)
                 .units(2)
+                .totalPrice(0)
+                .approved(true)
+                .time(time)
+                .dateFormatted(formattedDateTime)
                 .build();
+
         GameOrderPersistence gameOrderPersistence1 = GameOrderPersistence.builder()
                 .id(1)
                 .game(23)
                 .user(41)
                 .units(2)
+                .approved(true)
+                .time(time)
                 .build();
         GameOrderPersistence gameOrderPersistence2 = GameOrderPersistence.builder()
                 .id(2)
                 .game(23)
                 .user(20)
                 .units(2)
+                .approved(true)
+                .time(time)
                 .build();
         when(gameOrderRepository.findAll())
                 .thenReturn(List.of(gameOrderPersistence1, gameOrderPersistence2));

@@ -63,7 +63,7 @@ class UserControllerTest {
                 .bankAccount("bankAccount3")
                 .userRoles(Set.of(Role.builder()
                         .id(1)
-                        .user_id(3)
+                        .userId(3)
                         .role("EMPLOYEE")
                         .build()))
                 .build();
@@ -104,7 +104,7 @@ class UserControllerTest {
                 .bankAccount("bankAccount1")
                 .userRoles(Set.of(Role.builder()
                         .id(1)
-                        .user_id(1)
+                        .userId(1)
                         .role("EMPLOYEE")
                         .build()))
                 .build();
@@ -135,7 +135,7 @@ class UserControllerTest {
                 .bankAccount("bankAccount1")
                 .userRoles(Set.of(Role.builder()
                         .id(1)
-                        .user_id(1)
+                        .userId(1)
                         .role("EMPLOYEE")
                         .build()))
                 .build();
@@ -147,7 +147,7 @@ class UserControllerTest {
                 .bankAccount("bankAccount2")
                 .userRoles(Set.of(Role.builder()
                         .id(1)
-                        .user_id(2)
+                        .userId(2)
                         .role("EMPLOYEE")
                         .build()))
                 .build();
@@ -183,7 +183,7 @@ class UserControllerTest {
                 .bankAccount("bankAccount1")
                 .userRoles(Set.of(Role.builder()
                         .id(1)
-                        .user_id(1)
+                        .userId(1)
                         .role("EMPLOYEE")
                         .build()))
                 .build();
@@ -214,7 +214,7 @@ class UserControllerTest {
                 .bankAccount("bankAccount3")
                 .userRoles(Set.of(Role.builder()
                         .id(1)
-                        .user_id(1)
+                        .userId(1)
                         .role("EMPLOYEE")
                         .build()))
                 .build();
@@ -223,7 +223,7 @@ class UserControllerTest {
                 .username("username3")
                 .pwd("password")
                 .email("email3")
-                .bank_account("bankAccount3")
+                .bankAccount("bankAccount3")
                 .userRoles(Set.of(RolePersistence.builder()
                         .id(1L)
                         .user(1L)

@@ -11,12 +11,12 @@ class RoleTest {
         Role role1 = Role.builder()
                 .id(1)
                 .role("CUSTOMER")
-                .user_id(3)
+                .userId(3)
                 .build();
         Role role2 = Role.builder()
                 .id(1)
                 .role("CUSTOMER")
-                .user_id(3)
+                .userId(3)
                 .build();
         assertEquals(role1, role2);
     }
@@ -26,12 +26,12 @@ class RoleTest {
         Role role1 = Role.builder()
                 .id(1)
                 .role("CUSTOMER")
-                .user_id(3)
+                .userId(3)
                 .build();
         Role role2 = Role.builder()
                 .id(2)
                 .role("CUSTOMER")
-                .user_id(3)
+                .userId(3)
                 .build();
         assertNotEquals(role1, role2);
     }

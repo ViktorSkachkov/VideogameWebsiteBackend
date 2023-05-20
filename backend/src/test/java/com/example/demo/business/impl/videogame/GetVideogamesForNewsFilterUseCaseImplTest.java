@@ -63,7 +63,7 @@ class GetVideogamesForNewsFilterUseCaseImplTest {
                 .image("name2")
                 .title("title2")
                 .text("text2")
-                .game_id(1)
+                .gameId(1)
                 .build();
 
         when(newsRepository.findAll())

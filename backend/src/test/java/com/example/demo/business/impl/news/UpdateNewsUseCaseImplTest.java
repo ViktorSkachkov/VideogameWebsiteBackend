@@ -36,7 +36,7 @@ class UpdateNewsUseCaseImplTest {
                 .image("name3")
                 .title("title3")
                 .text("text3")
-                .game_id(1)
+                .gameId(1)
                 .build();
         when(newsRepository.findById(1L))
                 .thenReturn(Optional.ofNullable(news));

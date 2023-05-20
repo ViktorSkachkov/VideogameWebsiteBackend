@@ -58,7 +58,7 @@ class NewsRepositoryTest {
         NewsPersistence actual = newsRepository.findByid(9L);
 
         assertEquals(expected.getId(), actual.getId());
-        assertEquals(expected.getGame_id(), actual.getGame_id());
+        assertEquals(expected.getGameId(), actual.getGameId());
         assertEquals(expected.getTitle(), actual.getTitle());
     }
 
@@ -83,7 +83,7 @@ class NewsRepositoryTest {
                 .id(id)
                 .title(title)
                 .text(text)
-                .game_id(game_id)
+                .gameId(game_id)
                 .image(image)
                 .time(time)
                 .build());

@@ -26,7 +26,7 @@ class UpdateAdditionUseCaseImplTest {
     void updateAddition() {
         AdditionPersistence addition = AdditionPersistence.builder()
                 .id(1L)
-                .game_id(2)
+                .gameId(2)
                 .name("name3")
                 .price(15)
                 .description("description3")

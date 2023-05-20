@@ -37,6 +37,7 @@ public class GetAdditionOrdersByUserUseCaseImpl implements GetAdditionOrdersByUs
                         .units(aop.getUnits())
                         .time(aop.getTime())
                         .dateFormatted(formattedDateTime)
+                        .approved(true)
                         .build();
                 additionOrders.add(additionOrder);
             }
