@@ -90,7 +90,6 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
                             && aop.getTime().isAfter(endDate) && aop.getApproved()) {
                         rankingAdditionOrder = rankingAdditionOrders.get(i);
                         for (AdditionOrder ao : rankingAdditionOrder.getAdditionOrderList()) {
-                            //additionOrders = rankingAdditionOrder.getAdditionOrderList();
                             additionOrders.add(ao);
                         }
 

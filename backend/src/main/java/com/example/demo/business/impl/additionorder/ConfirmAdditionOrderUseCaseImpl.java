@@ -26,9 +26,11 @@ public class ConfirmAdditionOrderUseCaseImpl implements ConfirmAdditionOrderUseC
         LocalDateTime time = LocalDateTime.now();
 
         for (AdditionOrderPersistence aop : list) {
-            aop.setApproved(true);
-            aop.setTime(time);
-            additionOrderRepository.save(aop);
+            if(!aop.getApproved()) {
+                aop.setApproved(true);
+                aop.setTime(time);
+                additionOrderRepository.save(aop);
+            }
         }
         return userId;
     }

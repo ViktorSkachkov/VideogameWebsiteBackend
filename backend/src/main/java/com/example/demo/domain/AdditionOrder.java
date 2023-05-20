@@ -17,4 +17,5 @@ public class AdditionOrder {
     private LocalDateTime time;
     private String dateFormatted;
     private Boolean approved;
+    private double totalPrice;
 }

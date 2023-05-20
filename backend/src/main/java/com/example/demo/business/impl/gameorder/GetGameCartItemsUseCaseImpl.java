@@ -4,6 +4,7 @@ import com.example.demo.business.cases.gameorder.GetGameCartItemsUseCase;
 import com.example.demo.domain.GameOrder;
 import com.example.demo.persistence.entity.GameOrderPersistence;
 import com.example.demo.persistence.repository.GameOrderRepository;
+import com.example.demo.persistence.repository.VideogameRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GetGameCartItemsUseCaseImpl implements GetGameCartItemsUseCase {
     private final GameOrderRepository gameOrderRepository;
+    private final VideogameRepository videogameRepository;
 
     /**
      * @param userIndex
@@ -27,6 +29,9 @@ public class GetGameCartItemsUseCaseImpl implements GetGameCartItemsUseCase {
         for (GameOrderPersistence gop : list) {
             if (gop.getUser() == userIndex && !gop.getApproved()) {
 
+                double price = videogameRepository.findPriceById((long) gop.getGame());
+                double totalPrice = price * gop.getUnits();
+
                 DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 String formattedDateTime = gop.getTime().format(dateTimeFormatter);
 
@@ -38,6 +43,7 @@ public class GetGameCartItemsUseCaseImpl implements GetGameCartItemsUseCase {
                         .time(gop.getTime())
                         .dateFormatted(formattedDateTime)
                         .approved(gop.getApproved())
+                        .totalPrice(totalPrice)
                         .build();
                 gameOrders.add(gameOrder);
             }

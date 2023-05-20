@@ -26,9 +26,11 @@ public class ConfirmGameOrderUseCaseImpl implements ConfirmGameOrderUseCase {
         LocalDateTime time = LocalDateTime.now();
 
         for (GameOrderPersistence gop : list) {
-            gop.setApproved(true);
-            gop.setTime(time);
-            gameOrderRepository.save(gop);
+            if(!gop.getApproved()) {
+                gop.setApproved(true);
+                gop.setTime(time);
+                gameOrderRepository.save(gop);
+            }
         }
         return userId;
     }

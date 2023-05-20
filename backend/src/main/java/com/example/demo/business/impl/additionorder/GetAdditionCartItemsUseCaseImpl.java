@@ -4,6 +4,7 @@ import com.example.demo.business.cases.additionorder.GetAdditionCartItemsUseCase
 import com.example.demo.domain.AdditionOrder;
 import com.example.demo.persistence.entity.AdditionOrderPersistence;
 import com.example.demo.persistence.repository.AdditionOrderRepository;
+import com.example.demo.persistence.repository.AdditionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GetAdditionCartItemsUseCaseImpl implements GetAdditionCartItemsUseCase {
     private final AdditionOrderRepository additionOrderRepository;
+    private final AdditionRepository additionRepository;
 
     /**
      * @param userIndex
@@ -25,6 +27,9 @@ public class GetAdditionCartItemsUseCaseImpl implements GetAdditionCartItemsUseC
         List<AdditionOrderPersistence> list = additionOrderRepository.findAll();
         List<AdditionOrder> additionOrders = new ArrayList<>();
         for (AdditionOrderPersistence aop : list) {
+
+            double price = additionRepository.findPriceById((long) aop.getAddition());
+            double totalPrice = price * aop.getUnits();
 
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             String formattedDateTime = aop.getTime().format(dateTimeFormatter);
@@ -39,6 +44,7 @@ public class GetAdditionCartItemsUseCaseImpl implements GetAdditionCartItemsUseC
                         .time(aop.getTime())
                         .dateFormatted(formattedDateTime)
                         .approved(aop.getApproved())
+                        .totalPrice(totalPrice)
                         .build();
                 additionOrders.add(additionOrder);
             }

@@ -23,4 +23,5 @@ public class GameOrder {
     private LocalDateTime time;
     private String dateFormatted;
     private Boolean approved;
+    private double totalPrice;
 }
