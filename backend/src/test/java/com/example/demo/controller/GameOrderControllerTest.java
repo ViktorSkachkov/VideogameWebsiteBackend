@@ -15,6 +15,8 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static org.mockito.Mockito.verify;
@@ -92,13 +94,20 @@ class GameOrderControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
     void getGameOrder() throws Exception {
+        LocalDateTime time = LocalDateTime.of(2017, 12, 13, 15, 56, 30);
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDateTime = time.format(dateTimeFormatter);
+
         GameOrder gameOrder = GameOrder.builder()
                 .id(1)
                 .units(3)
                 .game(23)
                 .user(41)
+                .time(time)
+                .dateFormatted(formattedDateTime)
                 .build();
         when(getGameOrderUseCase.getGameOrder(1))
                 .thenReturn(gameOrder);

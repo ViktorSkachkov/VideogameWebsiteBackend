@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,12 +58,14 @@ class AdditionOrderRepositoryTest {
     }
 
     private AdditionOrderPersistence createTestAdditionOrder(int id, int addition, int units, int user, LocalDateTime time) {
+
         return entityManager.merge(AdditionOrderPersistence.builder()
                 .id(id)
                 .addition(addition)
                 .units(units)
                 .user(user)
                 .time(time)
+                .approved(false)
                 .build());
     }
 }

@@ -64,6 +64,7 @@ class GameOrderRepositoryTest {
                 .units(units)
                 .user(user)
                 .time(time)
+                .approved(false)
                 .build());
     }
 }

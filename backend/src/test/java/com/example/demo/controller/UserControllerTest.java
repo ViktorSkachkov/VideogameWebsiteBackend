@@ -74,7 +74,7 @@ class UserControllerTest {
                         .content("""
                                     {"id":3, "username":"username3", "pwd": "password", "email":"email3","bankAccount":"bankAccount3","userRoles":[{
                                         "id": 1,
-                                        "user_id": 3,
+                                        "userId": 3,
                                         "role": "EMPLOYEE"
                                     }]
                                     }
@@ -86,7 +86,7 @@ class UserControllerTest {
                 .andExpect(content().json("""
                              {"id":3, "username":"username3", "pwd": "password", "email":"email3","bankAccount":"bankAccount3","userRoles":[{
                                  "id": 1,
-                                 "user_id": 3,
+                                 "userId": 3,
                                  "role": "EMPLOYEE"
                              }]}
                         """));
@@ -117,7 +117,7 @@ class UserControllerTest {
                 .andExpect(content().json("""
                                             {"id":1, "username":"username1", "pwd": "password", "email":"email1","bankAccount":"bankAccount1","userRoles":[{
                                                         "id": 1,
-                                                        "user_id": 1,
+                                                        "userId": 1,
                                                         "role": "EMPLOYEE"
                                                     }]}
                         """));
@@ -160,12 +160,12 @@ class UserControllerTest {
                 .andExpect(content().json("""
                           [{"id":1, "username":"username1", "pwd": "password1", "email":"email1","bankAccount":"bankAccount1","userRoles":[{
                               "id": 1,
-                              "user_id": 1,
+                              "userId": 1,
                               "role": "EMPLOYEE"
                           }]},
                           {"id":2, "username":"username2", "pwd": "password2", "email":"email2","bankAccount":"bankAccount2","userRoles":[{
                               "id": 1,
-                              "user_id": 2,
+                              "userId": 2,
                               "role": "EMPLOYEE"
                           }]}]
                         """));
@@ -196,7 +196,7 @@ class UserControllerTest {
                 .andExpect(content().json("""
                           {"id":1, "username":"username1", "pwd": "password", "email":"email1","bankAccount":"bankAccount1","userRoles":[{
                               "id": 1,
-                              "user_id": 1,
+                              "userId": 1,
                               "role": "EMPLOYEE"
                           }]}
                         """));
@@ -239,21 +239,14 @@ class UserControllerTest {
                         .content("""
                                     {"id":1, "username":"username3", "pwd": "password", "email":"email3","bankAccount":"bankAccount3","userRoles":[{
                                         "id": 1,
-                                        "user_id": 1,
+                                        "userId": 1,
                                         "role": "EMPLOYEE"
                                     }]}
                                 """)
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andDo(print())
-                /*.andExpect(content().json("""
-                            {"id":1, "username":"username3", "pwd": "password", "email":"email3","bankAccount":"bankAccount3","userRoles":[{
-                                "id": 1,
-                                "user_id": 1,
-                                "role": "EMPLOYEE"
-                            }]}
-                       """))*/;
+                .andDo(print());
         verify(updateUserUseCase).updateUser(user);
     }
 
