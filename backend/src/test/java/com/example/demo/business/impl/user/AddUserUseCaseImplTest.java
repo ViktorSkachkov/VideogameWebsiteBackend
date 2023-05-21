@@ -13,6 +13,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import java.util.Set;
 
 @ExtendWith(MockitoExtension.class)
@@ -31,7 +35,7 @@ class AddUserUseCaseImplTest {
         String encodedPassword = passwordEncoder.encode("password");
 
         User expectedResult = User.builder()
-                .id(3)
+                //.id(3)
                 .username("username3")
                 .email("email3")
                 .pwd(encodedPassword)
@@ -45,6 +49,7 @@ class AddUserUseCaseImplTest {
                 .build();
 
         UserPersistence user = UserPersistence.builder()
+                //.id(3L)
                 .username("username3")
                 .email("email3")
                 .bankAccount("bankAccount3")
@@ -59,7 +64,7 @@ class AddUserUseCaseImplTest {
 
         /*when(userRepository.save(user))
                 .thenReturn(user);
-        User actualResult = addUserUseCase.AddUser(expectedResult);
+        User actualResult = addUserUseCase.addUser(expectedResult);
         assertEquals(expectedResult, actualResult);
         verify(userRepository).save(user);*/
     }
