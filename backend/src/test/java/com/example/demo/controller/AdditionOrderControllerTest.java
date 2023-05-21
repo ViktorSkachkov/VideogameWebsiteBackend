@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.business.cases.additionorder.AddAdditionOrderUseCase;
+import com.example.demo.business.cases.additionorder.GetAdditionCartItemsUseCase;
 import com.example.demo.business.cases.additionorder.GetAdditionOrderUseCase;
 import com.example.demo.business.cases.additionorder.GetAdditionOrdersByUserUseCase;
 import com.example.demo.domain.AdditionOrder;
@@ -15,6 +16,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.mockito.Mockito.verify;
@@ -37,6 +39,8 @@ class AdditionOrderControllerTest {
     private GetAdditionOrdersByUserUseCase getAdditionOrdersByUserUseCase;
     @MockBean
     private GetAdditionOrderUseCase getAdditionOrderUseCase;
+    @MockBean
+    private GetAdditionCartItemsUseCase getAdditionCartItemsUseCase;
 
     @Test
     @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
@@ -111,5 +115,31 @@ class AdditionOrderControllerTest {
                                {"id":1, "units":3, "addition":43,"user":41}
                         """));
         verify(getAdditionOrderUseCase).getAdditionOrder(1);
+    }
+
+    @Test
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
+    void getAdditionCartItems() throws Exception {
+        AdditionOrder additionOrder1 = AdditionOrder.builder()
+                .id(1)
+                .units(3)
+                .addition(43)
+                .user(45)
+                .approved(false)
+                .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
+                .dateFormatted("d")
+                .totalPrice(30)
+                .build();
+        when(getAdditionCartItemsUseCase.getAdditionCartItems(45))
+                .thenReturn(List.of(additionOrder1));
+        mockMvc.perform(get("/additionOrders/cart/45"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                .andExpect(content().json("""
+                                            [{"id":1, "units":3, "addition":43,"user":45,"approved":false,
+                                            "time":"2017-12-13T15:56:30","totalPrice":30,"dateFormatted":"d"}]
+                        """));
+        verify(getAdditionCartItemsUseCase).getAdditionCartItems(45);
     }
 }

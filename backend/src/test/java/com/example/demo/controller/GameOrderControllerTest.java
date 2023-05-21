@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.business.cases.gameorder.AddGameOrderUseCase;
+import com.example.demo.business.cases.gameorder.GetGameCartItemsUseCase;
 import com.example.demo.business.cases.gameorder.GetGameOrderUseCase;
 import com.example.demo.business.cases.gameorder.GetGameOrdersByUserUseCase;
 import com.example.demo.domain.GameOrder;
@@ -38,6 +39,8 @@ class GameOrderControllerTest {
     private GetGameOrderUseCase getGameOrderUseCase;
     @MockBean
     private GetGameOrdersByUserUseCase getGameOrdersByUserUseCase;
+    @MockBean
+    private GetGameCartItemsUseCase getGameCartItemsUseCase;
 
     @Test
     @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
@@ -119,5 +122,31 @@ class GameOrderControllerTest {
                                {"id":1, "units":3, "game":23,"user":41}
                         """));
         verify(getGameOrderUseCase).getGameOrder(1);
+    }
+
+    @Test
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
+    void getGameCartItems() throws Exception {
+        GameOrder gameOrder = GameOrder.builder()
+                .id(1)
+                .units(3)
+                .game(43)
+                .user(45)
+                .approved(false)
+                .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
+                .dateFormatted("d")
+                .totalPrice(30)
+                .build();
+        when(getGameCartItemsUseCase.getGameCartItems(45))
+                .thenReturn(List.of(gameOrder));
+        mockMvc.perform(get("/gameOrders/cart/45"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                .andExpect(content().json("""
+                                            [{"id":1, "units":3, "game":43,"user":45,"approved":false,
+                                            "time":"2017-12-13T15:56:30","totalPrice":30,"dateFormatted":"d"}]
+                        """));
+        verify(getGameCartItemsUseCase).getGameCartItems(45);
     }
 }
