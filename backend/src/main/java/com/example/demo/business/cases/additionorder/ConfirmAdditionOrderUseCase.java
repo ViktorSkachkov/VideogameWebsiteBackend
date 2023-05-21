@@ -1,5 +1,7 @@
 package com.example.demo.business.cases.additionorder;
 
+import com.example.demo.domain.AdditionOrder;
+
 public interface ConfirmAdditionOrderUseCase {
-    int confirmAdditionOrder(int userId);
+    AdditionOrder confirmAdditionOrder(int userId);
 }

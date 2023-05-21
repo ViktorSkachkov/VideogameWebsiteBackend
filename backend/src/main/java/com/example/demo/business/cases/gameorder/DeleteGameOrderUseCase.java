@@ -1,5 +1,7 @@
 package com.example.demo.business.cases.gameorder;
 
+import com.example.demo.domain.GameOrder;
+
 public interface DeleteGameOrderUseCase {
-    int deleteGame(int gameOrderId);
+    GameOrder deleteGame(int gameOrderId);
 }

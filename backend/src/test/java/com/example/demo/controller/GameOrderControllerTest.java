@@ -1,9 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.business.cases.gameorder.AddGameOrderUseCase;
-import com.example.demo.business.cases.gameorder.GetGameCartItemsUseCase;
-import com.example.demo.business.cases.gameorder.GetGameOrderUseCase;
-import com.example.demo.business.cases.gameorder.GetGameOrdersByUserUseCase;
+import com.example.demo.business.cases.gameorder.*;
 import com.example.demo.domain.GameOrder;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -41,6 +38,14 @@ class GameOrderControllerTest {
     private GetGameOrdersByUserUseCase getGameOrdersByUserUseCase;
     @MockBean
     private GetGameCartItemsUseCase getGameCartItemsUseCase;
+    @MockBean
+    private ConfirmGameOrderUseCase confirmGameOrderUseCase;
+    @MockBean
+    private DeleteGameOrderUseCase deleteGameOrderUseCase;
+    @MockBean
+    private IncreaseGameOrderUnitsUseCase increaseGameOrderUnitsUseCase;
+    @MockBean
+    private DecreaseGameOrderUnitsUseCase decreaseGameOrderUnitsUseCase;
 
     @Test
     @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
@@ -148,5 +153,140 @@ class GameOrderControllerTest {
                                             "time":"2017-12-13T15:56:30","totalPrice":30,"dateFormatted":"d"}]
                         """));
         verify(getGameCartItemsUseCase).getGameCartItems(45);
+    }
+
+    @Test
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
+    void confirmGameOrders() throws Exception {
+        GameOrder gameOrder = GameOrder.builder()
+                .id(1)
+                .units(3)
+                .game(43)
+                .user(41)
+                .approved(false)
+                .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
+                .dateFormatted("d")
+                .totalPrice(30)
+                .build();
+        when(confirmGameOrderUseCase.confirmGameOrder(gameOrder.getUser()))
+                .thenReturn(gameOrder);
+        mockMvc.perform(put("/gameOrders/41")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content("""
+                                    {"id":1, "units":3, "game":43,"user":41,"approved":false,
+                                            "time":"2017-12-13T15:56:30","totalPrice":30,"dateFormatted":"d"}
+                                """)
+                )
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(content().json("""
+                               {"id":1, "units":3, "game":43,"user":41,"approved":false,
+                                            "time":"2017-12-13T15:56:30","totalPrice":30,"dateFormatted":"d"}
+                        """));
+        verify(confirmGameOrderUseCase).confirmGameOrder(gameOrder.getUser());
+    }
+
+    @Test
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
+    void deleteGameOrder() throws Exception {
+        GameOrder gameOrder = GameOrder.builder()
+                .id(1)
+                .units(3)
+                .game(43)
+                .user(41)
+                .approved(false)
+                .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
+                .dateFormatted("d")
+                .totalPrice(30)
+                .build();
+        when(deleteGameOrderUseCase.deleteGame(1))
+                .thenReturn(gameOrder);
+        mockMvc.perform(delete("/gameOrders/1"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                .andExpect(content().json("""
+                              {"id":1}
+                        """));
+        verify(deleteGameOrderUseCase).deleteGame(1);
+    }
+
+    @Test
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
+    void increaseGameOrderUnits() throws Exception {
+        GameOrder gameOrder = GameOrder.builder()
+                .id(1)
+                .units(3)
+                .game(43)
+                .user(41)
+                .approved(false)
+                .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
+                .build();
+
+        GameOrder gameOrder2 = GameOrder.builder()
+                .id(1)
+                .units(4)
+                .game(43)
+                .user(41)
+                .approved(false)
+                .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
+                .build();
+        when(increaseGameOrderUnitsUseCase.increaseGameOrderUnits(1))
+                .thenReturn(gameOrder2);
+        mockMvc.perform(put("/gameOrders/increase/1")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content("""
+                                    {"id":1, "units":3, "game":43,"user":41,"approved":false,
+                                            "time":"2017-12-13T15:56:30"}
+                                """)
+                )
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(content().json("""
+                               {"id":1, "units":4, "game":43,"user":41,"approved":false,
+                                            "time":"2017-12-13T15:56:30"}
+                        """));
+        verify(increaseGameOrderUnitsUseCase).increaseGameOrderUnits(gameOrder.getId());
+    }
+
+    @Test
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER"})
+    void decreaseGameOrderUnits() throws Exception {
+        GameOrder gameOrder = GameOrder.builder()
+                .id(1)
+                .units(3)
+                .game(43)
+                .user(41)
+                .approved(false)
+                .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
+                .build();
+
+        GameOrder gameOrder2 = GameOrder.builder()
+                .id(1)
+                .units(2)
+                .game(43)
+                .user(41)
+                .approved(false)
+                .time(LocalDateTime.of(2017, 12, 13, 15, 56, 30))
+                .build();
+        when(decreaseGameOrderUnitsUseCase.decreaseGameOrderUnits(1))
+                .thenReturn(gameOrder2);
+        mockMvc.perform(put("/gameOrders/decrease/1")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content("""
+                                    {"id":1, "units":3, "game":43,"user":41,"approved":false,
+                                            "time":"2017-12-13T15:56:30"}
+                                """)
+                )
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(content().json("""
+                               {"id":1, "units":2, "game":43,"user":41,"approved":false,
+                                            "time":"2017-12-13T15:56:30"}
+                        """));
+        verify(decreaseGameOrderUnitsUseCase).decreaseGameOrderUnits(gameOrder.getId());
     }
 }

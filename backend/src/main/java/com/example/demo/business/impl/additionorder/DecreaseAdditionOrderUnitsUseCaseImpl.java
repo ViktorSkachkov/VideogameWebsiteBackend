@@ -1,6 +1,7 @@
 package com.example.demo.business.impl.additionorder;
 
 import com.example.demo.business.cases.additionorder.DecreaseAdditionOrderUnitsUseCase;
+import com.example.demo.domain.AdditionOrder;
 import com.example.demo.exception.IsEmptyException;
 import com.example.demo.persistence.entity.AdditionOrderPersistence;
 import com.example.demo.persistence.repository.AdditionOrderRepository;
@@ -19,7 +20,7 @@ public class DecreaseAdditionOrderUnitsUseCaseImpl implements DecreaseAdditionOr
      * @return
      */
     @Override
-    public int decreaseAdditionOrderUnits(Long additionOrderId) {
+    public AdditionOrder decreaseAdditionOrderUnits(Long additionOrderId) {
         Optional<AdditionOrderPersistence> additionOrder = additionOrderRepository.findById(additionOrderId);
         if(additionOrder.isEmpty()) {
             throw new IsEmptyException();
@@ -33,6 +34,13 @@ public class DecreaseAdditionOrderUnitsUseCaseImpl implements DecreaseAdditionOr
             additionOrderRepository.save(additionOrder.get());
         }
 
-        return 0;
+        return AdditionOrder.builder()
+                .id(additionOrder.get().getId())
+                .addition(additionOrder.get().getAddition())
+                .time(additionOrder.get().getTime())
+                .user(additionOrder.get().getUser())
+                .approved(additionOrder.get().getApproved())
+                .units(additionOrder.get().getUnits())
+                .build();
     }
 }

@@ -21,7 +21,7 @@ public class ConfirmGameOrderUseCaseImpl implements ConfirmGameOrderUseCase {
      * @return
      */
     @Override
-    public int confirmGameOrder(int userId) {
+    public GameOrder confirmGameOrder(int userId) {
         List<GameOrderPersistence> list = gameOrderRepository.findByUserId(Long.valueOf(userId));
         LocalDateTime time = LocalDateTime.now();
 
@@ -30,8 +30,17 @@ public class ConfirmGameOrderUseCaseImpl implements ConfirmGameOrderUseCase {
                 gop.setApproved(true);
                 gop.setTime(time);
                 gameOrderRepository.save(gop);
+
+                return GameOrder.builder()
+                        .id(gop.getId())
+                        .game(gop.getGame())
+                        .user(gop.getUser())
+                        .units(gop.getUnits())
+                        .approved(gop.getApproved())
+                        .time(gop.getTime())
+                        .build();
             }
         }
-        return userId;
+        return GameOrder.builder().build();
     }
 }

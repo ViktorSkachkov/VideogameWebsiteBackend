@@ -87,7 +87,7 @@ public class AdditionOrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PutMapping("/{id}")
-    public int confirmAdditionOrders(@PathVariable(value = "id") final int id) {
+    public AdditionOrder confirmAdditionOrders(@PathVariable(value = "id") final int id) {
         return confirmAdditionOrderUseCase.confirmAdditionOrder(id);
     }
 
@@ -98,7 +98,7 @@ public class AdditionOrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @DeleteMapping("/{id}")
-    public int deleteGameOrder(@PathVariable(value = "id") final int id) {
+    public AdditionOrder deleteAdditionOrder(@PathVariable(value = "id") final int id) {
         return deleteAdditionOrderUseCase.deleteAddition(id);
     }
 
@@ -109,7 +109,7 @@ public class AdditionOrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PutMapping("/increase/{id}")
-    public int increaseGameOrderUnits(@PathVariable(value = "id") final Long id) {
+    public AdditionOrder increaseAdditionOrderUnits(@PathVariable(value = "id") final Long id) {
         return increaseAdditionOrderUnitsUseCase.increaseAdditionOrderUnits(id);
     }
 
@@ -120,7 +120,7 @@ public class AdditionOrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PutMapping("/decrease/{id}")
-    public int decreaseGameOrderUnits(@PathVariable(value = "id") final Long id) {
+    public AdditionOrder decreaseAdditionOrderUnits(@PathVariable(value = "id") final Long id) {
         return decreaseAdditionOrderUnitsUseCase.decreaseAdditionOrderUnits(id);
     }
 }

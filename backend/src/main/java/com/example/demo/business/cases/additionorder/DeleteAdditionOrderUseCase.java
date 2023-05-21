@@ -1,5 +1,7 @@
 package com.example.demo.business.cases.additionorder;
 
+import com.example.demo.domain.AdditionOrder;
+
 public interface DeleteAdditionOrderUseCase {
-    int deleteAddition(int additionOrderId);
+    AdditionOrder deleteAddition(int additionOrderId);
 }

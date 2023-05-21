@@ -1,5 +1,6 @@
 package com.example.demo.business.impl.gameorder;
 
+import com.example.demo.domain.GameOrder;
 import com.example.demo.persistence.entity.GameOrderPersistence;
 import com.example.demo.persistence.repository.GameOrderRepository;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,14 @@ class DeleteGameOrderUseCaseImplTest {
     void deleteGameOrder() {
         LocalDateTime time = LocalDateTime.now();
 
-        int expectedResult = 0;
+        GameOrder expectedResult = GameOrder.builder()
+                .id(2)
+                .game(41)
+                .user(3)
+                .units(2)
+                .approved(false)
+                .time(time)
+                .build();
         GameOrderPersistence gameOrder = GameOrderPersistence.builder()
                 .id(2)
                 .game(41)
@@ -34,9 +42,9 @@ class DeleteGameOrderUseCaseImplTest {
                 .time(time)
                 .build();
 
-        int actualResult = deleteGameOrderUseCase.deleteGame(gameOrder.getId());
+        GameOrder actualResult = deleteGameOrderUseCase.deleteGame(gameOrder.getId());
 
-        assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult.getId(), actualResult.getId());
         verify(gameOrderRepository).deleteById(Long.valueOf(2));
     }
 }

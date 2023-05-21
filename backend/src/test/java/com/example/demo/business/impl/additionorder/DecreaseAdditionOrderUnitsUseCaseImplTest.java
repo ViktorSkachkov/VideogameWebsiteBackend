@@ -1,5 +1,6 @@
 package com.example.demo.business.impl.additionorder;
 
+import com.example.demo.domain.AdditionOrder;
 import com.example.demo.persistence.entity.AdditionOrderPersistence;
 import com.example.demo.persistence.repository.AdditionOrderRepository;
 import org.junit.jupiter.api.Test;
@@ -26,7 +27,14 @@ class DecreaseAdditionOrderUnitsUseCaseImplTest {
     void decreaseGameOrderUnits() {
         LocalDateTime time = LocalDateTime.now();
 
-        int expectedResult = 0;
+        AdditionOrder expectedResult = AdditionOrder.builder()
+                .id(2)
+                .addition(41)
+                .user(3)
+                .units(2)
+                .approved(false)
+                .time(time)
+                .build();
         AdditionOrderPersistence additionOrder = AdditionOrderPersistence.builder()
                 .id(2)
                 .addition(41)
@@ -49,8 +57,14 @@ class DecreaseAdditionOrderUnitsUseCaseImplTest {
                 .thenReturn(Optional.of(additionOrder));
         when(additionOrderRepository.save(additionOrder2))
                 .thenReturn(additionOrder2);
-        int actualResult = decreaseAdditionOrderUnitsUseCase.decreaseAdditionOrderUnits((long) additionOrder.getId());
-        assertEquals(expectedResult, actualResult);
+        AdditionOrder actualResult = decreaseAdditionOrderUnitsUseCase.decreaseAdditionOrderUnits((long) additionOrder.getId());
+        assertEquals(expectedResult.getId(), actualResult.getId());
+        assertEquals(expectedResult.getAddition(), actualResult.getAddition());
+        assertEquals(expectedResult.getUnits() - 1, actualResult.getUnits());
+        assertEquals(expectedResult.getUser(), actualResult.getUser());
+        assertEquals(expectedResult.getApproved(), actualResult.getApproved());
+        assertEquals(expectedResult.getTime(), actualResult.getTime());
+
         verify(additionOrderRepository).findById((long) additionOrder.getId());
         verify(additionOrderRepository).save(additionOrder2);
     }

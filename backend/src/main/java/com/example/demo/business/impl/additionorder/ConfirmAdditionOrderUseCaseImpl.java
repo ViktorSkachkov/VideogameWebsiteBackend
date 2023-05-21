@@ -1,6 +1,7 @@
 package com.example.demo.business.impl.additionorder;
 
 import com.example.demo.business.cases.additionorder.ConfirmAdditionOrderUseCase;
+import com.example.demo.domain.AdditionOrder;
 import com.example.demo.persistence.entity.AdditionOrderPersistence;
 import com.example.demo.persistence.entity.GameOrderPersistence;
 import com.example.demo.persistence.repository.AdditionOrderRepository;
@@ -21,7 +22,7 @@ public class ConfirmAdditionOrderUseCaseImpl implements ConfirmAdditionOrderUseC
      * @return
      */
     @Override
-    public int confirmAdditionOrder(int userId) {
+    public AdditionOrder confirmAdditionOrder(int userId) {
         List<AdditionOrderPersistence> list = additionOrderRepository.findByUserId(Long.valueOf(userId));
         LocalDateTime time = LocalDateTime.now();
 
@@ -30,8 +31,18 @@ public class ConfirmAdditionOrderUseCaseImpl implements ConfirmAdditionOrderUseC
                 aop.setApproved(true);
                 aop.setTime(time);
                 additionOrderRepository.save(aop);
+
+                return AdditionOrder.builder()
+                        .id(aop.getId())
+                        .addition(aop.getAddition())
+                        .user(aop.getUser())
+                        .units(aop.getUnits())
+                        .approved(aop.getApproved())
+                        .time(aop.getTime())
+                        .build();
             }
         }
-        return userId;
+        return AdditionOrder.builder()
+                .build();
     }
 }

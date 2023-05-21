@@ -1,6 +1,7 @@
 package com.example.demo.business.impl.gameorder;
 
 import com.example.demo.business.cases.gameorder.DeleteGameOrderUseCase;
+import com.example.demo.domain.GameOrder;
 import com.example.demo.persistence.repository.GameOrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,10 @@ public class DeleteGameOrderUseCaseImpl implements DeleteGameOrderUseCase {
      * @return
      */
     @Override
-    public int deleteGame(int gameOrderId) {
+    public GameOrder deleteGame(int gameOrderId) {
         gameOrderRepository.deleteById((long) gameOrderId);
-        return 0;
+        return GameOrder.builder()
+                .id(gameOrderId)
+                .build();
     }
 }

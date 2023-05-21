@@ -1,5 +1,6 @@
 package com.example.demo.business.impl.additionorder;
 
+import com.example.demo.domain.AdditionOrder;
 import com.example.demo.persistence.entity.AdditionOrderPersistence;
 import com.example.demo.persistence.repository.AdditionOrderRepository;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,14 @@ class DeleteAdditionOrderUseCaseImplTest {
     void deleteAdditionOrder() {
         LocalDateTime time = LocalDateTime.now();
 
-        int expectedResult = 0;
+        AdditionOrder expectedResult = AdditionOrder.builder()
+                .id(2)
+                .addition(41)
+                .user(3)
+                .units(2)
+                .approved(false)
+                .time(time)
+                .build();
         AdditionOrderPersistence additionOrder = AdditionOrderPersistence.builder()
                 .id(2)
                 .addition(41)
@@ -34,9 +42,9 @@ class DeleteAdditionOrderUseCaseImplTest {
                 .time(time)
                 .build();
 
-        int actualResult = deleteAdditionOrderUseCase.deleteAddition(additionOrder.getId());
+        AdditionOrder actualResult = deleteAdditionOrderUseCase.deleteAddition(additionOrder.getId());
 
-        assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult.getId(), actualResult.getId());
         verify(additionOrderRepository).deleteById(Long.valueOf(2));
     }
 }
