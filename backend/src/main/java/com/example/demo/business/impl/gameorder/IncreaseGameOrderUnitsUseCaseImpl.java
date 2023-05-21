@@ -1,6 +1,7 @@
 package com.example.demo.business.impl.gameorder;
 
 import com.example.demo.business.cases.gameorder.IncreaseGameOrderUnitsUseCase;
+import com.example.demo.exception.IsEmptyException;
 import com.example.demo.persistence.entity.GameOrderPersistence;
 import com.example.demo.persistence.repository.GameOrderRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,14 +22,17 @@ public class IncreaseGameOrderUnitsUseCaseImpl implements IncreaseGameOrderUnits
     public int increaseGameOrderUnits(int gameOrderId) {
         Optional<GameOrderPersistence> gameOrder = gameOrderRepository.findById((long) gameOrderId);
         if(gameOrder.isEmpty()) {
-
+            throw new IsEmptyException();
         }
 
-        int units = gameOrder.get().getUnits();
-        units += 1;
-        gameOrder.get().setUnits(units);
+        if(gameOrder.isPresent()) {
+            int units = gameOrder.get().getUnits();
+            units += 1;
+            gameOrder.get().setUnits(units);
 
-        gameOrderRepository.save(gameOrder.get());
+            gameOrderRepository.save(gameOrder.get());
+        }
+
         return 0;
     }
 }

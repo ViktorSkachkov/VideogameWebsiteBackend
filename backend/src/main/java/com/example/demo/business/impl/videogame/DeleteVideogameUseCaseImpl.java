@@ -29,31 +29,35 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
         if (vp.isEmpty()) {
 
         }
-        //videogameRepository.deleteById(Long.valueOf(id));
-        vp.get().setDeleted(true);
-        videogameRepository.save(vp.get());
 
-        List<NewsPersistence> newsArticles = newsRepository.findAll();
+        if (vp.isPresent()) {
+            vp.get().setDeleted(true);
+            videogameRepository.save(vp.get());
 
-        List<AdditionPersistence> additions = additionRepository.findAll();
+            List<NewsPersistence> newsArticles = newsRepository.findAll();
 
-        List<ReviewPersistence> reviews = reviewRepository.findAll();
+            List<AdditionPersistence> additions = additionRepository.findAll();
 
-        List<Integer> additionsIds = this.deleteAdditions(additions, id);
+            List<ReviewPersistence> reviews = reviewRepository.findAll();
 
-        this.deleteReviews(reviews, additionsIds, id);
+            List<Integer> additionsIds = this.deleteAdditions(additions, id);
 
-        this.deleteNews(newsArticles, id);
+            this.deleteReviews(reviews, additionsIds, id);
 
-        return Videogame.builder()
-                .id(Math.toIntExact(vp.get().getId()))
-                .featured(vp.get().getFeatured())
-                .description(vp.get().getDescription())
-                .image(vp.get().getImage())
-                .name(vp.get().getName())
-                .price(vp.get().getPrice())
-                .deleted(vp.get().getDeleted())
-                .build();
+            this.deleteNews(newsArticles, id);
+
+            return Videogame.builder()
+                    .id(Math.toIntExact(vp.get().getId()))
+                    .featured(vp.get().getFeatured())
+                    .description(vp.get().getDescription())
+                    .image(vp.get().getImage())
+                    .name(vp.get().getName())
+                    .price(vp.get().getPrice())
+                    .deleted(vp.get().getDeleted())
+                    .build();
+        }
+
+        return Videogame.builder().build();
     }
 
     @Override

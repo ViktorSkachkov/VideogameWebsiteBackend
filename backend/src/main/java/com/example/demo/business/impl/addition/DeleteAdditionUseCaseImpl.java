@@ -3,6 +3,7 @@ package com.example.demo.business.impl.addition;
 import com.example.demo.business.cases.addition.DeleteAdditionUseCase;
 import com.example.demo.domain.Addition;
 import com.example.demo.domain.Review;
+import com.example.demo.exception.IsEmptyException;
 import com.example.demo.persistence.entity.AdditionOrderPersistence;
 import com.example.demo.persistence.entity.AdditionPersistence;
 import com.example.demo.persistence.entity.ReviewPersistence;
@@ -11,6 +12,7 @@ import com.example.demo.persistence.repository.AdditionRepository;
 import com.example.demo.persistence.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,15 +31,18 @@ public class DeleteAdditionUseCaseImpl implements DeleteAdditionUseCase {
     public Addition deleteAddition(int id) {
         Optional<AdditionPersistence> ap = additionRepository.findById(Long.valueOf(id));
         if (ap.isEmpty()) {
+            throw new IsEmptyException();
+        }
+
+        if (ap.isPresent()) {
+            ap.get().setDeleted(true);
+            additionRepository.save(ap.get());
+
+            List<ReviewPersistence> reviewsList = reviewRepository.findAll();
+
+            deleteReviews(reviewsList, id);
 
         }
-        //additionRepository.deleteById(Long.valueOf(id));
-        ap.get().setDeleted(true);
-        additionRepository.save(ap.get());
-
-        List<ReviewPersistence> reviewsList = reviewRepository.findAll();
-
-        deleteReviews(reviewsList, id);
 
         return Addition.builder()
                 .id(Math.toIntExact(ap.get().getId()))

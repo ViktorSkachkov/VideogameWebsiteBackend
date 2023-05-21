@@ -2,6 +2,7 @@ package com.example.demo.business.impl.additionorder;
 
 import com.example.demo.business.cases.additionorder.GetAdditionOrderUseCase;
 import com.example.demo.domain.AdditionOrder;
+import com.example.demo.exception.IsEmptyException;
 import com.example.demo.persistence.entity.AdditionOrderPersistence;
 import com.example.demo.persistence.repository.AdditionOrderRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,20 +24,24 @@ public class GetAdditionOrderUseCaseImpl implements GetAdditionOrderUseCase {
     public AdditionOrder getAdditionOrder(int index) {
         Optional<AdditionOrderPersistence> aop = additionOrderRepository.findById(Long.valueOf(index));
         if (aop.isEmpty()) {
-
+            throw new IsEmptyException();
         }
 
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String formattedDateTime = aop.get().getTime().format(dateTimeFormatter);
+        if( aop.isPresent()) {
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String formattedDateTime = aop.get().getTime().format(dateTimeFormatter);
 
-        AdditionOrder additionOrder = AdditionOrder.builder()
-                .id(Math.toIntExact(aop.get().getId()))
-                .user(aop.get().getUser())
-                .addition(aop.get().getAddition())
-                .units(aop.get().getUnits())
-                .time(aop.get().getTime())
-                .dateFormatted(formattedDateTime)
-                .build();
-        return additionOrder;
+            AdditionOrder additionOrder = AdditionOrder.builder()
+                    .id(Math.toIntExact(aop.get().getId()))
+                    .user(aop.get().getUser())
+                    .addition(aop.get().getAddition())
+                    .units(aop.get().getUnits())
+                    .time(aop.get().getTime())
+                    .dateFormatted(formattedDateTime)
+                    .build();
+            return additionOrder;
+
+        }
+        return AdditionOrder.builder().build();
     }
 }
