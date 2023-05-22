@@ -60,6 +60,12 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
         return Videogame.builder().build();
     }
 
+    /**
+     * @param reviewsList
+     * @param additionsIds
+     * @param id
+     * @return
+     */
     @Override
     public List<ReviewPersistence> deleteReviews(List<ReviewPersistence> reviewsList, List<Integer> additionsIds, int id) {
         for(ReviewPersistence rp : reviewsList) {
@@ -71,6 +77,11 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
         return reviewsList;
     }
 
+    /**
+     * @param additionsList
+     * @param id
+     * @return
+     */
     @Override
     public List<Integer> deleteAdditions(List<AdditionPersistence> additionsList, int id) {
         List<Integer> additionsIds = new ArrayList<>();
@@ -84,6 +95,12 @@ public class DeleteVideogameUseCaseImpl implements DeleteVideogameUseCase {
         return additionsIds;
     }
 
+
+    /**
+     * @param newsList
+     * @param id
+     * @return
+     */
     @Override
     public List<NewsPersistence> deleteNews(List<NewsPersistence> newsList, int id) {
         for(NewsPersistence np : newsList) {
