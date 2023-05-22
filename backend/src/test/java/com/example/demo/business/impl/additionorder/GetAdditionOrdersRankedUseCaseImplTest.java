@@ -30,7 +30,7 @@ class GetAdditionOrdersRankedUseCaseImplTest {
     private GetAdditionOrdersRankedUseCaseImpl getAdditionOrdersRankedUseCase;
 
     @Test
-    void getAdditionOrdersRanked() {
+    void getAdditionOrdersRankedWith0() {
         LocalDateTime time = LocalDateTime.now();
 
         AdditionOrder additionOrder1 = AdditionOrder.builder()
@@ -40,6 +40,7 @@ class GetAdditionOrdersRankedUseCaseImplTest {
                 .units(2)
                 .totalPrice(0)
                 .time(time)
+                .approved(true)
                 .build();
         AdditionOrderPersistence additionOrderPersistence1 = AdditionOrderPersistence.builder()
                 .id(0)
@@ -61,6 +62,146 @@ class GetAdditionOrdersRankedUseCaseImplTest {
         when(additionOrderRepository.findAll())
                 .thenReturn(List.of(additionOrderPersistence1));
         List<RankingAdditionOrder> actualResult = getAdditionOrdersRankedUseCase.getAdditionOrdersRanked(0);
+
+        List<RankingAdditionOrder> expectedResult = new ArrayList<>();
+        expectedResult.add(rankingAdditionOrder);
+
+        assertEquals(expectedResult, actualResult);
+        verify(additionOrderRepository).findAll();
+    }
+
+    @Test
+    void getAdditionOrdersRankedWith1() {
+        LocalDateTime time = LocalDateTime.now();
+
+        AdditionOrder additionOrder1 = AdditionOrder.builder()
+                .id(0)
+                .addition(41)
+                .user(41)
+                .units(2)
+                .totalPrice(0)
+                .approved(true)
+                .time(time)
+                .build();
+        AdditionOrder additionOrder2 = AdditionOrder.builder()
+                .id(1)
+                .addition(41)
+                .user(41)
+                .units(2)
+                .totalPrice(0)
+                .approved(true)
+                .time(time)
+                .build();
+        AdditionOrderPersistence additionOrderPersistence1 = AdditionOrderPersistence.builder()
+                .id(0)
+                .addition(41)
+                .user(41)
+                .units(2)
+                .approved(true)
+                .time(time)
+                .build();
+        AdditionOrderPersistence additionOrderPersistence2 = AdditionOrderPersistence.builder()
+                .id(1)
+                .addition(41)
+                .user(41)
+                .units(2)
+                .approved(true)
+                .time(time)
+                .build();
+        RankingAdditionOrder rankingAdditionOrder = RankingAdditionOrder.builder()
+                .id(0L)
+                .price(0)
+                .additionOrderList(List.of(additionOrder1, additionOrder2))
+                .totalPrice(0)
+                .reviewedItemId(41)
+                .numberOfTimesBought(4)
+                .build();
+
+        when(additionOrderRepository.findAll())
+                .thenReturn(List.of(additionOrderPersistence1, additionOrderPersistence2));
+        List<RankingAdditionOrder> actualResult = getAdditionOrdersRankedUseCase.getAdditionOrdersRanked(1);
+
+        List<RankingAdditionOrder> expectedResult = new ArrayList<>();
+        expectedResult.add(rankingAdditionOrder);
+
+        assertEquals(expectedResult, actualResult);
+        verify(additionOrderRepository).findAll();
+    }
+
+    @Test
+    void getAdditionOrdersRankedWith6() {
+        LocalDateTime time = LocalDateTime.now();
+
+        AdditionOrder additionOrder1 = AdditionOrder.builder()
+                .id(0)
+                .addition(41)
+                .user(41)
+                .units(2)
+                .totalPrice(0)
+                .approved(true)
+                .time(time)
+                .build();
+        AdditionOrderPersistence additionOrderPersistence1 = AdditionOrderPersistence.builder()
+                .id(0)
+                .addition(41)
+                .user(41)
+                .units(2)
+                .approved(true)
+                .time(time)
+                .build();
+        RankingAdditionOrder rankingAdditionOrder = RankingAdditionOrder.builder()
+                .id(0L)
+                .price(0)
+                .additionOrderList(List.of(additionOrder1))
+                .totalPrice(0)
+                .reviewedItemId(41)
+                .numberOfTimesBought(2)
+                .build();
+
+        when(additionOrderRepository.findAll())
+                .thenReturn(List.of(additionOrderPersistence1));
+        List<RankingAdditionOrder> actualResult = getAdditionOrdersRankedUseCase.getAdditionOrdersRanked(6);
+
+        List<RankingAdditionOrder> expectedResult = new ArrayList<>();
+        expectedResult.add(rankingAdditionOrder);
+
+        assertEquals(expectedResult, actualResult);
+        verify(additionOrderRepository).findAll();
+    }
+
+    @Test
+    void getAdditionOrdersRankedWith12() {
+        LocalDateTime time = LocalDateTime.now();
+
+        AdditionOrder additionOrder1 = AdditionOrder.builder()
+                .id(0)
+                .addition(41)
+                .user(41)
+                .units(2)
+                .totalPrice(0)
+                .approved(true)
+                .time(time)
+                .build();
+        AdditionOrderPersistence additionOrderPersistence1 = AdditionOrderPersistence.builder()
+                .id(0)
+                .addition(41)
+                .user(41)
+                .units(2)
+                .approved(true)
+                .time(time)
+                .build();
+        RankingAdditionOrder rankingAdditionOrder = RankingAdditionOrder.builder()
+                .id(0L)
+                .price(0)
+                .additionOrderList(List.of(additionOrder1))
+                .totalPrice(0)
+                .reviewedItemId(41)
+                .numberOfTimesBought(2)
+                .build();
+
+        when(additionOrderRepository.findAll())
+                .thenReturn(List.of(additionOrderPersistence1));
+        List<RankingAdditionOrder> actualResult = getAdditionOrdersRankedUseCase.getAdditionOrdersRanked(12);
 
         List<RankingAdditionOrder> expectedResult = new ArrayList<>();
         expectedResult.add(rankingAdditionOrder);

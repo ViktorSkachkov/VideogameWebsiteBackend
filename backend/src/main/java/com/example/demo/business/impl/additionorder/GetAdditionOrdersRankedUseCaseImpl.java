@@ -74,6 +74,7 @@ public class GetAdditionOrdersRankedUseCaseImpl implements GetAdditionOrdersRank
                                 .user(aop.getUser())
                                 .addition(aop.getAddition())
                                 .units(aop.getUnits())
+                                .approved(aop.getApproved())
                                 .build()))
                         .build();
                 additionIds.add(aop.getAddition());
