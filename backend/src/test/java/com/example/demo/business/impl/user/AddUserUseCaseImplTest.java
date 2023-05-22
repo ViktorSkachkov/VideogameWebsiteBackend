@@ -34,38 +34,38 @@ class AddUserUseCaseImplTest {
     void addUser() {
         String encodedPassword = passwordEncoder.encode("password");
 
+        Role role = Role.builder()
+                .role("EMPLOYEE")
+                .build();
+
         User expectedResult = User.builder()
-                //.id(3)
                 .username("username3")
                 .email("email3")
                 .pwd(encodedPassword)
                 .bankAccount("bankAccount3")
-                .userRoles(Set.of(Role.builder()
-                        .id(1)
-                        .role("EMPLOYEE")
-                        .userId(3)
-                        .build()))
+                .userRoles(Set.of(role))
                 .deleted(false)
+                .build();
+
+        RolePersistence rolePersistence = RolePersistence.builder()
+                .role("EMPLOYEE")
                 .build();
 
         UserPersistence user = UserPersistence.builder()
-                //.id(3L)
                 .username("username3")
                 .email("email3")
                 .bankAccount("bankAccount3")
                 .pwd(encodedPassword)
-                .userRoles(Set.of(RolePersistence.builder()
-                        .id(1L)
-                        .role("EMPLOYEE")
-                        .user(3L)
-                        .build()))
                 .deleted(false)
                 .build();
 
-        /*when(userRepository.save(user))
+        when(userRepository.save(user))
                 .thenReturn(user);
+        when(roleRepository.save(rolePersistence))
+                .thenReturn(rolePersistence);
         User actualResult = addUserUseCase.addUser(expectedResult);
         assertEquals(expectedResult, actualResult);
-        verify(userRepository).save(user);*/
+        verify(userRepository).save(user);
+        verify(roleRepository).save(rolePersistence);
     }
 }
