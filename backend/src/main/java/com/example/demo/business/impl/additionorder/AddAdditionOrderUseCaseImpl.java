@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +21,17 @@ public class AddAdditionOrderUseCaseImpl implements AddAdditionOrderUseCase {
      */
     @Override
     public AdditionOrder addAdditionOrder(AdditionOrder additionOrder) {
+        List<AdditionOrderPersistence> additionOrderPersistenceList = additionOrderRepository.findCartItemsByUserId((long) additionOrder.getUser(), false);
+
+        for(AdditionOrderPersistence element : additionOrderPersistenceList) {
+            if(additionOrder.getAddition() == element.getAddition()) {
+                int units = element.getUnits() + additionOrder.getUnits();
+                element.setUnits(units);
+                additionOrderRepository.save(element);
+                return additionOrder;
+            }
+        }
+
         AdditionOrderPersistence additionOrderPersistence = AdditionOrderPersistence.builder()
                 .addition(additionOrder.getAddition())
                 .user(additionOrder.getUser())

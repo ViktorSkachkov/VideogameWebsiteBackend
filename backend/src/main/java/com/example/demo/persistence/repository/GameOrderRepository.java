@@ -15,5 +15,8 @@ public interface GameOrderRepository extends JpaRepository<GameOrderPersistence,
     GameOrderPersistence findByid(Long id);
 
     @Query("select gop from GameOrderPersistence gop where gop.user = ?1")
-     List<GameOrderPersistence> findByUserId(Long id);
+    List<GameOrderPersistence> findByUserId(Long id);
+
+    @Query("select gop from GameOrderPersistence gop where gop.user = ?1 and gop.approved = ?2")
+    List<GameOrderPersistence> findCartItemsByUserId(Long id, Boolean approved);
 }

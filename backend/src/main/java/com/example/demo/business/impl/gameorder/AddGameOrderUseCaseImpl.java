@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +21,17 @@ public class AddGameOrderUseCaseImpl implements AddGameOrderUseCase {
      */
     @Override
     public GameOrder addGameOrder(GameOrder gameOrder) {
+        List<GameOrderPersistence> gameOrderPersistenceList = gameOrderRepository.findCartItemsByUserId((long) gameOrder.getUser(), false);
+
+        for(GameOrderPersistence element : gameOrderPersistenceList) {
+            if(gameOrder.getGame() == element.getGame()) {
+                int units = element.getUnits() + gameOrder.getUnits();
+                element.setUnits(units);
+                gameOrderRepository.save(element);
+                return gameOrder;
+            }
+        }
+
         GameOrderPersistence gameOrderPersistence = GameOrderPersistence.builder()
                 .game(gameOrder.getGame())
                 .user(gameOrder.getUser())
