@@ -141,7 +141,7 @@ class DeleteVideogameUseCaseImplTest {
         newsPersistenceList.add(news);
 
         expectedResult.add(news);
-        
+
         List<NewsPersistence> actualResult = deleteVideogameUseCase.deleteNews(newsPersistenceList, news.getGameId());
 
         assertEquals(expectedResult, actualResult);
