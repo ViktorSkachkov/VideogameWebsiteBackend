@@ -26,7 +26,8 @@ public class GetGameCartItemsUseCaseImpl implements GetGameCartItemsUseCase {
     public List<GameOrder> getGameCartItems(int userIndex) {
         List<GameOrderPersistence> list = gameOrderRepository.findAll();
         List<GameOrder> gameOrders = new ArrayList<>();
-        for (GameOrderPersistence gop : list) {
+        
+        list.forEach(gop -> {
             if (gop.getUser() == userIndex && !gop.getApproved()) {
 
                 double price = videogameRepository.findPriceById((long) gop.getGame());
@@ -47,7 +48,7 @@ public class GetGameCartItemsUseCaseImpl implements GetGameCartItemsUseCase {
                         .build();
                 gameOrders.add(gameOrder);
             }
-        }
+        });
 
         List<GameOrder> newList = reverseOrder(gameOrders);
         return newList;

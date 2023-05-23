@@ -37,13 +37,14 @@ public class AddUserUseCaseImpl implements AddUserUseCase {
                 .build();
 
         UserPersistence up2 = userRepository.save(up);
-        for (Role role : user.getUserRoles()) {
+
+        user.getUserRoles().forEach(role -> {
             RolePersistence rp = RolePersistence.builder()
                     .role(role.getRole())
                     .user(up2.getId())
                     .build();
             roleRepository.save(rp);
-        }
+        });
         return user;
     }
 }

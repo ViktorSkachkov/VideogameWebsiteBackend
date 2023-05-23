@@ -26,15 +26,16 @@ public class GetVideogamesForAdditionsFilterUseCaseImpl implements GetVideogames
         List<VideogamePersistence> videogameList = videogameRepository.findAll();
         List<AdditionPersistence> additionList = additionRepository.findAll();
         List<Long> videogameInts = new ArrayList<>();
-        for (AdditionPersistence ap : additionList) {
+
+        additionList.forEach(ap -> {
             if(!ap.getDeleted()) {
                 videogameInts.add((long) ap.getGameId());
             }
-        }
+        });
 
         List<Videogame> videogames = new ArrayList<>();
 
-        for (VideogamePersistence vp : videogameList) {
+        videogameList.forEach(vp -> {
             if (videogameInts.contains(vp.getId()) && !vp.getDeleted()) {
                 Videogame videogame = Videogame.builder()
                         .id(Math.toIntExact(vp.getId()))
@@ -48,9 +49,8 @@ public class GetVideogamesForAdditionsFilterUseCaseImpl implements GetVideogames
                         .build();
                 videogames.add(videogame);
             }
-        }
+        });
 
         return videogames;
-        //return videogameInts;
     }
 }

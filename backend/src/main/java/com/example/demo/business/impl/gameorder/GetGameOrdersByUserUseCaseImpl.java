@@ -26,8 +26,8 @@ public class GetGameOrdersByUserUseCaseImpl implements GetGameOrdersByUserUseCas
 
         List<GameOrderPersistence> list = gameOrderRepository.findAll();
         List<GameOrder> gameOrders = new ArrayList<>();
-        for (GameOrderPersistence gop : list) {
 
+        list.forEach(gop -> {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             String formattedDateTime = gop.getTime().format(dateTimeFormatter);
 
@@ -43,7 +43,7 @@ public class GetGameOrdersByUserUseCaseImpl implements GetGameOrdersByUserUseCas
                         .build();
                 gameOrders.add(gameOrder);
             }
-        }
+        });
 
         List<GameOrder> newList = reverseOrder(gameOrders);
         return newList;

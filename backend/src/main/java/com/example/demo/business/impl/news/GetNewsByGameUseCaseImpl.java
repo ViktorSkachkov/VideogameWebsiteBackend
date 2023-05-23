@@ -23,7 +23,8 @@ public class GetNewsByGameUseCaseImpl implements GetNewsByGameUseCase {
     public List<News> getNewsByGame(int index) {
         List<NewsPersistence> list = newsRepository.findAll();
         List<News> newsList = new ArrayList<>();
-        for (NewsPersistence np : list) {
+
+        list.forEach(np -> {
             if (index == -1) {
                 News news = News.builder()
                         .id(Math.toIntExact(np.getId()))
@@ -47,7 +48,7 @@ public class GetNewsByGameUseCaseImpl implements GetNewsByGameUseCase {
                     newsList.add(news);
                 }
             }
-        }
+        });
 
         List<News> newList = reverseOrder(newsList);
         return newList;

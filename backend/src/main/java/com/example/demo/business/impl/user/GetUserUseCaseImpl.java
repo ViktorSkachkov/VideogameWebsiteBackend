@@ -40,14 +40,15 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
                 .build();
 
         Set<Role> userRoles = new HashSet<>();
-        for (RolePersistence role : up.get().getUserRoles()) {
+        up.get().getUserRoles().forEach(role -> {
             Role newRole = Role.builder()
                     .id(Math.toIntExact(role.getId()))
                     .role(role.getRole())
                     .userId(Math.toIntExact(role.getUser()))
                     .build();
             userRoles.add(newRole);
-        }
+        });
+
         user.setUserRoles(userRoles);
         return user;
     }

@@ -22,7 +22,8 @@ public class GetNewsUseCaseImpl implements GetNewsUseCase {
     public List<News> getNews() {
         List<NewsPersistence> list = newsRepository.findAll();
         List<News> newsList = new ArrayList<>();
-        for (NewsPersistence np : list) {
+
+        list.forEach(np -> {
             News news = News.builder()
                     .id(Math.toIntExact(np.getId()))
                     .image(np.getImage())
@@ -32,7 +33,7 @@ public class GetNewsUseCaseImpl implements GetNewsUseCase {
                     .time(np.getTime())
                     .build();
             newsList.add(news);
-        }
+        });
 
         List<News> newList = reverseOrder(newsList);
         return newList;

@@ -46,7 +46,8 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
                 .build();
 
         Set<Role> userRoles = new HashSet<>();
-        for (RolePersistence role : up.get().getUserRoles()) {
+
+        up.get().getUserRoles().forEach(role -> {
             roleRepository.deleteById(role.getId());
             Role newRole = Role.builder()
                     .id(Math.toIntExact(role.getId()))
@@ -54,9 +55,9 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
                     .userId(Math.toIntExact(role.getUser()))
                     .build();
             userRoles.add(newRole);
-        }
+        });
         user.setUserRoles(userRoles);
-        //userRepository.deleteById(Long.valueOf(id));
+
         up.get().setDeleted(true);
         userRepository.save(up.get());
 

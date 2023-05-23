@@ -22,8 +22,9 @@ public class GetFeaturedVideogamesUseCaseImpl implements GetFeaturedVideogamesUs
     public List<Videogame> getFeaturedVideogames() {
         List<VideogamePersistence> list = videogameRepository.findAll();
         List<Videogame> videogames = new ArrayList<>();
-        Videogame videogame;
-        for (VideogamePersistence vp : list) {
+
+        list.forEach(vp -> {
+            Videogame videogame;
             if (vp.getFeatured() && !vp.getDeleted()) {
                 videogame = Videogame.builder()
                         .id(Math.toIntExact(vp.getId()))
@@ -37,7 +38,7 @@ public class GetFeaturedVideogamesUseCaseImpl implements GetFeaturedVideogamesUs
                         .build();
                 videogames.add(videogame);
             }
-        }
+        });
 
         List<Videogame> newList = reverseOrder(videogames);
         return newList;

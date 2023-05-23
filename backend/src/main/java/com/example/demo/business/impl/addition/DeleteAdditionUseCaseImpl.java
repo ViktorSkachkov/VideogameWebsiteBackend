@@ -57,11 +57,12 @@ public class DeleteAdditionUseCaseImpl implements DeleteAdditionUseCase {
 
     @Override
     public List<ReviewPersistence> deleteReviews(List<ReviewPersistence> reviewsList, int id) {
-        for(ReviewPersistence rp : reviewsList) {
+        reviewsList.forEach(rp ->
+        {
             if(rp.getReviewedItemId() == id && rp.getTypeOfReviewedItem().equals("addition")) {
-                reviewRepository.deleteById((long) rp.getId());
+                reviewRepository.deleteById(rp.getId());
             }
-        }
+        });
         return reviewsList;
     }
 }

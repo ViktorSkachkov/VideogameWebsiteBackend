@@ -26,8 +26,8 @@ public class GetAdditionCartItemsUseCaseImpl implements GetAdditionCartItemsUseC
     public List<AdditionOrder> getAdditionCartItems(int userIndex) {
         List<AdditionOrderPersistence> list = additionOrderRepository.findAll();
         List<AdditionOrder> additionOrders = new ArrayList<>();
-        for (AdditionOrderPersistence aop : list) {
 
+        list.forEach(aop -> {
             double price = additionRepository.findPriceById((long) aop.getAddition());
             double totalPrice = price * aop.getUnits();
 
@@ -48,7 +48,7 @@ public class GetAdditionCartItemsUseCaseImpl implements GetAdditionCartItemsUseC
                         .build();
                 additionOrders.add(additionOrder);
             }
-        }
+        });
 
         List<AdditionOrder> newList = reverseOrder(additionOrders);
         return newList;

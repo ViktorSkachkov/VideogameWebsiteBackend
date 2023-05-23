@@ -26,35 +26,37 @@ public class GetAdditionsByGameUseCaseImpl implements GetAdditionsByGameUseCase 
     public List<Addition> getAdditionsByGame(int index) {
         List<AdditionPersistence> list = additionRepository.findAll();
         List<Addition> additionsList = new ArrayList<>();
-        for (AdditionPersistence ap : list) {
-            if (index == -1 && !ap.getDeleted()) {
-                Addition addition = Addition.builder()
-                        .id(Math.toIntExact(ap.getId()))
-                        .image(ap.getImage())
-                        .gameId(ap.getGameId())
-                        .price(ap.getPrice())
-                        .description(ap.getDescription())
-                        .name(ap.getName())
-                        .time(ap.getTime())
-                        .deleted(ap.getDeleted())
-                        .build();
-                additionsList.add(addition);
-            } else {
-                if (ap.getGameId() == index && !ap.getDeleted()) {
-                    Addition addition = Addition.builder()
-                            .id(Math.toIntExact(ap.getId()))
-                            .image(ap.getImage())
-                            .gameId(ap.getGameId())
-                            .price(ap.getPrice())
-                            .description(ap.getDescription())
-                            .name(ap.getName())
-                            .time(ap.getTime())
-                            .deleted(ap.getDeleted())
-                            .build();
-                    additionsList.add(addition);
+        list.forEach(ap ->
+                {
+                    if (index == -1 && !ap.getDeleted()) {
+                        Addition addition = Addition.builder()
+                                .id(Math.toIntExact(ap.getId()))
+                                .image(ap.getImage())
+                                .gameId(ap.getGameId())
+                                .price(ap.getPrice())
+                                .description(ap.getDescription())
+                                .name(ap.getName())
+                                .time(ap.getTime())
+                                .deleted(ap.getDeleted())
+                                .build();
+                        additionsList.add(addition);
+                    } else {
+                        if (ap.getGameId() == index && !ap.getDeleted()) {
+                            Addition addition = Addition.builder()
+                                    .id(Math.toIntExact(ap.getId()))
+                                    .image(ap.getImage())
+                                    .gameId(ap.getGameId())
+                                    .price(ap.getPrice())
+                                    .description(ap.getDescription())
+                                    .name(ap.getName())
+                                    .time(ap.getTime())
+                                    .deleted(ap.getDeleted())
+                                    .build();
+                            additionsList.add(addition);
+                        }
+                    }
                 }
-            }
-        }
+        );
 
         List<Addition> newList = reverseOrder(additionsList);
         return newList;

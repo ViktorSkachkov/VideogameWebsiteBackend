@@ -24,8 +24,8 @@ public class GetAdditionOrdersByUserUseCaseImpl implements GetAdditionOrdersByUs
     public List<AdditionOrder> getAdditionOrdersByUser(int userIndex) {
         List<AdditionOrderPersistence> list = additionOrderRepository.findAll();
         List<AdditionOrder> additionOrders = new ArrayList<>();
-        for (AdditionOrderPersistence aop : list) {
 
+        list.forEach(aop -> {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             String formattedDateTime = aop.getTime().format(dateTimeFormatter);
 
@@ -41,7 +41,7 @@ public class GetAdditionOrdersByUserUseCaseImpl implements GetAdditionOrdersByUs
                         .build();
                 additionOrders.add(additionOrder);
             }
-        }
+        });
 
         List<AdditionOrder> newList = reverseOrder(additionOrders);
         return newList;

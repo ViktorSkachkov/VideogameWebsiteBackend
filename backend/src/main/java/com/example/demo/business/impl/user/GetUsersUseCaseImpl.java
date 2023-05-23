@@ -26,7 +26,8 @@ public class GetUsersUseCaseImpl implements GetUsersUseCase {
     public List<User> getUsers() {
         List<UserPersistence> list = userRepository.findAll();
         List<User> users = new ArrayList<>();
-        for (UserPersistence up : list) {
+
+        list.forEach(up -> {
             if(!up.getDeleted()) {
                 Set<Role> roles = new HashSet<>();
                 for (RolePersistence rp : up.getUserRoles()) {
@@ -48,7 +49,7 @@ public class GetUsersUseCaseImpl implements GetUsersUseCase {
                         .build();
                 users.add(user);
             }
-        }
+        });
         return users;
     }
 }

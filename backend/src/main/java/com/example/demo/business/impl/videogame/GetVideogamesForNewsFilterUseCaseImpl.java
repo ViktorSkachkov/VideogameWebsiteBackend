@@ -26,12 +26,14 @@ public class GetVideogamesForNewsFilterUseCaseImpl implements GetVideogamesForNe
         List<VideogamePersistence> videogameList = videogameRepository.findAll();
         List<NewsPersistence> newsList = newsRepository.findAll();
         List<Long> videogameInts = new ArrayList<>();
-        for (NewsPersistence np : newsList) {
+
+        newsList.forEach(np -> {
             videogameInts.add((long) np.getGameId());
-        }
+        });
 
         List<Videogame> videogames = new ArrayList<>();
-        for (VideogamePersistence vp : videogameList) {
+
+        videogameList.forEach(vp -> {
             if (videogameInts.contains(vp.getId()) && !vp.getDeleted()) {
                 Videogame videogame = Videogame.builder()
                         .id(Math.toIntExact(vp.getId()))
@@ -45,7 +47,7 @@ public class GetVideogamesForNewsFilterUseCaseImpl implements GetVideogamesForNe
                         .build();
                 videogames.add(videogame);
             }
-        }
+        });
 
         return videogames;
     }
