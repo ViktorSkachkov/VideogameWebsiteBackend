@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+ api:
+  build: ./backend
+  container_name: node_backend
+  networks:
+  - videogameshopmysql
+  ports:
+  - '8080:8080'
+  depends_on:
+  - dbvideogameshop
+ dbvideogameshop:
+  image: mysql:8.0.28
+  container_name: MYSQL_DATABASE2
+  command: mysqld --default-authentication-plugin=mysql_native_password
+  networks:
+  - videogameshopmysql
+  environment:
+   MYSQL_ROOT_PASSWORD: ultralisk66
+   MYSQL_DATABASE: videogame_shop
+  ports:
+  - '3306:3306'
+  expose:
+  - '3306'
+  volumes:
+  - "./mysql-dump:/docker-entrypoint-initdb.d:rw"
+
+networks:
+ videogameshopmysql:
