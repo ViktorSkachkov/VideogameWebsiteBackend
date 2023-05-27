@@ -37,4 +37,8 @@ public class GameOrderPersistence {
     @NotNull
     @EqualsAndHashCode.Exclude
     private Boolean approved;
+    @Column(name = "total_price")
+    @NotNull
+    @EqualsAndHashCode.Exclude
+    private double totalPrice;
 }

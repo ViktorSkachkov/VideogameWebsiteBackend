@@ -5,6 +5,7 @@ import com.example.demo.business.cases.user.UpdateUserUseCase;
 import com.example.demo.domain.AccessToken;
 import com.example.demo.domain.LoginResponse;
 import com.example.demo.domain.User;
+import com.example.demo.exception.IsEmptyException;
 import com.example.demo.persistence.entity.UserPersistence;
 import com.example.demo.persistence.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +31,7 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
         Optional<UserPersistence> up = userRepository.findById(Long.valueOf(user.getId()));
 
         if (up.isEmpty()) {
-
+            throw new IsEmptyException();
         }
         up.get().setUsername(user.getUsername());
         up.get().setEmail(user.getEmail());

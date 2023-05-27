@@ -28,8 +28,12 @@ public class IncreaseGameOrderUnitsUseCaseImpl implements IncreaseGameOrderUnits
 
         if(gameOrder.isPresent()) {
             int units = gameOrder.get().getUnits();
+            double totalPrice = gameOrder.get().getTotalPrice();
+            double price = totalPrice / units;
             units += 1;
             gameOrder.get().setUnits(units);
+            totalPrice += price;
+            gameOrder.get().setTotalPrice(totalPrice);
 
             gameOrderRepository.save(gameOrder.get());
         }

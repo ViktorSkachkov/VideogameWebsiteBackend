@@ -28,8 +28,12 @@ public class IncreaseAdditionOrderUnitsUseCaseImpl implements IncreaseAdditionOr
 
         if (additionOrder.isPresent()) {
             int units = additionOrder.get().getUnits();
+            double totalPrice = additionOrder.get().getTotalPrice();
+            double price = totalPrice / units;
             units += 1;
             additionOrder.get().setUnits(units);
+            totalPrice += price;
+            additionOrder.get().setTotalPrice(totalPrice);
 
             additionOrderRepository.save(additionOrder.get());
         }

@@ -2,6 +2,7 @@ package com.example.demo.business.impl.addition;
 
 import com.example.demo.business.cases.addition.UpdateAdditionUseCase;
 import com.example.demo.domain.Addition;
+import com.example.demo.exception.IsEmptyException;
 import com.example.demo.persistence.entity.AdditionPersistence;
 import com.example.demo.persistence.repository.AdditionRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ public class UpdateAdditionUseCaseImpl implements UpdateAdditionUseCase {
     public Addition updateAddition(Addition addition) {
         Optional<AdditionPersistence> ap = additionRepository.findById(Long.valueOf(addition.getId()));
         if (ap.isEmpty()) {
-
+            throw new IsEmptyException();
         }
         ap.get().setDescription(addition.getDescription());
         ap.get().setName(addition.getName());

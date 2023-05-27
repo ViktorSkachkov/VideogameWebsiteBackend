@@ -22,5 +22,5 @@ public interface AdditionRepository extends JpaRepository<AdditionPersistence, L
     double findPriceById(Long id);
 
     @Query("select a from AdditionPersistence a where a.id = ?1")
-    AdditionPersistence findByid(Long id);
+    AdditionPersistence findByAdditionId(Long id);
 }

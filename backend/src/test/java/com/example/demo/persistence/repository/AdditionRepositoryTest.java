@@ -73,7 +73,7 @@ class AdditionRepositoryTest {
                 " Lorem Ipsum has been the industry's standard dummy text ever since the " +
                 "1500s, when an unknown printer took a galley of type and scrambled it to " +
                 "make a type specimen book.", "name5", LocalDateTime.of(2023, 04, 19, 17, 04, 32));
-        AdditionPersistence actual = additionRepository.findByid(41L);
+        AdditionPersistence actual = additionRepository.findByAdditionId(41L);
         assertEquals(expected.getId(), actual.getId());
         assertEquals(expected.getGameId(), actual.getGameId());
         assertEquals(expected.getPrice(), actual.getPrice());

@@ -2,17 +2,13 @@ package com.example.demo.business.impl.addition;
 
 import com.example.demo.business.cases.addition.DeleteAdditionUseCase;
 import com.example.demo.domain.Addition;
-import com.example.demo.domain.Review;
 import com.example.demo.exception.IsEmptyException;
-import com.example.demo.persistence.entity.AdditionOrderPersistence;
 import com.example.demo.persistence.entity.AdditionPersistence;
 import com.example.demo.persistence.entity.ReviewPersistence;
-import com.example.demo.persistence.repository.AdditionOrderRepository;
 import com.example.demo.persistence.repository.AdditionRepository;
 import com.example.demo.persistence.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;

@@ -25,13 +25,15 @@ public class ConfirmGameOrderUseCaseImpl implements ConfirmGameOrderUseCase {
         List<GameOrderPersistence> list = gameOrderRepository.findByUserId(Long.valueOf(userId));
         LocalDateTime time = LocalDateTime.now();
 
+        GameOrder returnResult = null;
+
         for (GameOrderPersistence gop : list) {
             if(!gop.getApproved()) {
                 gop.setApproved(true);
                 gop.setTime(time);
                 gameOrderRepository.save(gop);
 
-                return GameOrder.builder()
+                returnResult = GameOrder.builder()
                         .id(gop.getId())
                         .game(gop.getGame())
                         .user(gop.getUser())
@@ -41,6 +43,6 @@ public class ConfirmGameOrderUseCaseImpl implements ConfirmGameOrderUseCase {
                         .build();
             }
         }
-        return GameOrder.builder().build();
+        return returnResult;
     }
 }

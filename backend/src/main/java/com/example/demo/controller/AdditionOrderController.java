@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.business.cases.additionorder.*;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.AdditionOrder;
+import com.example.demo.domain.RankedClass;
 import com.example.demo.domain.RankingAdditionOrder;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
@@ -62,10 +63,16 @@ public class AdditionOrderController {
     /**
      * @return
      */
-    @IsAuthenticated
+    /*@IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/ranked/{id}")
     public List<RankingAdditionOrder> getAdditionOrdersRanked(@PathVariable(value = "id") final int id) {
+        return getAdditionOrdersRankedUseCase.getAdditionOrdersRanked(id);
+    }*/
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @GetMapping("/ranked/{id}")
+    public List<RankedClass> getAdditionOrdersRanked(@PathVariable(value = "id") final int id) {
         return getAdditionOrdersRankedUseCase.getAdditionOrdersRanked(id);
     }
 

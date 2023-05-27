@@ -10,7 +10,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +49,7 @@ class AdditionOrderRepositoryTest {
                 LocalDateTime.of(2023, 04, 19, 17, 04, 32));
         AdditionOrderPersistence expected = createTestAdditionOrder(1, 43, 3, 41,
                 LocalDateTime.of(2023, 04, 19, 17, 04, 32));
-        AdditionOrderPersistence actual = additionOrderRepository.findByid(1L);
+        AdditionOrderPersistence actual = additionOrderRepository.findByOrderId(1L);
         assertEquals(expected.getId(), actual.getId());
         assertEquals(expected.getAddition(), actual.getAddition());
         assertEquals(expected.getUnits(), actual.getUnits());

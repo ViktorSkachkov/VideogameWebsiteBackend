@@ -1,10 +1,12 @@
 package com.example.demo.persistence.entity;
 
+import com.example.demo.domain.RankingAdditionOrder;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "addition_order")
@@ -37,4 +39,8 @@ public class AdditionOrderPersistence {
     @NotNull
     @EqualsAndHashCode.Exclude
     private Boolean approved;
+    @Column(name = "total_price")
+    @NotNull
+    @EqualsAndHashCode.Exclude
+    private double totalPrice;
 }

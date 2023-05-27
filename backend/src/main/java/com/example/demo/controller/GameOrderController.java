@@ -5,6 +5,7 @@ import com.example.demo.business.cases.gameorder.IncreaseGameOrderUnitsUseCase;
 import com.example.demo.business.cases.gameorder.*;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.GameOrder;
+import com.example.demo.domain.RankedClass;
 import com.example.demo.domain.RankingGameOrder;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
@@ -67,7 +68,7 @@ public class GameOrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @GetMapping("/ranked/{id}")
-    public List<RankingGameOrder> getAdditionOrdersRanked(@PathVariable(value = "id") final int id) {
+    public List<RankedClass> getAdditionOrdersRanked(@PathVariable(value = "id") final int id) {
         return getGameOrdersRankedUseCase.getGameOrdersRanked(id);
     }
 
