@@ -20,8 +20,6 @@ services:
    MYSQL_DATABASE: videogame_shop
   ports:
   - '3306:3306'
-  expose:
-  - '3306'
   volumes:
   - "./mysql-dump:/docker-entrypoint-initdb.d:rw"
 
