@@ -3,13 +3,13 @@ package com.example.demo.controller;
 import com.example.demo.business.cases.additionorder.*;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.AdditionOrder;
-import com.example.demo.domain.RankedClass;
-import com.example.demo.domain.RankingAdditionOrder;
+import com.example.demo.domain.RankedItem;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -72,8 +72,9 @@ public class AdditionOrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/ranked/{id}")
-    public List<RankedClass> getAdditionOrdersRanked(@PathVariable(value = "id") final int id) {
-        return getAdditionOrdersRankedUseCase.getAdditionOrdersRanked(id);
+    public List<RankedItem> getAdditionOrdersRanked(@PathVariable(value = "id") final int id) {
+        LocalDateTime endDate = LocalDateTime.now().plusDays(1);
+        return getAdditionOrdersRankedUseCase.getAdditionOrdersRanked(id, endDate);
     }
 
     /**

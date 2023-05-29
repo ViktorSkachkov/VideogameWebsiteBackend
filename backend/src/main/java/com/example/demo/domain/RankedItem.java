@@ -7,8 +7,8 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 @Builder
-public class RankedClass {
-    private int additionId;
+public class RankedItem {
+    private int itemId;
     private int units;
     private double totalIncome;
     private String name;

@@ -18,7 +18,7 @@ public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCas
     private final VideogameRepository videogameRepository;
 
     @Override
-    public List<RankedClass> getGameOrdersRanked(int id) {
+    public List<RankedItem> getGameOrdersRanked(int id,  LocalDateTime endDate) {
         LocalDateTime startDate = LocalDateTime.now();
 
         if (id == 0) {
@@ -34,21 +34,19 @@ public class GetGameOrdersRankedUseCaseImpl implements GetGameOrdersRankedUseCas
             startDate = LocalDateTime.now().minusMonths(12);
         }
 
-        LocalDateTime endDate = LocalDateTime.now().plusDays(1);
-
         List<Integer> listOfUnits = gameOrderRepository.getUnits(startDate, endDate, true);
 
         List<Integer> listOfIds = gameOrderRepository.getGameIds(startDate, endDate, true);
 
         List<Double> listOfPrices = gameOrderRepository.getTotalPrice(startDate, endDate, true);
 
-        List<RankedClass> rankedClassList = new ArrayList<>();
+        List<RankedItem> rankedClassList = new ArrayList<>();
 
         for(int i = 0; i < listOfUnits.size(); i++) {
             String name = videogameRepository.findNameById(Long.valueOf(listOfIds.get(i)));
 
-            rankedClassList.add(RankedClass.builder()
-                    .additionId(listOfIds.get(i))
+            rankedClassList.add(RankedItem.builder()
+                    .itemId(listOfIds.get(i))
                     .units(listOfUnits.get(i))
                     .totalIncome(listOfPrices.get(i))
                     .name(name)
