@@ -2,10 +2,7 @@ package com.example.demo.business.impl.additionorder;
 
 import com.example.demo.business.cases.additionorder.ConfirmAdditionOrderUseCase;
 import com.example.demo.domain.AdditionOrder;
-import com.example.demo.domain.RankingAdditionOrder;
 import com.example.demo.persistence.entity.AdditionOrderPersistence;
-import com.example.demo.persistence.entity.GameOrderPersistence;
-import com.example.demo.persistence.entity.RankingAdditionOrderPersistence;
 import com.example.demo.persistence.repository.AdditionOrderRepository;
 import com.example.demo.persistence.repository.AdditionRepository;
 //import com.example.demo.persistence.repository.RankingAdditionOrderRepository;
@@ -14,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
