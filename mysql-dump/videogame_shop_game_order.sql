@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `videogame_shop` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `videogame_shop`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: videogame_shop
@@ -31,8 +29,9 @@ CREATE TABLE `game_order` (
   `units` int NOT NULL,
   `time` datetime NOT NULL,
   `approved` tinyint NOT NULL,
+  `total_price` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=238 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=239 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +40,7 @@ CREATE TABLE `game_order` (
 
 LOCK TABLES `game_order` WRITE;
 /*!40000 ALTER TABLE `game_order` DISABLE KEYS */;
-INSERT INTO `game_order` VALUES (9,25,41,2,'2023-03-19 17:04:32',1),(98,486,45,1,'2023-04-20 11:25:05',1),(127,25,45,2,'2023-04-20 11:25:05',1),(128,309,45,2,'2023-04-20 11:25:05',1),(129,309,41,3,'2022-05-17 13:30:00',0);
+INSERT INTO `game_order` VALUES (9,25,41,2,'2023-03-19 17:04:32',1,28),(98,486,45,1,'2023-04-20 11:25:05',1,20),(127,25,45,2,'2023-04-20 11:25:05',1,28),(128,309,45,2,'2023-04-20 11:25:05',1,30),(129,309,41,3,'2022-05-17 13:30:00',0,45),(238,486,46,2,'2023-05-27 17:20:32',1,40);
 /*!40000 ALTER TABLE `game_order` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-27 11:04:12
+-- Dump completed on 2023-05-27 22:53:19
