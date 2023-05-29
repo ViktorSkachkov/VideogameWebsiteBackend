@@ -1,9 +1,6 @@
 package com.example.demo.business.impl.gameorder;
 
-import com.example.demo.domain.GameOrder;
 import com.example.demo.domain.RankedItem;
-import com.example.demo.domain.RankingGameOrder;
-import com.example.demo.persistence.entity.GameOrderPersistence;
 import com.example.demo.persistence.repository.GameOrderRepository;
 import com.example.demo.persistence.repository.VideogameRepository;
 import org.junit.jupiter.api.Test;
