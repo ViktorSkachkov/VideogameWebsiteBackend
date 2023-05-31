@@ -5,7 +5,7 @@
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>0</y>
+      <y>30</y>
       <w>310</w>
       <h>40</h>
     </coordinates>
@@ -18,7 +18,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>10</y>
+      <y>40</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -30,7 +30,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>90</y>
+      <y>120</y>
       <w>310</w>
       <h>30</h>
     </coordinates>
@@ -42,7 +42,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>280</x>
-      <y>10</y>
+      <y>40</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -54,7 +54,7 @@ fg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>50</x>
-      <y>30</y>
+      <y>60</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -67,7 +67,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>140</y>
+      <y>170</y>
       <w>310</w>
       <h>40</h>
     </coordinates>
@@ -80,7 +80,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>280</x>
-      <y>150</y>
+      <y>180</y>
       <w>30</w>
       <h>250</h>
     </coordinates>
@@ -92,7 +92,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>150</y>
+      <y>180</y>
       <w>30</w>
       <h>250</h>
     </coordinates>
@@ -104,7 +104,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>370</y>
+      <y>400</y>
       <w>310</w>
       <h>30</h>
     </coordinates>
@@ -116,7 +116,7 @@ fg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>50</x>
-      <y>170</y>
+      <y>200</y>
       <w>200</w>
       <h>70</h>
     </coordinates>
@@ -129,7 +129,7 @@ LoginUseCase
     <id>Relation</id>
     <coordinates>
       <x>140</x>
-      <y>70</y>
+      <y>100</y>
       <w>30</w>
       <h>120</h>
     </coordinates>
@@ -140,7 +140,7 @@ LoginUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>50</x>
-      <y>300</y>
+      <y>330</y>
       <w>200</w>
       <h>50</h>
     </coordinates>
@@ -152,7 +152,7 @@ LoginUseCase
     <id>Relation</id>
     <coordinates>
       <x>140</x>
-      <y>230</y>
+      <y>260</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -163,7 +163,7 @@ LoginUseCase
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>410</y>
+      <y>440</y>
       <w>310</w>
       <h>40</h>
     </coordinates>
@@ -176,7 +176,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>280</x>
-      <y>420</y>
+      <y>450</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -188,7 +188,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>420</y>
+      <y>450</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -200,7 +200,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>520</y>
+      <y>550</y>
       <w>310</w>
       <h>30</h>
     </coordinates>
@@ -212,7 +212,7 @@ fg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>50</x>
-      <y>440</y>
+      <y>470</y>
       <w>200</w>
       <h>70</h>
     </coordinates>
@@ -225,7 +225,7 @@ UserRepository
     <id>Relation</id>
     <coordinates>
       <x>140</x>
-      <y>340</y>
+      <y>370</y>
       <w>30</w>
       <h>120</h>
     </coordinates>
@@ -236,7 +236,7 @@ UserRepository
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>0</y>
+      <y>30</y>
       <w>1210</w>
       <h>40</h>
     </coordinates>
@@ -249,7 +249,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>10</y>
+      <y>40</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -261,7 +261,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1510</x>
-      <y>10</y>
+      <y>40</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -273,7 +273,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>90</y>
+      <y>120</y>
       <w>1210</w>
       <h>30</h>
     </coordinates>
@@ -285,7 +285,7 @@ fg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>820</x>
-      <y>30</y>
+      <y>60</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -298,7 +298,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>140</y>
+      <y>170</y>
       <w>1210</w>
       <h>40</h>
     </coordinates>
@@ -311,7 +311,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1510</x>
-      <y>150</y>
+      <y>180</y>
       <w>30</w>
       <h>250</h>
     </coordinates>
@@ -323,7 +323,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>150</y>
+      <y>180</y>
       <w>30</w>
       <h>250</h>
     </coordinates>
@@ -335,7 +335,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>370</y>
+      <y>400</y>
       <w>1210</w>
       <h>30</h>
     </coordinates>
@@ -347,7 +347,7 @@ fg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>360</x>
-      <y>170</y>
+      <y>200</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -360,7 +360,7 @@ UpdateUserUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>590</x>
-      <y>170</y>
+      <y>200</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -373,7 +373,7 @@ DeleteUserUseCaseCase
     <id>UMLClass</id>
     <coordinates>
       <x>820</x>
-      <y>170</y>
+      <y>200</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -386,7 +386,7 @@ GetUserUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>1050</x>
-      <y>170</y>
+      <y>200</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -399,7 +399,7 @@ GetUsersUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>1280</x>
-      <y>170</y>
+      <y>200</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -412,7 +412,7 @@ AddUserUseCase
     <id>Relation</id>
     <coordinates>
       <x>920</x>
-      <y>70</y>
+      <y>100</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -423,7 +423,7 @@ AddUserUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>360</x>
-      <y>300</y>
+      <y>330</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -435,7 +435,7 @@ AddUserUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>590</x>
-      <y>300</y>
+      <y>330</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -447,7 +447,7 @@ AddUserUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>820</x>
-      <y>300</y>
+      <y>330</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -459,7 +459,7 @@ AddUserUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>1050</x>
-      <y>300</y>
+      <y>330</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -471,7 +471,7 @@ AddUserUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>1280</x>
-      <y>300</y>
+      <y>330</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -483,7 +483,7 @@ AddUserUseCase
     <id>Relation</id>
     <coordinates>
       <x>450</x>
-      <y>230</y>
+      <y>260</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -494,7 +494,7 @@ AddUserUseCase
     <id>Relation</id>
     <coordinates>
       <x>680</x>
-      <y>230</y>
+      <y>260</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -505,7 +505,7 @@ AddUserUseCase
     <id>Relation</id>
     <coordinates>
       <x>920</x>
-      <y>230</y>
+      <y>260</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -516,7 +516,7 @@ AddUserUseCase
     <id>Relation</id>
     <coordinates>
       <x>1150</x>
-      <y>230</y>
+      <y>260</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -527,7 +527,7 @@ AddUserUseCase
     <id>Relation</id>
     <coordinates>
       <x>1370</x>
-      <y>230</y>
+      <y>260</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -538,7 +538,7 @@ AddUserUseCase
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>410</y>
+      <y>440</y>
       <w>1210</w>
       <h>40</h>
     </coordinates>
@@ -551,7 +551,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>420</y>
+      <y>450</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -563,7 +563,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>520</y>
+      <y>550</y>
       <w>1210</w>
       <h>30</h>
     </coordinates>
@@ -575,7 +575,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1510</x>
-      <y>420</y>
+      <y>450</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -587,7 +587,7 @@ fg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>840</x>
-      <y>440</y>
+      <y>470</y>
       <w>200</w>
       <h>70</h>
     </coordinates>
@@ -600,7 +600,7 @@ UserRepository
     <id>Relation</id>
     <coordinates>
       <x>920</x>
-      <y>360</y>
+      <y>390</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
@@ -611,7 +611,7 @@ UserRepository
     <id>Relation</id>
     <coordinates>
       <x>450</x>
-      <y>360</y>
+      <y>390</y>
       <w>950</w>
       <h>30</h>
     </coordinates>
@@ -622,7 +622,7 @@ UserRepository
     <id>Relation</id>
     <coordinates>
       <x>450</x>
-      <y>340</y>
+      <y>370</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -633,7 +633,7 @@ UserRepository
     <id>Relation</id>
     <coordinates>
       <x>680</x>
-      <y>340</y>
+      <y>370</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -644,7 +644,7 @@ UserRepository
     <id>Relation</id>
     <coordinates>
       <x>920</x>
-      <y>340</y>
+      <y>370</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -655,7 +655,7 @@ UserRepository
     <id>Relation</id>
     <coordinates>
       <x>1150</x>
-      <y>340</y>
+      <y>370</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -666,7 +666,7 @@ UserRepository
     <id>Relation</id>
     <coordinates>
       <x>1370</x>
-      <y>340</y>
+      <y>370</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -677,7 +677,7 @@ UserRepository
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>560</y>
+      <y>590</y>
       <w>1440</w>
       <h>40</h>
     </coordinates>
@@ -690,7 +690,7 @@ fg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>600</x>
-      <y>590</y>
+      <y>620</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -703,7 +703,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>570</y>
+      <y>600</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -715,7 +715,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1410</x>
-      <y>570</y>
+      <y>600</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -727,7 +727,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>650</y>
+      <y>680</y>
       <w>1440</w>
       <h>30</h>
     </coordinates>
@@ -739,7 +739,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>700</x>
-      <y>630</y>
+      <y>660</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -750,7 +750,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>680</y>
+      <y>710</y>
       <w>1440</w>
       <h>40</h>
     </coordinates>
@@ -763,7 +763,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>690</y>
+      <y>720</y>
       <w>30</w>
       <h>250</h>
     </coordinates>
@@ -775,7 +775,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1410</x>
-      <y>690</y>
+      <y>720</y>
       <w>30</w>
       <h>250</h>
     </coordinates>
@@ -787,7 +787,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>910</y>
+      <y>940</y>
       <w>1440</w>
       <h>30</h>
     </coordinates>
@@ -799,9 +799,9 @@ fg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>30</x>
-      <y>710</y>
+      <y>750</y>
       <w>210</w>
-      <h>70</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 UpdateNewsUseCase
@@ -812,7 +812,7 @@ UpdateNewsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>260</x>
-      <y>710</y>
+      <y>740</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -825,7 +825,7 @@ DeleteNewsUseCaseCase
     <id>UMLClass</id>
     <coordinates>
       <x>490</x>
-      <y>710</y>
+      <y>740</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -838,7 +838,7 @@ GetOneNewsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>720</x>
-      <y>710</y>
+      <y>740</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -851,7 +851,7 @@ GetNewsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>950</x>
-      <y>710</y>
+      <y>740</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -864,7 +864,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>460</x>
-      <y>130</y>
+      <y>160</y>
       <w>950</w>
       <h>30</h>
     </coordinates>
@@ -875,7 +875,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>1380</x>
-      <y>130</y>
+      <y>160</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -886,7 +886,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>1150</x>
-      <y>130</y>
+      <y>160</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -897,7 +897,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>920</x>
-      <y>130</y>
+      <y>160</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -908,7 +908,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>680</x>
-      <y>130</y>
+      <y>160</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -919,7 +919,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>460</x>
-      <y>130</y>
+      <y>160</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -930,7 +930,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>130</x>
-      <y>670</y>
+      <y>700</y>
       <w>1170</w>
       <h>30</h>
     </coordinates>
@@ -941,7 +941,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>1050</x>
-      <y>670</y>
+      <y>700</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -952,7 +952,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>810</x>
-      <y>670</y>
+      <y>700</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -963,7 +963,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>590</x>
-      <y>670</y>
+      <y>700</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -974,7 +974,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>350</x>
-      <y>670</y>
+      <y>700</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -985,18 +985,18 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>130</x>
-      <y>670</y>
+      <y>700</y>
       <w>30</w>
-      <h>60</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>130</x>
-      <y>770</y>
+      <y>800</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -1007,7 +1007,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>350</x>
-      <y>770</y>
+      <y>800</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -1018,7 +1018,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>590</x>
-      <y>770</y>
+      <y>800</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -1029,7 +1029,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>810</x>
-      <y>770</y>
+      <y>800</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -1040,7 +1040,7 @@ AddNewsUseCase
     <id>Relation</id>
     <coordinates>
       <x>1050</x>
-      <y>770</y>
+      <y>800</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -1051,7 +1051,7 @@ AddNewsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>30</x>
-      <y>840</y>
+      <y>870</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -1063,7 +1063,7 @@ AddNewsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>260</x>
-      <y>840</y>
+      <y>870</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -1075,7 +1075,7 @@ AddNewsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>490</x>
-      <y>840</y>
+      <y>870</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -1087,7 +1087,7 @@ AddNewsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>720</x>
-      <y>840</y>
+      <y>870</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -1099,7 +1099,7 @@ AddNewsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>950</x>
-      <y>840</y>
+      <y>870</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -1111,7 +1111,7 @@ AddNewsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>1180</x>
-      <y>710</y>
+      <y>740</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -1124,7 +1124,7 @@ GetNewsByGameUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>1180</x>
-      <y>840</y>
+      <y>870</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -1136,7 +1136,7 @@ GetNewsByGameUseCase
     <id>Relation</id>
     <coordinates>
       <x>1270</x>
-      <y>770</y>
+      <y>800</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -1147,7 +1147,7 @@ GetNewsByGameUseCase
     <id>Relation</id>
     <coordinates>
       <x>1270</x>
-      <y>670</y>
+      <y>700</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -1158,7 +1158,7 @@ GetNewsByGameUseCase
     <id>Relation</id>
     <coordinates>
       <x>130</x>
-      <y>900</y>
+      <y>930</y>
       <w>1170</w>
       <h>30</h>
     </coordinates>
@@ -1169,7 +1169,7 @@ GetNewsByGameUseCase
     <id>Relation</id>
     <coordinates>
       <x>130</x>
-      <y>880</y>
+      <y>910</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -1180,7 +1180,7 @@ GetNewsByGameUseCase
     <id>Relation</id>
     <coordinates>
       <x>350</x>
-      <y>880</y>
+      <y>910</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -1191,7 +1191,7 @@ GetNewsByGameUseCase
     <id>Relation</id>
     <coordinates>
       <x>590</x>
-      <y>880</y>
+      <y>910</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -1202,7 +1202,7 @@ GetNewsByGameUseCase
     <id>Relation</id>
     <coordinates>
       <x>810</x>
-      <y>880</y>
+      <y>910</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -1213,7 +1213,7 @@ GetNewsByGameUseCase
     <id>Relation</id>
     <coordinates>
       <x>1050</x>
-      <y>880</y>
+      <y>910</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -1224,7 +1224,7 @@ GetNewsByGameUseCase
     <id>Relation</id>
     <coordinates>
       <x>1270</x>
-      <y>880</y>
+      <y>910</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -1235,7 +1235,7 @@ GetNewsByGameUseCase
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>950</y>
+      <y>980</y>
       <w>1440</w>
       <h>40</h>
     </coordinates>
@@ -1248,7 +1248,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>960</y>
+      <y>990</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -1260,7 +1260,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1410</x>
-      <y>960</y>
+      <y>990</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -1272,7 +1272,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>1060</y>
+      <y>1090</y>
       <w>1440</w>
       <h>30</h>
     </coordinates>
@@ -1284,7 +1284,7 @@ fg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>620</x>
-      <y>980</y>
+      <y>1010</y>
       <w>200</w>
       <h>70</h>
     </coordinates>
@@ -1297,7 +1297,7 @@ NewsRepository
     <id>Relation</id>
     <coordinates>
       <x>700</x>
-      <y>910</y>
+      <y>940</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -1308,7 +1308,7 @@ NewsRepository
     <id>Relation</id>
     <coordinates>
       <x>1600</x>
-      <y>0</y>
+      <y>30</y>
       <w>1210</w>
       <h>40</h>
     </coordinates>
@@ -1321,7 +1321,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1600</x>
-      <y>10</y>
+      <y>40</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -1333,7 +1333,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1600</x>
-      <y>90</y>
+      <y>120</y>
       <w>1210</w>
       <h>30</h>
     </coordinates>
@@ -1345,7 +1345,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2780</x>
-      <y>10</y>
+      <y>40</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -1357,7 +1357,7 @@ fg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>2090</x>
-      <y>30</y>
+      <y>60</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -1370,7 +1370,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1600</x>
-      <y>140</y>
+      <y>170</y>
       <w>1210</w>
       <h>40</h>
     </coordinates>
@@ -1383,7 +1383,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1600</x>
-      <y>150</y>
+      <y>180</y>
       <w>30</w>
       <h>250</h>
     </coordinates>
@@ -1395,7 +1395,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1600</x>
-      <y>370</y>
+      <y>400</y>
       <w>1210</w>
       <h>30</h>
     </coordinates>
@@ -1407,7 +1407,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2780</x>
-      <y>150</y>
+      <y>180</y>
       <w>30</w>
       <h>250</h>
     </coordinates>
@@ -1419,7 +1419,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2190</x>
-      <y>70</y>
+      <y>100</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -1430,7 +1430,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1730</x>
-      <y>130</y>
+      <y>160</y>
       <w>950</w>
       <h>30</h>
     </coordinates>
@@ -1441,7 +1441,7 @@ fg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1640</x>
-      <y>170</y>
+      <y>200</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -1454,7 +1454,7 @@ AddAdditionUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>1870</x>
-      <y>170</y>
+      <y>200</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -1467,7 +1467,7 @@ DeleteAdditionUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>2100</x>
-      <y>170</y>
+      <y>200</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -1480,7 +1480,7 @@ UpdateAdditionUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>2330</x>
-      <y>170</y>
+      <y>200</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -1493,7 +1493,7 @@ GetAdditionUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>2560</x>
-      <y>170</y>
+      <y>200</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -1506,7 +1506,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>1730</x>
-      <y>230</y>
+      <y>260</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -1517,7 +1517,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>1960</x>
-      <y>230</y>
+      <y>260</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -1528,7 +1528,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>2190</x>
-      <y>230</y>
+      <y>260</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -1539,7 +1539,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>2430</x>
-      <y>230</y>
+      <y>260</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -1550,7 +1550,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>2650</x>
-      <y>230</y>
+      <y>260</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -1561,7 +1561,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>1730</x>
-      <y>130</y>
+      <y>160</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -1572,7 +1572,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>1960</x>
-      <y>130</y>
+      <y>160</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -1583,7 +1583,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>2190</x>
-      <y>130</y>
+      <y>160</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -1594,7 +1594,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>2420</x>
-      <y>130</y>
+      <y>160</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -1605,7 +1605,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>2650</x>
-      <y>130</y>
+      <y>160</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -1616,7 +1616,7 @@ GetAdditionsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>1640</x>
-      <y>300</y>
+      <y>330</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -1628,7 +1628,7 @@ GetAdditionsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>1870</x>
-      <y>300</y>
+      <y>330</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -1640,7 +1640,7 @@ GetAdditionsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>2100</x>
-      <y>300</y>
+      <y>330</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -1652,7 +1652,7 @@ GetAdditionsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>2330</x>
-      <y>300</y>
+      <y>330</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -1664,7 +1664,7 @@ GetAdditionsUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>2560</x>
-      <y>300</y>
+      <y>330</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -1676,7 +1676,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>1730</x>
-      <y>360</y>
+      <y>390</y>
       <w>950</w>
       <h>30</h>
     </coordinates>
@@ -1687,7 +1687,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>1730</x>
-      <y>340</y>
+      <y>370</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -1698,7 +1698,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>1960</x>
-      <y>340</y>
+      <y>370</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -1709,7 +1709,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>2190</x>
-      <y>340</y>
+      <y>370</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -1720,7 +1720,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>2650</x>
-      <y>340</y>
+      <y>370</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -1731,7 +1731,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>2430</x>
-      <y>340</y>
+      <y>370</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -1742,7 +1742,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>2190</x>
-      <y>360</y>
+      <y>390</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
@@ -1753,7 +1753,7 @@ GetAdditionsUseCase
     <id>Relation</id>
     <coordinates>
       <x>1600</x>
-      <y>410</y>
+      <y>440</y>
       <w>1210</w>
       <h>40</h>
     </coordinates>
@@ -1766,7 +1766,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1600</x>
-      <y>420</y>
+      <y>450</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -1778,7 +1778,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1600</x>
-      <y>520</y>
+      <y>550</y>
       <w>1210</w>
       <h>30</h>
     </coordinates>
@@ -1790,7 +1790,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2780</x>
-      <y>420</y>
+      <y>450</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -1802,7 +1802,7 @@ fg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>2100</x>
-      <y>440</y>
+      <y>470</y>
       <w>200</w>
       <h>70</h>
     </coordinates>
@@ -1815,7 +1815,7 @@ AdditionRepository
     <id>Relation</id>
     <coordinates>
       <x>1450</x>
-      <y>560</y>
+      <y>590</y>
       <w>1680</w>
       <h>40</h>
     </coordinates>
@@ -1828,7 +1828,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1450</x>
-      <y>570</y>
+      <y>600</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -1840,7 +1840,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1450</x>
-      <y>650</y>
+      <y>680</y>
       <w>1680</w>
       <h>30</h>
     </coordinates>
@@ -1852,7 +1852,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>3100</x>
-      <y>570</y>
+      <y>600</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -1864,7 +1864,7 @@ fg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>2170</x>
-      <y>590</y>
+      <y>620</y>
       <w>210</w>
       <h>50</h>
     </coordinates>
@@ -1877,7 +1877,7 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2270</x>
-      <y>630</y>
+      <y>660</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -1888,31 +1888,31 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1590</x>
-      <y>670</y>
-      <w>1410</w>
+      <y>700</y>
+      <w>1780</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;1390.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;1760.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1450</x>
-      <y>680</y>
-      <w>1680</w>
+      <y>710</y>
+      <w>2090</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>Business
 lt=.
 fg=red</panel_attributes>
-    <additional_attributes>10.0;20.0;1660.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;2070.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1450</x>
-      <y>690</y>
+      <y>720</y>
       <w>30</w>
       <h>250</h>
     </coordinates>
@@ -1923,8 +1923,8 @@ fg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>3100</x>
-      <y>690</y>
+      <x>3510</x>
+      <y>720</y>
       <w>30</w>
       <h>250</h>
     </coordinates>
@@ -1936,19 +1936,19 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1450</x>
-      <y>910</y>
-      <w>1680</w>
+      <y>940</y>
+      <w>2090</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=.
 fg=red</panel_attributes>
-    <additional_attributes>10.0;10.0;1660.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;2070.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>1480</x>
-      <y>710</y>
+      <y>740</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -1961,7 +1961,7 @@ GetVideogameUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>1710</x>
-      <y>710</y>
+      <y>740</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -1974,7 +1974,7 @@ GetVideogamesUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>1940</x>
-      <y>710</y>
+      <y>740</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -1987,7 +1987,7 @@ AddVideogameUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>2170</x>
-      <y>710</y>
+      <y>740</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -2000,7 +2000,7 @@ DeleteVideogameUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>2400</x>
-      <y>710</y>
+      <y>740</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -2013,21 +2013,8 @@ UpdateVideogameUseCase
     <id>UMLClass</id>
     <coordinates>
       <x>2630</x>
-      <y>710</y>
-      <w>230</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;interface&gt;&gt;
-GetUpcomingVideogamesUseCase
---</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>2880</x>
-      <y>710</y>
-      <w>220</w>
+      <y>740</y>
+      <w>250</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
@@ -2039,7 +2026,7 @@ GetFeaturedVideogamesUseCase
     <id>Relation</id>
     <coordinates>
       <x>1590</x>
-      <y>670</y>
+      <y>700</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -2050,7 +2037,7 @@ GetFeaturedVideogamesUseCase
     <id>Relation</id>
     <coordinates>
       <x>1800</x>
-      <y>670</y>
+      <y>700</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -2061,7 +2048,7 @@ GetFeaturedVideogamesUseCase
     <id>Relation</id>
     <coordinates>
       <x>2030</x>
-      <y>670</y>
+      <y>700</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -2072,7 +2059,7 @@ GetFeaturedVideogamesUseCase
     <id>Relation</id>
     <coordinates>
       <x>2270</x>
-      <y>670</y>
+      <y>700</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -2083,7 +2070,7 @@ GetFeaturedVideogamesUseCase
     <id>Relation</id>
     <coordinates>
       <x>2490</x>
-      <y>670</y>
+      <y>700</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -2093,8 +2080,8 @@ GetFeaturedVideogamesUseCase
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2730</x>
-      <y>670</y>
+      <x>2740</x>
+      <y>700</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -2104,12 +2091,2105 @@ GetFeaturedVideogamesUseCase
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2970</x>
-      <y>670</y>
+      <x>3030</x>
+      <y>700</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1450</x>
+      <y>980</y>
+      <w>1680</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Persistence
+lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;20.0;1660.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1450</x>
+      <y>990</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3100</x>
+      <y>990</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1450</x>
+      <y>1090</y>
+      <w>1680</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;1660.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2180</x>
+      <y>1010</y>
+      <w>200</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+VideogameRepository
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2270</x>
+      <y>940</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1580</x>
+      <y>800</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1800</x>
+      <y>800</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2030</x>
+      <y>800</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2270</x>
+      <y>800</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2490</x>
+      <y>800</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2740</x>
+      <y>800</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1480</x>
+      <y>870</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetVideogameUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1710</x>
+      <y>870</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetVideogamesUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1940</x>
+      <y>870</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>AddVideogameUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2170</x>
+      <y>870</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>DeleteVideogameUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2400</x>
+      <y>870</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>UpdateVideogameUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2630</x>
+      <y>870</y>
+      <w>250</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetFeaturedVideogamesUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2900</x>
+      <y>740</y>
+      <w>280</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+GetVideogamesForNewsFilterUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2900</x>
+      <y>870</y>
+      <w>280</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetVideogamesForNewsFilterUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3030</x>
+      <y>800</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3200</x>
+      <y>740</y>
+      <w>300</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+GetVideogamesForAdditionsFilterUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3200</x>
+      <y>870</y>
+      <w>300</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetVideogamesForAdditionsFilterUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3340</x>
+      <y>800</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3340</x>
+      <y>700</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3740</x>
+      <y>20</y>
+      <w>1210</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Controller
+lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;20.0;1190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3740</x>
+      <y>30</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4920</x>
+      <y>30</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3740</x>
+      <y>110</y>
+      <w>1210</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;1190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4220</x>
+      <y>50</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>AdditionOrderController
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4330</x>
+      <y>90</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3310</x>
+      <y>150</y>
+      <w>2090</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;2070.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3310</x>
+      <y>150</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3200</x>
+      <y>160</y>
+      <w>2370</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Business
+lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;20.0;2350.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3200</x>
+      <y>170</y>
+      <w>30</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3220</x>
+      <y>190</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+AddAdditionOrderUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3310</x>
+      <y>250</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3220</x>
+      <y>320</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>AddAdditionOrderUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3200</x>
+      <y>390</y>
+      <w>2370</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;2350.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3550</x>
+      <y>150</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3450</x>
+      <y>190</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ConfirmAdditionOrderUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3450</x>
+      <y>320</y>
+      <w>230</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>ConfirmAdditionOrderUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3550</x>
+      <y>250</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3700</x>
+      <y>190</y>
+      <w>270</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+DecreaseAdditionOrderUnitsUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3700</x>
+      <y>320</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>DecreaseAdditionOrderUnitsUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3820</x>
+      <y>250</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3820</x>
+      <y>150</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3990</x>
+      <y>190</y>
+      <w>220</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+DeleteAdditionOrderUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4090</x>
+      <y>250</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3990</x>
+      <y>320</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>DeleteAdditionOrderUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4090</x>
+      <y>150</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4230</x>
+      <y>190</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+GetAdditionCartItemsUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4230</x>
+      <y>320</y>
+      <w>230</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetAdditionCartItemsUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4330</x>
+      <y>250</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4330</x>
+      <y>150</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4480</x>
+      <y>190</y>
+      <w>250</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+GetAdditionOrdersByUserUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4480</x>
+      <y>320</y>
+      <w>250</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetAdditionOrdersByUserUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4590</x>
+      <y>250</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4590</x>
+      <y>150</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4750</x>
+      <y>190</y>
+      <w>250</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+GetAdditionOrdersRankedUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4860</x>
+      <y>150</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4860</x>
+      <y>250</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4750</x>
+      <y>320</y>
+      <w>250</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetAdditionOrdersRankedUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5020</x>
+      <y>190</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+GetAdditionOrderUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5020</x>
+      <y>320</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetAdditionOrderUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5120</x>
+      <y>250</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5120</x>
+      <y>150</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5250</x>
+      <y>190</y>
+      <w>270</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IncreaseAdditionOrderUnitsUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5250</x>
+      <y>320</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>IncreaseAdditionOrderUnitsUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5370</x>
+      <y>150</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5370</x>
+      <y>250</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5540</x>
+      <y>170</y>
+      <w>30</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3310</x>
+      <y>360</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3550</x>
+      <y>360</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3820</x>
+      <y>360</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4090</x>
+      <y>360</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4330</x>
+      <y>360</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4590</x>
+      <y>360</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4860</x>
+      <y>360</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5120</x>
+      <y>360</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5370</x>
+      <y>360</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3310</x>
+      <y>380</y>
+      <w>2090</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;2070.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4330</x>
+      <y>380</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3740</x>
+      <y>420</y>
+      <w>1210</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Persitence
+lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;20.0;1190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4240</x>
+      <y>460</y>
+      <w>200</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+AdditionOrderRepository
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3740</x>
+      <y>430</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4920</x>
+      <y>430</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3740</x>
+      <y>530</y>
+      <w>1210</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;1190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4120</x>
+      <y>560</y>
+      <w>1210</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Controller
+lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;20.0;1190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4120</x>
+      <y>570</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4120</x>
+      <y>650</y>
+      <w>1210</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;1190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5300</x>
+      <y>570</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4620</x>
+      <y>600</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GameOrderController
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4710</x>
+      <y>640</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3710</x>
+      <y>690</y>
+      <w>2090</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;2070.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3710</x>
+      <y>690</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3540</x>
+      <y>690</y>
+      <w>2420</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Business
+lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;30.0;1510.0;10.0;2400.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3610</x>
+      <y>730</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+AddGameOrderUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3710</x>
+      <y>790</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3610</x>
+      <y>860</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>AddGameOrderUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3540</x>
+      <y>710</y>
+      <w>30</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3540</x>
+      <y>930</y>
+      <w>2420</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;2400.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5930</x>
+      <y>710</y>
+      <w>30</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3960</x>
+      <y>690</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3840</x>
+      <y>730</y>
+      <w>270</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+DecreaseGameOrderUnitsUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3840</x>
+      <y>860</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>DecreaseGameOrderUnitsUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3960</x>
+      <y>790</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4130</x>
+      <y>730</y>
+      <w>220</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+DeleteAdditionOrderUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4230</x>
+      <y>690</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4130</x>
+      <y>860</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>DeleteAdditionOrderUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4230</x>
+      <y>790</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4370</x>
+      <y>730</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+GetGameCartItemsUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4480</x>
+      <y>690</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4370</x>
+      <y>860</y>
+      <w>230</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetGameCartItemsUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4480</x>
+      <y>790</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4620</x>
+      <y>730</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ConfirmGameOrderUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4710</x>
+      <y>690</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4620</x>
+      <y>860</y>
+      <w>230</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>ConfirmGameOrderUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4710</x>
+      <y>790</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4870</x>
+      <y>730</y>
+      <w>250</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+GetGameOrdersByUserUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4870</x>
+      <y>860</y>
+      <w>250</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetGameOrdersByUserUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4980</x>
+      <y>790</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4980</x>
+      <y>690</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5140</x>
+      <y>730</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+GetGameOrderUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5140</x>
+      <y>860</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetGameOrderUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5230</x>
+      <y>790</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5230</x>
+      <y>690</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5370</x>
+      <y>730</y>
+      <w>270</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IncreaseGameOrderUnitsUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5370</x>
+      <y>860</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>IncreaseGameOrderUnitsUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5490</x>
+      <y>790</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5490</x>
+      <y>690</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5660</x>
+      <y>730</y>
+      <w>250</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+GetGameOrdersRankedUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5660</x>
+      <y>860</y>
+      <w>250</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetGameOrdersRankedUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5770</x>
+      <y>690</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5770</x>
+      <y>790</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3710</x>
+      <y>900</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3960</x>
+      <y>900</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4230</x>
+      <y>900</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4710</x>
+      <y>900</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4980</x>
+      <y>900</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4480</x>
+      <y>900</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5230</x>
+      <y>900</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5490</x>
+      <y>900</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5770</x>
+      <y>900</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3710</x>
+      <y>920</y>
+      <w>2090</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;2070.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4710</x>
+      <y>920</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4120</x>
+      <y>960</y>
+      <w>1210</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Persitence
+lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;20.0;1190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4120</x>
+      <y>970</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4120</x>
+      <y>1070</y>
+      <w>1210</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;1190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5300</x>
+      <y>970</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4620</x>
+      <y>1000</y>
+      <w>200</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+GameOrderRepository
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5650</x>
+      <y>30</y>
+      <w>1210</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Controller
+lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;20.0;1190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5650</x>
+      <y>40</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6830</x>
+      <y>40</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5650</x>
+      <y>120</y>
+      <w>1210</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;1190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>6140</x>
+      <y>60</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>ReviewController
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6240</x>
+      <y>100</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5880</x>
+      <y>160</y>
+      <w>750</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;730.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5880</x>
+      <y>160</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5750</x>
+      <y>170</y>
+      <w>1010</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Business
+lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;20.0;990.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5780</x>
+      <y>200</y>
+      <w>220</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+AddReviewUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5750</x>
+      <y>180</y>
+      <w>30</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5750</x>
+      <y>400</y>
+      <w>1010</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;990.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5880</x>
+      <y>260</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5780</x>
+      <y>330</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>AddReviewUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6110</x>
+      <y>160</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>6020</x>
+      <y>200</y>
+      <w>220</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+DeleteReviewUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6110</x>
+      <y>260</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>6020</x>
+      <y>330</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>DeleteReviewUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>6260</x>
+      <y>200</y>
+      <w>220</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+GetReviewsByItemUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6350</x>
+      <y>160</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>6260</x>
+      <y>330</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>GetReviewsByItemUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6350</x>
+      <y>260</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>6500</x>
+      <y>200</y>
+      <w>220</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+UpdateReviewUseCase
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6600</x>
+      <y>160</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6600</x>
+      <y>260</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>6500</x>
+      <y>330</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>UpdateReviewUseCaseImpl
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>6730</x>
+      <y>180</y>
+      <w>30</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
   </element>
 </diagram>
