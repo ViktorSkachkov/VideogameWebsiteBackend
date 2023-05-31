@@ -39,12 +39,8 @@ class GetGameOrdersRankedUseCaseImplTest {
 
         LocalDateTime startDate = LocalDateTime.of(1970, 12, 18, 14, 30, 40);
 
-        when(gameOrderRepository.getUnits(startDate, endDate, true))
-                .thenReturn(List.of(2));
-        when(gameOrderRepository.getGameIds(startDate, endDate, true))
-                .thenReturn(List.of(0));
-        when(gameOrderRepository.getTotalPrice(startDate, endDate, true))
-                .thenReturn(List.of(2.0));
+        when(gameOrderRepository.getRankedGameItems(startDate, endDate, true))
+                .thenReturn(List.of(rankingAdditionOrder));
         when(videogameRepository.findNameById(Long.valueOf(0)))
                 .thenReturn("Name");
         List<RankedItem> actualResult = getGameOrdersRankedUseCase.getGameOrdersRanked(0, endDate);
@@ -54,9 +50,8 @@ class GetGameOrdersRankedUseCaseImplTest {
         expectedResult.add(rankingAdditionOrder);
 
         assertEquals(expectedResult, actualResult);
-        verify(gameOrderRepository).getUnits(startDate, endDate, true);
-        verify(gameOrderRepository).getGameIds(startDate, endDate, true);
-        verify(gameOrderRepository).getTotalPrice(startDate, endDate, true);
+
+        verify(gameOrderRepository).getRankedGameItems(startDate, endDate, true);
         verify(videogameRepository).findNameById(Long.valueOf(0));
 
     }

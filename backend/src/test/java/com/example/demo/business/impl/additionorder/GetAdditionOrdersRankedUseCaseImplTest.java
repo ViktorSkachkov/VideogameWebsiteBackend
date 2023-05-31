@@ -39,12 +39,8 @@ class GetAdditionOrdersRankedUseCaseImplTest {
 
         LocalDateTime startDate = LocalDateTime.of(1970, 12, 18, 14, 30, 40);
 
-        when(additionOrderRepository.getUnits(startDate, endDate, true))
-                .thenReturn(List.of(2));
-        when(additionOrderRepository.getAdditionIds(startDate, endDate, true))
-                .thenReturn(List.of(0));
-        when(additionOrderRepository.getTotalPrice(startDate, endDate, true))
-                .thenReturn(List.of(2.0));
+        when(additionOrderRepository.getRankedAdditionItems(startDate, endDate, true))
+                .thenReturn(List.of(rankingAdditionOrder));
         when(additionRepository.findNameById(Long.valueOf(0)))
                 .thenReturn("Name");
         List<RankedItem> actualResult = getAdditionOrdersRankedUseCase.getAdditionOrdersRanked(0, endDate);
@@ -54,9 +50,8 @@ class GetAdditionOrdersRankedUseCaseImplTest {
         expectedResult.add(rankingAdditionOrder);
 
         assertEquals(expectedResult, actualResult);
-        verify(additionOrderRepository).getUnits(startDate, endDate, true);
-        verify(additionOrderRepository).getAdditionIds(startDate, endDate, true);
-        verify(additionOrderRepository).getTotalPrice(startDate, endDate, true);
+
+        verify(additionOrderRepository).getRankedAdditionItems(startDate, endDate, true);
         verify(additionRepository).findNameById(Long.valueOf(0));
     }
 }
