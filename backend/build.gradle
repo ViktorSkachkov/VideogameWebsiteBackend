@@ -4,6 +4,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.0'
 	id "org.sonarqube" version "3.5.0.2730"
 	id 'jacoco'
+	id 'org.flywaydb.flyway' version '6.4.3'
 }
 
 group = 'com.example'
@@ -21,7 +22,17 @@ sonar {
 	}
 }
 
+/*flyway {
+	url = 'jdbc:mysql://localhost:3306/shop'
+	user = 'root'
+	password = 'ultralisk66'
+}*/
+
 dependencies {
+	implementation 'org.flywaydb:flyway-core:9.10.0'
+	implementation 'org.flywaydb:flyway-mysql:9.10.0'
+	//implementation 'org.flywaydb:flyway-core:9.10.0'
+
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.projectlombok:lombok:1.18.20'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -44,6 +55,8 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	//implementation 'ch.qos.logback:logback-classic:1.2.11'
+	//implementation 'org.springdoc:springdoc-openapi-ui:1.6.10'
 
 	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
 }

@@ -23,15 +23,6 @@ public interface AdditionOrderRepository extends JpaRepository<AdditionOrderPers
     @Query("select aop from AdditionOrderPersistence aop where aop.approved = ?3 and aop.time between ?1 and ?2")
     List<AdditionOrderPersistence> getAdditionOrders(LocalDateTime startDate, LocalDateTime endDate, Boolean approved);
 
-    /*@Query("select aop.addition from AdditionOrderPersistence aop where aop.approved = ?3 and aop.time between ?1 and ?2 group by aop.addition order by sum(aop.totalPrice) desc")
-    List<Integer> getAdditionIds(LocalDateTime startDate, LocalDateTime endDate, Boolean approved);
-
-    @Query("select sum(aop.units) from AdditionOrderPersistence aop where aop.approved = ?3 and aop.time between ?1 and ?2 group by aop.addition order by sum(aop.totalPrice) desc")
-    List<Integer> getUnits(LocalDateTime startDate, LocalDateTime endDate, Boolean approved);
-
-    @Query("select sum(aop.totalPrice) from AdditionOrderPersistence aop where aop.approved = ?3 and aop.time between ?1 and ?2 group by aop.addition order by sum(aop.totalPrice) desc")
-    List<Double> getTotalPrice(LocalDateTime startDate, LocalDateTime endDate, Boolean approved);*/
-
     @Query("SELECT new com.example.demo.domain.RankedItem(aop.addition, SUM(aop.units), SUM(aop.totalPrice), '') FROM AdditionOrderPersistence aop where aop.approved = ?3 and aop.time between ?1 and ?2 group by aop.addition order by sum(aop.totalPrice) desc")
     List<RankedItem> getRankedAdditionItems(LocalDateTime startDate, LocalDateTime endDate, Boolean approved);
 

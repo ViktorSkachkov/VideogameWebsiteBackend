@@ -46,7 +46,4 @@ public class AdditionPersistence {
     @NotNull
     @EqualsAndHashCode.Exclude
     private Boolean deleted;
-    /*@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "reviewed_item_id")
-    private RankingAdditionOrderPersistence rankingAdditionOrder;*/
 }
