@@ -18,8 +18,8 @@ repositories {
 
 sonar {
 	properties {
-		//property "sonar.projectKey", "I459452_individual_track_semester3_viktor_skachkov_AYf_X11mdwVNeyPpwkco"
-		property "sonar.projectKey", "I459452_individual_track_semester3_viktor_skachkov_AYicvENhwi8R8QDn_wpg"
+		property "sonar.projectKey", "I459452_individual_track_semester3_viktor_skachkov_AYf_X11mdwVNeyPpwkco"
+		//property "sonar.projectKey", "I459452_individual_track_semester3_viktor_skachkov_AYicvENhwi8R8QDn_wpg"
 		property "sonar.qualitygate.wait", true
 	}
 }
