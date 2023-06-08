@@ -3,6 +3,7 @@ variables:
 
 stages:
   - build
+  - build2
   - test
   - sonarqube-check
 
@@ -10,6 +11,12 @@ build:
   stage: build
   script:
     - cd backend
+    - ./gradlew assemble
+
+build2:
+  stage: build2
+  script:
+    - cd tests
     - ./gradlew assemble
 
 test:
