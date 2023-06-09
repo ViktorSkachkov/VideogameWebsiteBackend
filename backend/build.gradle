@@ -74,4 +74,4 @@ jacocoTestReport {
 	}
 }
 
-project.tasks["sonarqube"].dependsOn "jacocoTestReport"
+project.tasks["sonar"].dependsOn "jacocoTestReport"
