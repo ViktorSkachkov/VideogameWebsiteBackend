@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS `addition`;
-DROP TABLE IF EXISTS `addition_order`;
-DROP TABLE IF EXISTS `game_order`;
-DROP TABLE IF EXISTS `news`;
-DROP TABLE IF EXISTS `review`;
-DROP TABLE IF EXISTS `user`;
-DROP TABLE IF EXISTS `user_role`;
-DROP TABLE IF EXISTS `videogame`;
