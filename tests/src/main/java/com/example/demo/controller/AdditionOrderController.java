@@ -26,6 +26,7 @@ public class AdditionOrderController {
     private final DeleteAdditionOrderUseCase deleteAdditionOrderUseCase;
     private final DecreaseAdditionOrderUnitsUseCase decreaseAdditionOrderUnitsUseCase;
     private final IncreaseAdditionOrderUnitsUseCase increaseAdditionOrderUnitsUseCase;
+    private final CheckAdditionOrderUseCase checkAdditionOrderUseCase;
 
     /**
      * @param additionOrder
@@ -130,5 +131,13 @@ public class AdditionOrderController {
     @PutMapping("/decrease/{id}")
     public AdditionOrder decreaseAdditionOrderUnits(@PathVariable(value = "id") final Long id) {
         return decreaseAdditionOrderUnitsUseCase.decreaseAdditionOrderUnits(id);
+    }
+
+    /**
+     * @return
+     */
+    @GetMapping("/check/{id}")
+    public boolean checkAdditionOrders(@PathVariable(value = "id") final int id) {
+        return checkAdditionOrderUseCase.CheckAdditionOrder(id);
     }
 }

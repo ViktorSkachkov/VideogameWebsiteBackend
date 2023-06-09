@@ -28,6 +28,7 @@ public class GameOrderController {
     private final DeleteGameOrderUseCase deleteGameOrderUseCase;
     private final DecreaseGameOrderUnitsUseCase decreaseGameOrderUnitsUseCase;
     private final IncreaseGameOrderUnitsUseCase increaseGameOrderUnitsUseCase;
+    private final CheckGameOrderUseCase checkGameOrderUseCase;
 
     /**
      * @param gameOrder
@@ -126,5 +127,13 @@ public class GameOrderController {
     @PutMapping("/decrease/{id}")
     public GameOrder decreaseGameOrderUnits(@PathVariable(value = "id") final int id) {
         return decreaseGameOrderUnitsUseCase.decreaseGameOrderUnits(id);
+    }
+
+    /**
+     * @return
+     */
+    @GetMapping("/check/{id}")
+    public boolean checkGameOrders(@PathVariable(value = "id") final int id) {
+        return checkGameOrderUseCase.CheckGameOrder(id);
     }
 }

@@ -17,7 +17,7 @@ public class CheckController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("")
-    public int check() {
+    public int checkCart() {
         return 1;
     }
 }
