@@ -21,6 +21,7 @@ public class AdditionController {
     private final AddAdditionUseCase addAdditionUseCase;
     private final DeleteAdditionUseCase deleteAdditionUseCase;
     private final UpdateAdditionUseCase updateAdditionUseCase;
+    private final ValidateAdditionNameUseCase validateAdditionNameUseCase;
 
     /**
      * @return
@@ -85,5 +86,16 @@ public class AdditionController {
     @DeleteMapping("/{id}")
     public Addition deleteAddition(@PathVariable(value = "id") final int id) {
         return deleteAdditionUseCase.deleteAddition(id);
+    }
+
+    /**
+     * @param name
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE"})
+    @GetMapping("/validate/{name}")
+    public boolean validateName(@PathVariable(value = "name") final String name) {
+        return validateAdditionNameUseCase.validateAdditionName(name);
     }
 }

@@ -17,4 +17,7 @@ public interface NewsRepository extends JpaRepository<NewsPersistence, Long> {
 
     @Query("select n from NewsPersistence n where n.id = ?1")
     NewsPersistence findByid(Long id);
+
+    @Query("select n.title from NewsPersistence n")
+    List<String> findAllTitles();
 }
