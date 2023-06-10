@@ -23,4 +23,7 @@ public interface VideogameRepository extends JpaRepository<VideogamePersistence,
 
     @Query("select v from VideogamePersistence v where v.id = ?1")
     VideogamePersistence findByid(Long id);
+
+    @Query("select v.name from VideogamePersistence v where v.deleted = ?1")
+    List<String> findAllNames(boolean deleted);
 }

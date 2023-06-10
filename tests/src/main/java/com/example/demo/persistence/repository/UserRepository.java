@@ -13,4 +13,10 @@ public interface UserRepository extends JpaRepository<UserPersistence, Long> {
 
     @Query("select u from UserPersistence u")
     List<UserPersistence> findAllTest();
+
+    @Query("select u.username from UserPersistence u where u.deleted = ?1")
+    List<String> findAllUsernames(boolean deleted);
+
+    @Query("select u.pwd from UserPersistence u where u.deleted = ?1")
+    List<String> findAllPasswords(boolean deleted);
 }

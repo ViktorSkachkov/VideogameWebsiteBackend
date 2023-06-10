@@ -21,6 +21,8 @@ public class UserController {
     private final AddUserUseCase addUserUseCase;
     private final UpdateUserUseCase updateUserUseCase;
     private final DeleteUserUseCase deleteUserUseCase;
+    private final ValidateUsernameUseCase validateUsernameUseCase;
+    private final ValidatePasswordUseCase validatePasswordUseCase;
 
     /**
      * @return
@@ -72,5 +74,15 @@ public class UserController {
     @PutMapping("")
     public LoginResponse updateUser(@RequestBody @Valid User user) {
         return updateUserUseCase.updateUser(user);
+    }
+
+    @GetMapping("/validatePassword/{password}")
+    public boolean validatePassword(@PathVariable(value = "password") final String password) {
+        return validatePasswordUseCase.validatePassword(password);
+    }
+
+    @GetMapping("/validateUsername/{username}")
+    public boolean validateUsername(@PathVariable(value = "username") final String username) {
+        return validateUsernameUseCase.validateUsername(username);
     }
 }

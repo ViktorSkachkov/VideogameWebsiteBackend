@@ -23,4 +23,7 @@ public interface AdditionRepository extends JpaRepository<AdditionPersistence, L
 
     @Query("select a from AdditionPersistence a where a.id = ?1")
     AdditionPersistence findByAdditionId(Long id);
+
+    @Query("select a.name from AdditionPersistence a where a.deleted = ?1")
+    List<String> findAllNames(boolean deleted);
 }

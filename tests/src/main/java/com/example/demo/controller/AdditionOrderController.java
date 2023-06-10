@@ -60,17 +60,8 @@ public class AdditionOrderController {
         return getAdditionOrderUseCase.getAdditionOrder(id);
     }
 
-    /**
-     * @return
-     */
-    /*@IsAuthenticated
-    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
-    @GetMapping("/ranked/{id}")
-    public List<RankingAdditionOrder> getAdditionOrdersRanked(@PathVariable(value = "id") final int id) {
-        return getAdditionOrdersRankedUseCase.getAdditionOrdersRanked(id);
-    }*/
     @IsAuthenticated
-    @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
+    @RolesAllowed({"ROLE_EMPLOYEE"})
     @GetMapping("/ranked/{id}")
     public List<RankedItem> getAdditionOrdersRanked(@PathVariable(value = "id") final int id) {
         LocalDateTime endDate = LocalDateTime.now().plusDays(1);

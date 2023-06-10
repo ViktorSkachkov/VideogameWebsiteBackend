@@ -21,6 +21,7 @@ public class NewsController {
     private final AddNewsUseCase addNewsUseCase;
     private final DeleteNewsUseCase deleteNewsUseCase;
     private final UpdateNewsUseCase updateNewsUseCase;
+    private final ValidateTitleUseCase validateTitleUseCase;
 
     /**
      * @return
@@ -85,5 +86,16 @@ public class NewsController {
     @PutMapping("")
     public News updateNews(@RequestBody @Valid News news) {
         return updateNewsUseCase.updateNews(news);
+    }
+
+    /**
+     * @param title
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE"})
+    @GetMapping("/validate/{title}")
+    public boolean validateName(@PathVariable(value = "title") final String title) {
+        return validateTitleUseCase.validateTitle(title);
     }
 }

@@ -23,6 +23,7 @@ public class VideogameController {
     private final GetFeaturedVideogamesUseCase getFeaturedVideogamesUseCase;
     private final GetVideogamesForAdditionsFilterUseCase getVideogamesForAdditionsFilterUseCase;
     private final GetVideogamesForNewsFilterUseCase getVideogamesForNewsFilterUseCase;
+    private final ValidateVideogameNameUseCase validateVideogameNameUseCase;
 
     /**
      * @return
@@ -106,5 +107,16 @@ public class VideogameController {
     @PutMapping("")
     public Videogame updateVideogame(@RequestBody @Valid Videogame videogame) {
         return updateVideogameUseCase.updateVideogame(videogame);
+    }
+
+    /**
+     * @param name
+     * @return
+     */
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE"})
+    @GetMapping("/validate/{name}")
+    public boolean validateName(@PathVariable(value = "name") final String name) {
+        return validateVideogameNameUseCase.validateVideogameName(name);
     }
 }
