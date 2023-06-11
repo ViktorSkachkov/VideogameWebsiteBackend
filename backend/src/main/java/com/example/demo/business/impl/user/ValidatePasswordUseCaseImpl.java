@@ -1,6 +1,7 @@
 package com.example.demo.business.impl.user;
 
 import com.example.demo.business.cases.user.ValidatePasswordUseCase;
+import com.example.demo.domain.ValidationResponse;
 import com.example.demo.persistence.entity.UserPersistence;
 import com.example.demo.persistence.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,14 +17,18 @@ public class ValidatePasswordUseCaseImpl implements ValidatePasswordUseCase {
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public boolean validatePassword(String password) {
+    public ValidationResponse validatePassword(String password) {
         List<String> passwords = userRepository.findAllPasswords(false);
         for(String pwd : passwords) {
             if(matchesPassword(password, pwd)) {
-                return true;
+                return ValidationResponse.builder()
+                        .confirm(true)
+                        .build();
             }
         }
-        return false;
+        return ValidationResponse.builder()
+                .confirm(false)
+                .build();
     }
 
     private boolean matchesPassword(String rawPassword, String encodedPassword) {

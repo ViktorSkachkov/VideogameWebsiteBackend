@@ -47,6 +47,8 @@ class UserControllerTest {
     @MockBean
     private ValidateUsernameUseCase validateUsernameUseCase;
     @MockBean
+    private ValidatePasswordUseCase validatePasswordUseCase;
+    @MockBean
     private AccessTokenDecoder accessTokenDecoder;
     @MockBean
     private AccessTokenEncoder accessTokenEncoder;
@@ -279,5 +281,23 @@ class UserControllerTest {
                               {"confirm":true}
                         """));
         verify(validateUsernameUseCase).validateUsername("name");
+    }
+
+    @Test
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void validatePassword() throws Exception {
+        ValidationResponse validationResponse = ValidationResponse.builder()
+                .confirm(true)
+                .build();
+        when(validatePasswordUseCase.validatePassword("password"))
+                .thenReturn(validationResponse);
+        mockMvc.perform(get("/users/validatePassword/password"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                .andExpect(content().json("""
+                              {"confirm":true}
+                        """));
+        verify(validatePasswordUseCase).validatePassword("password");
     }
 }
