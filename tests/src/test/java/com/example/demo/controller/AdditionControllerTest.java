@@ -5,6 +5,7 @@ import com.example.demo.business.cases.AccessTokenEncoder;
 import com.example.demo.business.cases.LoginUseCase;
 import com.example.demo.business.cases.addition.*;
 import com.example.demo.domain.Addition;
+import com.example.demo.domain.ValidationResponse;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,8 @@ class AdditionControllerTest {
     private DeleteAdditionUseCase deleteAdditionUseCase;
     @MockBean
     private UpdateAdditionUseCase updateAdditionUseCase;
+    @MockBean
+    private ValidateAdditionNameUseCase validateAdditionNameUseCase;
     @MockBean
     private PasswordEncoder passwordEncoder;
     @MockBean
@@ -184,5 +187,23 @@ class AdditionControllerTest {
                              {"id":1, "gameId":2, "name":"name3","price":15,"description":"description3","image":"image3"}
                         """));
         verify(updateAdditionUseCase).updateAddition(addition);
+    }
+
+    @Test
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void validateAdditionName() throws Exception {
+        ValidationResponse validationResponse = ValidationResponse.builder()
+                .confirm(true)
+                .build();
+        when(validateAdditionNameUseCase.validateAdditionName("name"))
+                .thenReturn(validationResponse);
+        mockMvc.perform(get("/additions/validate/name"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                .andExpect(content().json("""
+                              {"confirm":true}
+                        """));
+        verify(validateAdditionNameUseCase).validateAdditionName("name");
     }
 }

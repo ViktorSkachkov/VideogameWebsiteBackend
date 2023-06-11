@@ -1,5 +1,6 @@
 package com.example.demo.business.impl.user;
 
+import com.example.demo.domain.ValidationResponse;
 import com.example.demo.persistence.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,9 +22,12 @@ class ValidateUsernameUseCaseImplTest {
 
     @Test
     void validateUsername() {
+        ValidationResponse expectedResponse = ValidationResponse.builder()
+                .confirm(true)
+                .build();
         when(userRepository.findAllUsernames(false))
                 .thenReturn(List.of("Username"));
-        boolean actualResult = validateUsernameUseCase.validateUsername("Username");
-        assertEquals(true, actualResult);
+        ValidationResponse actualResult = validateUsernameUseCase.validateUsername("Username");
+        assertEquals(expectedResponse, actualResult);
     }
 }

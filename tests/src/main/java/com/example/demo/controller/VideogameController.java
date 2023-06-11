@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.business.cases.videogame.*;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
+import com.example.demo.domain.ValidationResponse;
 import com.example.demo.domain.Videogame;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
@@ -116,7 +117,7 @@ public class VideogameController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @GetMapping("/validate/{name}")
-    public boolean validateName(@PathVariable(value = "name") final String name) {
+    public ValidationResponse validateName(@PathVariable(value = "name") final String name) {
         return validateVideogameNameUseCase.validateVideogameName(name);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.business.cases.videogame.*;
+import com.example.demo.domain.ValidationResponse;
 import com.example.demo.domain.Videogame;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,6 +41,8 @@ class VideogameControllerTest {
     private DeleteVideogameUseCase deleteVideogameUseCase;
     @MockBean
     private GetFeaturedVideogamesUseCase getFeaturedVideogamesUseCase;
+    @MockBean
+    private ValidateVideogameNameUseCase validateVideogameNameUseCase;
     @MockBean
     private GetVideogamesForAdditionsFilterUseCase getVideogamesForAdditionsFilterUseCase;
     @MockBean
@@ -264,5 +267,23 @@ class VideogameControllerTest {
                                             {"id":2, "name":"name2", "price":10,"description":"description2","image":"image2"}]
                         """));
         verify(getVideogamesUseCase).getVideogames();
+    }
+
+    @Test
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void validateVideogameName() throws Exception {
+        ValidationResponse validationResponse = ValidationResponse.builder()
+                .confirm(true)
+                .build();
+        when(validateVideogameNameUseCase.validateVideogameName("name"))
+                .thenReturn(validationResponse);
+        mockMvc.perform(get("/videogames/validate/name"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                .andExpect(content().json("""
+                              {"confirm":true}
+                        """));
+        verify(validateVideogameNameUseCase).validateVideogameName("name");
     }
 }

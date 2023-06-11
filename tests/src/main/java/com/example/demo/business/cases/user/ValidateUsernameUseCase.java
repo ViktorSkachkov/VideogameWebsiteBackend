@@ -1,5 +1,7 @@
 package com.example.demo.business.cases.user;
 
+import com.example.demo.domain.ValidationResponse;
+
 public interface ValidateUsernameUseCase {
-    boolean validateUsername(String username);
+    ValidationResponse validateUsername(String username);
 }

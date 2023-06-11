@@ -4,6 +4,7 @@ import com.example.demo.business.cases.AccessTokenDecoder;
 import com.example.demo.business.cases.AccessTokenEncoder;
 import com.example.demo.business.cases.news.*;
 import com.example.demo.domain.News;
+import com.example.demo.domain.ValidationResponse;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,8 @@ public class NewsControllerTest {
     private DeleteNewsUseCase deleteNewsUseCase;
     @MockBean
     private UpdateNewsUseCase updateNewsUseCase;
+    @MockBean
+    private ValidateTitleUseCase validateTitleUseCase;
     @MockBean
     private AccessTokenDecoder accessTokenDecoder;
     @MockBean
@@ -196,5 +199,23 @@ public class NewsControllerTest {
                              {"id":1, "gameId":1, "text":"text3", "title":"title3"}
                         """));
         verify(updateNewsUseCase).updateNews(news);
+    }
+
+    @Test
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void validateTitle() throws Exception {
+        ValidationResponse validationResponse = ValidationResponse.builder()
+                .confirm(true)
+                .build();
+        when(validateTitleUseCase.validateTitle("name"))
+                .thenReturn(validationResponse);
+        mockMvc.perform(get("/news/validate/name"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                .andExpect(content().json("""
+                              {"confirm":true}
+                        """));
+        verify(validateTitleUseCase).validateTitle("name");
     }
 }

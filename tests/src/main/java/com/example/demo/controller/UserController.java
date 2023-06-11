@@ -4,6 +4,7 @@ import com.example.demo.business.cases.user.*;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.LoginResponse;
 import com.example.demo.domain.User;
+import com.example.demo.domain.ValidationResponse;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -82,7 +83,7 @@ public class UserController {
     }
 
     @GetMapping("/validateUsername/{username}")
-    public boolean validateUsername(@PathVariable(value = "username") final String username) {
+    public ValidationResponse validateUsername(@PathVariable(value = "username") final String username) {
         return validateUsernameUseCase.validateUsername(username);
     }
 }

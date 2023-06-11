@@ -3,10 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.business.cases.AccessTokenDecoder;
 import com.example.demo.business.cases.AccessTokenEncoder;
 import com.example.demo.business.cases.user.*;
-import com.example.demo.domain.AccessToken;
-import com.example.demo.domain.LoginResponse;
-import com.example.demo.domain.Role;
-import com.example.demo.domain.User;
+import com.example.demo.domain.*;
 import com.example.demo.persistence.entity.RolePersistence;
 import com.example.demo.persistence.entity.UserPersistence;
 import org.junit.jupiter.api.Test;
@@ -47,6 +44,8 @@ class UserControllerTest {
     private UpdateUserUseCase updateUserUseCase;
     @MockBean
     private DeleteUserUseCase deleteUserUseCase;
+    @MockBean
+    private ValidateUsernameUseCase validateUsernameUseCase;
     @MockBean
     private AccessTokenDecoder accessTokenDecoder;
     @MockBean
@@ -262,5 +261,23 @@ class UserControllerTest {
                         .roles(roles)
                         .userId(userId)
                         .build());
+    }
+
+    @Test
+    @WithMockUser(username = "username1", password = "password", roles = {"CUSTOMER", "EMPLOYEE"})
+    void validateUsername() throws Exception {
+        ValidationResponse validationResponse = ValidationResponse.builder()
+                .confirm(true)
+                .build();
+        when(validateUsernameUseCase.validateUsername("name"))
+                .thenReturn(validationResponse);
+        mockMvc.perform(get("/users/validateUsername/name"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                .andExpect(content().json("""
+                              {"confirm":true}
+                        """));
+        verify(validateUsernameUseCase).validateUsername("name");
     }
 }

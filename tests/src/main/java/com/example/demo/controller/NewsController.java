@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.business.cases.news.*;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.News;
+import com.example.demo.domain.ValidationResponse;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -95,7 +96,7 @@ public class NewsController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @GetMapping("/validate/{title}")
-    public boolean validateName(@PathVariable(value = "title") final String title) {
+    public ValidationResponse validateName(@PathVariable(value = "title") final String title) {
         return validateTitleUseCase.validateTitle(title);
     }
 }
