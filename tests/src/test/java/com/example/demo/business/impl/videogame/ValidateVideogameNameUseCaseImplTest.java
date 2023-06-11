@@ -31,4 +31,15 @@ class ValidateVideogameNameUseCaseImplTest {
         ValidationResponse actualResult = validateVideogameNameUseCase.validateVideogameName("Name");
         assertEquals(expectedResponse, actualResult);
     }
+
+    @Test
+    void validateFalseVideogameName() {
+        ValidationResponse expectedResponse = ValidationResponse.builder()
+                .confirm(false)
+                .build();
+        when(videogameRepository.findAllNames(false))
+                .thenReturn(List.of("Name"));
+        ValidationResponse actualResult = validateVideogameNameUseCase.validateVideogameName("Name1");
+        assertEquals(expectedResponse, actualResult);
+    }
 }

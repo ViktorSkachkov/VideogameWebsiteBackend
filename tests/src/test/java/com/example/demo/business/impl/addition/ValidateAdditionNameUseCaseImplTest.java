@@ -30,4 +30,15 @@ class ValidateAdditionNameUseCaseImplTest {
         ValidationResponse actualResult = validateAdditionNameUseCase.validateAdditionName("Name");
         assertEquals(expectedResponse, actualResult);
     }
+
+    @Test
+    void validateFalseAdditionName() {
+        ValidationResponse expectedResponse = ValidationResponse.builder()
+                .confirm(false)
+                .build();
+        when(additionRepository.findAllNames(false))
+                .thenReturn(List.of("Name"));
+        ValidationResponse actualResult = validateAdditionNameUseCase.validateAdditionName("Name1");
+        assertEquals(expectedResponse, actualResult);
+    }
 }

@@ -30,4 +30,15 @@ class ValidateUsernameUseCaseImplTest {
         ValidationResponse actualResult = validateUsernameUseCase.validateUsername("Username");
         assertEquals(expectedResponse, actualResult);
     }
+
+    @Test
+    void validateFalseUsername() {
+        ValidationResponse expectedResponse = ValidationResponse.builder()
+                .confirm(false)
+                .build();
+        when(userRepository.findAllUsernames(false))
+                .thenReturn(List.of("Username"));
+        ValidationResponse actualResult = validateUsernameUseCase.validateUsername("Username1");
+        assertEquals(expectedResponse, actualResult);
+    }
 }

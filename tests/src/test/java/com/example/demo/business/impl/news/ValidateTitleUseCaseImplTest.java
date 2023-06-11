@@ -30,4 +30,15 @@ class ValidateTitleUseCaseImplTest {
         ValidationResponse actualResult = validateTitleUseCase.validateTitle("Name");
         assertEquals(expectedResponse, actualResult);
     }
+
+    @Test
+    void validateFalseTitle() {
+        ValidationResponse expectedResponse = ValidationResponse.builder()
+                .confirm(false)
+                .build();
+        when(newsRepository.findAllTitles())
+                .thenReturn(List.of("Name"));
+        ValidationResponse actualResult = validateTitleUseCase.validateTitle("Name1");
+        assertEquals(expectedResponse, actualResult);
+    }
 }
