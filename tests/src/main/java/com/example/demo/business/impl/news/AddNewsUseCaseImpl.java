@@ -20,7 +20,6 @@ public class AddNewsUseCaseImpl implements AddNewsUseCase {
      */
     @Override
     public News addNews(News news) {
-        int i;
         if (news.getText().length() <= 1000) {
             NewsPersistence np = NewsPersistence.builder()
                     .gameId(news.getGameId())

@@ -37,7 +37,6 @@ public class GameOrderController {
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @PostMapping("")
     public GameOrder addGameOrder(@RequestBody @Valid GameOrder gameOrder) {
-        int i;
         return addGameOrderUseCase.addGameOrder(gameOrder);
     }
 
@@ -49,7 +48,6 @@ public class GameOrderController {
     @RolesAllowed({"ROLE_EMPLOYEE", "ROLE_CUSTOMER"})
     @GetMapping("/getByUser/{id}")
     public List<GameOrder> getGameOrdersByUser(@PathVariable(value = "id") final int id) {
-        int i;
         return getGameOrdersByUserUseCase.getGameOrdersByUser(id);
     }
 

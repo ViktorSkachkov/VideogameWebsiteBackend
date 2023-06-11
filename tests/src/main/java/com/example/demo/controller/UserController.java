@@ -78,7 +78,7 @@ public class UserController {
     }
 
     @GetMapping("/validatePassword/{password}")
-    public boolean validatePassword(@PathVariable(value = "password") final String password) {
+    public ValidationResponse validatePassword(@PathVariable(value = "password") final String password) {
         return validatePasswordUseCase.validatePassword(password);
     }
 

@@ -15,7 +15,6 @@ public class ValidateTitleUseCaseImpl implements ValidateTitleUseCase {
 
     @Override
     public ValidationResponse validateTitle(String title) {
-        int i;
         List<String> titles = newsRepository.findAllTitles();
 
         if(titles.contains(title)) {

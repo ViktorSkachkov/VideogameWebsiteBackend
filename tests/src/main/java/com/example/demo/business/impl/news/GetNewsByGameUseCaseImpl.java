@@ -21,7 +21,6 @@ public class GetNewsByGameUseCaseImpl implements GetNewsByGameUseCase {
      */
     @Override
     public List<News> getNewsByGame(int index) {
-        int i;
         List<NewsPersistence> list = newsRepository.findAll();
         List<News> newsList = new ArrayList<>();
 
