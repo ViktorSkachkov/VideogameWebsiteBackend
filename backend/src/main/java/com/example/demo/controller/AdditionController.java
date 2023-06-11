@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.business.cases.addition.*;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.domain.Addition;
+import com.example.demo.domain.ValidationResponse;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import lombok.*;
@@ -95,7 +96,7 @@ public class AdditionController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
     @GetMapping("/validate/{name}")
-    public boolean validateName(@PathVariable(value = "name") final String name) {
+    public ValidationResponse validateName(@PathVariable(value = "name") final String name) {
         return validateAdditionNameUseCase.validateAdditionName(name);
     }
 }

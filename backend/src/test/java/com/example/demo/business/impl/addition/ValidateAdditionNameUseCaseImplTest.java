@@ -1,5 +1,6 @@
 package com.example.demo.business.impl.addition;
 
+import com.example.demo.domain.ValidationResponse;
 import com.example.demo.persistence.repository.AdditionRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,9 +22,12 @@ class ValidateAdditionNameUseCaseImplTest {
 
     @Test
     void validateAdditionName() {
+        ValidationResponse expectedResponse = ValidationResponse.builder()
+                .confirm(true)
+                .build();
         when(additionRepository.findAllNames(false))
                 .thenReturn(List.of("Name"));
-        boolean actualResult = validateAdditionNameUseCase.validateAdditionName("Name");
-        assertEquals(true, actualResult);
+        ValidationResponse actualResult = validateAdditionNameUseCase.validateAdditionName("Name");
+        assertEquals(expectedResponse, actualResult);
     }
 }

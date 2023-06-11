@@ -1,5 +1,7 @@
 package com.example.demo.business.cases.videogame;
 
+import com.example.demo.domain.ValidationResponse;
+
 public interface ValidateVideogameNameUseCase {
-    boolean validateVideogameName(String name);
+    ValidationResponse validateVideogameName(String name);
 }

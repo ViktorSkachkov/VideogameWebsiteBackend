@@ -1,5 +1,6 @@
 package com.example.demo.business.impl.news;
 
+import com.example.demo.domain.ValidationResponse;
 import com.example.demo.persistence.repository.NewsRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,9 +22,12 @@ class ValidateTitleUseCaseImplTest {
 
     @Test
     void validateTitle() {
+        ValidationResponse expectedResponse = ValidationResponse.builder()
+                .confirm(true)
+                .build();
         when(newsRepository.findAllTitles())
                 .thenReturn(List.of("Name"));
-        boolean actualResult = validateTitleUseCase.validateTitle("Name");
-        assertEquals(true, actualResult);
+        ValidationResponse actualResult = validateTitleUseCase.validateTitle("Name");
+        assertEquals(expectedResponse, actualResult);
     }
 }

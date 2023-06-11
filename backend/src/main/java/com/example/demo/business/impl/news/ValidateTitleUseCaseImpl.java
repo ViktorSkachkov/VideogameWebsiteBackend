@@ -1,6 +1,7 @@
 package com.example.demo.business.impl.news;
 
 import com.example.demo.business.cases.news.ValidateTitleUseCase;
+import com.example.demo.domain.ValidationResponse;
 import com.example.demo.persistence.repository.NewsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,14 +14,18 @@ public class ValidateTitleUseCaseImpl implements ValidateTitleUseCase {
     private final NewsRepository newsRepository;
 
     @Override
-    public boolean validateTitle(String title) {
+    public ValidationResponse validateTitle(String title) {
         List<String> titles = newsRepository.findAllTitles();
 
         if(titles.contains(title)) {
-            return true;
+            return ValidationResponse.builder()
+                    .confirm(true)
+                    .build();
         }
         else {
-            return false;
+            return ValidationResponse.builder()
+                    .confirm(false)
+                    .build();
         }
     }
 }
