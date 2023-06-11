@@ -21,6 +21,7 @@ public class UpdateNewsUseCaseImpl implements UpdateNewsUseCase {
      */
     @Override
     public News updateNews(News news) {
+        int i;
         Optional<NewsPersistence> np = newsRepository.findById(Long.valueOf(news.getId()));
         if (np.isEmpty()) {
             throw new IsEmptyException();
