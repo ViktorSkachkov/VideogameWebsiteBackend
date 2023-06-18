@@ -18,7 +18,7 @@ public class AdditionOrderPersistence {
     @Column(name = "id")
     private int id;
     @Column(name = "addition_id")
-    //@NotNull
+
     @EqualsAndHashCode.Exclude
     private int addition;
     @Column(name = "user_id")
@@ -26,7 +26,7 @@ public class AdditionOrderPersistence {
     @EqualsAndHashCode.Exclude
     private int user;
     @Column(name = "units")
-    //@NotNull
+
     @EqualsAndHashCode.Exclude
     private int units;
     @Column(name = "time")
@@ -38,7 +38,7 @@ public class AdditionOrderPersistence {
     @EqualsAndHashCode.Exclude
     private Boolean approved;
     @Column(name = "total_price")
-    //@NotNull
+
     @EqualsAndHashCode.Exclude
     private double totalPrice;
 }

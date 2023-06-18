@@ -16,8 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ConfirmAdditionOrderUseCaseImpl implements ConfirmAdditionOrderUseCase {
     private final AdditionOrderRepository additionOrderRepository;
-    private final AdditionRepository additionRepository;
-   // private final RankingAdditionOrderRepository rankingAdditionOrderRepository;
 
     /**
      * @param userId
@@ -49,49 +47,4 @@ public class ConfirmAdditionOrderUseCaseImpl implements ConfirmAdditionOrderUseC
         }
         return returnResult;
     }
-
-    /**
-     * @param additionOrderPersistence
-     * @return
-     */
-   /* @Override
-    public RankingAdditionOrder addRankingOrder(AdditionOrderPersistence additionOrderPersistence) {
-        String name = additionRepository.findNameById((long) additionOrderPersistence.getAddition());
-        double price = additionRepository.findPriceById((long) additionOrderPersistence.getAddition());
-        List<Integer> additionIds = rankingAdditionOrderRepository.findAllIDs();
-
-        if(!additionIds.contains(additionOrderPersistence.getAddition())) {
-            RankingAdditionOrderPersistence rankingAdditionOrderPersistence = RankingAdditionOrderPersistence.builder()
-                    .numberOfTimesBought(additionOrderPersistence.getUnits())
-                    .name(name)
-                    .price(price)
-                    .reviewedItemId(additionOrderPersistence.getAddition())
-                    .build();
-            RankingAdditionOrderPersistence rankingAdditionOrderPersistence2 = rankingAdditionOrderRepository.save(rankingAdditionOrderPersistence);
-
-            RankingAdditionOrder rankingAdditionOrder = RankingAdditionOrder.builder()
-                    .numberOfTimesBought(rankingAdditionOrderPersistence2.getNumberOfTimesBought())
-                    .name(rankingAdditionOrderPersistence2.getName())
-                    .price(rankingAdditionOrderPersistence2.getPrice())
-                    .reviewedItemId(rankingAdditionOrderPersistence2.getReviewedItemId())
-                    .build();
-            return rankingAdditionOrder;
-        }
-        else {
-            RankingAdditionOrderPersistence rankingAdditionOrderPersistence = rankingAdditionOrderRepository.getByAdditionId(additionOrderPersistence.getAddition());
-            int units = rankingAdditionOrderPersistence.getNumberOfTimesBought();
-            int totalNumber = units + additionOrderPersistence.getUnits();
-            rankingAdditionOrderPersistence.setNumberOfTimesBought(totalNumber);
-
-            RankingAdditionOrderPersistence rankingAdditionOrderPersistence2 = rankingAdditionOrderRepository.save(rankingAdditionOrderPersistence);
-
-            RankingAdditionOrder rankingAdditionOrder = RankingAdditionOrder.builder()
-                    .numberOfTimesBought(rankingAdditionOrderPersistence2.getNumberOfTimesBought())
-                    .name(rankingAdditionOrderPersistence2.getName())
-                    .price(rankingAdditionOrderPersistence2.getPrice())
-                    .reviewedItemId(rankingAdditionOrderPersistence2.getReviewedItemId())
-                    .build();
-            return rankingAdditionOrder;
-        }
-    }*/
 }

@@ -6,5 +6,5 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface GetGameOrdersRankedUseCase {
-    public List<RankedItem> getGameOrdersRanked(int id,  LocalDateTime endDate);
+    List<RankedItem> getGameOrdersRanked(int id,  LocalDateTime endDate);
 }
